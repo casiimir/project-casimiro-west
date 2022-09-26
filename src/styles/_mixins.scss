@@ -1,0 +1,97 @@
+@import "./_variables";
+
+@mixin flex-element(
+  $direction: row,
+  $justify: flex-start,
+  $align: stretch,
+  $wrap: nowrap,
+  $gap: 0px,
+  $width: auto,
+  $height: auto
+) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  flex-wrap: $wrap;
+  gap: $gap;
+  flex: 0 0 auto;
+  width: $width;
+  height: $height;
+  box-sizing: border-box;
+  transition: all (0.35s);
+}
+@mixin generic-appereance(
+  $width: auto,
+  $height: auto,
+  $opacity: 1,
+  $margin: 0,
+  $padding: 0
+) {
+  width: $width;
+  height: $height;
+  margin: $margin;
+  padding: $padding;
+  opacity: $opacity;
+}
+
+@mixin element-position(
+  $position: static,
+  $top: auto,
+  $right: auto,
+  $bottom: auto,
+  $left: auto,
+
+  $z-index: 1
+) {
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+}
+@mixin button($width: auto, $height: auto, $padding: 0) {
+  width: $width;
+  height: $height;
+  padding: $padding;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.35s;
+}
+
+@mixin generic-hover() {
+  transform: scale(1.07);
+}
+
+@mixin border(
+  $border: 0,
+  $radius: 0,
+  $top-right: auto,
+  $bottom-right: auto,
+  $bottom-left: auto,
+  $top-left: auto
+) {
+  border: $border;
+  border-radius: $radius;
+  border-top-right-radius: $top-right;
+  border-bottom-right-radius: $bottom-right;
+  border-bottom-left-radius: $bottom-left;
+  border-top-left-radius: $top-left;
+}
+
+@mixin text-element(
+  $margin: 0 0 0 0,
+  $text-transform: uppercase,
+  $font-size: auto,
+  $font-weight: bold,
+  $color: white
+) {
+  margin: $margin;
+  position: relative;
+  text-transform: $text-transform;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  z-index: 1;
+}
