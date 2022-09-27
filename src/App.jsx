@@ -1,3 +1,4 @@
+import Hero from "./components/Hero";
 import styles from "./App.module.scss";
 import Card from "./components/Card";
 
@@ -5,6 +6,7 @@ function App() {
   return (
     <div className={styles.App}>
       <h1 className={styles.title}>Project West</h1>
+      <Hero />
       <div className={styles.color1}></div>
       <div className={styles.color2}></div>
       <div className={styles.color3}></div>
