@@ -1,0 +1,16 @@
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
+
+.MainInput {
+  @include flex-element(row, flex-end, stretch, nowrap, 8px, 90%, 40px);
+  .input {
+    @include generic-appereance(70%, auto, 1, 0, 0 0 0 14px);
+    @include border(0, 8px);
+    outline: none;
+    font-weight: bold;
+  }
+  .button {
+    @include button(30%);
+    @include border(0, 8px);
+  }
+}

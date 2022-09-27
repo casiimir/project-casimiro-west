@@ -1,0 +1,98 @@
+@import "../../styles/_mixins";
+@import "../../styles/_variables";
+
+.Header {
+  @include flex-element(column, space-between, stretch, nowrap, 0, 100%, 60px);
+
+  .navbar {
+    @include flex-element(row, space-between, center, nowrap, 0px, 100%, 60px);
+    padding: 10px;
+    position: fixed;
+    z-index: 10;
+    background: $almost-black;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0%,
+      $almost-black 80%,
+      $almost-black 100%
+    );
+    backdrop-filter: blur(10px);
+    .logo {
+      background-color: $almost-black;
+      @include flex-element(row, center, center);
+      @include generic-appereance(auto, 65px, $padding: 5px);
+
+      .img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+    .side {
+      @include flex-element(row, flex-end, center, nowrap, 0px, 60%);
+      .menu {
+        @include flex-element(row, flex-end, center);
+      }
+    }
+  }
+  .dropdown {
+    z-index: 12;
+    background-color: rgba(0, 0, 0, 0.699);
+    backdrop-filter: blur(5px);
+
+    position: fixed;
+    right: 0;
+
+    @include generic-appereance(auto, 100vh, $padding: 5px 5px);
+    .top {
+      @include flex-element(row, space-between, center, nowrap, 10px);
+      .logotype {
+        @include generic-appereance(auto, 60px);
+      }
+      p {
+        color: lightseagreen;
+      }
+    }
+    ul {
+      padding: 0;
+      list-style-type: none;
+      @include flex-element(
+        column,
+        flex-start,
+        flex-start,
+        $wrap: nowrap,
+        $gap: 10px,
+        $width: auto,
+        $height: auto
+      );
+
+      .link {
+        font-family: $text-font;
+        text-decoration: none;
+        padding: 8px;
+        border-radius: 6px;
+        color: white;
+        &:hover {
+          color: lightseagreen;
+        }
+      }
+    }
+
+    .button {
+      background-color: lightseagreen;
+      color: white;
+      @include button($width: auto, $height: auto, $padding: 10px 20px);
+      @include border(0, 8px);
+      position: absolute;
+      left: 10px;
+      bottom: 20px;
+      &:hover{
+        background-color: white;
+      color: lightseagreen;
+    }
+  }
+}
+}
+
+@media only screen and (max-width: 600px) and (min-width: 400px)  {
+  
+}
