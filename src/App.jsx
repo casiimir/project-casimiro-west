@@ -1,21 +1,14 @@
-import Hero from "./components/Hero";
 import styles from "./App.module.scss";
-import Card from "./components/Card";
+import Header from "./Components/Header";
+import MainInput from "./Components/MainInput";
 
+import { Outlet } from "react-router-dom";
 function App() {
   return (
     <div className={styles.App}>
-      <h1 className={styles.title}>Project West</h1>
-      <Hero />
-      <div className={styles.color1}></div>
-      <div className={styles.color2}></div>
-      <div className={styles.color3}></div>
-      <div className={styles.color4}></div>
-      <div className={styles.color5}></div>
-      <div className={styles.color6}></div>
-      <div className={styles.color7}></div>
-      <Card />
-    </div>
+      <Header><MainInput/></Header>
+      <Outlet/>
+      </div>
   );
 }
 
