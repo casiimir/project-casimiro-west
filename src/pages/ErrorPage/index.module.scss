@@ -1,0 +1,66 @@
+@import "../../styles/variables";
+@import "../../styles/_mixins";
+
+.ErrorPage {
+  @include flex-element(column, space-evenly);
+  @include generic-appereance(auto, 100vh);
+  background-image: url(https://images.musement.com/cover/0079/44/thumb_7843016_cover_header.jpeg?q=50&fit=crop&auto=format&w=1700&h=850);
+  overflow: hidden;
+
+  .textSection {
+    @include generic-appereance(75%, auto, 1, 0, 2%);
+    @include border(0, 3%);
+    align-self: center;
+    background-color: rgba(0, 0, 0, 0.699);
+    backdrop-filter: blur(5px);
+    text-align: center;
+
+    .title {
+      font-family: $titles-font;
+      color: white;
+      font-size: xx-large;
+    }
+    .text {
+      font-family: $text-font;
+      color: white;
+      font-size: large;
+    }
+  }
+
+  .tumbleweedSection {
+    max-width: 100%;
+
+    .tumbleweed {
+      @include generic-appereance(9rem, 9rem);
+
+      position: relative;
+      animation-name: tumbleweed;
+      animation-duration: 6s;
+      animation-iteration-count: infinite;
+
+      @keyframes tumbleweed {
+        0% {
+          transform: rotate(-360deg);
+          left: -2rem;
+          top: 0px;
+        }
+        25% {
+          left: 25%;
+          top: 0px;
+        }
+        50% {
+          left: 50%;
+          top: 0px;
+        }
+        75% {
+          left: 75%;
+          top: 0px;
+        }
+        100% {
+          left: 100%;
+          top: 0px;
+        }
+      }
+    }
+  }
+}
