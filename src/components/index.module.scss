@@ -1,0 +1,73 @@
+@import "../styles/_mixins";
+@import "../styles/_variables";
+@import url("https://fonts.googleapis.com/css2?family=Lato&family=Raleway:wght@200&display=swap");
+
+.Container {
+  display: flex;
+  justify-content: center;
+  .Card {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
+    border-radius: 3%;
+    height: 10rem;
+    width: 7.5rem;
+    background-size: cover;
+    object-fit: cover;
+    z-index: 0;
+    .CardInfo {
+      border-radius: 3%;
+      height: 100%;
+      background: linear-gradient(
+        180deg,
+        rgba(10, 15, 15, 0) 0%,
+        rgba(10, 15, 15, 0) 30%,
+        #0a0f0f 100%
+      );
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding-left: 10%;
+      .info {
+        flex-direction: column;
+        color: white;
+        font-size: larger;
+
+        p {
+          margin: 0px;
+        }
+
+        .city {
+          text-shadow: 1.8px 1.5px 1.5px $almost-black;
+          font-family: "Lato";
+        }
+        .country {
+          text-shadow: 1.8px 1.5px 1.5px $almost-black;
+          font-size: 50%;
+          font-family: "Raleway";
+        }
+      }
+
+      .footerCard {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        .activities {
+          gap: 2.6px;
+          svg {
+            color: lightseagreen;
+          }
+          text-shadow: 1.8px 1.5px 1.5px $almost-black;
+          font-size: 0.6rem;
+          display: flex;
+          align-items: center;
+          font-family: "lato";
+        }
+
+        .arrow {
+          padding-right: 5%;
+        }
+      }
+    }
+  }
+}
