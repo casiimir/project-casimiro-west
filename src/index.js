@@ -1,6 +1,6 @@
 import store from "./store";
 import { Provider } from "react-redux";
-import "./index.css";
+import styles from "./index.module.scss";
 import React, { lazy, StrictMode, Suspense } from "react";
 import { createRoot } from "react-dom/client";
 import {

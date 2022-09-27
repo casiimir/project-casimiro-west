@@ -1,14 +1,19 @@
 import styles from "./App.module.scss";
-import Header from "./Components/Header";
-import MainInput from "./Components/MainInput";
+import Header from "./components/Header";
+import MainInput from "./components/MainInput";
+import ButtonScrollTop from "./components/ButtonScrollTop";
 
 import { Outlet } from "react-router-dom";
+
 function App() {
   return (
     <div className={styles.App}>
-      <Header><MainInput/></Header>
-      <Outlet/>
-      </div>
+      <Header>
+        <MainInput />
+      </Header>
+      <Outlet />
+      <ButtonScrollTop />
+    </div>
   );
 }
 

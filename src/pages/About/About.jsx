@@ -1,9 +1,9 @@
 import styles from "./about.module.scss";
-import FS from "../../image/_GGL8170.jpg";
-import MLV from "../../image/MLV.jpg";
-import MV from "../../image/MV.jfif";
-import RZ from "../../image/RZ.jfif";
-import LM from "../../image/LM.jfif";
+import FS from "../../images/_GGL8170.jpg";
+import MLV from "../../images/MLV.jpg";
+import MV from "../../images/MV.jfif";
+import RZ from "../../images/RZ.jfif";
+import LM from "../../images/LM.jfif";
 
 const About = () => {
   const dataTeam = [

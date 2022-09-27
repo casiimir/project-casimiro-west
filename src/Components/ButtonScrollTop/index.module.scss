@@ -1,0 +1,35 @@
+@import "../../styles/_variables.scss";
+
+.ButtonScrollTop {
+  button {
+    background: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding: 20px;
+    border: none;
+    cursor: pointer;
+
+    svg {
+      color: $light-cyan;
+      font-size: 50px;
+      transition: 0.5s;
+
+      &:hover {
+        transition: 0.5s;
+        color: #23bdab;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ButtonScrollTop {
+    button {
+      padding: 15px;
+      svg {
+        font-size: 35px;
+      }
+    }
+  }
+}
