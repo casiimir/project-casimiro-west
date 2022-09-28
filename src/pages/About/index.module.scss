@@ -3,6 +3,7 @@
 
 .About {
   @include flex-element(row, center, center, nowrap, 0, auto, 100vh);
+  @include element-position($position: relative, $top: -60px, $right: auto);
 
   background-image: url("https://images.unsplash.com/photo-1581286826097-dc5f2d1e62ed?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
   background-size: cover;
@@ -70,6 +71,7 @@
   .About {
     .container {
       font-size: 0.9rem;
+      margin:20px 0 ;
 
       .list_name {
         @include flex-element(row, center, stretch, wrap, 15%);

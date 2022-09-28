@@ -1,5 +1,8 @@
 @import "../../styles/variables";
-
+@import "../../styles/mixins";
+.Hero {
+  @include element-position($position: relative, $top: -60px, $right: auto);
+}
 .city {
   margin-left: 20px;
   color: $almost-black;

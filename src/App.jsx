@@ -12,7 +12,7 @@ function App() {
       <Header>
         <MainInput />
       </Header>
-      <Hero />
+    
       <Outlet />
       <ButtonScrollTop />
     </div>

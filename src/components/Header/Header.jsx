@@ -69,7 +69,7 @@ const Header = ({ children }) => {
             <Link className={styles.link} to="/">
               Activities
             </Link>
-            <Link className={styles.link} to="/">
+            <Link className={styles.link} to="/about">
               About Us
             </Link>
           </ul>
