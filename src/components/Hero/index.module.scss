@@ -1,9 +1,11 @@
 @import "../../styles/variables";
 
+@import "../../styles/mixins";
+
 .Hero {
+  @include element-position($position: relative, $top: -60px, $right: auto);
   img {
     filter: brightness(0.7);
-    // filter: opacity(0.8);
   }
 }
 
