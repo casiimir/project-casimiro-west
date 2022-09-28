@@ -13,10 +13,10 @@
     background: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0) 0%,
-      $almost-black 80%,
+     
       $almost-black 100%
     );
-    backdrop-filter: blur(10px);
+    
     .logo {
       background-color: $almost-black;
       @include flex-element(row, center, center);

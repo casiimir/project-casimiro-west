@@ -57,19 +57,14 @@ const Header = ({ children }) => {
             <Link className={styles.link} to="/">
               Home
             </Link>
-            <Link className={styles.link} to="/">
+            <Link className={styles.link} to="/experiences">
               Experiences
             </Link>
-            <Link className={styles.link} to="/">
-              Cities
-            </Link>
-            <Link className={styles.link} to="/">
-              Countries
-            </Link>
-            <Link className={styles.link} to="/">
+          
+            <Link className={styles.link} to="/activities">
               Activities
             </Link>
-            <Link className={styles.link} to="/">
+            <Link className={styles.link} to="/about">
               About Us
             </Link>
           </ul>

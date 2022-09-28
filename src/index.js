@@ -9,20 +9,39 @@ import {
   Navigate,
 } from "react-router-dom";
 import App from "./App";
+import Hero from "./components/Hero";
+import About from "./pages/About";
+import ErrorPage from "./pages/ErrorPage";
+import Home from "./pages/Home";
+import Activities from "./pages/Activities";
+import Experiences from "./pages/Experiences";
+
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-      children: [],
-    },
-  ]
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+        children: [
+          {
+            path: "/",
+            element: <Hero />,
+          },
+        ],
+      },
 
-  // { path: "*", element: <ErrorPage /> }
-);
+      { path: "/about", element: <About /> },
+      { path: "/activities", element: <Activities /> },
+      { path: "/experiences", element: <Experiences /> },
+    ],
+  },
+  { path: "*", element: <ErrorPage /> },
+]);
 
 root.render(
   <StrictMode>
