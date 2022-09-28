@@ -1,0 +1,49 @@
+@import "../../styles/mixins";
+@import "../../styles/_variables";
+
+.ActivitiesHomeCard {
+  @include generic-appereance(70vw, 14rem);
+  @include border(0, 0, 9%, 3%, 3%, 9%);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
+  margin-bottom: 1rem;
+
+  .photo {
+    @include generic-appereance(100%, 7rem);
+    @include border(0, 0, 9%, 0, 0, 9%);
+  }
+
+  .name {
+    margin: 0.2rem;
+    padding: 0 1rem;
+    font-family: $titles-font;
+    color: $almost-black;
+    font-size: 1.3rem;
+    text-shadow: 1.8px 1.5px 1.5px rgba(0, 0, 0, 0.248);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .tourInfo {
+    @include flex-element(row, space-between);
+    padding: 0 1rem;
+
+    p {
+      margin-bottom: 0.5rem;
+    }
+
+    .infoPlace {
+      display: flex;
+
+      .locality {
+        color: lightseagreen;
+        font-family: $text-font;
+      }
+    }
+
+    .price {
+      font-family: $text-font;
+    }
+  }
+}
