@@ -1,6 +1,5 @@
 import styles from "./App.module.scss";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
 import MainInput from "./components/MainInput";
 import ButtonScrollTop from "./components/ButtonScrollTop";
 
@@ -12,7 +11,6 @@ function App() {
       <Header>
         <MainInput />
       </Header>
-    
       <Outlet />
       <ButtonScrollTop />
     </div>
