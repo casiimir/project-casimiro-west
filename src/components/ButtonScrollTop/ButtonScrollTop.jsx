@@ -6,8 +6,9 @@ const ButtonScrollTop = () => {
   const [active, setActive] = useState("");
 
   useEffect(() => {
+    setActive("none");
     window.addEventListener("scroll", () => {
-      if (window.scrollY > 80) {
+      if (window.scrollY >= 80) {
         setActive("block");
       } else setActive("none");
     });
