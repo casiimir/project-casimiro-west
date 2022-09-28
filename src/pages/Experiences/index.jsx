@@ -1,3 +1,3 @@
-import Activities from "./Activities";
+import Experiences from "./Experiences";
 
-export default Activities
+export default Experiences

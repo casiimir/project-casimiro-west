@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import styles from "./index.module.scss";
 
-const Activities = () => {
+const Experiences = () => {
   return (
-    <div className={styles.Activities}>
-      ACTIVITIES
+    <div className={styles.Experiences}>
+      Experiences
     </div>
   );
 };
 
 
-export default Activities
+export default Experiences
