@@ -2,30 +2,22 @@ import styles from "./index.module.scss";
 import { MdOutlineLocalActivity } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
 
-const Card = () => {
-  const cardData = {
-    name: "Porto",
-    background_img:
-      "https://images.musement.com/cover/0002/69/porto-jpg_header-168797.jpeg",
-    country: "Portugal",
-    activities: "423",
-  };
-
+const Card = ({ CardData }) => {
   return (
     <div className={styles.Container}>
       <div
         className={styles.Card}
-        style={{ backgroundImage: `url(${cardData.background_img})` }}
+        style={{ backgroundImage: `url(${CardData.cover_image_url})` }}
       >
         <div className={styles.CardInfo}>
           <div className={styles.info}>
-            <p className={styles.city}>{cardData.name}</p>
-            <p className={styles.country}>{cardData.country}</p>
+            <p className={styles.city}>{CardData.name}</p>
+            <p className={styles.country}>{CardData.country}</p>
           </div>
           <div className={styles.footerCard}>
             <div className={styles.activities}>
               <MdOutlineLocalActivity />
-              {cardData.activities}
+              {CardData.activities_count}
             </div>
             <div className={styles.arrow}>
               <BsArrowRight />

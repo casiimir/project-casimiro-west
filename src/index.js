@@ -16,25 +16,23 @@ import ErrorPage from "./pages/ErrorPage";
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
 
-const router = createBrowserRouter(
-  [
-    {
-      path: "/",
-      element: <App />,
-      children: [
-        {
-          path: "/",
-          element: < Hero />,
-        },
-        {
-          path: "/about",
-          element: < About />,
-        }
-      ],
-    },
-    { path: "*", element: <ErrorPage />}
-  ]
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/",
+        element: <Hero />,
+      },
+      {
+        path: "/about",
+        element: <About />,
+      },
+    ],
+  },
+  { path: "*", element: <ErrorPage /> },
+]);
 
 root.render(
   <StrictMode>

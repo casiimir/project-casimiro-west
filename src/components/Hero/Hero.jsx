@@ -1,4 +1,5 @@
 import HeroSlider, { Slide, MenuNav } from "hero-slider";
+import TopCityCardList from "../TopCityCardList/TopCityCardList";
 import styles from "./index.module.scss";
 
 const Hero = () => {
@@ -81,6 +82,7 @@ const Hero = () => {
           </Slide>
         ))}
       </HeroSlider>
+      <TopCityCardList />
     </div>
   );
 };
