@@ -5,9 +5,11 @@
     background: none;
     position: fixed;
     right: 0;
-    bottom: 0;
-    padding: 20px;
+    bottom: 75px;
+    margin: 10px;
     border: none;
+    z-index: 2;
+    padding: 0;
     cursor: pointer;
 
     svg {
@@ -26,7 +28,9 @@
 @media only screen and (max-width: 600px) {
   .ButtonScrollTop {
     button {
-      padding: 15px;
+      margin: 15px;
+      bottom: 50px;
+
       svg {
         font-size: 35px;
       }
