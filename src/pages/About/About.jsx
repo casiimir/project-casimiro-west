@@ -1,4 +1,4 @@
-import styles from "./about.module.scss";
+import styles from "./index.module.scss";
 import FS from "../../images/_GGL8170.jpg";
 import MLV from "../../images/MLV.jpg";
 import MV from "../../images/MV.jfif";
