@@ -29,3 +29,4 @@ const ActivitiesHomeCard = ({ data }) => {
 };
 
 export default memo(ActivitiesHomeCard);
+
