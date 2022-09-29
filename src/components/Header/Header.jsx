@@ -7,8 +7,9 @@ import logoBlack from "./logotype_white.png";
 
 import { useRef } from "react";
 import { Link } from "react-router-dom";
-import { BiMenu } from "react-icons/bi";
+import { RiMenu3Line } from "react-icons/ri";
 import { FaShoppingCart } from "react-icons/fa";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const Header = ({ children }) => {
   const { condition } = useSelector((state) => state.dropdownVisibility);
@@ -16,6 +17,7 @@ const Header = ({ children }) => {
   const [active, setActive] = useState();
 
   const onHadleClick = useCallback(() => {
+    document.body.style.overflow = "hidden";
     dispatch({
       type: "SET_DROPDOWN_VISIBILITY",
       payload: setActive(styles.active),
@@ -60,7 +62,7 @@ const Header = ({ children }) => {
         <section className={styles.side}>
           {children}
           <div className={styles.menu} onClick={onHadleClick}>
-            <BiMenu />
+            <RiMenu3Line />
           </div>
           <div className={styles.cart} onClick={onHadleClick}>
             <FaShoppingCart />
@@ -71,14 +73,15 @@ const Header = ({ children }) => {
         <div className={styles.top}>
           <img className={styles.logotype} src={logotypeW} alt="wanderer" />
           <p
-            onClick={() =>
+            onClick={() => {
+              document.body.style.overflow = "scroll";
               dispatch({
                 type: "SET_DROPDOWN_VISIBILITY",
                 payload: setActive(""),
-              })
-            }
+              });
+            }}
           >
-            X
+            <AiOutlineCloseCircle />
           </p>
         </div>
         <hr />
@@ -97,8 +100,15 @@ const Header = ({ children }) => {
             About Us
           </Link>
         </ul>
+        <div className={styles.button}>
+          <button>
+            <span>Cart</span>
 
-        <button className={styles.button}>Cart</button>
+            <span>
+              <FaShoppingCart />
+            </span>
+          </button>
+        </div>
       </div>
     </header>
   );
