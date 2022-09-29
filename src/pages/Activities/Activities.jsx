@@ -47,7 +47,7 @@ const Activities = () => {
         <div className={styles.HeroImg}>
           <img src={ActivitiesData.third.background_img} alt="image" />
         </div>
-        <div className={styles.Gradient}>porcodio</div>
+        <div className={styles.Gradient}>Containerdio</div>
       </div>
 
       <div className={styles.CardList}>
