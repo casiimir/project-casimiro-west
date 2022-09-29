@@ -1,6 +1,5 @@
 @import "../../styles/variables";
 
-
 @import "../../styles/mixins";
 
 .Hero {
@@ -11,34 +10,45 @@
 }
 
 .city {
-  position: absolute;
+  @include element-position(
+    $position: absolute,
+    $top: 250px,
+    $right: auto,
+    $bottom: auto,
+    $left: 150px,
+    $z-index: 0
+  );
+
   width: 313px;
   height: 100px;
-  left: 14px;
-  top: 150px;
+  font-weight: 700;
+  font-size: 90px;
 
   color: white;
   font-family: $bold-font;
   font-style: normal;
-  font-weight: 400;
-  font-size: 50px;
   line-height: 120px;
 
   text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
 }
 
 .country {
-  position: absolute;
+  @include element-position(
+    $position: absolute,
+    $top: 175px,
+    $right: auto,
+    $bottom: auto,
+    $left: 160px
+  );
+
   width: 1620px;
   height: 45px;
-  left: 25px;
-  top: 50px;
 
   color: lightseagreen;
   font-family: $handwrite-font;
   font-style: normal;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 65px;
   line-height: 58px;
 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
@@ -47,12 +57,17 @@
 }
 
 .infoBox {
-  position: absolute;
-  padding: 5px;
+  @include element-position(
+    $position: absolute,
+    $top: 430px,
+    $right: 110px,
+    $bottom: auto,
+    $left: auto
+  );
+
+  padding: 15px;
   width: 248px;
   height: 152px;
-  right: 0;
-  top: 430px;
 
   background: rgba(217, 217, 217, 0.8);
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
@@ -79,4 +94,38 @@
 
 .readMore:hover {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 600px) {
+  .city {
+    @include element-position(
+      $position: absolute,
+      $top: 150px,
+      $right: auto,
+      $bottom: auto,
+      $left: 15px
+    );
+
+    font-weight: 400;
+    font-size: 50px;
+  }
+
+  .country {
+    @include element-position(
+      $position: absolute,
+      $top: 35px,
+      $right: auto,
+      $bottom: auto,
+      $left: 25px
+    );
+
+    font-size: 48px;
+  }
+
+  .infoBox {
+    padding: 5px;
+    width: 248px;
+    height: 152px;
+    right: 0;
+  }
 }
