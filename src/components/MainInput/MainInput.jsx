@@ -1,4 +1,4 @@
-import { useCallback, useRef, useState } from "react";
+import { useCallback, useRef, useState, useEffect } from "react";
 import styles from "./index.module.scss";
 import { AiOutlineSearch } from "react-icons/ai";
 
@@ -23,6 +23,31 @@ const MainInput = () => {
     [dispatch]
   );
 
+  useEffect(() => {
+    const onEventListener = (e) => {
+      if (e.target.tagName === "DIV" && e.target.tagName !== "INPUT") {
+        setActive("");
+      } else if (
+        e.target.tagName === "IMG" ||
+        e.target.tagName === "CITE" ||
+        e.target.tagName === "P" ||
+        e.target.tagName === "H1" ||
+        e.target.tagName === "H2" ||
+        e.target.tagName === "A"
+      ) {
+        setActive("");
+      }
+    };
+
+    window.addEventListener("click", (e) => {
+      onEventListener(e);
+    });
+
+    return window.removeEventListener("click", (e) => {
+      onEventListener(e);
+    });
+  }, []);
+
   const onHandleInput = (e) => {};
 
   return (
@@ -43,12 +68,12 @@ const MainInput = () => {
       </form>
       <div
         className={styles.search}
-        onClick={() =>
+        onClick={(e) => {
           dispatch({
             type: "SET_INPUT_VISIBILITY",
             payload: setActive(styles.active),
-          })
-        }
+          });
+        }}
       >
         <AiOutlineSearch />
       </div>

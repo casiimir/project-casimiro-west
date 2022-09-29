@@ -52,7 +52,7 @@
   .search {
     right: 43px;
     width: 38px;
-    height: 35px;
+    height: 30px;
     font-size: 1.8rem;
 
     &:hover {
@@ -62,12 +62,13 @@
 
   .MainInput {
     &.active {
-      @include flex-element(row, flex-end, center, nowrap, 8px, 100%);
+      @include flex-element(row, flex-end, center, nowrap, 8px, 115%);
     }
+
     .search2 {
       right: 50px;
       width: 37px;
-      height: 37px;
+      height: 33px;
     }
   }
 }

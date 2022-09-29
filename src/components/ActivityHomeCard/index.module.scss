@@ -8,11 +8,12 @@
   margin-bottom: 1rem;
 
   .photo {
-    
+
     object-fit: cover;
     @include generic-appereance(200px, 50%);
     @include border(0, 3%);
   }
+
 
   .tourInfo {
     @include flex-element(column, space-between);
@@ -37,9 +38,33 @@
 
       
 
+
+  .tourInfo {
+    @include flex-element(column, space-between);
+    padding: 0 5px 5px 5px;
+    height: 50%;
+
+    .name {
+      margin: 0rem;
+      max-height: 50%;
+      font-family: $titles-font;
+      color: $almost-black;
+      font-size: 0.9rem;
+      text-shadow: 1.8px 1.5px 1.5px rgba(0, 0, 0, 0.248);
+      text-overflow: ellipsis;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    .bottom {
+      @include flex-element(row, space-between, center, $gap: 10%);
+
+
       .infoPlace {
         display: flex;
         align-items: center;
+
 
         .locality {
           color: lightseagreen;
@@ -54,6 +79,21 @@
         font-family: $text-font;
         margin: 0;
       }
+
+
+        .locality {
+          color: lightseagreen;
+          font-family: $text-font;
+          font-size: 0.75rem;
+          margin: 0;
+        }
+      }
+
+      .price {
+        font-family: $text-font;
+        margin: 0;
+      }
+
     }
   }
 }

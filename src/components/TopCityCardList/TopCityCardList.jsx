@@ -1,3 +1,4 @@
+
 import styles from "./index.module.scss";
 import CityCard from "../CityCard";
 import { GET } from "../../utils/api";
@@ -32,3 +33,4 @@ const TopCityCardList = () => {
 };
 
 export default memo(TopCityCardList);
+
