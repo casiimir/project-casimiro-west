@@ -91,7 +91,7 @@ const Hero = () => {
 
         {/* <MenuNav /> */}
       </HeroSlider>
-      <TopCityCardList />
+     
     </div>
   );
 };
