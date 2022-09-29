@@ -5,7 +5,14 @@
   @include generic-appereance(200px, 180px);
   @include border(0, 3%);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
-  margin-bottom: 1rem;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
 
   .photo {
     object-fit: cover;
@@ -15,7 +22,7 @@
 
   .tourInfo {
     @include flex-element(column, space-between);
-    padding: 0 5px 5px 5px;
+    padding: 0 5px 7px 5px;
     height: 50%;
 
     .name {
@@ -23,65 +30,47 @@
       max-height: 50%;
       font-family: $titles-font;
       color: $almost-black;
-      font-size: 0.9rem;
-      text-shadow: 1.8px 1.5px 1.5px rgba(0, 0, 0, 0.248);
+      font-size: 0.8rem;
+      text-shadow: 1px 1.2px 3px rgba(0, 0, 0, 0.226);
       text-overflow: ellipsis;
 
       &:hover {
         cursor: pointer;
       }
     }
-
-    .ActivitiesHomeCardInfo {
-    }
-
     .bottom {
       @include flex-element(row, space-between, center, $gap: 10%);
-
-      // .tourInfo {
-      //   @include flex-element(column, space-between);
-      //   padding: 0 5px 5px 5px;
-      //   height: 50%;
-
-      //   .name {
-      //     margin: 0rem;
-      //     max-height: 50%;
-      //     font-family: $titles-font;
-      //     color: $almost-black;
-      //     font-size: 0.9rem;
-      //     text-shadow: 1.8px 1.5px 1.5px rgba(0, 0, 0, 0.248);
-      //     text-overflow: ellipsis;
-
-      //     &:hover {
-      //       cursor: pointer;
-      //     }
-      //   }
-      // .bottom {
-      //   @include flex-element(row, space-between, center, $gap: 10%);
 
       .infoPlace {
         display: flex;
         align-items: center;
 
         .locality {
+          span {
+            color: black;
+          }
           color: lightseagreen;
           font-family: $text-font;
-          font-size: 0.75rem;
+          font-size: 0.7rem;
           margin: 0;
+          width: 120px;
         }
       }
 
-      // .price {
-      //   font-family: $text-font;
-      //   margin: 0;
-      // }
+      .price {
+        @include flex-element(row, center, flex-end);
+        width: max-content;
+        font-family: $text-font;
+        margin: 0;
+        align-self: flex-end;
+      }
 
-      // .locality {
-      //   color: lightseagreen;
-      //   font-family: $text-font;
-      //   font-size: 0.75rem;
-      //   margin: 0;
-      // }
+      .locality {
+        color: lightseagreen;
+        font-family: $text-font;
+        font-size: 0.75rem;
+        margin: 0;
+      }
     }
 
     .price {
@@ -90,5 +79,12 @@
     }
   }
 }
-// }
-//}
+
+@media only screen and (max-width: 600px) {
+  .ActivitiesHomeCard {
+    &:hover {
+      transform: none;
+      filter: none;
+    }
+  }
+}

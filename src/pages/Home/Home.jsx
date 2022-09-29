@@ -1,9 +1,8 @@
-
 import Hero from "../../components/Hero";
 import styles from "./index.module.scss";
 import TopCityCardList from "../../components/TopCityCardList/TopCityCardList";
 import ActivitiesHomeList from "../../components/ActivitiesHomeList/ActivitiesHomeList";
-
+import Footer from "../../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -17,8 +16,7 @@ const Home = () => {
         <ActivitiesHomeList />
       </section>
 
-    
-
+      <Footer />
     </div>
   );
 };
