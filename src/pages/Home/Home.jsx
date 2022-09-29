@@ -1,6 +1,5 @@
 
 import Hero from "../../components/Hero";
-import TopCityCardList from "../../components/TopCityCardList/TopCityCardList";
 import styles from "./index.module.scss";
 import TopCityCardList from "../../components/TopCityCardList/TopCityCardList";
 import ActivitiesHomeList from "../../components/ActivitiesHomeList/ActivitiesHomeList";
@@ -18,7 +17,7 @@ const Home = () => {
         <ActivitiesHomeList />
       </section>
 
-      <TopCityCardList />
+    
 
     </div>
   );

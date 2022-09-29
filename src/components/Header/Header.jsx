@@ -12,7 +12,7 @@ import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const Header = ({ children }) => {
-  const { condition } = useSelector((state) => state.dropdownVisibility);
+
   const dispatch = useDispatch();
   const [active, setActive] = useState();
 

@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useRef } from "react";
+import { memo,useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GET } from "../../utils/api";
 import ActivityHomeCard from "../ActivityHomeCard/ActivityHomeCard";
@@ -14,7 +14,7 @@ const ActivitiesHomeList = () => {
     );
   }, [dispatch]);
 
-  const cardRef = useRef(null);
+ 
   const containerRef = useRef(null);
 
   const next = () => {
