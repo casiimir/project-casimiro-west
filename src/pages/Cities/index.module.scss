@@ -1,0 +1,282 @@
+@import "../../styles/variables";
+
+@import "../../styles/mixins";
+
+.Cities {
+  @include element-position($position: relative, $top: -75px, $right: auto);
+  width: 100vw;
+  height: 105%;
+  overflow: hidden;
+
+  .infoContainer {
+    @include element-position($position: relative, $top: auto, $right: auto);
+
+    img {
+      object-fit: contain;
+      height: 105vh;
+    }
+
+    .cityName {
+      @include element-position(
+        $position: absolute,
+        $top: 130px,
+        $right: auto,
+        $bottom: auto,
+        $left: 30%,
+        $z-index: 0
+      );
+
+      width: 313px;
+      height: 100px;
+
+      color: white;
+      font-family: $titles-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 100px;
+      line-height: 120px;
+
+      text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
+    }
+
+    .countryName {
+      @include element-position(
+        $position: absolute,
+        $top: 210px,
+        $right: auto,
+        $bottom: auto,
+        $left: 45%
+      );
+
+      width: 1620px;
+      height: 45px;
+
+      color: lightseagreen;
+      font-family: $text-font;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 50px;
+      line-height: 58px;
+
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+    }
+
+    .textContainer {
+      @include element-position(
+        $position: absolute,
+        $top: 300px,
+        $right: auto,
+        $bottom: auto,
+        $left: auto,
+        $z-index: 0
+      );
+
+      height: 65%;
+      padding: 25px;
+
+      font-size: 15px;
+      color: white;
+
+      text-shadow: 0px 4px 4px $almost-black;
+
+      background: linear-gradient(
+        180deg,
+        rgba(10, 15, 15, 0) 0%,
+        rgba(0, 0, 0, 0.8) 9.9%
+      );
+      mix-blend-mode: normal;
+      border-radius: 6px 6px 0px 0px;
+
+      .activityCardContainer {
+        @include element-position(
+          $position: absolute,
+          $top: auto,
+          $right: 14px,
+          $bottom: auto,
+          $left: 14px
+        );
+        margin-left: 15px;
+
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+
+        border-radius: 5px;
+
+        overflow-x: scroll;
+
+        .activityCard {
+          margin-top: 25px;
+
+          background-color: white;
+          z-index: 999;
+
+          color: white;
+          border-radius: 5px;
+
+          img {
+            margin: auto;
+            display: block;
+            width: 200px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px 5px 0px 0px;
+          }
+
+          p {
+            margin-left: 5px;
+            padding: 5px;
+            position: relative;
+            z-index: 99999;
+            bottom: 0px;
+            color: black;
+            font-size: 15px;
+            text-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Cities {
+    @include element-position($position: relative, $top: -75px, $right: auto);
+    width: 100vw;
+    height: 105%;
+    overflow: hidden;
+
+    .infoContainer {
+      @include element-position($position: relative, $top: auto, $right: auto);
+
+      img {
+        object-fit: contain;
+        height: 105vh;
+      }
+
+      .cityName {
+        @include element-position(
+          $position: absolute,
+          $top: 150px,
+          $right: auto,
+          $bottom: auto,
+          $left: 15px,
+          $z-index: 0
+        );
+
+        width: 313px;
+        height: 100px;
+
+        color: white;
+        font-family: $titles-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 50px;
+        line-height: 120px;
+
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
+      }
+
+      .countryName {
+        @include element-position(
+          $position: absolute,
+          $top: 230px,
+          $right: auto,
+          $bottom: auto,
+          $left: 15px
+        );
+
+        width: 1620px;
+        height: 45px;
+
+        color: lightseagreen;
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 58px;
+
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+      }
+
+      .textContainer {
+        @include element-position(
+          $position: absolute,
+          $top: 300px,
+          $right: auto,
+          $bottom: auto,
+          $left: auto,
+          $z-index: 0
+        );
+
+        height: 65%;
+        padding: 10px;
+
+        font-size: 10px;
+        color: white;
+
+        text-shadow: 0px 4px 4px $almost-black;
+
+        background: linear-gradient(
+          180deg,
+          rgba(10, 15, 15, 0) 0%,
+          rgba(0, 0, 0, 0.8) 9.9%
+        );
+        mix-blend-mode: normal;
+        border-radius: 6px 6px 0px 0px;
+
+        .activityCardContainer {
+          @include element-position(
+            $position: absolute,
+            $top: auto,
+            $right: 14px,
+            $bottom: auto,
+            $left: 14px
+          );
+
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          gap: 10px;
+
+          border-radius: 5px;
+
+          overflow-x: scroll;
+          -webkit-overflow-scrolling: touch;
+          &::-webkit-scrollbar {
+            display: none;
+          }
+
+          .activityCard {
+            margin-top: 20px;
+            background-color: white;
+            z-index: 999;
+
+            color: white;
+            border-radius: 5px;
+
+            img {
+              margin: auto;
+              display: block;
+              width: 200px;
+              height: 90px;
+              object-fit: cover;
+              border-radius: 5px;
+            }
+
+            p {
+              margin-left: 5px;
+              position: relative;
+              z-index: 99999;
+              bottom: 0px;
+              color: black;
+              font-size: 15px;
+              text-shadow: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
