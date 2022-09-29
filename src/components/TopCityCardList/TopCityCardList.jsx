@@ -1,33 +1,26 @@
-import styles from "./index.module.scss";
-import { useState, useEffect } from "react";
-import Card from "../CityCard/Card";
+// import styles from "./index.module.scss";
+// import { useState, useEffect } from "react";
+// import CityCard from "../CityCard";
+// import { GET } from "../../utils/api.js";
 
-const TopCityCardList = () => {
-  const [topCityCardListData, setTopCityCardListData] = useState();
+// const TopCityCardList = () => {
+//   const [topCityCardListData, setTopCityCardListData] = useState();
 
-  //   const BASE_URL = "https://api.musement.com/api/v3/";
+//   useEffect(() => {
+//     GET("cities").then((data) =>
+//       setTopCityCardListData(data.filter((el) => el.show_in_popular === true))
+//     );
+//   }, []);
 
-  const GET = async () => {
-    const res = await fetch("https://api.musement.com/api/v3/cities");
-    return res.json();
-  };
+//   console.log(topCityCardListData);
 
-  useEffect(() => {
-    GET().then((data) =>
-      setTopCityCardListData(data.filter((el) => el.show_in_popular === true))
-    );
-  }, [topCityCardListData]);
+//   return (
+//     <div>
+//       {topCityCardListData?.data?.map((el) => (
+//         <CityCard CardData={el} />
+//       ))}
+//     </div>
+//   );
+// };
 
-  console.log(topCityCardListData);
-
-  return (
-    topCityCardListData &&
-    topCityCardListData.map((cities) => (
-      <div>
-        <Card key={cities.id} CardData={cities.results} />
-      </div>
-    ))
-  );
-};
-
-export default TopCityCardList;
+// export default TopCityCardList;
