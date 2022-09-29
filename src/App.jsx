@@ -5,7 +5,6 @@ import MainInput from "./components/MainInput";
 import ButtonScrollTop from "./components/ButtonScrollTop";
 
 import { Outlet } from "react-router-dom";
-// import TopCityCardList from "./components/TopCityCardList/TopCityCardList";
 
 function App() {
   return (

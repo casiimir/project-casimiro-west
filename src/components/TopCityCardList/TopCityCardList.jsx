@@ -1,6 +1,6 @@
 import styles from "./index.module.scss";
 import { useState, useEffect } from "react";
-import Card from "../Card/Card";
+import Card from "../CityCard/Card";
 
 const TopCityCardList = () => {
   const [topCityCardListData, setTopCityCardListData] = useState();
@@ -23,8 +23,8 @@ const TopCityCardList = () => {
   return (
     topCityCardListData &&
     topCityCardListData.map((cities) => (
-      <div key={cities.el.id}>
-        <Card CardData={topCityCardListData} />
+      <div>
+        <Card key={cities.id} CardData={cities.results} />
       </div>
     ))
   );
