@@ -23,30 +23,30 @@ const MainInput = () => {
     [dispatch]
   );
 
-  // useEffect(() => {
-  //   const onEventListener = (e) => {
-  //     if (
-  //       active === styles.active &&
-  //       e.target.tagName !== "INPUT" &&
-  //       e.target.className !== "MainInput"
-  //     ) {
-  //       setActive("");
-  //     }
-  //     // else {
-  //     //   setActive(styles.active);
-  //     // }
+  useEffect(() => {
+    const onEventListener = (e) => {
+      if (e.target.tagName === "DIV" && e.target.tagName !== "INPUT") {
+        setActive("");
+      } else if (
+        e.target.tagName === "IMG" ||
+        e.target.tagName === "CITE" ||
+        e.target.tagName === "P" ||
+        e.target.tagName === "H1" ||
+        e.target.tagName === "H2" ||
+        e.target.tagName === "A"
+      ) {
+        setActive("");
+      }
+    };
 
-  //     console.log(e.target);
-  //   };
+    window.addEventListener("click", (e) => {
+      onEventListener(e);
+    });
 
-  //   window.addEventListener("click", (e) => {
-  //     onEventListener(e);
-  //   });
-
-  //   return window.removeEventListener("click", (e) => {
-  //     onEventListener(e);
-  //   });
-  // }, [setActive]);
+    return window.removeEventListener("click", (e) => {
+      onEventListener(e);
+    });
+  }, []);
 
   const onHandleInput = (e) => {};
 
