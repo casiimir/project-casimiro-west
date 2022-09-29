@@ -1,0 +1,20 @@
+@import "../../styles/mixins";
+@import "../../styles/_variables";
+
+
+.TopCityCardList {
+    @include flex-element($gap: 15px);
+    overflow: hidden;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .TopCityCardList {
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+    .button {
+      display: none;
+    }
+  }

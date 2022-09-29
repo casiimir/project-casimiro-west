@@ -11,6 +11,12 @@ const InitialState = {
   dropdownVisibility: {
     condition: "",
   },
+  cities: {
+    data: [],
+  },
+  activities: {
+    data: [],
+  },
 };
 
 const inputReducer = (state = {}, action) => {
@@ -51,10 +57,30 @@ const listArrayReducer = (state = {}, action) => {
   }
 };
 
+
+const citiesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_CITIES_DATA":
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+const activitiesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_ACTIVITIES_DATA":
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   input: inputReducer,
   listArray: listArrayReducer,
   dropdownVisibility: dropdownVisibityReducer,
+  cities:citiesReducer,
+  activities:activitiesReducer
 });
 const store = createStore(rootReducer, InitialState);
 export default store;

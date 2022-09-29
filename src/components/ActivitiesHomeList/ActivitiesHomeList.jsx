@@ -1,18 +1,38 @@
-
-import { useLoaderData } from "react-router-dom";
-import ActivitiesHomeCard from "../ActivityHomeCard/ActivityHomeCard";
+import { memo, useCallback, useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GET } from "../../utils/api";
+import ActivityHomeCard from "../ActivityHomeCard/ActivityHomeCard";
 import styles from "./index.module.scss";
 
 const ActivitiesHomeList = () => {
-  
+  const activitiesData = useSelector((state) => state.activities);
 
-  return (
-    <div className={styles.ActivitiesHomeList}>
+  const dispatch = useDispatch();
+  useEffect(() => {
+    GET("activities").then((data) =>
+      dispatch({ type: "SET_ACTIVITIES_DATA", payload: data })
+    );
+  }, [dispatch]);
+
+  const cardRef = useRef(null);
+  const containerRef = useRef(null);
+
+  const next = () => {
+    containerRef.current.scrollLeft += 200
+  };
+  const prev = () => {
+    containerRef.current.scrollLeft -= 200
+  };
+
+  return (<><button className={styles.button} onClick={prev}>-</button>
+    <div ref={containerRef} className={styles.ActivitiesHomeList}>
       
       
-      <ActivitiesHomeCard />
-    </div>
+      {activitiesData?.data?.data?.map((el, i) => (
+        <ActivityHomeCard key={i} data={el} />
+      ))}
+    </div><button className={styles.button} onClick={next}>+</button></>
   );
 };
 
-export default ActivitiesHomeList;
+export default memo(ActivitiesHomeList);
