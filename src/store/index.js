@@ -3,13 +3,13 @@ import { combineReducers, createStore } from "redux";
 const InitialState = {
   input: {
     value: "",
-    visibility: false,
+    visibility: "",
   },
   listArray: {
     data: [],
   },
   dropdownVisibility: {
-    condition: false,
+    condition: "",
   },
 };
 
