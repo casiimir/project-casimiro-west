@@ -1,10 +1,15 @@
-import { useEffect, useState } from "react";
+
+import { useLoaderData } from "react-router-dom";
 import ActivitiesHomeCard from "../ActivityHomeCard/ActivityHomeCard";
 import styles from "./index.module.scss";
 
 const ActivitiesHomeList = () => {
+  
+
   return (
     <div className={styles.ActivitiesHomeList}>
+      
+      
       <ActivitiesHomeCard />
     </div>
   );

@@ -1,5 +1,6 @@
 import styles from "./index.module.scss";
 import { GiPositionMarker } from "react-icons/gi";
+import { memo } from "react";
 
 const ActivitiesHomeCard = () => {
   return (
@@ -25,4 +26,4 @@ const ActivitiesHomeCard = () => {
   );
 };
 
-export default ActivitiesHomeCard;
+export default memo(ActivitiesHomeCard)
