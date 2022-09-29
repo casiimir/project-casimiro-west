@@ -1,18 +1,14 @@
 import HeroSlider, { Slide, MenuNav } from "hero-slider";
 import { BsArrowRight } from "react-icons/bs";
 import { useState, useEffect } from "react";
+import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
 
 const Hero = () => {
   const [cityHeroList, setCityHeroList] = useState();
 
-  const GET = async () => {
-    const res = await fetch("https://api.musement.com/api/v3/cities");
-    return res.json();
-  };
-
   useEffect(() => {
-    GET().then((data) => setCityHeroList(data.slice(0, 6)));
+    GET("cities").then((data) => setCityHeroList(data.slice(0, 6)));
   }, []);
 
   const BackgroundAnimation = {
@@ -50,7 +46,7 @@ const Hero = () => {
             <h2 className={styles.country}>{item.country.name}</h2>
             <span className={styles.infoBox}>
               <p className={styles.description}>
-                {item.meta_description.slice(0, 150)}...
+                {item.meta_description?.slice(0, 150)}...
               </p>
               <p className={styles.readMore}>
                 Read more <BsArrowRight className={styles.arrow} />

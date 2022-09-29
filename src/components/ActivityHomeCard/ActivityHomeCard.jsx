@@ -26,4 +26,4 @@ const ActivitiesHomeCard = () => {
   );
 };
 
-export default memo(ActivitiesHomeCard)
+export default memo(ActivitiesHomeCard);
