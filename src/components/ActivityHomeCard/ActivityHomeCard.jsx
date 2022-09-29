@@ -2,12 +2,12 @@ import styles from "./index.module.scss";
 import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { memo } from "react";
-import { TbCurrencyDollar } from "react-icons/tb";
 
-const ActivitiesHomeCard = ({ data, ref }) => {
+
+const ActivitiesHomeCard = ({ data }) => {
   return (
 
-    <div ref={ref} className={styles.ActivitiesHomeCard}>
+    <div  className={styles.ActivitiesHomeCard}>
       <img className={styles.photo} src={data.city.cover_image_url} alt="img" />
 
       <section className={styles.tourInfo}>
@@ -21,12 +21,6 @@ const ActivitiesHomeCard = ({ data, ref }) => {
         }
         alt="img"
       />
-
-      <section className={styles.tourInfo}>
-        <h2 className={styles.name}>
-          Seacoast view and Monte Carlo group tour from Nice
-        </h2>
-
         <div className={styles.bottom}>
           <div className={styles.infoPlace}>
             <p className={styles.icon}>
