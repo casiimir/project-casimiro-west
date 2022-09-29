@@ -1,3 +1,3 @@
-import Card from "./Card";
+import CityCard from "./CityCard";
 
-export default Card;
+export default CityCard;
