@@ -1,3 +1,18 @@
+@import "../../styles/mixins";
+@import "../../styles/_variables";
 .ActivitiesHomeList {
-  padding-left: 2rem;
+  @include flex-element($gap: 15px);
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 768px) {
+  .ActivitiesHomeList {
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .button {
+    display: none;
+  }
 }
