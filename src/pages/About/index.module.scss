@@ -71,10 +71,10 @@
   .About {
     .container {
       font-size: 0.9rem;
-      margin:20px 0 ;
+      width: 80vw;
 
       .list_name {
-        @include flex-element(row, center, stretch, wrap, 15%);
+        @include flex-element(row, center, stretch, wrap);
 
         .info {
           @include flex-element(
@@ -83,8 +83,7 @@
             center,
             nowrap,
             0px,
-            120px,
-            auto
+            100px
           );
 
           img {
@@ -100,6 +99,7 @@
 
           p {
             margin: 4px 0;
+            font-size: 0.7rem;
           }
         }
       }

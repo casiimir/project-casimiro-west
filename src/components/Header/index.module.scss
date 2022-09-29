@@ -3,44 +3,95 @@
 
 .Header {
   @include flex-element(column, space-between, stretch, nowrap, 0, 100%, 60px);
+  font-family: $text-font;
 
   .navbar {
-    @include flex-element(row, space-between, center, nowrap, 0px, 100%, 60px);
-    padding: 10px;
+    @include flex-element(row, space-between, center, nowrap, 0px, 100%, 90px);
+    padding: 5px 10px;
     position: fixed;
     z-index: 10;
     background: $almost-black;
     background: linear-gradient(
       0deg,
       rgba(0, 0, 0, 0) 0%,
-     
+
       $almost-black 100%
     );
-    
+
     .logo {
-      background-color: $almost-black;
       @include flex-element(row, center, center);
       @include generic-appereance(auto, 65px, $padding: 5px);
 
       .img {
-        height: 100%;
-        object-fit: contain;
+        &:nth-child(1) {
+          display: none;
+        }
+        &:nth-child(2) {
+          width: 170px;
+        }
       }
     }
+
+    .list {
+      width: 60%;
+      ul {
+        @include flex-element(row, center, center, nowrap, 8%);
+        list-style-type: none;
+        padding: 0px;
+
+        .link {
+          color: lightseagreen;
+          text-decoration: none;
+          text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.623);
+          font-weight: 600;
+          font-size: 1.2rem;
+          transition: 0.5s;
+
+          &:hover {
+            color: $light-cyan;
+            transition: 0.5s;
+          }
+        }
+      }
+    }
+
     .side {
-      @include flex-element(row, flex-end, center, nowrap, 0px, 60%);
+      @include flex-element(row, flex-end, center, nowrap, 0px, 20%, auto);
       .menu {
         @include flex-element(row, flex-end, center);
+
+        display: none;
+        color: white;
+        font-size: 2.3rem;
+      }
+      .cart {
+        width: 37px;
+        height: 37px;
+        padding: 0 5px;
+        color: white;
+        font-size: 1.8rem;
+        transition: 0.5s;
+
+        &:hover {
+          color: lightseagreen;
+          transition: 0.5s;
+        }
       }
     }
   }
   .dropdown {
+    display: none;
     z-index: 12;
     background-color: rgba(0, 0, 0, 0.699);
     backdrop-filter: blur(5px);
-
     position: fixed;
-    right: 0;
+    right: -200px;
+    transition: 0.5s;
+
+    &.active {
+      right: 0px;
+      transition: 0.5s;
+    }
 
     @include generic-appereance(auto, 100vh, $padding: 5px 5px);
     .top {
@@ -50,6 +101,7 @@
       }
       p {
         color: lightseagreen;
+        font-weight: 600;
       }
     }
     ul {
@@ -66,7 +118,6 @@
       );
 
       .link {
-        font-family: $text-font;
         text-decoration: none;
         padding: 8px;
         border-radius: 6px;
@@ -83,16 +134,88 @@
       @include button($width: auto, $height: auto, $padding: 10px 20px);
       @include border(0, 8px);
       position: absolute;
-      left: 10px;
       bottom: 20px;
-      &:hover{
+      width: 153px;
+      &:hover {
         background-color: white;
-      color: lightseagreen;
+        color: lightseagreen;
+      }
     }
   }
 }
+
+@media only screen and (max-width: 793px) {
+  .Header {
+    .navbar {
+      .logo {
+        .img {
+          &:nth-child(2) {
+            width: 150px;
+          }
+        }
+      }
+
+      .list {
+        ul {
+          @include flex-element(row, center, center, nowrap, 4%);
+
+          .link {
+            font-weight: 500;
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+  }
 }
 
-@media only screen and (max-width: 600px) and (min-width: 400px)  {
-  
+@media only screen and (max-width: 610px) {
+  .Header {
+    .navbar {
+      @include flex-element(
+        row,
+        space-between,
+        center,
+        nowrap,
+        0px,
+        100%,
+        60px
+      );
+      padding: 10px;
+
+      .logo {
+        background-color: $almost-black;
+        width: 5rem;
+
+        .img {
+          &:nth-child(1) {
+            display: block;
+            height: 3.3rem;
+          }
+          &:nth-child(2) {
+            display: none;
+          }
+        }
+      }
+
+      .list {
+        display: none;
+      }
+
+      .side {
+        @include flex-element(row, flex-end, center, nowrap, 0px, 60%);
+
+        .menu {
+          display: block;
+        }
+
+        .cart {
+          display: none;
+        }
+      }
+    }
+    .dropdown {
+      display: block;
+    }
+  }
 }
