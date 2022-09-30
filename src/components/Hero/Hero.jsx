@@ -8,13 +8,17 @@ const Hero = () => {
   const [cityHeroList, setCityHeroList] = useState();
 
   useEffect(() => {
-    GET("cities").then((data) => setCityHeroList(data.slice(0, 6)));
+    GET("cities")
+      .then((data) => data.splice(0, 6))
+      .then((data) => setCityHeroList(data));
   }, []);
 
   const BackgroundAnimation = {
     ZOOM: "zoom",
   };
-
+  {
+    console.log(cityHeroList);
+  }
   return (
     <div className={styles.Hero}>
       <HeroSlider

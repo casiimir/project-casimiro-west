@@ -40,7 +40,7 @@ const Cities = () => {
     <div className={styles.Cities}>
       <div className={styles.infoContainer}>
         <img
-          src={cityPageContent?.cover_image_url}
+          src={`${cityPageContent?.cover_image_url}?w=2000`}
           className={styles.cityIMG}
         />
         <h1 className={styles.cityName}>{cityPageContent?.name}</h1>

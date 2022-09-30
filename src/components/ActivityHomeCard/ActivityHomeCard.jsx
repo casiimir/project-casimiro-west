@@ -6,21 +6,25 @@ import { memo } from "react";
 const ActivitiesHomeCard = ({ data }) => {
   return (
     <div className={styles.ActivitiesHomeCard}>
-      <img className={styles.photo} src={data.city.cover_image_url} alt="img" />
+      <img
+        className={styles.photo}
+        src={`${data?.city.cover_image_url}?w=300`}
+        alt="img"
+      />
 
       <section className={styles.tourInfo}>
-        <h2 className={styles.name}>{data.title}</h2>
+        <h2 className={styles.name}>{data?.title}</h2>
         <div className={styles.bottom}>
           <div className={styles.infoPlace}>
             <p className={styles.locality}>
               <span className={styles.icon}>
                 <GiPositionMarker />
               </span>{" "}
-              {data.city.name} - {data.city.country.name}
+              {data?.city.name} - {data?.city.country.name}
             </p>
           </div>
           <p className={styles.price}>
-            <TbCurrencyDollar /> {data.retail_price.value}
+            <TbCurrencyDollar /> {data?.retail_price.value}
           </p>
         </div>
       </section>
@@ -29,4 +33,3 @@ const ActivitiesHomeCard = ({ data }) => {
 };
 
 export default memo(ActivitiesHomeCard);
-
