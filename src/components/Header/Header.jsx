@@ -64,7 +64,8 @@ const Header = ({ children }) => {
             <RiMenu3Line />
           </div>
           <div className={styles.cart} onClick={onHadleClick}>
-            <FaShoppingCart />
+            <FaShoppingCart />{" "}
+            {localStorage.length > 0 && <p>{localStorage.length / 2}</p>}
           </div>
         </section>
       </nav>
