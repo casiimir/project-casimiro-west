@@ -14,6 +14,9 @@ const InitialState = {
   cities: {
     data: [],
   },
+  otherCities: {
+    data: [],
+  },
   activities: {
     data: [],
   },
@@ -71,6 +74,15 @@ const citiesReducer = (state = {}, action) => {
   }
 };
 
+const otherCitiesReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_OTHER_CITIES_DATA":
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+
 const activitiesReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ACTIVITIES_DATA":
@@ -98,6 +110,7 @@ const rootReducer = combineReducers({
   listArray: listArrayReducer,
   dropdownVisibility: dropdownVisibityReducer,
   cities: citiesReducer,
+  otherCities: otherCitiesReducer,
   activities: activitiesReducer,
   categories: categoriesReducer,
 });
