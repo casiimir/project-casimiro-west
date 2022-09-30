@@ -12,7 +12,6 @@ import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const Header = ({ children }) => {
-
   const dispatch = useDispatch();
   const [active, setActive] = useState();
 
@@ -43,8 +42,8 @@ const Header = ({ children }) => {
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="/experiences">
-                Experiences
+              <Link className={styles.link} to="/attractions">
+                Attractions
               </Link>
             </li>
             <li>
@@ -89,8 +88,8 @@ const Header = ({ children }) => {
           <Link className={styles.link} to="/">
             Home
           </Link>
-          <Link className={styles.link} to="/experiences">
-            Experiences
+          <Link className={styles.link} to="/attractions">
+            Attractions
           </Link>
 
           <Link className={styles.link} to="/activities">

@@ -22,8 +22,9 @@
     }
   }
 
-  .ActivitiesHomeList {
+  .NoTopCityCardList {
     @include flex-element($gap: 15px);
+
     overflow: hidden;
     padding: 15px;
     width: 88%;
@@ -31,10 +32,11 @@
 }
 @media only screen and (max-width: 600px) {
   .box {
-    .ActivitiesHomeList {
+    .NoTopCityCardList {
       overflow: scroll;
       padding: 15px 2px;
       width: 95%;
+
       &::-webkit-scrollbar {
         display: none;
       }
