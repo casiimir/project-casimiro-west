@@ -17,6 +17,12 @@ const InitialState = {
   activities: {
     data: [],
   },
+  attractionsMost: {
+    data: [],
+  },
+  attractionsHighest: {
+    data: [],
+  },
 };
 
 const inputReducer = (state = {}, action) => {
@@ -57,7 +63,6 @@ const listArrayReducer = (state = {}, action) => {
   }
 };
 
-
 const citiesReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_CITIES_DATA":
@@ -75,12 +80,25 @@ const activitiesReducer = (state = {}, action) => {
   }
 };
 
+const attractionsReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_ATTRACTIONS_MOST_DATA":
+      return { ...state, data: action.payload };
+    case "SET_ATTRACTIONS_HIGHEST_DATA":
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   input: inputReducer,
   listArray: listArrayReducer,
   dropdownVisibility: dropdownVisibityReducer,
-  cities:citiesReducer,
-  activities:activitiesReducer
+  cities: citiesReducer,
+  activities: activitiesReducer,
+  attractionsMost: attractionsReducer,
+  attractionsHighest: attractionsReducer,
 });
 const store = createStore(rootReducer, InitialState);
 export default store;

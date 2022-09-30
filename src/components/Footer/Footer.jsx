@@ -48,7 +48,7 @@ const Footer = () => {
         </div>
         <div className={styles.list}>
           <ul>
-            <li>Experiences</li>
+            <li>Attractions</li>
             <li>Countries</li>
             <li>About Us</li>
           </ul>
