@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GET } from "../../utils/api";
 import ActivityHomeCard from "../ActivityHomeCard/ActivityHomeCard";
 import styles from "./index.module.scss";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
 const ActivitiesHomeList = () => {
   const activitiesData = useSelector((state) => state.activities);
@@ -17,16 +18,16 @@ const ActivitiesHomeList = () => {
   const containerRef = useRef(null);
 
   const next = () => {
-    containerRef.current.scrollLeft += 200;
+    containerRef.current.scrollLeft += 437;
   };
   const prev = () => {
-    containerRef.current.scrollLeft -= 200;
+    containerRef.current.scrollLeft -= 437;
   };
 
   return (
-    <>
+    <div className={styles.box}>
       <button className={styles.button} onClick={prev}>
-        -
+        <IoIosArrowBack />
       </button>
       <div ref={containerRef} className={styles.ActivitiesHomeList}>
         {activitiesData?.data?.data?.map((el, i) => (
@@ -34,9 +35,9 @@ const ActivitiesHomeList = () => {
         ))}
       </div>
       <button className={styles.button} onClick={next}>
-        +
+        <IoIosArrowForward />
       </button>
-    </>
+    </div>
   );
 };
 

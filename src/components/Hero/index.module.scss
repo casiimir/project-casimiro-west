@@ -22,7 +22,7 @@
   width: 313px;
   height: 100px;
   font-weight: 700;
-  font-size: 90px;
+  font-size: 110px;
 
   color: white;
   font-family: $bold-font;
@@ -35,7 +35,7 @@
 .country {
   @include element-position(
     $position: absolute,
-    $top: 175px,
+    $top: 180px,
     $right: auto,
     $bottom: auto,
     $left: 160px
@@ -48,7 +48,7 @@
   font-family: $handwrite-font;
   font-style: normal;
   font-weight: 800;
-  font-size: 65px;
+  font-size: 85px;
   line-height: 58px;
 
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
@@ -57,37 +57,43 @@
 }
 
 .infoBox {
+  @include flex-element(column, space-between, center);
   @include element-position(
     $position: absolute,
-    $top: 430px,
-    $right: 110px,
+    $top: 55%,
+    $right: 10%,
     $bottom: auto,
     $left: auto
   );
 
   padding: 15px;
-  width: 248px;
-  height: 152px;
+  width: 400px;
+  height: 250px;
 
   background: rgba(217, 217, 217, 0.8);
   box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
 
   .description {
-    font-size: 14px;
+    align-self: flex-start;
+    font-size: 1.2rem;
     font-weight: 400;
-    line-height: 17px;
+    line-height: 25px;
     letter-spacing: 0em;
-    text-align: right;
+    text-align: left;
   }
 
   .readMore {
+    display: flex;
     font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    text-align: center;
+    font-size: 1rem;
+    text-align: right;
+    align-self: flex-end;
+    justify-content: flex-end;
 
     .arrow {
+      width: 1px;
       padding-left: 15px;
+      font-size: 2rem;
     }
   }
 }
@@ -123,9 +129,23 @@
   }
 
   .infoBox {
-    padding: 5px;
+    padding: 10px;
     width: 248px;
     height: 152px;
     right: 0;
+
+    .description {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 17px;
+      letter-spacing: 0em;
+    }
+
+    .readMore {
+      .arrow {
+        padding-left: 15px;
+        font-size: 1.5rem;
+      }
+    }
   }
 }

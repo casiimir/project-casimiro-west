@@ -1,15 +1,44 @@
 @import "../../styles/mixins";
 @import "../../styles/_variables";
 
+.box {
+  @include flex-element(row, space-around, center);
 
-.TopCityCardList {
-    @include flex-element($gap: 15px);
-    overflow: hidden;
+  button {
+    background-color: transparent;
+    border: none;
+    color: $dark-grey;
+    transition: 0.5s;
+    cursor: pointer;
+    width: min-content;
+
+    svg {
+      width: 10px;
+      height: 40px;
+      transform: scale(3.1);
+    }
+
+    &:hover {
+      color: lightseagreen;
+      transition: 0.5s;
+    }
   }
-  
-  @media only screen and (max-width: 768px) {
+
+  .TopCityCardList {
+    @include flex-element($gap: 15px);
+
+    overflow: hidden;
+    padding: 15px;
+    width: 90%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .box {
     .TopCityCardList {
       overflow: scroll;
+      padding: 15px 2px;
+      width: 95%;
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -18,3 +47,4 @@
       display: none;
     }
   }
+}
