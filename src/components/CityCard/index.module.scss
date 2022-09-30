@@ -12,7 +12,14 @@
     filter: brightness(1.1);
     cursor: pointer;
   }
-
+  .link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+  }
   .Card {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
     border-radius: 3%;
@@ -21,7 +28,7 @@
     background-size: cover;
     object-fit: cover;
     z-index: 0;
-
+    
     .CardInfo {
       border-radius: 3%;
       height: 100%;

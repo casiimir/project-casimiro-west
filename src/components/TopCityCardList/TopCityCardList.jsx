@@ -2,8 +2,9 @@ import styles from "./index.module.scss";
 import CityCard from "../CityCard";
 import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
-import React, { memo, useEffect, useRef } from "react";
+import React, { createContext, memo, useEffect, useRef } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+
 
 const TopCityCardList = () => {
   const cityData = useSelector((state) => state.cities);
@@ -28,7 +29,9 @@ const TopCityCardList = () => {
     );
   }, [dispatch]);
 
-  return (
+const data ={ cityData}
+
+  return ( 
     <div className={styles.box}>
       <button className={styles.button} onClick={prev}>
         <IoIosArrowBack />
@@ -42,6 +45,7 @@ const TopCityCardList = () => {
         <IoIosArrowForward />
       </button>
     </div>
+
   );
 };
 

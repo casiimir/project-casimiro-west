@@ -16,9 +16,7 @@ const Hero = () => {
   const BackgroundAnimation = {
     ZOOM: "zoom",
   };
-  {
-    console.log(cityHeroList);
-  }
+  
   return (
     <div className={styles.Hero}>
       <HeroSlider

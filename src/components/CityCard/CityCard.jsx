@@ -1,4 +1,4 @@
-
+import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 import { MdOutlineLocalActivity } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
@@ -27,9 +27,13 @@ const CityCard = ({ CardData }) => {
           </div>
         </div>
       </div>
+      <Link
+        to={`/${CardData.name}`}
+        state={CardData}
+        className={styles.link}
+      ></Link>
     </div>
   );
 };
 
 export default memo(CityCard);
-
