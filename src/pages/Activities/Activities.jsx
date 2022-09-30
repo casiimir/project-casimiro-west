@@ -56,23 +56,14 @@ const Activities = () => {
             alt="image"
           />
         </div>
-        <div className={styles.Gradient}>Container</div>
+
+
+
+        <div className={styles.Gradient}></div>
+
       </div>
 
-      <div className={styles.CardList}>
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-      </div>
+      <div className={styles.CardList}></div>
     </div>
   );
 };
