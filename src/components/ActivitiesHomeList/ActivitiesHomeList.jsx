@@ -1,4 +1,4 @@
-import { memo,useEffect, useRef } from "react";
+import { memo, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GET } from "../../utils/api";
 import ActivityHomeCard from "../ActivityHomeCard/ActivityHomeCard";
@@ -14,24 +14,29 @@ const ActivitiesHomeList = () => {
     );
   }, [dispatch]);
 
- 
   const containerRef = useRef(null);
 
   const next = () => {
-    containerRef.current.scrollLeft += 200
+    containerRef.current.scrollLeft += 200;
   };
   const prev = () => {
-    containerRef.current.scrollLeft -= 200
+    containerRef.current.scrollLeft -= 200;
   };
 
-  return (<><button className={styles.button} onClick={prev}>-</button>
-    <div ref={containerRef} className={styles.ActivitiesHomeList}>
-      
-      
-      {activitiesData?.data?.data?.map((el, i) => (
-        <ActivityHomeCard key={i} data={el} />
-      ))}
-    </div><button className={styles.button} onClick={next}>+</button></>
+  return (
+    <>
+      <button className={styles.button} onClick={prev}>
+        -
+      </button>
+      <div ref={containerRef} className={styles.ActivitiesHomeList}>
+        {activitiesData?.data?.data?.map((el, i) => (
+          <ActivityHomeCard key={i} data={el} />
+        ))}
+      </div>
+      <button className={styles.button} onClick={next}>
+        +
+      </button>
+    </>
   );
 };
 
