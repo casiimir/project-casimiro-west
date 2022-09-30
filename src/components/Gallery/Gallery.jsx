@@ -19,13 +19,11 @@ const Gallery = () => {
             the best local wines.
           </p>
           <div className={styles.info}>
-            <p className={styles.text}>
-              <span>Lyon and </span>
-              Bordeaux
-              <span>
-                <TbArrowWaveRightDown />
-              </span>
-            </p>
+            <p>Lyon and </p>
+            <p>Bordeaux</p>
+            <span>
+              <TbArrowWaveRightDown />
+            </span>
           </div>
         </div>
         <div className={styles.photos}>

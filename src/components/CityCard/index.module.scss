@@ -35,7 +35,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      padding-left: 10%;
+      padding-left: 7%;
 
       .info {
         flex-direction: column;
@@ -48,6 +48,7 @@
 
         .city {
           text-shadow: 1.8px 1.5px 1.5px $almost-black;
+          font-size: 1rem;
           font-family: "Lato";
         }
         .country {
@@ -58,6 +59,7 @@
       }
 
       .footerCard {
+        padding: 0 0 2px 0;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

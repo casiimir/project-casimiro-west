@@ -33,12 +33,13 @@
         font-size: 2rem;
         font-family: $handwrite-font;
         font-weight: bold;
+        gap: 6px;
 
         p:first-of-type:first-letter {
-          font-size: 2rem;
+          font-size: 5rem;
         }
 
-        span:nth-child(2) {
+        span {
           align-self: center;
           color: black;
           padding: 0 15px;
@@ -55,14 +56,14 @@
       @include flex-element(column, flex-start, stretch, nowrap, 10px);
 
       .photo1 {
-        width: 60vw;
+        width: 50vw;
         height: 30vh;
         background-size: cover;
         background-position-y: center;
       }
 
       .photo2 {
-        width: 60vw;
+        width: 50vw;
         height: 30vh;
         background-size: cover;
         background-position: center;
@@ -70,10 +71,10 @@
     }
 
     .box2 {
-      width: 40vw;
+      width: 55vw;
       height: calc(60vh + 10px);
       background-size: cover;
-      background-position-x: center;
+      background-position-x: 75%;
     }
   }
 
@@ -237,10 +238,11 @@
       }
 
       .box2 {
+        display: block;
         width: 95vw;
-        height: 20vh;
+        height: 25vh;
         background-position-x: none;
-        background-position-y: bottom;
+        background-position-y: 40%;
       }
     }
 
