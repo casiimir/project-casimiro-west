@@ -4,10 +4,11 @@
 .Home {
   @include flex-element(column);
   .carousels {
-    padding: 10px;
     .title {
+      padding: 0 15px;
+      color: $dark-grey;
       font-family: $titles-font;
-      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.75);
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.322);
     }
   }
 }

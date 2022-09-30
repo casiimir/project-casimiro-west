@@ -1,10 +1,18 @@
 @import "../../styles/mixins";
 @import "../../styles/_variables";
 
-
 .Container {
   display: flex;
   justify-content: center;
+  transition: 0.5s;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
+
   .Card {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
     border-radius: 3%;
@@ -13,6 +21,7 @@
     background-size: cover;
     object-fit: cover;
     z-index: 0;
+
     .CardInfo {
       border-radius: 3%;
       height: 100%;
@@ -27,6 +36,7 @@
       flex-direction: column;
       justify-content: flex-end;
       padding-left: 10%;
+
       .info {
         flex-direction: column;
         color: white;
@@ -54,20 +64,30 @@
         width: 100%;
         .activities {
           gap: 2.6px;
-          svg {
-            color: lightseagreen;
-          }
           text-shadow: 1.8px 1.5px 1.5px $almost-black;
           font-size: 0.6rem;
           display: flex;
           align-items: center;
           font-family: "lato";
+
+          svg {
+            color: lightseagreen;
+          }
         }
 
         .arrow {
           padding-right: 5%;
         }
       }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Container {
+    &:hover {
+      transform: none;
+      filter: none;
     }
   }
 }

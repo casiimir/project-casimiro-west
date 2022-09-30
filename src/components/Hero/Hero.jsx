@@ -8,7 +8,9 @@ const Hero = () => {
   const [cityHeroList, setCityHeroList] = useState();
 
   useEffect(() => {
-    GET("cities").then((data) => setCityHeroList(data.slice(0, 6)));
+    GET("cities")
+      .then((data) => data.splice(0, 6))
+      .then((data) => setCityHeroList(data?.filter((e, i, a) => i < 6)));
   }, []);
 
   const BackgroundAnimation = {
@@ -36,7 +38,7 @@ const Hero = () => {
             key={index}
             label={item.name}
             background={{
-              backgroundImageSrc: item.cover_image_url,
+              backgroundImageSrc: `${item.cover_image_url}?w=2000`,
               backgroundAnimationDuration: 5000,
               backgroundAnimationDelay: 10,
               backgroundAnimation: `${BackgroundAnimation.ZOOM}`,
@@ -45,11 +47,14 @@ const Hero = () => {
             <h1 className={styles.city}>{item.name.toUpperCase()}</h1>
             <h2 className={styles.country}>{item.country.name}</h2>
             <span className={styles.infoBox}>
-              <p className={styles.description}>
-                {item.meta_description?.slice(0, 150)}...
-              </p>
+              <p className={styles.description}>{item.meta_description}</p>
               <p className={styles.readMore}>
-                Read more <BsArrowRight className={styles.arrow} />
+                <span>
+                  Read more{" "}
+                  <span className={styles.arrow}>
+                    <BsArrowRight />
+                  </span>
+                </span>
               </p>
             </span>
           </Slide>

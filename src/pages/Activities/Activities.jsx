@@ -39,31 +39,31 @@ const Activities = () => {
       <div className={styles.ActivitiesHero}>
         <p className={styles.HeroTitle}>Activities</p>
         <div className={styles.HeroImg}>
-          <img src={ActivitiesData.first.background_img} alt="image" />
+          <img
+            src={`${ActivitiesData.first.background_img}?w=2000`}
+            alt="image"
+          />
         </div>
         <div className={styles.HeroImg}>
-          <img src={ActivitiesData.second.background_img} alt="image"></img>
+          <img
+            src={`${ActivitiesData.second.background_img}?w=2000`}
+            alt="image"
+          ></img>
         </div>
         <div className={styles.HeroImg}>
-          <img src={ActivitiesData.third.background_img} alt="image" />
+          <img
+            src={`${ActivitiesData.third.background_img}?w=2000`}
+            alt="image"
+          />
         </div>
-        <div className={styles.Gradient}>porcodio</div>
+
+
+
+        <div className={styles.Gradient}></div>
+
       </div>
 
-      <div className={styles.CardList}>
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-        <ActivityHomeCard className={styles.Card} />
-      </div>
+      <div className={styles.CardList}></div>
     </div>
   );
 };
