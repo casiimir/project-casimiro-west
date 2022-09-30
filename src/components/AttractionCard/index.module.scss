@@ -1,0 +1,47 @@
+@import "../../styles/_variables";
+@import "../../styles/_mixins";
+
+.AttractionCard {
+  @include border(0, 6%);
+  width: 280px;
+  height: 120px;
+  background-image: url(https://images-sandbox.musement.com/cover/0001/47/fotolia-92628979-subscription-monthly-l-jpg_header-46899.jpeg?w=280);
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.292);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .reviews {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+
+    .reviewsSpecific {
+      @include border(0, 0, 25%, 0, 25%);
+      width: fit-content;
+      background-color: rgba(0, 0, 0, 0.699);
+      backdrop-filter: blur(5px);
+      color: lightseagreen;
+    }
+  }
+
+  .info {
+    @include border(0, 0, 0, 10%, 10%);
+    width: 100%;
+    padding: 0 1rem 0.5rem 1rem;
+    background: linear-gradient(
+      180deg,
+      rgba(10, 15, 15, 0) 0%,
+      rgba(10, 15, 15, 0) 30%,
+      #0a0f0f 100%
+    );
+    .name {
+      color: white;
+    }
+    .locality {
+      text-align: end;
+      color: white;
+    }
+  }
+}

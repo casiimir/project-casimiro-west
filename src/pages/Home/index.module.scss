@@ -2,7 +2,7 @@
 @import "../../styles/_variables";
 
 .Home {
-    @include flex-element(column);
+  @include flex-element(column);
   .carousels {
     padding: 10px;
     .title {
