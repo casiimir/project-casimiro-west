@@ -12,9 +12,9 @@ const Home = () => {
       <section className={styles.carousels}>
         <h2 className={styles.title}>Top Cities</h2>
         <TopCityCardList />
+        <Gallery />
         <h2 className={styles.title}>Top Activities</h2>
         <ActivitiesHomeList />
-        <Gallery />
       </section>
 
       <Footer />
