@@ -94,6 +94,8 @@
     }
   }
   .dropdown {
+    @include generic-appereance(100%, 100vh, $padding: 5px 5px);
+
     display: none;
     z-index: 12;
     background-color: rgba(0, 0, 0, 0.699);
@@ -105,9 +107,9 @@
     &.active {
       right: 0px;
       transition: 0.7s;
+      width: 100%;
     }
 
-    @include generic-appereance(auto, 100vh, $padding: 5px 5px);
     .top {
       @include flex-element(row, space-between, center, nowrap, 10px);
 

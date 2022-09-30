@@ -89,68 +89,64 @@ const Activities = () => {
       <div className={styles.ActivitiesHero}>
         <p className={styles.HeroTitle}>Activities</p>
         <div className={styles.HeroImg}>
-          <img src={ActivitiesHeroData.first.background_img} alt="image" />
+          <img src={ActivitiesHeroData.first.background_img} alt="card" />
         </div>
         <div className={styles.HeroImg}>
-          <img src={ActivitiesHeroData.second.background_img} alt="image"></img>
+          <img src={ActivitiesHeroData.second.background_img} alt="card"></img>
         </div>
         <div className={styles.HeroImg}>
-          <img src={ActivitiesHeroData.third.background_img} alt="image" />
+          <img src={ActivitiesHeroData.third.background_img} alt="card" />
+        </div>
+        <div className={styles.backgroundGradient}></div>
+      </div>
+      <h1>Scopri le nostre attività</h1>
+      <div className={styles.CategoriesList}>
+        <h2>Crociere</h2>
+        <div className={styles.container}>
+          <button className={styles.button} onClick={prev}>
+            <IoIosArrowBack />
+          </button>
+          <div ref={cruiseRef} className={styles.CardList}>
+            {cruiseActivitiesData?.map((el, i) => (
+              <ActivityHomeCard key={i} data={el} />
+            ))}
+          </div>
+          <button className={styles.button} onClick={next}>
+            <IoIosArrowForward />
+          </button>
         </div>
       </div>
-      <div className={styles.backgroundGradient}>
-        <h1>Scopri le nostre attività</h1>
-        <div className={styles.CategoriesList}>
-          <h2>Crociere</h2>
-          <div className={styles.container}>
-            <button className={styles.button} onClick={prev}>
-              <IoIosArrowBack />
-            </button>
+      <div className={styles.CategoriesList}>
+        <h2>Attività aeree</h2>
+        <div className={styles.container}>
+          <button className={styles.button} onClick={prevAir}>
+            <IoIosArrowBack />
+          </button>
 
-            <div ref={cruiseRef} className={styles.CardList}>
-              {cruiseActivitiesData?.map((el, i) => (
-                <ActivityHomeCard key={i} data={el} />
-              ))}
-            </div>
-            <button className={styles.button} onClick={next}>
-              <IoIosArrowForward />
-            </button>
+          <div ref={airRef} className={styles.CardList}>
+            {airActivitiesData?.map((el, i) => (
+              <ActivityHomeCard key={i} data={el} />
+            ))}
           </div>
+          <button className={styles.button} onClick={nextAir}>
+            <IoIosArrowForward />
+          </button>
         </div>
-        <div className={styles.CategoriesList}>
-          <h2>Attività aeree</h2>
-
-          <div className={styles.container}>
-            <button className={styles.button} onClick={prevAir}>
-              <IoIosArrowBack />
-            </button>
-
-            <div ref={airRef} className={styles.CardList}>
-              {airActivitiesData?.map((el, i) => (
-                <ActivityHomeCard key={i} data={el} />
-              ))}
-            </div>
-            <button className={styles.button} onClick={nextAir}>
-              <IoIosArrowForward />
-            </button>
+      </div>
+      <div className={styles.CategoriesList}>
+        <h2>Attività in città</h2>
+        <div className={styles.container}>
+          <button className={styles.button} onClick={prevCity}>
+            <IoIosArrowBack />
+          </button>
+          <div ref={cityRef} className={styles.CardList}>
+            {cityActivitiesData?.map((el, i) => (
+              <ActivityHomeCard key={i} data={el} />
+            ))}
           </div>
-        </div>
-        <div className={styles.CategoriesList}>
-          <h2>Attività in città</h2>
-          <div className={styles.container}>
-            <button className={styles.button} onClick={prevCity}>
-              <IoIosArrowBack />
-            </button>
-
-            <div ref={cityRef} className={styles.CardList}>
-              {cityActivitiesData?.map((el, i) => (
-                <ActivityHomeCard key={i} data={el} />
-              ))}
-            </div>
-            <button className={styles.button} onClick={nextCity}>
-              <IoIosArrowForward />
-            </button>
-          </div>
+          <button className={styles.button} onClick={nextCity}>
+            <IoIosArrowForward />
+          </button>
         </div>
       </div>
     </div>

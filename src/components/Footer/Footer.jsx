@@ -7,6 +7,7 @@ import {
 } from "react-icons/ai";
 import logo from "./logotype_white.png";
 import logo2 from "./logo_white.png";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   const iconData = [
@@ -48,9 +49,22 @@ const Footer = () => {
         </div>
         <div className={styles.list}>
           <ul>
-            <li>Attractions</li>
-            <li>Countries</li>
-            <li>About Us</li>
+            <li>
+              <Link className={styles.link} to="/attractions">
+                Attractions
+              </Link>
+            </li>
+            <li>
+              <Link className={styles.link} to="/activities">
+                Activities
+              </Link>
+            </li>
+            <li>
+              {" "}
+              <Link className={styles.link} to="/about">
+                About Us
+              </Link>
+            </li>
           </ul>
         </div>
       </div>
