@@ -8,7 +8,7 @@ const ActivitiesHomeCard = ({ data }) => {
     <div className={styles.ActivitiesHomeCard}>
       <img
         className={styles.photo}
-        src={data?.city.cover_image_url}
+        src={`${data?.city.cover_image_url}?w=300`}
         alt="img"
       />
 
