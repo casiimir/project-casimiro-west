@@ -5,8 +5,7 @@ const AttractionsList = ({ title, children }) => {
   return (
     <div className={styles.AttractionsList}>
       <h2 className={styles.name}>{title}</h2>
-      {children}
-      {/* <AttractionCard /> */}
+      <section className={styles.cards}>{children}</section>
     </div>
   );
 };

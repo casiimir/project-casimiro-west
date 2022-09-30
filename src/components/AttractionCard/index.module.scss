@@ -3,9 +3,9 @@
 
 .AttractionCard {
   @include border(0, 6%);
-  width: 280px;
+  min-width: 280px;
   height: 120px;
-  background-image: url(https://images-sandbox.musement.com/cover/0001/47/fotolia-92628979-subscription-monthly-l-jpg_header-46899.jpeg?w=280);
+
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.292);
 
   display: flex;
@@ -37,6 +37,8 @@
       #0a0f0f 100%
     );
     .name {
+      font-family: "Lato";
+      text-shadow: 1px 2px 4px $almost-black;
       color: white;
     }
     .locality {

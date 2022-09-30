@@ -1,17 +1,22 @@
 import styles from "./index.module.scss";
-import { BsPerson } from "react-icons/bs";
 
-const AttractionCard = ({ reviewesSpecific, icon }) => {
+const AttractionCard = (props) => {
   return (
-    <div className={styles.AttractionCard}>
+    <div
+      className={styles.AttractionCard}
+      style={{ backgroundImage: `url(${props.background}?w=400)` }}
+    >
       <div className={styles.reviews}>
         <p className={styles.reviewsSpecific}>
-          {reviewesSpecific} {icon}
+          {props.number}
+          {props.icon}
         </p>
       </div>
       <div className={styles.info}>
-        <h2 className={styles.name}>Niagara Falls</h2>
-        <p className={styles.locality}>US-città</p>
+        <h2 className={styles.name}>{props.title}</h2>
+        <p className={styles.locality}>
+          {props.country} - {props.city}
+        </p>
       </div>
     </div>
   );

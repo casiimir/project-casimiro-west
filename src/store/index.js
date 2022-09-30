@@ -84,6 +84,13 @@ const attractionsReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ATTRACTIONS_MOST_DATA":
       return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+
+const attractionHighestReducer = (state = {}, action) => {
+  switch (action.type) {
     case "SET_ATTRACTIONS_HIGHEST_DATA":
       return { ...state, data: action.payload };
     default:
@@ -98,7 +105,7 @@ const rootReducer = combineReducers({
   cities: citiesReducer,
   activities: activitiesReducer,
   attractionsMost: attractionsReducer,
-  attractionsHighest: attractionsReducer,
+  attractionsHighest: attractionHighestReducer,
 });
 const store = createStore(rootReducer, InitialState);
 export default store;

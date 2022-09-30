@@ -12,4 +12,10 @@
     font-family: $titles-font;
     color: white;
   }
+
+  .cards {
+    display: flex;
+    gap: 2rem;
+    overflow-y: scroll;
+  }
 }
