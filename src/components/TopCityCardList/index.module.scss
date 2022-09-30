@@ -13,9 +13,7 @@
     width: min-content;
 
     svg {
-      width: 10px;
-      height: 40px;
-      transform: scale(3.1);
+      font-size: 2rem;
     }
 
     &:hover {
@@ -29,7 +27,7 @@
 
     overflow: hidden;
     padding: 15px;
-    width: 90%;
+    width: 88%;
   }
 }
 @media only screen and (max-width: 600px) {

@@ -3,8 +3,6 @@
 
 .Home {
   @include flex-element(column);
-  width: 100%;
-
   .carousels {
     .title {
       padding: 0 15px;

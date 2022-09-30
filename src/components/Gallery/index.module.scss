@@ -1,0 +1,267 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.Gallery {
+  @include flex-element(column, flex-start, stretch, nowrap, 10px, 100%);
+
+  font-family: $text-font;
+  font-size: 1.05rem;
+  padding: 10px;
+
+  p:first-of-type:first-letter {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: $handwrite-font;
+    color: lightseagreen;
+  }
+
+  .row {
+    @include flex-element(row, space-around, stretch, nowrap, 10px);
+
+    font-weight: 500;
+
+    .box {
+      width: 100vw;
+      height: calc(60vh + 10px);
+      padding-right: 5px;
+      border-right: 2px solid lightseagreen;
+      padding: 5px;
+
+      .info {
+        @include flex-element(row, flex-end);
+        color: lightseagreen;
+        font-size: 2rem;
+        font-family: $handwrite-font;
+        font-weight: bold;
+
+        p:first-of-type:first-letter {
+          font-size: 2rem;
+        }
+
+        span:nth-child(2) {
+          align-self: center;
+          color: black;
+          padding: 0 15px;
+
+          svg {
+            transform: scale(2);
+            height: 20px;
+          }
+        }
+      }
+    }
+
+    .photos {
+      @include flex-element(column, flex-start, stretch, nowrap, 10px);
+
+      .photo1 {
+        width: 60vw;
+        height: 30vh;
+        background-size: cover;
+        background-position-y: center;
+      }
+
+      .photo2 {
+        width: 60vw;
+        height: 30vh;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+
+    .box2 {
+      width: 40vw;
+      height: calc(60vh + 10px);
+      background-size: cover;
+      background-position-x: center;
+    }
+  }
+
+  .row2 {
+    padding-left: 5px;
+    border-top: 2px solid lightseagreen;
+    font-weight: 500;
+    font-size: 100%;
+
+    .info {
+      @include flex-element(row, flex-end);
+      color: lightseagreen;
+      font-size: 2rem;
+      font-family: $handwrite-font;
+      font-weight: bold;
+
+      span {
+        align-self: center;
+        color: black;
+        padding: 0 15px;
+
+        svg {
+          transform: scale(2);
+          height: 20px;
+        }
+      }
+    }
+  }
+
+  .row3 {
+    @include flex-element(row, space-around, stretch, nowrap, 10px);
+
+    .photo3 {
+      width: 40vw;
+      height: 40vh;
+      background-size: cover;
+      filter: brightness(0.9);
+    }
+    .photo4 {
+      width: 90vw;
+      height: 40vh;
+      background-size: cover;
+      background-position-y: center;
+    }
+  }
+}
+
+@media only screen and (min-width: 1230px) {
+  .Gallery {
+    .row {
+      font-size: 1rem;
+
+      .box {
+        .info {
+          font-size: 1.8rem;
+
+          p:first-of-type:first-letter {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+
+    .row2 {
+      font-size: 1rem;
+      .info {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1195px) {
+  .Gallery {
+    .row {
+      font-size: 0.9rem;
+
+      .box {
+        .info {
+          font-size: 1.3rem;
+
+          p:first-of-type:first-letter {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+
+    .row2 {
+      font-size: 0.9rem;
+      .info {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 868px) {
+  .Gallery {
+    .row {
+      .box {
+        width: 100vw;
+        height: calc(60vh + 10px);
+      }
+      .photos {
+        .photo1 {
+          width: 58vw;
+          height: 30vh;
+        }
+
+        .photo2 {
+          width: 58vw;
+          height: 30vh;
+        }
+      }
+
+      .box2 {
+        display: none;
+      }
+    }
+    .row3 {
+      .photo3 {
+        width: 40vw;
+        height: 30vh;
+      }
+      .photo4 {
+        width: 90vw;
+        height: 30vh;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Gallery {
+    p:first-of-type:first-letter {
+      font-size: 1.5rem;
+    }
+
+    .row {
+      @include flex-element(column, flex-start, stretch, nowrap, 10px);
+
+      .box {
+        width: 95vw;
+        height: max-content;
+        border-top: 2px solid lightseagreen;
+        border-bottom: 2px solid lightseagreen;
+        border-right: none;
+      }
+
+      .photos {
+        .photo1 {
+          width: 95vw;
+          height: 20vh;
+        }
+
+        .photo2 {
+          width: 95vw;
+          height: 20vh;
+        }
+      }
+
+      .box2 {
+        width: 95vw;
+        height: 20vh;
+        background-position-x: none;
+        background-position-y: bottom;
+      }
+    }
+
+    .row2 {
+      width: 95vw;
+      border-bottom: 2px solid lightseagreen;
+    }
+
+    .row3 {
+      @include flex-element(column, space-around, stretch, nowrap, 10px);
+      .photo3 {
+        width: 95vw;
+        height: 25vh;
+        background-position-y: center;
+      }
+
+      .photo4 {
+        width: 95vw;
+        height: 25vh;
+        background-position-y: bottom;
+      }
+    }
+  }
+}

@@ -8,7 +8,9 @@ const Hero = () => {
   const [cityHeroList, setCityHeroList] = useState();
 
   useEffect(() => {
-    GET("cities").then((data) => setCityHeroList(data.slice(0, 6)));
+    GET("cities")
+      .then((data) => data.splice(0, 6))
+      .then((data) => setCityHeroList(data?.filter((e, i, a) => i < 6)));
   }, []);
 
   const BackgroundAnimation = {
@@ -36,7 +38,7 @@ const Hero = () => {
             key={index}
             label={item.name}
             background={{
-              backgroundImageSrc: item.cover_image_url,
+              backgroundImageSrc: `${item.cover_image_url}?w=2000`,
               backgroundAnimationDuration: 5000,
               backgroundAnimationDelay: 10,
               backgroundAnimation: `${BackgroundAnimation.ZOOM}`,
