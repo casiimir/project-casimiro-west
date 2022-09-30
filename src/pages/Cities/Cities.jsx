@@ -42,7 +42,9 @@ const Cities = () => {
   }
 
   const scrollRef = useHorizontalScroll();
-
+  {
+    console.log(activityPageContent);
+  }
   return (
     <div className={styles.Cities}>
       <div className={styles.infoContainer}>

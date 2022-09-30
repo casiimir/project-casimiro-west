@@ -1,15 +1,15 @@
-import { Link } from "react-router-dom";
+
 import styles from "./index.module.scss";
 import { MdOutlineLocalActivity } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
 import { memo } from "react";
-
+import { Link } from "react-router-dom";
 const CityCard = ({ CardData }) => {
   return (
     <div className={styles.Container}>
       <div
         className={styles.Card}
-        style={{ backgroundImage: `url(${CardData.cover_image_url})` }}
+        style={{ backgroundImage: `url(${CardData.cover_image_url}?w=400)` }}
       >
         <div className={styles.CardInfo}>
           <div className={styles.info}>

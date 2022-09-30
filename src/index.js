@@ -15,7 +15,8 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Activities from "./pages/Activities";
 import Cities from "./pages/Cities";
-import Experiences from "./pages/Experiences";
+
+import Attractions from "./pages/Attractions";
 
 
 const rootElement = document.getElementById("root");
@@ -29,13 +30,13 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        children: [,],
+        children: [],
       },
       { path: ":cityName", element: <Cities /> },
       { path: "/about", element: <About /> },
       { path: "/activities", element: <Activities /> },
+      { path: "/attractions", element: <Attractions /> },
 
-      { path: "/experiences", element: <Experiences /> },
     ],
   },
   { path: "*", element: <ErrorPage /> },

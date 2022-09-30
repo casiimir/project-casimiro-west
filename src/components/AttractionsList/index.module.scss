@@ -1,0 +1,15 @@
+@import "../../styles/_variables";
+.AttractionsList {
+  width: 100vw;
+  height: 180px;
+  background-color: rgba(0, 0, 0, 0.699);
+  backdrop-filter: blur(5px);
+  padding-left: 0.8rem;
+
+  .name {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem 0 0 0.8rem;
+    font-family: $titles-font;
+    color: white;
+  }
+}

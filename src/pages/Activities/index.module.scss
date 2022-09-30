@@ -7,17 +7,26 @@
   left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 60px;
-  height: 100%;
+  justify-content: flex-start;
   margin: 0px;
-  padding-bottom: 100px;
   width: 100vw;
+  gap: 50px;
+  h1 {
+    display: flex;
+    justify-content: center;
+    font-family: "lato";
+    margin-top: 100px;
+  }
+  h2 {
+    font-family: "lato";
+    display: flex;
+    justify-content: flex-start;
+    font-size: 35px;
+  }
 
   .ActivitiesHero {
     width: 100vw;
-    height: 21rem;
+    height: 16.5rem;
     .HeroTitle {
       width: 300px;
       left: calc((100% - 300px) / 2);
@@ -31,21 +40,8 @@
       font-weight: 800;
       text-shadow: 1px 2px 4px $almost-black;
     }
-    .Gradient {
-      width: 100%;
-      height: 21rem;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 5;
-      background: linear-gradient(
-        180deg,
-        rgba(217, 217, 217, 0) 80%,
-        #ffffff 100%
-      );
-    }
     .HeroImg {
-      height: 7rem;
+      height: 5.5rem;
       img {
         width: 100%;
         height: 100%;
@@ -53,15 +49,57 @@
       }
     }
   }
-  .CardList {
-    display: flex;
-    justify-content: flex-start;
-    flex-direction: row;
-    overflow-x: scroll;
-    overflow-y: hidden;
+  .backgroundGradient {
+    position: relative;
+    top: -100px;
+    left: 0;
+    z-index: 5;
     width: 100%;
-    height: 100%;
-    gap: 20px;
-    padding-bottom: 160px;
+    background: linear-gradient(
+      180deg,
+      rgba(255, 0, 0, 0) 0%,
+      white 5%,
+      white 100%
+    );
+
+    .CategoriesList {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      width: 100vw;
+      padding-left: 30px;
+      margin: 0;
+      .container {
+        display: flex;
+        justify-content: flex-start;
+        gap: 20px;
+        width: 90vw;
+        box-shadow: none;
+      }
+      .button {
+        background-color: transparent;
+        border: none;
+        color: $dark-grey;
+        transition: 0.5s;
+        cursor: pointer;
+        width: min-content;
+        padding: 0px;
+
+        svg {
+          transform: scale(3);
+          height: fit-content;
+          margin: 0px;
+          padding: 0px;
+        }
+      }
+    }
+    .CardList {
+      @include flex-element($justify: flex-start, $gap: 2rem);
+      overflow-x: hidden;
+      overflow-y: hidden;
+      padding: 20px 0px 20px;
+      width: 100%;
+    }
   }
 }
