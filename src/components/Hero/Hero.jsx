@@ -10,15 +10,13 @@ const Hero = () => {
   useEffect(() => {
     GET("cities")
       .then((data) => data.splice(0, 6))
-      .then((data) => setCityHeroList(data));
+      .then((data) => setCityHeroList(data?.filter((e, i, a) => i < 6)));
   }, []);
 
   const BackgroundAnimation = {
     ZOOM: "zoom",
   };
-  {
-    console.log(cityHeroList);
-  }
+
   return (
     <div className={styles.Hero}>
       <HeroSlider
@@ -40,7 +38,7 @@ const Hero = () => {
             key={index}
             label={item.name}
             background={{
-              backgroundImageSrc: item.cover_image_url,
+              backgroundImageSrc: `${item.cover_image_url}?w=2000`,
               backgroundAnimationDuration: 5000,
               backgroundAnimationDelay: 10,
               backgroundAnimation: `${BackgroundAnimation.ZOOM}`,

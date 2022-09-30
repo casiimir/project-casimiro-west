@@ -35,7 +35,9 @@ const Cities = () => {
   }
 
   const scrollRef = useHorizontalScroll();
-
+  {
+    console.log(activityPageContent);
+  }
   return (
     <div className={styles.Cities}>
       <div className={styles.infoContainer}>
@@ -54,7 +56,7 @@ const Cities = () => {
           <div className={styles.activityCardContainer} ref={scrollRef}>
             {activityPageContent?.data.map((item, index) => (
               <div key={index} className={styles.activityCard}>
-                <img src={item.cover_image_url} />
+                <img src={`${item.cover_image_url}`} alt={`activity${index}`} />
                 <p>{item.title.slice(0, 20)}...</p>
               </div>
             ))}
