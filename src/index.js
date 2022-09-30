@@ -16,10 +16,7 @@ import Home from "./pages/Home";
 import Activities from "./pages/Activities";
 import Cities from "./pages/Cities";
 
-
 import Attractions from "./pages/Attractions";
-
-
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -39,8 +36,6 @@ const router = createBrowserRouter([
       { path: "/activities", element: <Activities /> },
 
       { path: "/attractions", element: <Attractions /> },
-
-
     ],
   },
   { path: "*", element: <ErrorPage /> },
@@ -48,10 +43,8 @@ const router = createBrowserRouter([
 
 root.render(
   <StrictMode>
-   
-      <Provider store={store}>
-        <RouterProvider router={router} />
-      </Provider>
-   
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </StrictMode>
 );

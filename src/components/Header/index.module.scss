@@ -78,6 +78,18 @@
           color: lightseagreen;
           transition: 0.5s;
         }
+
+        p {
+          position: absolute;
+          top: 10px;
+          right: 5px;
+          width: 25px;
+          padding: 5px;
+          background-color: lightseagreen;
+          border-radius: 50%;
+          font-size: 15px;
+          text-align: center;
+        }
       }
     }
   }

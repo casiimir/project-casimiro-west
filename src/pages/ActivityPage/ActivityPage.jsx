@@ -15,7 +15,7 @@ const ActivityPage = () => {
   };
 
   useEffect(() => {
-    GET("https://sandbox.musement.com/api/v3/activities/148584")
+    GET("https://sandbox.musement.com/api/v3/activities/159430")
       .then((data) => {
         setActivityData(data);
         return fetch(`${data.cover_image_url}&palette=json`);
@@ -23,6 +23,17 @@ const ActivityPage = () => {
       .then((response) => response.json())
       .then((response) => setPaletteData(response));
   }, []);
+
+  const cartFunction = () => {
+    localStorage.setItem(
+      `${activityData.title}`,
+      `${activityData.retail_price.value}`
+    );
+    localStorage.setItem(
+      `${activityData.title} IMG`,
+      `${activityData?.cover_image_url}`
+    );
+  };
 
   return (
     <div
@@ -43,18 +54,17 @@ const ActivityPage = () => {
         {activityData?.title}
       </h1>
       <div className={styles.textContainer}>
-        {/* <h2 className={styles.cityName}>{activityData?.city.name}</h2> */}
+        <h3 className={styles.description}>{activityData?.description}</h3>
+        <p className={styles.description}>{activityData?.about}</p>
         <h4>
           <GiPositionMarker /> {activityData?.meeting_point}
         </h4>
-
-        <h4>
-          <TbCurrencyDollar /> {activityData?.retail_price.value}
-        </h4>
-
-        <h3 className={styles.description}>{activityData?.description}</h3>
-
-        <p className={styles.description}>{activityData?.about}</p>
+        <div className={styles.priceInfo}>
+          <h4>
+            <TbCurrencyDollar /> {activityData?.retail_price.value}
+          </h4>
+          <button onClick={cartFunction}>Aggiungi al carrello</button>
+        </div>
       </div>
     </div>
   );

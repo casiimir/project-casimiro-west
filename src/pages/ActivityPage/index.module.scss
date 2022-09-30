@@ -94,6 +94,42 @@
     //   rgba(107, 106, 106, 0.8) 9.9%
     // );
     mix-blend-mode: normal;
+
+    .priceInfo {
+      position: absolute;
+      bottom: 10px;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      h4 {
+        font-size: 30px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        font-family: Lato, sans-serif;
+        font-weight: 700;
+        background: lightseagreen;
+        outline: none;
+        border: none;
+        border-radius: 3%;
+        box-shadow: 0 0 8px $dark-cyan;
+        color: #f7f7f7;
+        cursor: pointer;
+
+        &:hover {
+          color: $mid-cyan;
+        }
+
+        &:active {
+          box-shadow: none;
+        }
+      }
+    }
   }
 }
 
