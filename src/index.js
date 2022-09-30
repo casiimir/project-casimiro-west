@@ -15,6 +15,7 @@ import ErrorPage from "./pages/ErrorPage";
 import Home from "./pages/Home";
 import Activities from "./pages/Activities";
 import Cities from "./pages/Cities";
+import ActivityPage from "./pages/ActivityPage";
 import Experiences from "./pages/Experiences";
 
 const rootElement = document.getElementById("root");
@@ -33,6 +34,7 @@ const router = createBrowserRouter([
       { path: "/about", element: <About /> },
       { path: "/activities", element: <Activities /> },
       { path: "/cities", element: <Cities /> },
+      { path: "/activity", element: <ActivityPage /> },
       { path: "/experiences", element: <Experiences /> },
     ],
   },
