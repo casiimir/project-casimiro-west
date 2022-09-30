@@ -14,17 +14,13 @@ const InitialState = {
   cities: {
     data: [],
   },
-  otherCities: {
-    data: [],
-  },
   activities: {
     data: [],
   },
-  attractionsMost: {
-    data: [],
-  },
-  attractionsHighest: {
-    data: [],
+  categories: {
+    cruiseActivitesData: [],
+    airActivitiesData: [],
+    cityActivitiesData: [],
   },
 };
 
@@ -75,15 +71,6 @@ const citiesReducer = (state = {}, action) => {
   }
 };
 
-const otherCitiesReducer = (state = {}, action) => {
-  switch (action.type) {
-    case "SET_OTHER_CITIES_DATA":
-      return { ...state, data: action.payload };
-    default:
-      return state;
-  }
-};
-
 const activitiesReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ACTIVITIES_DATA":
@@ -93,12 +80,14 @@ const activitiesReducer = (state = {}, action) => {
   }
 };
 
-const attractionsReducer = (state = {}, action) => {
+const categoriesReducer = (state = {}, action) => {
   switch (action.type) {
-    case "SET_ATTRACTIONS_MOST_DATA":
-      return { ...state, data: action.payload };
-    case "SET_ATTRACTIONS_HIGHEST_DATA":
-      return { ...state, data: action.payload };
+    case "SET_CRUISE_ACTIVITIES_DATA":
+      return { ...state, cruiseActivitiesData: action.payload };
+    case "SET_AIR_ACTIVITIES_DATA":
+      return { ...state, airActivitiesData: action.payload };
+    case "SET_CITY_ACTIVITIES_DATA":
+      return { ...state, cityActivitiesData: action.payload };
     default:
       return state;
   }
@@ -109,10 +98,9 @@ const rootReducer = combineReducers({
   listArray: listArrayReducer,
   dropdownVisibility: dropdownVisibityReducer,
   cities: citiesReducer,
-  otherCities: otherCitiesReducer,
   activities: activitiesReducer,
-  attractionsMost: attractionsReducer,
-  attractionsHighest: attractionsReducer,
+  categories: categoriesReducer,
 });
+
 const store = createStore(rootReducer, InitialState);
 export default store;
