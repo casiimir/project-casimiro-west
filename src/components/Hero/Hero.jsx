@@ -8,9 +8,9 @@ const Hero = () => {
   const [cityHeroList, setCityHeroList] = useState();
 
   useEffect(() => {
-    GET("cities")
-      .then((data) => data.splice(0, 6))
-      .then((data) => setCityHeroList(data?.filter((e, i, a) => i < 6)));
+    GET("cities", "?limit=6")
+      // .then((data) => data.splice(0, 6))
+      .then((data) => setCityHeroList(data));
   }, []);
 
   const BackgroundAnimation = {
