@@ -1,9 +1,13 @@
 import store from "./store";
 import { Provider } from "react-redux";
 import styles from "./index.module.scss";
-import React, { StrictMode } from "react";
+import React, {StrictMode} from "react";
 import { createRoot } from "react-dom/client";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
+
 import App from "./App";
 
 import About from "./pages/About";

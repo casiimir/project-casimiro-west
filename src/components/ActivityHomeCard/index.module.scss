@@ -8,14 +8,25 @@
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
   transition: 0.5s;
   height: 15rem;
+  background-color: white;
+  color: $almost-black;
+ 
 
   &:hover {
     transform: scale(1.1);
     transition: 0.5s;
     filter: brightness(1.1);
     cursor: pointer;
+   
   }
-
+  .link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+  }
   .photo {
     object-fit: cover;
     @include generic-appereance(200px, 60%);
@@ -33,14 +44,12 @@
       margin: 0rem;
       max-height: 60%;
       font-family: $titles-font;
-      color: $almost-black;
+     
       font-size: 0.9rem;
       text-shadow: 1px 1.2px 3px rgba(0, 0, 0, 0.226);
       text-overflow: ellipsis;
 
-      &:hover {
-        cursor: pointer;
-      }
+     
     }
     .bottom {
       @include flex-element(row, space-between, center, $gap: 10%);
