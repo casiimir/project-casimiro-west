@@ -2,12 +2,11 @@ import styles from "./index.module.scss";
 import CityCard from "../CityCard";
 import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
-import React, { createContext, memo, useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-
-const TopCityCardList = () => {
-  const cityData = useSelector((state) => state.cities);
+const NoTopCityCardList = () => {
+  const cityData = useSelector((state) => state.otherCities);
 
   const cardRef = useRef(null);
   const containerRef = useRef(null);
@@ -23,20 +22,18 @@ const TopCityCardList = () => {
   useEffect(() => {
     GET("cities").then((data) =>
       dispatch({
-        type: "SET_CITIES_DATA",
-        payload: data.filter((el) => el.show_in_popular === true),
+        type: "SET_OTHER_CITIES_DATA",
+        payload: data.filter((el) => el.show_in_popular === false),
       })
     );
   }, [dispatch]);
 
-const data ={ cityData}
-
-  return ( 
+  return (
     <div className={styles.box}>
       <button className={styles.button} onClick={prev}>
         <IoIosArrowBack />
       </button>
-      <div ref={containerRef} className={styles.TopCityCardList}>
+      <div ref={containerRef} className={styles.NoTopCityCardList}>
         {cityData?.data?.map((el) => (
           <CityCard key={el.id} CardData={el} />
         ))}
@@ -45,8 +42,7 @@ const data ={ cityData}
         <IoIosArrowForward />
       </button>
     </div>
-
   );
 };
 
-export default memo(TopCityCardList);
+export default memo(NoTopCityCardList);

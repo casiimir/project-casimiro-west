@@ -4,135 +4,141 @@
 
 .Cities {
   @include element-position($position: relative, $top: -75px, $right: auto);
-  width: 100vw;
-  height: 105%;
+  width: 100%;
   overflow: hidden;
+  font-family: $text-font;
+  background-size: cover;
+  height: max-content;
+
+  ::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
 
   .infoContainer {
-    @include element-position($position: relative, $top: auto, $right: auto);
+    .title {
+      height: 40vh;
+      .cityName {
+        @include element-position(
+          $position: absolute,
+          $top: 200px,
+          $right: auto,
+          $bottom: auto,
+          $left: 38%,
+          $z-index: 0
+        );
 
-    img {
-      object-fit: contain;
-      height: 105vh;
+        color: white;
+        font-family: $titles-font;
+        font-weight: 600;
+        font-size: 120px;
+        line-height: 120px;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
+      }
+
+      .countryName {
+        @include element-position(
+          $position: absolute,
+          $top: 300px,
+          $right: auto,
+          $bottom: auto,
+          $left: 45%
+        );
+
+        color: lightseagreen;
+        font-family: $handwrite-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 70px;
+        line-height: 58px;
+
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
+      }
     }
 
-    .cityName {
-      @include element-position(
-        $position: absolute,
-        $top: 130px,
-        $right: auto,
-        $bottom: auto,
-        $left: 30%,
-        $z-index: 0
-      );
-
-      width: 313px;
-      height: 100px;
-
-      color: white;
-      font-family: $titles-font;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 100px;
-      line-height: 120px;
-
-      text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
-    }
-
-    .countryName {
-      @include element-position(
-        $position: absolute,
-        $top: 210px,
-        $right: auto,
-        $bottom: auto,
-        $left: 45%
-      );
-
-      width: 1620px;
-      height: 45px;
-
-      color: lightseagreen;
-      font-family: $text-font;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 50px;
-      line-height: 58px;
-
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-    }
-
-    .textContainer {
-      @include element-position(
-        $position: absolute,
-        $top: 300px,
-        $right: auto,
-        $bottom: auto,
-        $left: auto,
-        $z-index: 0
-      );
-
-      height: 65%;
-      padding: 25px;
-
-      font-size: 15px;
-      color: white;
-
-      text-shadow: 0px 4px 4px $almost-black;
-
+    .box {
+      display: flex;
+      justify-content: end;
       background: linear-gradient(
         180deg,
         rgba(10, 15, 15, 0) 0%,
         rgba(0, 0, 0, 0.8) 9.9%
       );
-      mix-blend-mode: normal;
-      border-radius: 6px 6px 0px 0px;
+      height: max-content;
 
-      .activityCardContainer {
-        @include element-position(
-          $position: absolute,
-          $top: auto,
-          $right: 14px,
-          $bottom: auto,
-          $left: 14px
-        );
-        margin-left: 15px;
+      .textContainer {
+        width: 100%;
 
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        gap: 10px;
+        p:first-of-type:first-letter {
+          font-size: 2rem;
+          font-weight: bold;
+          font-family: $handwrite-font;
+          color: lightseagreen;
+        }
 
-        border-radius: 5px;
+        padding: 50px 20px;
+        font-size: 15px;
+        color: white;
+        text-shadow: 0px 4px 4px $almost-black;
 
-        overflow-x: scroll;
+        mix-blend-mode: normal;
 
-        .activityCard {
-          margin-top: 25px;
+        p {
+          font-size: 1.5rem;
+          span {
+            color: lightseagreen;
+          }
+        }
 
-          background-color: white;
-          z-index: 999;
-
-          color: white;
-          border-radius: 5px;
-
-          img {
-            margin: auto;
-            display: block;
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 5px 5px 0px 0px;
+        .activityCardContainer {
+          p:first-of-type:first-letter {
+            font-size: 1rem;
+            font-weight: normal;
+            color: black;
+            font-family: $text-font;
           }
 
-          p {
-            margin-left: 5px;
-            padding: 5px;
-            position: relative;
-            z-index: 99999;
-            bottom: 0px;
-            color: black;
-            font-size: 15px;
-            text-shadow: none;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          overflow-x: scroll;
+          padding: 10px 0;
+          width: 99.5%;
+          height: max-content;
+
+          .activityCard {
+            color: white;
+            padding: 10px 10px;
+            transition: 0.5s;
+            height: 300px;
+
+            &::-webkit-scrollbar-thumb {
+              background: transparent;
+            }
+
+            img {
+              border-radius: 5px 5px 0 0;
+              margin: auto;
+              display: block;
+              width: 15vw;
+              height: 150px;
+              object-fit: cover;
+            }
+            &:hover {
+              filter: brightness(1.1);
+              transform: scale(1.05);
+              transition: 0.5s;
+              cursor: pointer;
+            }
+
+            p {
+              padding: 5px;
+              color: black;
+              text-shadow: none;
+              background-color: white;
+              height: 85px;
+              border-radius: 0 0 5px 5px;
+              font-size: 1rem;
+            }
           }
         }
       }
@@ -140,139 +146,108 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 888px) {
   .Cities {
-    @include element-position($position: relative, $top: -75px, $right: auto);
-    width: 100vw;
-    height: 105%;
-    overflow: hidden;
-
     .infoContainer {
-      @include element-position($position: relative, $top: auto, $right: auto);
-
-      img {
-        object-fit: contain;
-        height: 105vh;
-      }
-
-      .cityName {
-        @include element-position(
-          $position: absolute,
-          $top: 150px,
-          $right: auto,
-          $bottom: auto,
-          $left: 15px,
-          $z-index: 0
-        );
-
-        width: 313px;
-        height: 100px;
-
-        color: white;
-        font-family: $titles-font;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 50px;
-        line-height: 120px;
-
-        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
-      }
-
-      .countryName {
-        @include element-position(
-          $position: absolute,
-          $top: 230px,
-          $right: auto,
-          $bottom: auto,
-          $left: 15px
-        );
-
-        width: 1620px;
-        height: 45px;
-
-        color: lightseagreen;
-        font-family: $text-font;
-        font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: 58px;
-
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-      }
-
-      .textContainer {
-        @include element-position(
-          $position: absolute,
-          $top: 300px,
-          $right: auto,
-          $bottom: auto,
-          $left: auto,
-          $z-index: 0
-        );
-
-        height: 65%;
-        padding: 10px;
-
-        font-size: 10px;
-        color: white;
-
-        text-shadow: 0px 4px 4px $almost-black;
-
-        background: linear-gradient(
-          180deg,
-          rgba(10, 15, 15, 0) 0%,
-          rgba(0, 0, 0, 0.8) 9.9%
-        );
-        mix-blend-mode: normal;
-        border-radius: 6px 6px 0px 0px;
-
-        .activityCardContainer {
+      .title {
+        .cityName {
           @include element-position(
             $position: absolute,
-            $top: auto,
-            $right: 14px,
+            $top: 15%,
+            $right: auto,
             $bottom: auto,
-            $left: 14px
+            $left: 30%,
+            $z-index: 0
+          );
+        }
+
+        .countryName {
+          @include element-position(
+            $position: absolute,
+            $top: 24%,
+            $right: auto,
+            $bottom: auto,
+            $left: 45%
+          );
+        }
+      }
+      .box {
+        .textContainer {
+          .activityCardContainer {
+            .activityCard {
+              height: 20vh;
+
+              img {
+                width: 20vw;
+                height: 10vh;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .Cities {
+    overflow-x: hidden;
+
+    .infoContainer {
+      .title {
+        .cityName {
+          @include element-position(
+            $position: relative,
+            $top: 60%,
+            $right: auto,
+            $bottom: auto,
+            $left: 2%,
+            $z-index: 1
           );
 
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
-          gap: 10px;
+          font-size: 4.5em;
+        }
 
-          border-radius: 5px;
+        .countryName {
+          @include element-position(
+            $position: relative,
+            $top: 45%,
+            $right: auto,
+            $bottom: auto,
+            $left: 2%
+          );
 
-          overflow-x: scroll;
-          -webkit-overflow-scrolling: touch;
-          &::-webkit-scrollbar {
-            display: none;
+          font-size: 2.3rem;
+        }
+      }
+
+      .box {
+        height: max-content;
+        .textContainer {
+          padding: 20px 5px;
+
+          p {
+            font-size: 0.9rem;
           }
 
-          .activityCard {
-            margin-top: 20px;
-            background-color: white;
-            z-index: 999;
+          .activityCardContainer {
+            -webkit-overflow-scrolling: touch;
 
-            color: white;
-            border-radius: 5px;
+            .activityCard {
+              height: 170px;
 
-            img {
-              margin: auto;
-              display: block;
-              width: 200px;
-              height: 90px;
-              object-fit: cover;
-              border-radius: 5px;
-            }
+              img {
+                width: 35vw;
+                height: 10vh;
+              }
+              &:hover {
+                filter: brightness(1);
+                transform: none;
+              }
 
-            p {
-              margin-left: 5px;
-              position: relative;
-              z-index: 99999;
-              bottom: 0px;
-              color: black;
-              font-size: 15px;
-              text-shadow: none;
+              p {
+                font-size: 0.8rem;
+              }
             }
           }
         }

@@ -5,7 +5,7 @@
   @include flex-element(column, flex-start, stretch, nowrap, 10px, 100%);
 
   font-family: $text-font;
-  font-size: 1.05rem;
+
   padding: 10px;
 
   p:first-of-type:first-letter {
@@ -21,6 +21,7 @@
     font-weight: 500;
 
     .box {
+      font-size: 124%;
       width: 100vw;
       height: calc(60vh + 10px);
       padding-right: 5px;
@@ -28,17 +29,14 @@
       padding: 5px;
 
       .info {
-        @include flex-element(row, flex-end);
+        @include flex-element(row, flex-end, center);
         color: lightseagreen;
         font-size: 2rem;
         font-family: $handwrite-font;
         font-weight: bold;
+        gap: 6px;
 
-        p:first-of-type:first-letter {
-          font-size: 2rem;
-        }
-
-        span:nth-child(2) {
+        span {
           align-self: center;
           color: black;
           padding: 0 15px;
@@ -55,14 +53,14 @@
       @include flex-element(column, flex-start, stretch, nowrap, 10px);
 
       .photo1 {
-        width: 60vw;
+        width: 50vw;
         height: 30vh;
         background-size: cover;
         background-position-y: center;
       }
 
       .photo2 {
-        width: 60vw;
+        width: 50vw;
         height: 30vh;
         background-size: cover;
         background-position: center;
@@ -70,18 +68,21 @@
     }
 
     .box2 {
-      width: 40vw;
+      width: 55vw;
       height: calc(60vh + 10px);
       background-size: cover;
-      background-position-x: center;
+      background-position-x: 75%;
     }
   }
 
   .row2 {
+    p {
+      font-size: 124%;
+    }
+
     padding-left: 5px;
     border-top: 2px solid lightseagreen;
     font-weight: 500;
-    font-size: 100%;
 
     .info {
       @include flex-element(row, flex-end);
@@ -129,10 +130,6 @@
       .box {
         .info {
           font-size: 1.8rem;
-
-          p:first-of-type:first-letter {
-            font-size: 1.8rem;
-          }
         }
       }
     }
@@ -154,10 +151,6 @@
       .box {
         .info {
           font-size: 1.3rem;
-
-          p:first-of-type:first-letter {
-            font-size: 1.3rem;
-          }
         }
       }
     }
@@ -171,10 +164,11 @@
   }
 }
 
-@media only screen and (max-width: 868px) {
+@media only screen and (max-width: 896px) {
   .Gallery {
     .row {
       .box {
+        font-size: 1.1rem;
         width: 100vw;
         height: calc(60vh + 10px);
       }
@@ -194,6 +188,12 @@
         display: none;
       }
     }
+    .row2 {
+      p {
+        font-size: 1.1rem;
+      }
+    }
+
     .row3 {
       .photo3 {
         width: 40vw;
@@ -207,7 +207,7 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 645px) {
   .Gallery {
     p:first-of-type:first-letter {
       font-size: 1.5rem;
@@ -237,10 +237,11 @@
       }
 
       .box2 {
+        display: block;
         width: 95vw;
-        height: 20vh;
+        height: 25vh;
         background-position-x: none;
-        background-position-y: bottom;
+        background-position-y: 40%;
       }
     }
 

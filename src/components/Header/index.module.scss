@@ -78,10 +78,24 @@
           color: lightseagreen;
           transition: 0.5s;
         }
+
+        p {
+          position: absolute;
+          top: 10px;
+          right: 5px;
+          width: 25px;
+          padding: 5px;
+          background-color: lightseagreen;
+          border-radius: 50%;
+          font-size: 15px;
+          text-align: center;
+        }
       }
     }
   }
   .dropdown {
+    @include generic-appereance(100%, 100vh, $padding: 5px 5px);
+
     display: none;
     z-index: 12;
     background-color: rgba(0, 0, 0, 0.699);
@@ -93,9 +107,9 @@
     &.active {
       right: 0px;
       transition: 0.7s;
+      width: 100%;
     }
 
-    @include generic-appereance(auto, 100vh, $padding: 5px 5px);
     .top {
       @include flex-element(row, space-between, center, nowrap, 10px);
 
@@ -159,6 +173,11 @@
         font-size: 1.1rem;
         svg {
           transform: scale(1.1);
+        }
+        p {
+          display: inline;
+          margin-left: 10px;
+          font-size: 1.4rem;
         }
       }
     }

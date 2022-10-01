@@ -1,15 +1,21 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
+import Footer from "../../components/Footer/Footer";
 
 const Cities = () => {
+  const cityName = useParams();
+  const data = useLocation();
+  const { activities_count, country, name, content, cover_image_url, id } =
+    data.state;
+
+  console.log(data.state);
   const [cityPageContent, setCityPageContent] = useState();
   const [activityPageContent, setActivityPageContent] = useState();
 
   useEffect(() => {
-    GET("cities").then((data) => setCityPageContent(data[0]));
-    GET("cities", "/72/activities").then((data) =>
+    GET(`cities/${id}/activities?&limit=20`).then((data) =>
       setActivityPageContent(data)
     );
   }, []);
@@ -39,30 +45,36 @@ const Cities = () => {
     console.log(activityPageContent);
   }
   return (
-    <div className={styles.Cities}>
+    <div
+      className={styles.Cities}
+      style={{ backgroundImage: `url(${cover_image_url})` }}
+    >
       <div className={styles.infoContainer}>
-        <img
-          src={`${cityPageContent?.cover_image_url}?w=2000`}
-          className={styles.cityIMG}
-        />
-        <h1 className={styles.cityName}>{cityPageContent?.name}</h1>
-        <h2 className={styles.countryName}>{cityPageContent?.country.name}</h2>
-        <div className={styles.textContainer}>
-          <p className={styles.description}>{cityPageContent?.content}</p>
-          <p className={styles.description}>
-            Things to do in {cityPageContent?.name} :
-          </p>
-          <p>Activities count {cityPageContent?.activities_count}</p>
-          <div className={styles.activityCardContainer} ref={scrollRef}>
-            {activityPageContent?.data.map((item, index) => (
-              <div key={index} className={styles.activityCard}>
-                <img src={`${item.cover_image_url}`} alt={`activity${index}`} />
-                <p>{item.title.slice(0, 20)}...</p>
-              </div>
-            ))}
+        <div className={styles.title}>
+          <h1 className={styles.cityName}>{name}</h1>
+          <h2 className={styles.countryName}>
+            <span>{country.name}</span>
+          </h2>
+        </div>
+        <div className={styles.box}>
+          <div className={styles.textContainer}>
+            <p className={styles.description}>{content.split("LE 6", +1)}</p>
+            <p className={styles.description}>
+              Things to do in <span>{name}</span> :
+            </p>
+
+            <div className={styles.activityCardContainer} ref={scrollRef}>
+              {activityPageContent?.data.map((item, index) => (
+                <div key={index} className={styles.activityCard}>
+                  <img src={`${item.cover_image_url}?w=200`} />
+                  <p>{item.title}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

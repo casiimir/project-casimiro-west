@@ -28,20 +28,22 @@
 
     img {
       filter: drop-shadow(0px 2px 8px #000000);
-      width: 150px;
+      width: 170px;
+      padding: 5px;
       &:nth-child(2) {
         display: none;
       }
     }
 
     .list {
-      color: $light-cyan;
       ul {
         margin: 0;
         padding: 0px;
         list-style-type: none;
 
-        li {
+        .link {
+          color: $light-cyan;
+          text-decoration: none;
           &:hover {
             transition: 0.5s;
             color: #23bdab;
@@ -85,6 +87,7 @@
           &:nth-child(2) {
             display: block;
             width: 70px;
+            padding: 10px 0;
           }
         }
       }
@@ -92,7 +95,7 @@
       .list {
         ul {
           grid-gap: 0px 10px;
-          li {
+          .link {
             font-size: small;
 
             &:hover {
