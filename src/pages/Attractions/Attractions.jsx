@@ -9,17 +9,15 @@ import { useEffect } from "react";
 import { GET } from "../../utils/api";
 
 const Attractions = () => {
-  const attractionsMostData = useSelector((state) => state.attractionsMost);
-  const attractionHighestData = useSelector(
-    (state) => state.attractionsHighest
+  const { attractionsMost, attractionsHighest } = useSelector(
+    (state) => state.attractions
   );
+
   const dispatch = useDispatch();
 
   const HeroImage = {
     first:
       "https://images-sandbox.musement.com/cover/0002/15/venuehero-colosseo-jpg_header-114421.jpeg",
-    second:
-      "https://images-sandbox.musement.com/cover/0001/55/arch-of-triumph-seen-from-inside-in-paris-jpg_header-54611.jpeg",
     third:
       "https://images-sandbox.musement.com/cover/0002/97/england-stonehenge-xl-jpg_header-196786.jpeg",
     fourth:
@@ -31,7 +29,7 @@ const Attractions = () => {
       (data) =>
         dispatch({
           type: "SET_ATTRACTIONS_MOST_DATA",
-          payload: data.filter((el) => el.reviews_number >= 5000),
+          payload: data.filter((el) => el.reviews_number >= 3000),
         }),
       GET("venues?&limit=30").then((data) =>
         dispatch({
@@ -42,17 +40,14 @@ const Attractions = () => {
     );
   }, [dispatch]);
 
-  console.log(attractionHighestData);
+  // console.log("====>", attractionsHighest);
 
   return (
     <div className={styles.Attractions}>
       <section className={styles.hero}>
-        <p className={styles.name}>ATTRACTIONS</p>
+        <p className={styles.name}>Attractions</p>
         <div className={styles.imageSection}>
           <img className={styles.image} src={HeroImage.first} alt="" />
-        </div>
-        <div className={styles.imageSection}>
-          <img className={styles.image} src={HeroImage.second} alt="" />
         </div>
         <div className={styles.imageSection}>
           <img className={styles.image} src={HeroImage.third} alt="" />
@@ -60,37 +55,40 @@ const Attractions = () => {
         <div className={styles.imageSection}>
           <img className={styles.image} src={HeroImage.fourth} alt="" />
         </div>
+        <div className={styles.backgroundGradient}></div>
+      </section>
 
-        <section className={styles.main}>
-          <AttractionsList title="Most Reviewed">
-            {attractionsMostData?.data?.map?.((el, i) => (
-              <AttractionCard
-                number={el.reviews_number}
-                city={el.city.name}
-                country={el.city.country.iso_code}
-                background={el.cover_image_url}
-                title={el.name}
-                key={i}
-                icon={<BsPerson />}
-              />
-            ))}
-          </AttractionsList>
+      <h1>Many attractions to choose</h1>
 
-          <AttractionsList title="Highest Average">
-            {attractionHighestData?.data?.map?.((el, i) => (
-              <AttractionCard
-                title={el.name}
-                background={el.cover_image_url}
-                city={el.city.name}
-                country={el.city.country.iso_code}
-                number={el.reviews_avg}
-                key={i}
-                reviewesSpecific="3734"
-                icon={<AiOutlineStar />}
-              />
-            ))}
-          </AttractionsList>
-        </section>
+      <section className={styles.main}>
+        <AttractionsList title="Most Reviewed">
+          {attractionsMost?.map?.((el, i) => (
+            <AttractionCard
+              number={el.reviews_number}
+              city={el.city.name}
+              country={el.city.country.name}
+              background={el.cover_image_url}
+              title={el.name}
+              key={i}
+              icon={<BsPerson />}
+            />
+          ))}
+        </AttractionsList>
+
+        <AttractionsList title="Highest Average">
+          {attractionsHighest?.map?.((el, i) => (
+            <AttractionCard
+              title={el.name}
+              background={el.cover_image_url}
+              city={el.city.name}
+              country={el.city.country.name}
+              number={el.reviews_avg}
+              key={i}
+              reviewesSpecific="3734"
+              icon={<AiOutlineStar />}
+            />
+          ))}
+        </AttractionsList>
       </section>
     </div>
   );
