@@ -4,7 +4,6 @@
 .Footer {
   font-family: $text-font;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.37);
-  padding-top: 10px;
 
   .box {
     @include flex-element(row, space-between, center);

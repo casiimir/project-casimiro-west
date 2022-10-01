@@ -2,13 +2,12 @@
 @import "../../styles/_variables";
 
 .ActivitiesHomeCard {
-  @include generic-appereance(200px, 180px);
   @include border(0, 3%);
   border-bottom-left-radius: 0%;
   border-bottom-right-radius: 0%;
-
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
   transition: 0.5s;
+  height: 15rem;
 
   &:hover {
     transform: scale(1.1);
@@ -19,7 +18,7 @@
 
   .photo {
     object-fit: cover;
-    @include generic-appereance(200px, 50%);
+    @include generic-appereance(200px, 60%);
     @include border(0, 3%);
     border-bottom-left-radius: 0%;
     border-bottom-right-radius: 0%;
@@ -28,14 +27,14 @@
   .tourInfo {
     @include flex-element(column, space-between);
     padding: 0 5px 7px 5px;
-    height: 50%;
+    height: 40%;
 
     .name {
       margin: 0rem;
-      max-height: 50%;
+      max-height: 60%;
       font-family: $titles-font;
       color: $almost-black;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       text-shadow: 1px 1.2px 3px rgba(0, 0, 0, 0.226);
       text-overflow: ellipsis;
 
@@ -56,7 +55,7 @@
           }
           color: lightseagreen;
           font-family: $text-font;
-          font-size: 0.7rem;
+          font-size: 0.8rem;
           margin: 0;
           width: 120px;
         }
@@ -73,7 +72,7 @@
       .locality {
         color: lightseagreen;
         font-family: $text-font;
-        font-size: 0.75rem;
+        font-size: 0.8rem;
         margin: 0;
       }
     }
@@ -87,9 +86,39 @@
 
 @media only screen and (max-width: 600px) {
   .ActivitiesHomeCard {
+    height: 12rem;
+
     &:hover {
       transform: none;
       filter: none;
+    }
+
+    .photo {
+      object-fit: cover;
+      @include generic-appereance(180px, 45%);
+      @include border(0, 3%);
+      border-bottom-left-radius: 0%;
+      border-bottom-right-radius: 0%;
+    }
+
+    .tourInfo {
+      @include flex-element(column, space-between);
+      padding: 0 5px 7px 5px;
+      height: 52%;
+
+      .bottom {
+        .locality {
+          color: lightseagreen;
+          font-family: $text-font;
+          font-size: 0.7rem;
+          margin: 0;
+          width: 120px;
+        }
+
+        .price {
+          font-size: 0.8rem;
+        }
+      }
     }
   }
 }
