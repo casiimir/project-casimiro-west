@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { memo, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
 import CardActivity from "../CardActivity/CardActivity";
+import Footer from "../Footer";
 
 const CityActivity = () => {
   const { cityActivitiesData } = useSelector((state) => state.categories);
@@ -12,18 +13,21 @@ const CityActivity = () => {
 
   useEffect(() => {
     GET("categories/192/activities?&limit=20").then((data) =>
-      dispatch({ type: "SET_AIR_ACTIVITIES_DATA", payload: data })
+      dispatch({ type: "SET_CITY_ACTIVITIES_DATA", payload: data })
     );
   }, [dispatch]);
 
   return (
-    <div className={styles.CityActivity}>
-      <div className={styles.box}>
-        {cityActivitiesData?.map((el, i) => (
-          <CardActivity key={i} data={el} />
-        ))}
+    <>
+      <div className={styles.CityActivity}>
+        <div className={styles.box}>
+          {cityActivitiesData?.map((el, i) => (
+            <CardActivity key={i} data={el} />
+          ))}
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 };
 

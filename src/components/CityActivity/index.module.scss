@@ -3,11 +3,21 @@
 
 .CityActivity {
   @include flex-element(column, center, center);
-  padding: 10px;
+  padding: 0 10px 10px 10px;
   width: 100%;
 
   .box {
-    @include flex-element(column, center, center);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 2fr));
+    justify-items: center;
     gap: 15px;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .CityActivity {
+    .box {
+      @include flex-element(column, center, center);
+      gap: 15px;
+    }
   }
 }
