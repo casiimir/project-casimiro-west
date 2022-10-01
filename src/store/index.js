@@ -25,6 +25,9 @@ const InitialState = {
     airActivitiesData: [],
     cityActivitiesData: [],
   },
+  cart: {
+    data: [],
+  },
 };
 
 const inputReducer = (state = {}, action) => {
@@ -105,6 +108,15 @@ const categoriesReducer = (state = {}, action) => {
   }
 };
 
+const cartReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_CART_DATA":
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   input: inputReducer,
   listArray: listArrayReducer,
@@ -113,6 +125,7 @@ const rootReducer = combineReducers({
   otherCities: otherCitiesReducer,
   activities: activitiesReducer,
   categories: categoriesReducer,
+  cart: cartReducer,
 });
 
 const store = createStore(rootReducer, InitialState);

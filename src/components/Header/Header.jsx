@@ -23,6 +23,10 @@ const Header = ({ children }) => {
     });
   }, []);
 
+  const { data } = useSelector((state) => state.cart);
+
+  console.log(data);
+
   const navRef = useRef(null);
 
   return (
@@ -64,8 +68,7 @@ const Header = ({ children }) => {
             <RiMenu3Line />
           </div>
           <div className={styles.cart} onClick={onHadleClick}>
-            <FaShoppingCart />{" "}
-            {localStorage.length > 0 && <p>{localStorage.length / 2}</p>}
+            <FaShoppingCart /> {data.length > 0 && <p>{data.length / 2}</p>}
           </div>
         </section>
       </nav>
@@ -106,6 +109,7 @@ const Header = ({ children }) => {
 
             <span>
               <FaShoppingCart />
+              {data.length > 0 && <p>{data.length / 2}</p>}
             </span>
           </button>
         </div>
