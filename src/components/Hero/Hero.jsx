@@ -49,7 +49,7 @@ const Hero = () => {
             <span className={styles.infoBox}>
               <p className={styles.description}>{item.meta_description}</p>
               <p className={styles.readMore}>
-                <span>
+                <span className={styles.text}>
                   Read more{" "}
                   <span className={styles.arrow}>
                     <BsArrowRight />
