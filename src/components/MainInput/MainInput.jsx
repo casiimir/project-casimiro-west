@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 const MainInput = () => {
   const { visibility } = useSelector((state) => state.input);
-  const cityData = useSelector((state) => state.cities);
   const dispatch = useDispatch();
   const [active, setActive] = useState();
   const [filterS, setFilterS] = useState("");
@@ -33,6 +32,8 @@ const MainInput = () => {
     const onEventListener = (e) => {
       if (e.target.tagName === "DIV" && e.target.tagName !== "INPUT") {
         setActive("");
+        setQueryActive(false);
+        setInputValue("");
       } else if (
         e.target.tagName === "IMG" ||
         e.target.tagName === "CITE" ||
@@ -42,6 +43,8 @@ const MainInput = () => {
         e.target.tagName === "A"
       ) {
         setActive("");
+        setQueryActive(false);
+        setInputValue("");
       }
     };
 
@@ -61,6 +64,7 @@ const MainInput = () => {
   };
 
   const search = useDispatch();
+
   useEffect(() => {
     if (inputValue) {
       GET("cities").then((data) =>
@@ -72,20 +76,61 @@ const MainInput = () => {
 
   return (
     <>
-      <form
-        className={`${styles.MainInput} ${active}`}
-        onSubmit={onHandleSubmit}
-      >
-        <input
-          className={styles.input}
-          ref={inputRef}
-          onChange={onHandleInput}
-          type="text"
-        />
-        <button className={styles.search2} type="submit">
-          <AiOutlineSearch />
-        </button>
-      </form>
+      <div className={`${styles.Input}`}>
+        <div className={styles.box}>
+          <form
+            className={`${styles.MainInput} ${active}`}
+            onSubmit={onHandleSubmit}
+          >
+            <input
+              className={styles.input}
+              ref={inputRef}
+              onChange={onHandleInput}
+              type="text"
+              placeholder="Search a city.."
+            />
+            <button className={styles.search2} type="submit">
+              <AiOutlineSearch />
+            </button>
+          </form>
+          {inputValue.length >= 1 && filterS && filterS.length > 0 ? (
+            <div
+              className={`${styles.MainInput__filter} ${
+                queryActive && styles.active
+              }`}
+            >
+              <ul>
+                {filterS?.map((cities, i) => {
+                  return (
+                    <li
+                      key={i}
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                      }}
+                    >
+                      <Link
+                        to={`/city/${cities.name}`}
+                        state={cities}
+                        className={styles.link}
+                      >
+                        {cities.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ) : (
+            <div
+              className={`${styles.MainInput__filter} ${
+                queryActive && styles.active
+              }`}
+            >
+              <p>There are no results..</p>
+            </div>
+          )}
+        </div>
+      </div>
       <div
         className={styles.search}
         onClick={(e) => {
@@ -97,42 +142,6 @@ const MainInput = () => {
       >
         <AiOutlineSearch />
       </div>
-      {inputValue.length > 1 && filterS && filterS.length > 0 ? (
-        <div
-          className={`${styles.MainInput__filter} ${
-            queryActive && styles.active
-          }`}
-        >
-          <ul>
-            {filterS?.map((cities, i) => {
-              return (
-                <li
-                  key={i}
-                  onClick={() => {
-                    window.scrollTo(0, 0);
-                  }}
-                >
-                  <Link
-                    to={`/${cities.name}`}
-                    state={cityData}
-                    className={styles.link}
-                  >
-                    {cities.name}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      ) : (
-        <div
-          className={`${styles.MainInput__filter} ${
-            queryActive && styles.active
-          }`}
-        >
-          <p>Non ci sono risultati..</p>
-        </div>
-      )}
     </>
   );
 };
