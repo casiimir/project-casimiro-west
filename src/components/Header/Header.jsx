@@ -23,7 +23,7 @@ const Header = ({ children }) => {
     });
   }, []);
 
-  // const { cardData } = useSelector((state) => state.cart);
+  const { cartData } = useSelector((state) => state.cart);
 
   const navRef = useRef(null);
 
@@ -67,7 +67,12 @@ const Header = ({ children }) => {
           </div>
           <div className={styles.cart} onClick={onHadleClick}>
             <FaShoppingCart />{" "}
-            {localStorage.length > 0 && <p>{localStorage.length / 2}</p>}
+            {localStorage.length > 0 &&
+              (cartData ? (
+                <p>{cartData.length / 2}</p>
+              ) : (
+                <p>{localStorage.length / 2}</p>
+              ))}
           </div>
         </section>
       </nav>
@@ -108,7 +113,12 @@ const Header = ({ children }) => {
 
             <span>
               <FaShoppingCart />
-              {localStorage.length > 0 && <p>{localStorage.length / 2}</p>}
+              {localStorage.length > 0 &&
+                (cartData ? (
+                  <p>{cartData.length / 2}</p>
+                ) : (
+                  <p>{localStorage.length / 2}</p>
+                ))}
             </span>
           </button>
         </div>
