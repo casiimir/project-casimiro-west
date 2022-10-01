@@ -2,15 +2,22 @@
 @import "../../styles/_mixins";
 
 .AttractionCard {
-  @include border(0, 6%);
+  border-radius: 5px;
   min-width: 280px;
   height: 120px;
 
-  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.292);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+
+  &:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+    filter: brightness(1.1);
+    cursor: pointer;
+  }
 
   .reviews {
     width: 100%;
@@ -18,16 +25,22 @@
     justify-content: end;
 
     .reviewsSpecific {
-      @include border(0, 0, 25%, 0, 25%);
-      width: fit-content;
+      border-bottom-left-radius: 5px;
+      border-top-right-radius: 5px;
+      display: flex;
+      justify-content: center;
+      width: 4rem;
       background-color: rgba(0, 0, 0, 0.699);
       backdrop-filter: blur(5px);
       color: lightseagreen;
+      font-family: $text-font;
+      text-align: center;
     }
   }
 
   .info {
-    @include border(0, 0, 0, 10%, 10%);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     width: 100%;
     padding: 0 1rem 0.5rem 1rem;
     background: linear-gradient(
@@ -37,11 +50,12 @@
       #0a0f0f 100%
     );
     .name {
-      font-family: "Lato";
+      font-family: $titles-font;
       text-shadow: 1px 2px 4px $almost-black;
       color: white;
     }
     .locality {
+      font-family: $text-font;
       text-align: end;
       color: white;
     }

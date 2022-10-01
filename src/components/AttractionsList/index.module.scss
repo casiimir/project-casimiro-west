@@ -1,21 +1,47 @@
 @import "../../styles/_variables";
+@import "../../styles/mixins";
+
 .AttractionsList {
-  width: 100vw;
-  height: 180px;
-  background-color: rgba(0, 0, 0, 0.699);
-  backdrop-filter: blur(5px);
-  padding-left: 0.8rem;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 93.5%;
+  margin: 0;
 
   .name {
-    margin-bottom: 0.5rem;
-    padding: 0.5rem 0 0 0.8rem;
+    color: $dark-grey;
     font-family: $titles-font;
-    color: white;
-  }
-
-  .cards {
     display: flex;
-    gap: 2rem;
-    overflow-y: scroll;
+    justify-content: flex-start;
+  }
+  .container {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    box-shadow: none;
+
+    .button {
+      background-color: transparent;
+      border: none;
+      color: $dark-grey;
+      transition: 0.5s;
+      cursor: pointer;
+      width: min-content;
+      padding: 0px;
+
+      svg {
+        transform: scale(3);
+        height: fit-content;
+        margin: 0px;
+        padding: 0px;
+      }
+    }
+  }
+  .cards {
+    @include flex-element($justify: flex-start, $gap: 2rem);
+    overflow-x: scroll;
+    overflow-y: hidden;
+    padding: 20px 0px 20px;
+    width: 100%;
   }
 }
