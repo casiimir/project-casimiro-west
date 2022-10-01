@@ -1,4 +1,3 @@
-
 import styles from "./index.module.scss";
 import { MdOutlineLocalActivity } from "react-icons/md";
 import { BsArrowRight } from "react-icons/bs";
