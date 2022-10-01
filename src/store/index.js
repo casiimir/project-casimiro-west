@@ -19,6 +19,7 @@ const InitialState = {
   },
   activities: {
     data: [],
+    inCityActivitiesData: [],
   },
   categories: {
     cruiseActivitesData: [],
@@ -94,6 +95,8 @@ const activitiesReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ACTIVITIES_DATA":
       return { ...state, data: action.payload };
+      case "SET_IN_CITY_ACTIVITIES_DATA":
+        return { ...state, inCityActivitiesData: action.payload };
     default:
       return state;
   }

@@ -1,13 +1,14 @@
 import store from "./store";
 import { Provider } from "react-redux";
 import styles from "./index.module.scss";
-import React, { createContext, lazy, StrictMode, Suspense } from "react";
+import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import {
   RouterProvider,
   createBrowserRouter,
   Navigate,
 } from "react-router-dom";
+
 import App from "./App";
 
 import About from "./pages/About";
@@ -17,6 +18,10 @@ import Activities from "./pages/Activities";
 import Cities from "./pages/Cities";
 import ActivityPage from "./pages/ActivityPage";
 import Attractions from "./pages/Attractions";
+
+import CityActivity from "./components/CityActivity/CityActivity";
+import AirActivity from "./components/AirActivity/AirActivity";
+import CruiseActivity from "./components/CruiseActivity/CruiseActivity";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -31,9 +36,30 @@ const router = createBrowserRouter([
         element: <Home />,
         children: [],
       },
-      { path: ":cityName", element: <Cities /> },
+      { path: "/city/:cityName", element: <Cities /> },
       { path: "/about", element: <About /> },
-      { path: "/activities", element: <Activities /> },
+      {
+        path: "/activities",
+        element: <Activities />,
+        children: [
+          {
+            path: "",
+            element: <Navigate to="cruise" />,
+          },
+          {
+            path: "air",
+            element: <AirActivity />,
+          },
+          {
+            path: "cruise",
+            element: <CruiseActivity />,
+          },
+          {
+            path: "city",
+            element: <CityActivity />,
+          },
+        ],
+      },
       { path: "/ActivityPage", element: <ActivityPage /> },
       { path: "/attractions", element: <Attractions /> },
     ],

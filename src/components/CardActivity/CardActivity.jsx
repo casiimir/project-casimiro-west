@@ -2,25 +2,26 @@ import styles from "./index.module.scss";
 import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { memo } from "react";
-import { Link } from "react-router-dom";
 
-const ActivitiesHomeCard = ({ data }) => {
+const CardActivity = ({ data }) => {
   return (
-    <div className={styles.ActivitiesHomeCard}>
+    <div className={styles.CardActivity}>
       <img
         className={styles.photo}
-        src={`${data?.cover_image_url}?w=300`}
+        src={`${data?.city.cover_image_url}?w=300`}
         alt="img"
       />
-
       <section className={styles.tourInfo}>
         <h2 className={styles.name}>{data?.title}</h2>
+        <div className={styles.description}>
+          <p>{data?.description}</p>
+        </div>
         <div className={styles.bottom}>
           <div className={styles.infoPlace}>
             <p className={styles.locality}>
               <span className={styles.icon}>
                 <GiPositionMarker />
-              </span>
+              </span>{" "}
               {data?.city.name} - {data?.city.country.name}
             </p>
           </div>
@@ -29,14 +30,8 @@ const ActivitiesHomeCard = ({ data }) => {
           </p>
         </div>
       </section>
-      <Link
-        to={`/activity/${data.name}`}
-        state={data}
-        className={styles.link}
-      ></Link>
     </div>
   );
 };
 
-export default memo(ActivitiesHomeCard);
-
+export default memo(CardActivity);
