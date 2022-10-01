@@ -71,7 +71,7 @@ const MainInput = () => {
         setFilterS(data.filter((city) => city.code.includes(inputValue)))
       );
     }
-    console.log(filterS);
+   
   }, [inputValue]);
 
   return (
