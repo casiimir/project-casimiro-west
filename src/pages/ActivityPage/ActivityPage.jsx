@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 // import { GET } from "../../utils/api";
@@ -24,15 +25,31 @@ const ActivityPage = () => {
       .then((response) => setPaletteData(response));
   }, []);
 
+  const dispatch = useDispatch();
+
   const cartFunction = () => {
-    localStorage.setItem(
-      `${activityData.title}`,
-      `${activityData.retail_price.value}`
-    );
-    localStorage.setItem(
-      `${activityData.title} IMG`,
-      `${activityData?.cover_image_url}`
-    );
+    dispatch({
+      type: "SET_CART_DATA",
+      payload: [
+        localStorage.setItem(
+          `${activityData.title}`,
+          `${activityData.retail_price.value}`
+        ),
+        localStorage.setItem(
+          `${activityData.title}IMG`,
+          `${activityData?.cover_image_url}`
+        ),
+      ],
+    });
+
+    // localStorage.setItem(
+    //   `${activityData.title}`,
+    //   `${activityData.retail_price.value}`
+    // );
+    // localStorage.setItem(
+    //   `${activityData.title}IMG`,
+    //   `${activityData?.cover_image_url}`
+    // );
   };
 
   return (
@@ -73,3 +90,11 @@ const ActivityPage = () => {
 export default ActivityPage;
 
 // 159430   85422   148584
+//recupero img dal localstorage:
+//              {Object.values(localStorage)
+//                .filter((e) => e.includes("http"))  scrivendo !e.includes("http") prendiamo il prezzo
+//               .map((item) => console.log(item))}
+// recupero nome attività da localStorage:
+//               {Object.keys(localStorage)
+//                 .filter((e) => !e.includes("IMG"))
+//                 .map((item) => console.log(item))}
