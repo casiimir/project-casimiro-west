@@ -1,12 +1,9 @@
 import { Outlet } from "react-router-dom";
 import styles from "./index.module.scss";
-import { GET } from "../../utils/api.js";
-import { useRef, memo, useEffect } from "react";
-import { FiMapPin } from "react-icons/fi";
-import { TbCurrencyDollar } from "react-icons/tb";
-import ActivityHomeCard from "../../components/ActivityHomeCard/ActivityHomeCard";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { memo, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+
+import { NavLink } from "react-router-dom";
 
 const Activities = () => {
   const ActivitiesHeroData = {
@@ -36,58 +33,11 @@ const Activities = () => {
     },
   };
 
-  const { cruiseActivitiesData, airActivitiesData, cityActivitiesData } =
-    useSelector((state) => state.categories);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    GET("categories/191/activities?&limit=15").then((data) =>
-      dispatch({ type: "SET_CRUISE_ACTIVITIES_DATA", payload: data })
-    );
-
-    GET("categories/187/activities?&limit=15").then((data) =>
-      dispatch({ type: "SET_AIR_ACTIVITIES_DATA", payload: data })
-    );
-
-    GET("categories/192/activities?&limit=15").then((data) =>
-      dispatch({ type: "SET_CITY_ACTIVITIES_DATA", payload: data })
-    );
-  }, [dispatch]);
-
-  console.log(cityActivitiesData);
-
-  const cruiseRef = useRef(null);
-  const airRef = useRef(null);
-  const cityRef = useRef(null);
-
-  const next = () => {
-    cruiseRef.current.scrollLeft += 437;
-  };
-
-  const prev = () => {
-    cruiseRef.current.scrollLeft -= 437;
-  };
-
-  const nextAir = () => {
-    airRef.current.scrollLeft += 437;
-  };
-
-  const prevAir = () => {
-    airRef.current.scrollLeft -= 437;
-  };
-  const nextCity = () => {
-    cityRef.current.scrollLeft += 437;
-  };
-
-  const prevCity = () => {
-    cityRef.current.scrollLeft -= 437;
-  };
-
   return (
     <div className={styles.ActivityPage}>
       <div className={styles.ActivitiesHero}>
         <p className={styles.HeroTitle}>Activities</p>
+        <p>Discover our activities..</p>
         <div className={styles.HeroImg}>
           <img src={ActivitiesHeroData.first.background_img} alt="card" />
         </div>
@@ -99,56 +49,51 @@ const Activities = () => {
         </div>
         <div className={styles.backgroundGradient}></div>
       </div>
-      <h1>Scopri le nostre attività</h1>
-      <div className={styles.CategoriesList}>
-        <h2>Crociere</h2>
-        <div className={styles.container}>
-          <button className={styles.button} onClick={prev}>
-            <IoIosArrowBack />
-          </button>
-          <div ref={cruiseRef} className={styles.CardList}>
-            {cruiseActivitiesData?.map((el, i) => (
-              <ActivityHomeCard key={i} data={el} />
-            ))}
-          </div>
-          <button className={styles.button} onClick={next}>
-            <IoIosArrowForward />
-          </button>
-        </div>
-      </div>
-      <div className={styles.CategoriesList}>
-        <h2>Attività aeree</h2>
-        <div className={styles.container}>
-          <button className={styles.button} onClick={prevAir}>
-            <IoIosArrowBack />
-          </button>
 
-          <div ref={airRef} className={styles.CardList}>
-            {airActivitiesData?.map((el, i) => (
-              <ActivityHomeCard key={i} data={el} />
-            ))}
-          </div>
-          <button className={styles.button} onClick={nextAir}>
-            <IoIosArrowForward />
-          </button>
-        </div>
-      </div>
-      <div className={styles.CategoriesList}>
-        <h2>Attività in città</h2>
-        <div className={styles.container}>
-          <button className={styles.button} onClick={prevCity}>
-            <IoIosArrowBack />
-          </button>
-          <div ref={cityRef} className={styles.CardList}>
-            {cityActivitiesData?.map((el, i) => (
-              <ActivityHomeCard key={i} data={el} />
-            ))}
-          </div>
-          <button className={styles.button} onClick={nextCity}>
-            <IoIosArrowForward />
-          </button>
-        </div>
-      </div>
+      <ul className={styles.list}>
+        <li>
+          <NavLink
+            to={`cruise`}
+            className={styles.active}
+            style={({ isActive }) => ({
+              color: isActive && "#343434",
+              borderBottom: isActive && "1px solid #343434",
+              transition: isActive ? "0.5s" : "0.5s",
+            })}
+          >
+            Cruise
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to={`air`}
+            className={styles.active}
+            style={({ isActive }) => ({
+              color: isActive && "#343434",
+              borderBottom: isActive && "1px solid #343434",
+              transition: isActive ? "0.5s" : "0.5s",
+            })}
+          >
+            Air
+          </NavLink>
+        </li>
+
+        <li>
+          <NavLink
+            to={`city`}
+            className={styles.active}
+            style={({ isActive }) => ({
+              color: isActive && "#343434",
+              borderBottom: isActive && "1px solid #343434",
+              transition: isActive ? "0.5s" : "0.5s",
+            })}
+          >
+            City
+          </NavLink>
+        </li>
+      </ul>
+      <Outlet />
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
   RouterProvider,
   createBrowserRouter,
 } from "react-router-dom";
+
 import App from "./App";
 
 import About from "./pages/About";

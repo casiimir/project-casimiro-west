@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from "react-redux";
 import React, { createContext, memo, useEffect, useRef } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 
-
 const TopCityCardList = () => {
   const cityData = useSelector((state) => state.cities);
 
@@ -29,9 +28,9 @@ const TopCityCardList = () => {
     );
   }, [dispatch]);
 
-const data ={ cityData}
+  const data = { cityData };
 
-  return ( 
+  return (
     <div className={styles.box}>
       <button className={styles.button} onClick={prev}>
         <IoIosArrowBack />
@@ -45,7 +44,6 @@ const data ={ cityData}
         <IoIosArrowForward />
       </button>
     </div>
-
   );
 };
 
