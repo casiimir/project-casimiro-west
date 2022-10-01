@@ -5,175 +5,32 @@
 .Cities {
   @include element-position($position: relative, $top: -75px, $right: auto);
   width: 100%;
-  height: calc(100vh + 75px);
   overflow: hidden;
   font-family: $text-font;
+  background-size: cover;
+  height: max-content;
 
   ::-webkit-scrollbar-thumb {
     background: transparent;
   }
 
   .infoContainer {
-    background-size: cover;
-    height: calc(100vh + 75px);
-
-    .cityName {
-      @include element-position(
-        $position: absolute,
-        $top: 130px,
-        $right: auto,
-        $bottom: auto,
-        $left: 30%,
-        $z-index: 0
-      );
-
-      width: 313px;
-      height: 100px;
-      color: white;
-      font-family: $titles-font;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 100px;
-      line-height: 120px;
-      text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
-    }
-
-    .countryName {
-      @include element-position(
-        $position: absolute,
-        $top: 210px,
-        $right: auto,
-        $bottom: auto,
-        $left: 45%
-      );
-
-      width: 1620px;
-      height: 45px;
-      color: lightseagreen;
-      font-family: $handwrite-font;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 50px;
-      line-height: 58px;
-
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-    }
-
-    .textContainer {
-      @include element-position(
-        $position: absolute,
-        $top: auto,
-        $right: auto,
-        $bottom: 0,
-        $left: auto,
-        $z-index: 0
-      );
-      width: 100%;
-
-      p:first-of-type:first-letter {
-        font-size: 2rem;
-        font-weight: bold;
-        font-family: $handwrite-font;
-        color: lightseagreen;
-      }
-
-      height: 65%;
-      padding: 50px 10px;
-      font-size: 15px;
-      color: white;
-
-      text-shadow: 0px 4px 4px $almost-black;
-
-      background: linear-gradient(
-        180deg,
-        rgba(10, 15, 15, 0) 0%,
-        rgba(0, 0, 0, 0.8) 9.9%
-      );
-      mix-blend-mode: normal;
-      border-radius: 6px 6px 0px 0px;
-
-      p {
-        span {
-          color: lightseagreen;
-        }
-      }
-
-      .activityCardContainer {
-        p:first-of-type:first-letter {
-          font-size: 1rem;
-          font-weight: normal;
-          color: black;
-          font-family: $text-font;
-        }
-
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-
-        overflow-x: scroll;
-        padding: 10px 0;
-
-        .activityCard {
-          color: white;
-          padding: 10px 10px;
-          transition: 0.5s;
-
-          &::-webkit-scrollbar-thumb {
-            background: transparent;
-          }
-
-          img {
-            border-radius: 5px;
-            margin: auto;
-            display: block;
-            width: 200px;
-            height: 150px;
-            object-fit: cover;
-          }
-          &:hover {
-            filter: brightness(1.1);
-            transform: scale(1.1);
-            transition: 0.5s;
-            cursor: pointer;
-          }
-
-          p {
-            padding: 5px;
-            color: black;
-            text-shadow: none;
-            background-color: white;
-            height: 85px;
-            border-radius: 0 0 5px 5px;
-          }
-        }
-      }
-    }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .Cities {
-    overflow-x: hidden;
-
-    .infoContainer {
+    .title {
+      height: 40vh;
       .cityName {
         @include element-position(
           $position: absolute,
-          $top: 100px,
+          $top: 200px,
           $right: auto,
           $bottom: auto,
-          $left: 15px,
+          $left: 38%,
           $z-index: 0
         );
 
-        width: 313px;
-        height: 100px;
-
         color: white;
         font-family: $titles-font;
-        font-style: normal;
-        font-weight: 400;
-        font-size: 70px;
+        font-weight: 600;
+        font-size: 120px;
         line-height: 120px;
         text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
       }
@@ -181,37 +38,216 @@
       .countryName {
         @include element-position(
           $position: absolute,
-          $top: 180px,
+          $top: 300px,
           $right: auto,
           $bottom: auto,
-          $left: 15px
+          $left: 45%
         );
-        width: 1620px;
-        height: 45px;
+
+        color: lightseagreen;
+        font-family: $handwrite-font;
         font-style: normal;
-        font-weight: 500;
-        font-size: 50px;
-        padding-top: 5px;
+        font-weight: 400;
+        font-size: 70px;
+        line-height: 58px;
+
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
       }
+    }
+
+    .box {
+      display: flex;
+      justify-content: end;
+      background: linear-gradient(
+        180deg,
+        rgba(10, 15, 15, 0) 0%,
+        rgba(0, 0, 0, 0.8) 9.9%
+      );
+      height: max-content;
 
       .textContainer {
-        height: max-content;
-        padding: 20px 5px 0 5px;
+        width: 100%;
+
+        p:first-of-type:first-letter {
+          font-size: 2rem;
+          font-weight: bold;
+          font-family: $handwrite-font;
+          color: lightseagreen;
+        }
+
+        padding: 50px 20px;
+        font-size: 15px;
+        color: white;
+        text-shadow: 0px 4px 4px $almost-black;
+
+        mix-blend-mode: normal;
+
+        p {
+          font-size: 1.5rem;
+          span {
+            color: lightseagreen;
+          }
+        }
 
         .activityCardContainer {
-          -webkit-overflow-scrolling: touch;
+          p:first-of-type:first-letter {
+            font-size: 1rem;
+            font-weight: normal;
+            color: black;
+            font-family: $text-font;
+          }
+
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          overflow-x: scroll;
+          padding: 10px 0;
+          width: 99.5%;
+          height: max-content;
 
           .activityCard {
             color: white;
+            padding: 10px 10px;
+            transition: 0.5s;
+            height: 300px;
+
+            &::-webkit-scrollbar-thumb {
+              background: transparent;
+            }
 
             img {
-              width: 170px;
-              height: 90px;
+              border-radius: 5px 5px 0 0;
+              margin: auto;
+              display: block;
+              width: 15vw;
+              height: 150px;
+              object-fit: cover;
             }
             &:hover {
-              filter: brightness(1);
-              transform: none;
+              filter: brightness(1.1);
+              transform: scale(1.05);
+              transition: 0.5s;
+              cursor: pointer;
+            }
+
+            p {
+              padding: 5px;
+              color: black;
+              text-shadow: none;
+              background-color: white;
+              height: 85px;
+              border-radius: 0 0 5px 5px;
+              font-size: 1rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 888px) {
+  .Cities {
+    .infoContainer {
+      .title {
+        .cityName {
+          @include element-position(
+            $position: absolute,
+            $top: 15%,
+            $right: auto,
+            $bottom: auto,
+            $left: 30%,
+            $z-index: 0
+          );
+        }
+
+        .countryName {
+          @include element-position(
+            $position: absolute,
+            $top: 24%,
+            $right: auto,
+            $bottom: auto,
+            $left: 45%
+          );
+        }
+      }
+      .box {
+        .textContainer {
+          .activityCardContainer {
+            .activityCard {
+              height: 20vh;
+
+              img {
+                width: 20vw;
+                height: 10vh;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .Cities {
+    overflow-x: hidden;
+
+    .infoContainer {
+      .title {
+        .cityName {
+          @include element-position(
+            $position: relative,
+            $top: 60%,
+            $right: auto,
+            $bottom: auto,
+            $left: 2%,
+            $z-index: 1
+          );
+
+          font-size: 4.5em;
+        }
+
+        .countryName {
+          @include element-position(
+            $position: relative,
+            $top: 45%,
+            $right: auto,
+            $bottom: auto,
+            $left: 2%
+          );
+
+          font-size: 2.3rem;
+        }
+      }
+
+      .box {
+        height: max-content;
+        .textContainer {
+          padding: 20px 5px;
+
+          p {
+            font-size: 0.9rem;
+          }
+
+          .activityCardContainer {
+            -webkit-overflow-scrolling: touch;
+
+            .activityCard {
+              height: 170px;
+
+              img {
+                width: 35vw;
+                height: 10vh;
+              }
+              &:hover {
+                filter: brightness(1);
+                transform: none;
+              }
+
+              p {
+                font-size: 0.8rem;
+              }
             }
           }
         }
