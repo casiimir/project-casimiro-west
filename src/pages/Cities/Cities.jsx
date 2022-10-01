@@ -1,4 +1,3 @@
-
 import { Outlet, useLocation, useParams } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import { GET } from "../../utils/api";
@@ -7,20 +6,19 @@ import styles from "./index.module.scss";
 const Cities = () => {
   const cityName = useParams();
   const data = useLocation();
-  const { activities_count, country, name, content, cover_image_url,id} = data.state;
+  const { activities_count, country, name, content, cover_image_url, id } =
+    data.state;
 
   console.log(data.state);
   const [cityPageContent, setCityPageContent] = useState();
   const [activityPageContent, setActivityPageContent] = useState();
 
   useEffect(() => {
-    
     GET(`cities/${id}/activities?&limit=20`).then((data) =>
       setActivityPageContent(data)
     );
   }, []);
 
- 
   function useHorizontalScroll() {
     const elRef = useRef();
     useEffect(() => {
@@ -47,19 +45,18 @@ const Cities = () => {
   }
   return (
     <div className={styles.Cities}>
-      <div className={styles.infoContainer}>
-        <img
-          src={`${cover_image_url}?w=2000`}
-          className={styles.cityIMG}
-        />
+      <div
+        className={styles.infoContainer}
+        style={{ backgroundImage: `url(${cover_image_url})` }}
+      >
         <h1 className={styles.cityName}>{name}</h1>
         <h2 className={styles.countryName}>{country.name}</h2>
         <div className={styles.textContainer}>
           <p className={styles.description}>{content.split("LE 6", +1)}</p>
           <p className={styles.description}>
-            Things to do in {name} :
+            Things to do in <span>{name}</span> :
           </p>
-          <p>Activities count {activities_count}</p>
+
           <div className={styles.activityCardContainer} ref={scrollRef}>
             {activityPageContent?.data.map((item, index) => (
               <div key={index} className={styles.activityCard}>
@@ -67,7 +64,6 @@ const Cities = () => {
                 <p>{item.title}</p>
               </div>
             ))}
-           
           </div>
         </div>
       </div>
