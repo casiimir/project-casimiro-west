@@ -15,6 +15,7 @@
   }
 
   .infoContainer {
+    
     .title {
       height: 40vh;
       .cityName {
@@ -90,56 +91,18 @@
         }
 
         .activityCardContainer {
-          p:first-of-type:first-letter {
-            font-size: 1rem;
-            font-weight: normal;
-            color: black;
-            font-family: $text-font;
-          }
-
-          display: flex;
-          justify-content: flex-start;
-          align-items: center;
+      @include flex-element($gap:10px);
           overflow-x: scroll;
-          padding: 10px 0;
-          width: 99.5%;
-          height: max-content;
-
-          .activityCard {
-            color: white;
-            padding: 10px 10px;
-            transition: 0.5s;
-            height: 300px;
+          
+         
+          
 
             &::-webkit-scrollbar-thumb {
               background: transparent;
             }
+          
 
-            img {
-              border-radius: 5px 5px 0 0;
-              margin: auto;
-              display: block;
-              width: 15vw;
-              height: 150px;
-              object-fit: cover;
-            }
-            &:hover {
-              filter: brightness(1.1);
-              transform: scale(1.05);
-              transition: 0.5s;
-              cursor: pointer;
-            }
-
-            p {
-              padding: 5px;
-              color: black;
-              text-shadow: none;
-              background-color: white;
-              height: 85px;
-              border-radius: 0 0 5px 5px;
-              font-size: 1rem;
-            }
-          }
+          
         }
       }
     }

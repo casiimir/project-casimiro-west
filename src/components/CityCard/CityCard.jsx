@@ -27,7 +27,7 @@ const CityCard = ({ CardData }) => {
         </div>
       </div>
       <Link
-        to={`/${CardData.name}`}
+        to={`/city/${CardData.name}`}
         state={CardData}
         className={styles.link}
       ></Link>
