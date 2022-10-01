@@ -1,0 +1,103 @@
+@import "../../styles/mixins";
+@import "../../styles/_variables";
+
+.CardActivity {
+  @include flex-element(row);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
+  transition: 0.5s;
+  height: 10rem;
+  width: 90%;
+  border-radius: 5px;
+
+  &:hover {
+    transform: scale(1.05);
+    transition: 0.5s;
+    filter: brightness(1.1);
+    cursor: pointer;
+    background-color: #aaaaaa4a;
+  }
+
+  .photo {
+    object-fit: cover;
+    width: 25%;
+  }
+
+  .tourInfo {
+    @include flex-element(column, space-between);
+    padding: 5px;
+    width: calc(90% - 15.5%);
+
+    .name {
+      margin: 0rem;
+      font-family: $titles-font;
+      color: $almost-black;
+      font-size: 1.3rem;
+      text-shadow: 1px 1.2px 3px rgba(0, 0, 0, 0.226);
+      text-overflow: ellipsis;
+    }
+    .description {
+      font-size: 0.9rem;
+    }
+    .bottom {
+      @include flex-element(row, space-between, center, $gap: 10%);
+
+      .infoPlace {
+        display: flex;
+        align-items: center;
+
+        .locality {
+          span {
+            color: black;
+          }
+          color: lightseagreen;
+          font-family: $text-font;
+          font-size: 1rem;
+          margin: 0;
+          font-weight: 500;
+        }
+      }
+
+      .price {
+        @include flex-element(row, center, flex-end);
+        width: max-content;
+        font-family: $text-font;
+        margin: 0;
+        align-self: flex-end;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .CardActivity {
+    height: 7.5rem;
+    &:hover {
+      transform: none;
+      transition: 0.5s;
+      filter: brightness(1);
+      background-color: none;
+    }
+
+    .photo {
+      width: 35%;
+    }
+
+    .tourInfo {
+      width: calc(90% - 25.5%);
+      .name {
+        font-size: 0.7rem;
+        font-weight: 800;
+      }
+      .description {
+        font-size: 0.65rem;
+      }
+      .bottom {
+        .infoPlace {
+          .locality {
+            font-size: 0.6rem;
+          }
+        }
+      }
+    }
+  }
+}

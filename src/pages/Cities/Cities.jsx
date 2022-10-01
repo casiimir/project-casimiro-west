@@ -1,24 +1,29 @@
-import { Outlet, useLocation, useParams } from "react-router-dom";
-import { useState, useEffect, useRef } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import {useEffect, useRef } from "react";
 import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
 import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import ActivityHomeCard from "../../components/ActivityHomeCard/ActivityHomeCard";
 
 const Cities = () => {
   const cityName = useParams();
   const data = useLocation();
-  const { activities_count, country, name, content, cover_image_url, id } =
+  const cardData = useSelector((state)=> state.activities.inCityActivitiesData)
+  const dispatch = useDispatch();
+  const {country, name, content, cover_image_url, id } =
     data.state;
 
-  console.log(data.state);
-  const [cityPageContent, setCityPageContent] = useState();
-  const [activityPageContent, setActivityPageContent] = useState();
+  
+  
 
   useEffect(() => {
     GET(`cities/${id}/activities?&limit=20`).then((data) =>
-      setActivityPageContent(data)
+    dispatch({ type: "SET_IN_CITY_ACTIVITIES_DATA", payload: data })
     );
-  }, []);
+  }, [dispatch ,id ]);
+
+  console.log(cardData);
 
   function useHorizontalScroll() {
     const elRef = useRef();
@@ -26,7 +31,7 @@ const Cities = () => {
       const el = elRef.current;
       if (el) {
         const onWheel = (e) => {
-          if (e.deltaY == 0) return;
+          if (e.deltaY === 0) return;
           e.preventDefault();
           el.scrollTo({
             left: el.scrollLeft + e.deltaY,
@@ -62,11 +67,8 @@ const Cities = () => {
             </p>
 
             <div className={styles.activityCardContainer} ref={scrollRef}>
-              {activityPageContent?.data.map((item, index) => (
-                <div key={index} className={styles.activityCard}>
-                  <img src={`${item.cover_image_url}?w=200`} />
-                  <p>{item.title}</p>
-                </div>
+              {cardData?.data?.map((item, index) => (
+                <ActivityHomeCard data={item} key={index} />
               ))}
             </div>
           </div>
