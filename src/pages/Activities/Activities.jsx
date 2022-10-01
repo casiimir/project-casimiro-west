@@ -1,7 +1,6 @@
 import { Outlet } from "react-router-dom";
 import styles from "./index.module.scss";
-import { memo, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { memo } from "react";
 
 import { NavLink } from "react-router-dom";
 

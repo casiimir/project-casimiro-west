@@ -5,7 +5,7 @@
   @include flex-element(row);
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
   transition: 0.5s;
-  height: 9rem;
+  height: 10rem;
   width: 90%;
   border-radius: 5px;
 
@@ -31,12 +31,12 @@
       margin: 0rem;
       font-family: $titles-font;
       color: $almost-black;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       text-shadow: 1px 1.2px 3px rgba(0, 0, 0, 0.226);
       text-overflow: ellipsis;
     }
     .description {
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
     .bottom {
       @include flex-element(row, space-between, center, $gap: 10%);
@@ -53,6 +53,7 @@
           font-family: $text-font;
           font-size: 1rem;
           margin: 0;
+          font-weight: 500;
         }
       }
 
@@ -69,7 +70,6 @@
 
 @media only screen and (max-width: 600px) {
   .CardActivity {
-    width: 97%;
     height: 7.5rem;
     &:hover {
       transform: none;
