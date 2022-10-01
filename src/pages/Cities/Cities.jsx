@@ -46,7 +46,7 @@ const Cities = () => {
   }
 
   const scrollRef = useHorizontalScroll();
-  
+
   return (
     <div
       className={styles.Cities}

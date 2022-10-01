@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
-// import { GET } from "../../utils/api";
+import Map from "../../components/Map";
 import styles from "./index.module.scss";
 
 const ActivityPage = () => {
   const [activityData, setActivityData] = useState();
-  const [paletteData, setPaletteData] = useState();
 
   const GET = async (URL) => {
     const res = await fetch(URL);
@@ -16,13 +15,9 @@ const ActivityPage = () => {
   };
 
   useEffect(() => {
-    GET("https://sandbox.musement.com/api/v3/activities/159430")
-      .then((data) => {
-        setActivityData(data);
-        return fetch(`${data.cover_image_url}&palette=json`);
-      })
-      .then((response) => response.json())
-      .then((response) => setPaletteData(response));
+    GET("https://sandbox.musement.com/api/v3/activities/85422").then((data) => {
+      setActivityData(data);
+    });
   }, []);
 
   const dispatch = useDispatch();
@@ -41,47 +36,44 @@ const ActivityPage = () => {
         ),
       ],
     });
-
-    // localStorage.setItem(
-    //   `${activityData.title}`,
-    //   `${activityData.retail_price.value}`
-    // );
-    // localStorage.setItem(
-    //   `${activityData.title}IMG`,
-    //   `${activityData?.cover_image_url}`
-    // );
   };
 
   return (
-    <div
-      className={styles.ActivityPage}
-      style={{
-        backgroundImage: `url(${activityData?.city.cover_image_url}?w=2000&&con=-71)`,
-      }}
-    >
-      <img
-        src={`${activityData?.cover_image_url}`}
-        className={styles.cityIMG}
-      />
-      <h2 className={styles.cityName}>{activityData?.city.name}</h2>
-      <h1
-        className={styles.activityTitle}
-        style={{ color: `${paletteData?.dominant_colors.vibrant.hex}` }}
+    <div className={styles.ActivityPage}>
+      <div
+        className={styles.topSection}
+        style={{
+          "--i": `url(${activityData?.city.cover_image_url}?w=2000&blur=50&con=-71)`,
+        }}
       >
-        {activityData?.title}
-      </h1>
-      <div className={styles.textContainer}>
-        <h3 className={styles.description}>{activityData?.description}</h3>
-        <p className={styles.description}>{activityData?.about}</p>
-        <h4>
-          <GiPositionMarker /> {activityData?.meeting_point}
-        </h4>
-        <div className={styles.priceInfo}>
-          <h4>
-            <TbCurrencyDollar /> {activityData?.retail_price.value}
-          </h4>
-          <button onClick={cartFunction}>Aggiungi al carrello</button>
+        <div className={styles.text}>
+          <h1>{activityData?.title}</h1>
+          <h2>{activityData?.description}</h2>
         </div>
+        <div className={styles.polaroid}>
+          <img
+            src={`${activityData?.cover_image_url}`}
+            className={styles.polaroidIMG}
+          />
+          <p>{activityData?.city.name}</p>
+        </div>
+      </div>
+      <div className={styles.info}>
+        <p>{activityData?.about}</p>
+      </div>
+      <div className={styles.map}>
+        <p>
+          <GiPositionMarker /> {activityData?.meeting_point}
+        </p>
+        {activityData?.longitude && (
+          <Map long={activityData?.longitude} lati={activityData?.latitude} />
+        )}
+      </div>
+      <div className={styles.priceInfo}>
+        <span>
+          <TbCurrencyDollar /> {activityData?.retail_price.value}
+        </span>
+        <button onClick={cartFunction}>Aggiungi al carrello</button>
       </div>
     </div>
   );

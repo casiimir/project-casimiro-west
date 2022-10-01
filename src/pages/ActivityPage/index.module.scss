@@ -3,109 +3,219 @@
 @import "../../styles/mixins";
 
 .ActivityPage {
-  @include element-position($position: relative, $top: -75px, $right: auto);
-  width: 100vw;
-  height: 105%;
-  // overflow: hidden;
+  position: relative;
+  top: -75px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: black;
-  background-color: $dark-cyan;
+  flex-direction: column;
+  overflow-x: hidden;
 
-  img {
-    position: absolute;
-    top: 150px;
-    min-height: 500px;
-    z-index: -1;
-    object-fit: contain;
-    border: 20px solid white;
-    border-bottom: 150px solid white;
-    box-shadow: 0px 4px 4px $almost-black;
-  }
-
-  .activityTitle {
-    @include element-position(
-      $position: absolute,
-      $top: 550px,
-      $right: auto,
-      $bottom: auto,
-      $left: 34%,
-      $z-index: 0
-    );
-
-    width: 500px;
-    text-align: center;
-
-    font-family: $titles-font;
-    font-style: normal;
-
-    // text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
-  }
-  .cityName {
-    @include element-position(
-      $position: absolute,
-      $top: 180px,
-      $right: auto,
-      $bottom: auto,
-      $left: 30%
-    );
-
-    color: lightseagreen;
-    font-family: $text-font;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 58px;
-
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-
-    transform: rotate(-40deg);
-  }
-
-  .textContainer {
-    @include element-position(
-      $position: absolute,
-      $top: 700px,
-      $right: auto,
-      $bottom: auto,
-      $left: auto,
-      $z-index: 0
-    );
-    width: 100%;
-    height: 65%;
-    padding: 25px;
-
-    font-size: 15px;
-    color: white;
+  .topSection {
+    width: 100vw;
+    height: 90vh;
+    padding: 100px 100px 0 25px;
 
     display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+
+    background-image: var(--i);
+    background-repeat: no-repeat;
+    background-size: 100vw 90vh;
+    background-position: top;
+
+    .text {
+      color: white;
+
+      align-self: center;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      h1 {
+        font-size: 40px;
+        text-shadow: 1px 2px 4px #0a0f0f;
+      }
+
+      h2 {
+        padding-right: 20px;
+        font-size: 30px;
+        text-shadow: 1px 2px 4px #0a0f0f;
+        font-weight: 400;
+      }
+    }
+
+    .polaroid {
+      align-self: center;
+      width: 600px;
+      height: fit-content;
+      background-color: white;
+      border: 40px solid white;
+      border-bottom: 60px solid white;
+
+      box-shadow: 0px 4px 4px $almost-black;
+
+      .polaroidIMG {
+        max-width: 500px;
+        border-radius: 3%;
+      }
+
+      p {
+        margin-top: 10px;
+        font-family: $handwrite-font;
+        font-size: 60px;
+        text-align: center;
+      }
+    }
+  }
+
+  .info {
+    padding: 50px 20px;
+    font-size: 20px;
+  }
+
+  .map {
+    a {
+      display: none;
+    }
+
+    p {
+      padding: 20px;
+      font-size: 15px;
+      font-weight: 400;
+    }
+  }
+  .priceInfo {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
-    gap: 20px;
+    gap: 10px;
+    font-size: 20px;
 
-    text-shadow: 0px 4px 4px $almost-black;
-
-    background-color: $light-grey;
-    // background: linear-gradient(
-    //   180deg,
-    //   rgba(105, 106, 106, 0) 0%,
-    //   rgba(107, 106, 106, 0.8) 9.9%
-    // );
-    mix-blend-mode: normal;
-
-    .priceInfo {
-      position: absolute;
-      bottom: 10px;
-      text-align: left;
+    span {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+    }
 
-      h4 {
-        font-size: 30px;
+    button {
+      padding: 10px 20px;
+      font-size: 0.9rem;
+      font-family: Lato, sans-serif;
+      font-weight: 700;
+      background: lightseagreen;
+      outline: none;
+      border: none;
+      border-radius: 3%;
+      box-shadow: 0 0 8px $dark-cyan;
+      color: #f7f7f7;
+      cursor: pointer;
+
+      &:hover {
+        color: $mid-cyan;
+      }
+
+      &:active {
+        box-shadow: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .ActivityPage {
+    position: relative;
+    top: -75px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    .topSection {
+      width: 100vw;
+      height: 50vh;
+      padding: 10px;
+      padding-top: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+
+      background-image: var(--i);
+      background-repeat: no-repeat;
+      background-size: 100vw 70vh;
+      background-position: top;
+
+      .text {
+        color: white;
+
+        align-self: flex-end;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        h1 {
+          font-size: 20px;
+          text-shadow: 1px 2px 4px #0a0f0f;
+        }
+
+        h2 {
+          font-size: 15px;
+          text-shadow: 1px 2px 4px #0a0f0f;
+          font-weight: 400;
+        }
+      }
+
+      .polaroid {
+        align-self: center;
+        width: 200px;
+        height: fit-content;
+        background-color: white;
+        border: 10px solid white;
+        border-bottom: 20px solid white;
+        box-shadow: 0px 4px 4px $almost-black;
+
+        .polaroidIMG {
+          max-width: 150px;
+          border-radius: 3%;
+        }
+
+        p {
+          margin-top: 10px;
+          font-size: 30px;
+          text-align: center;
+        }
+      }
+    }
+
+    .info {
+      padding: 15px;
+      font-size: 15px;
+    }
+
+    .map {
+      a {
+        display: none;
+      }
+
+      p {
+        padding: 20px;
+        font-size: 15px;
+        font-weight: 400;
+      }
+    }
+    .priceInfo {
+      margin-bottom: 50px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+
+      span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       button {
@@ -129,106 +239,6 @@
           box-shadow: none;
         }
       }
-    }
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .ActivityPage {
-    @include element-position($position: relative, $top: -75px, $right: auto);
-    width: 100vw;
-    height: 105%;
-    // overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    background-color: $dark-cyan;
-    text-align: left;
-
-    img {
-      position: absolute;
-      top: 150px;
-      z-index: -1;
-      object-fit: contain;
-      border: 20px solid white;
-      border-bottom: 150px solid white;
-      box-shadow: 0px 4px 4px $almost-black;
-      max-width: 300px;
-      min-height: 0;
-    }
-
-    .activityTitle {
-      @include element-position(
-        $position: absolute,
-        $top: 360px,
-        $right: auto,
-        $bottom: auto,
-        $left: 15%,
-        $z-index: 0
-      );
-
-      width: 250px;
-      text-align: center;
-      font-size: 25px;
-      font-family: $titles-font;
-      font-style: normal;
-      text-align: left;
-
-      // text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
-    }
-    .cityName {
-      @include element-position(
-        $position: absolute,
-        $top: 180px,
-        $right: auto,
-        $bottom: auto,
-        $left: 10%
-      );
-
-      color: lightseagreen;
-      font-family: $text-font;
-      font-style: normal;
-      font-weight: 400;
-      font-size: 50px;
-      line-height: 58px;
-
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.75);
-      text-align: left;
-      transform: rotate(-40deg);
-    }
-
-    .textContainer {
-      @include element-position(
-        $position: absolute,
-        $top: 700px,
-        $right: auto,
-        $bottom: auto,
-        $left: auto,
-        $z-index: 0
-      );
-      width: 100%;
-      height: 65%;
-      padding: 25px;
-
-      font-size: 15px;
-      color: white;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 20px;
-
-      text-shadow: 0px 4px 4px $almost-black;
-
-      background-color: $light-grey;
-      // background: linear-gradient(
-      //   180deg,
-      //   rgba(105, 106, 106, 0) 0%,
-      //   rgba(107, 106, 106, 0.8) 9.9%
-      // );
-      mix-blend-mode: normal;
     }
   }
 }
