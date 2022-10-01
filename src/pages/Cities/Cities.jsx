@@ -45,39 +45,37 @@ const Cities = () => {
     console.log(activityPageContent);
   }
   return (
-    <>
-      <div
-        className={styles.Cities}
-        style={{ backgroundImage: `url(${cover_image_url})` }}
-      >
-        <div className={styles.infoContainer}>
-          <div className={styles.title}>
-            <h1 className={styles.cityName}>{name}</h1>
-            <h2 className={styles.countryName}>
-              <span>{country.name}</span>
-            </h2>
-          </div>
-          <div className={styles.box}>
-            <div className={styles.textContainer}>
-              <p className={styles.description}>{content.split("LE 6", +1)}</p>
-              <p className={styles.description}>
-                Things to do in <span>{name}</span> :
-              </p>
+    <div
+      className={styles.Cities}
+      style={{ backgroundImage: `url(${cover_image_url})` }}
+    >
+      <div className={styles.infoContainer}>
+        <div className={styles.title}>
+          <h1 className={styles.cityName}>{name}</h1>
+          <h2 className={styles.countryName}>
+            <span>{country.name}</span>
+          </h2>
+        </div>
+        <div className={styles.box}>
+          <div className={styles.textContainer}>
+            <p className={styles.description}>{content.split("LE 6", +1)}</p>
+            <p className={styles.description}>
+              Things to do in <span>{name}</span> :
+            </p>
 
-              <div className={styles.activityCardContainer} ref={scrollRef}>
-                {activityPageContent?.data.map((item, index) => (
-                  <div key={index} className={styles.activityCard}>
-                    <img src={`${item.cover_image_url}?w=200`} />
-                    <p>{item.title}</p>
-                  </div>
-                ))}
-              </div>
+            <div className={styles.activityCardContainer} ref={scrollRef}>
+              {activityPageContent?.data.map((item, index) => (
+                <div key={index} className={styles.activityCard}>
+                  <img src={`${item.cover_image_url}?w=200`} />
+                  <p>{item.title}</p>
+                </div>
+              ))}
             </div>
           </div>
-        </div>{" "}
-        <Footer />
+        </div>
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 

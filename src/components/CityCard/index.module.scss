@@ -23,12 +23,12 @@
   .Card {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
     border-radius: 3%;
-    height: 10rem;
-    width: 7.5rem;
+    height: 15rem;
+    width: 10.5rem;
     background-size: cover;
     object-fit: cover;
     z-index: 0;
-    
+
     .CardInfo {
       border-radius: 3%;
       height: 100%;
@@ -55,12 +55,12 @@
 
         .city {
           text-shadow: 1.8px 1.5px 1.5px $almost-black;
-          font-size: 1rem;
+          font-size: 1.4rem;
           font-family: "Lato";
         }
         .country {
           text-shadow: 1.8px 1.5px 1.5px $almost-black;
-          font-size: 50%;
+          font-size: 1rem;
           font-family: "Raleway";
         }
       }
@@ -74,7 +74,7 @@
         .activities {
           gap: 2.6px;
           text-shadow: 1.8px 1.5px 1.5px $almost-black;
-          font-size: 0.6rem;
+          font-size: 0.9rem;
           display: flex;
           align-items: center;
           font-family: "lato";
@@ -94,9 +94,38 @@
 
 @media only screen and (max-width: 600px) {
   .Container {
-    &:hover {
-      transform: none;
-      filter: none;
+    .Card {
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
+      border-radius: 3%;
+      height: 10rem;
+      width: 7rem;
+      background-size: cover;
+      object-fit: cover;
+      z-index: 0;
+      .CardInfo {
+        .info {
+          .city {
+            font-size: 1rem;
+          }
+          .country {
+            font-size: 0.6rem;
+          }
+        }
+        .footerCard {
+          .activities {
+            font-size: 0.7rem;
+          }
+        }
+
+        .arrow {
+          padding-right: 5%;
+        }
+      }
+
+      &:hover {
+        transform: none;
+        filter: none;
+      }
     }
   }
 }

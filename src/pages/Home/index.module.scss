@@ -3,7 +3,9 @@
 
 .Home {
   @include flex-element(column);
+  padding: 0 0 10px 0;
   .carousels {
+    padding: 10px 0;
     .title {
       padding: 0 15px;
       color: $dark-grey;
