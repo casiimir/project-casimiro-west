@@ -25,9 +25,12 @@
   .NoTopCityCardList {
     @include flex-element($gap: 15px);
 
-    overflow: hidden;
+    overflow: scroll;
     padding: 15px;
     width: 88%;
+    &::-webkit-scrollbar-thumb {
+      background: #20b2ab00;
+    }
   }
 }
 @media only screen and (max-width: 600px) {
