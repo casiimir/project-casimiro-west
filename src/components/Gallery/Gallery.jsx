@@ -31,7 +31,7 @@ const Gallery = () => {
             className={styles.photo1}
             style={{
               backgroundImage: `URL(
-                https://images-sandbox.musement.com/cover/0002/48/123-jpg_header-147564.jpeg
+                https://images-sandbox.musement.com/cover/0002/48/123-jpg_header-147564.jpeg?w=2000
               )`,
             }}
           ></div>
@@ -39,7 +39,7 @@ const Gallery = () => {
             className={styles.photo2}
             style={{
               backgroundImage: `URL(
-                https://images-sandbox.musement.com/cover/0001/44/la-bourse-in-bordeaux-the-water-mirror-by-night-jpg_header-43181.jpeg
+                https://images-sandbox.musement.com/cover/0001/44/la-bourse-in-bordeaux-the-water-mirror-by-night-jpg_header-43181.jpeg?w=2000
               )`,
             }}
           ></div>
@@ -92,7 +92,7 @@ const Gallery = () => {
           className={styles.photo4}
           style={{
             backgroundImage: `URL(
-                https://images-sandbox.musement.com/cover/0002/49/panoramic-view-of-grand-canal-in-venice-italy-jpg_header-148016.jpeg
+                https://images-sandbox.musement.com/cover/0002/49/panoramic-view-of-grand-canal-in-venice-italy-jpg_header-148016.jpeg?w=2000
               )`,
           }}
         ></div>
