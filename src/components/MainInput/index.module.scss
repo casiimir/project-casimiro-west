@@ -247,22 +247,23 @@
   .Input {
     .box {
       .MainInput {
+        @include flex-element(row, flex-end, center, nowrap, 8px, 100%, 40px);
         .input {
-          @include generic-appereance(100%, 30px, 1, 0, 0 30px 0 5px);
+          @include generic-appereance(235px, 30px, 1, 0, 0 30px 0 5px);
           @include border(0, 8px);
           outline: none;
           font-weight: bold;
         }
         .search2 {
-          right: 50px;
-          width: 37px;
+          right: 49px;
+          width: 36px;
           height: 33px;
         }
       }
 
       .MainInput__filter {
         &.active {
-          width: 211px;
+          width: 235px;
           top: 40px;
           right: 47px;
         }

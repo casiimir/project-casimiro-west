@@ -57,6 +57,7 @@
   .box2 {
     @include flex-element(row, center, center);
     width: 100%;
+    height: 1rem;
     background-color: $dark-grey;
     color: white;
     font-size: small;
@@ -70,7 +71,7 @@
 
       .icons {
         svg {
-          font-size: 20px;
+          font-size: 23px;
 
           &:hover {
             color: $light-cyan;
@@ -86,7 +87,7 @@
 
           &:nth-child(2) {
             display: block;
-            width: 70px;
+            width: 72px;
             padding: 10px 0;
           }
         }
@@ -94,10 +95,11 @@
 
       .list {
         ul {
+          padding-left: 10px;
           grid-gap: 0px 10px;
-          .link {
-            font-size: small;
 
+          .link {
+            font-size: 1rem;
             &:hover {
               color: $light-cyan;
             }
@@ -107,7 +109,7 @@
     }
 
     .box2 {
-      font-size: 0.5rem;
+      font-size: 0.6rem;
     }
   }
 }
