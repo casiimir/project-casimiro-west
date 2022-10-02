@@ -67,7 +67,11 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    width: 93.5%;
+    width: 100%;
     margin: 0;
+
+    .countrySection {
+      border-bottom: 2px rgba(0, 0, 0, 0.571) solid;
+    }
   }
 }

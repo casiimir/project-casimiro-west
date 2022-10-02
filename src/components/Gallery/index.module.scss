@@ -21,8 +21,10 @@
     font-weight: 500;
 
     .box {
+
       font-size: 124%;
       width: 100%;
+
       height: calc(60vh + 10px);
       padding-right: 5px;
       border-right: 2px solid lightseagreen;
@@ -35,6 +37,10 @@
         font-family: $handwrite-font;
         font-weight: bold;
         gap: 6px;
+
+        p:first-of-type:first-letter {
+          font-size: 1.5rem;
+        }
 
         span {
           align-self: center;
@@ -77,7 +83,7 @@
 
   .row2 {
     p {
-      font-size: 124%;
+      font-size: 110%;
     }
 
     padding-left: 5px;
@@ -130,6 +136,9 @@
       .box {
         .info {
           font-size: 1.8rem;
+          p:first-of-type:first-letter {
+            font-size: 1.8rem;
+          }
         }
       }
     }
@@ -143,7 +152,7 @@
   }
 }
 
-@media only screen and (max-width: 1195px) {
+@media only screen and (max-width: 1229px) {
   .Gallery {
     .row {
       font-size: 0.9rem;
@@ -151,6 +160,9 @@
       .box {
         .info {
           font-size: 1.3rem;
+          p:first-of-type:first-letter {
+            font-size: 1.5rem;
+          }
         }
       }
     }
@@ -168,7 +180,7 @@
   .Gallery {
     .row {
       .box {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
         width: 100vw;
         height: calc(60vh + 10px);
       }
@@ -189,8 +201,12 @@
       }
     }
     .row2 {
-      p {
-        font-size: 1.1rem;
+      font-size: 1.04rem;
+
+      .info {
+        p:first-of-type:first-letter {
+          font-size: 1.6rem;
+        }
       }
     }
 
@@ -207,7 +223,7 @@
   }
 }
 
-@media only screen and (max-width: 645px) {
+@media only screen and (max-width: 677px) {
   .Gallery {
     p:first-of-type:first-letter {
       font-size: 1.5rem;

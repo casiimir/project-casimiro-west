@@ -1,0 +1,48 @@
+@import "../../styles/mixins";
+@import "../../styles/_variables";
+
+.AttractionModal {
+  @include flex-element(
+    column,
+    flex-start,
+    flex-start,
+    $width: 100vw,
+    $height: 100vh
+  );
+  background-color: $dark-cyan;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 5;
+  padding: 70px 0px 0 10px;
+  .top {
+    @include flex-element(row, $width: calc(100% - 20px), $height: 30%);
+    .img {
+      position: absolute;
+      width: calc(100% - 20px);
+      height: 30%;
+      object-fit: cover;
+    }
+    .title {
+      width: calc(100% - 20px);
+      position: absolute;
+      color: white;
+      z-index: 6;
+padding: 0%;
+      height: 30%;
+      text-align: left;
+      
+      background: linear-gradient(
+        270deg,
+        rgba(10, 15, 15, 0) 0%,
+        $dark-cyan 60%,
+
+        $dark-cyan 100%
+      );
+    }
+  }
+  .bottom {
+    color: white;
+   
+  }
+}

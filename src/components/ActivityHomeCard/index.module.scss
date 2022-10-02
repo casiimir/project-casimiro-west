@@ -16,6 +16,17 @@
     transition: 0.5s;
     filter: brightness(1.1);
     cursor: pointer;
+
+  }
+  .link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
+    height: 15rem;
+
   }
 
   .photo {
@@ -93,7 +104,9 @@
 @media only screen and (max-width: 600px) {
   .ActivitiesHomeCard {
     height: 12rem;
-
+    .link {
+      height: 12rem;
+    }
     &:hover {
       transform: none;
       filter: none;
