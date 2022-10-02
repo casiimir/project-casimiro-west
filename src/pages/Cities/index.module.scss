@@ -6,6 +6,7 @@
   @include element-position($position: relative, $top: -75px, $right: auto);
   display: flex;
   flex-direction: column;
+  background-size: cover;
 
   .infoContainer {
     margin-top: 200px;
@@ -60,7 +61,7 @@
         width: 100%;
         text-align: justify;
 
-        padding: 50px 20px;
+        padding: 50px 0px;
         color: white;
         text-shadow: 0px 4px 4px $almost-black;
 
@@ -82,12 +83,11 @@
     .activityCardContainer {
       width: 100%;
 
-      
       padding: 20px;
 
-      margin-bottom: 100px;
+      margin-bottom: 50px;
       display: flex;
-      gap: 10px;
+      gap: 12.5px;
       overflow-x: scroll;
 
       &::-webkit-scrollbar-thumb {
@@ -130,4 +130,3 @@
     }
   }
 }
-
