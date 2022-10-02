@@ -9,7 +9,7 @@ const ActivitiesHomeCard = ({ data }) => {
     <div className={styles.ActivitiesHomeCard}>
       <img
         className={styles.photo}
-        src={`${data?.cover_image_url}?w=300`}
+        src={`${data?.cover_image_url}`}
         alt="img"
       />
 
@@ -39,4 +39,3 @@ const ActivitiesHomeCard = ({ data }) => {
 };
 
 export default memo(ActivitiesHomeCard);
-

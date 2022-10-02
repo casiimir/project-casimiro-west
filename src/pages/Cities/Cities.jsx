@@ -1,5 +1,5 @@
 import { useLocation, useParams } from "react-router-dom";
-import {useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
 import Footer from "../../components/Footer/Footer";
@@ -9,19 +9,17 @@ import ActivityHomeCard from "../../components/ActivityHomeCard/ActivityHomeCard
 const Cities = () => {
   const cityName = useParams();
   const data = useLocation();
-  const cardData = useSelector((state)=> state.activities.inCityActivitiesData)
+  const cardData = useSelector(
+    (state) => state.activities.inCityActivitiesData
+  );
   const dispatch = useDispatch();
-  const {country, name, content, cover_image_url, id } =
-    data.state;
-
-  
-  
+  const { country, name, content, cover_image_url, id } = data.state;
 
   useEffect(() => {
     GET(`cities/${id}/activities?&limit=20`).then((data) =>
-    dispatch({ type: "SET_IN_CITY_ACTIVITIES_DATA", payload: data })
+      dispatch({ type: "SET_IN_CITY_ACTIVITIES_DATA", payload: data })
     );
-  }, [dispatch ,id ]);
+  }, [dispatch, id]);
 
   console.log(cardData);
 
@@ -50,7 +48,7 @@ const Cities = () => {
   return (
     <div
       className={styles.Cities}
-      style={{ backgroundImage: `url(${cover_image_url})` }}
+      style={{ backgroundImage: `url(${cover_image_url}?w=2000)` }}
     >
       <div className={styles.infoContainer}>
         <div className={styles.title}>
@@ -65,13 +63,12 @@ const Cities = () => {
             <p className={styles.description}>
               Things to do in <span>{name}</span> :
             </p>
-
-            <div className={styles.activityCardContainer} ref={scrollRef}>
-              {cardData?.data?.map((item, index) => (
-                <ActivityHomeCard data={item} key={index} />
-              ))}
-            </div>
           </div>
+        </div>
+        <div className={styles.activityCardContainer} ref={scrollRef}>
+          {cardData?.data?.map((item, index) => (
+            <ActivityHomeCard data={item} key={index} />
+          ))}
         </div>
       </div>
       <Footer />

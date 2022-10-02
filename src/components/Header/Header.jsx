@@ -67,12 +67,19 @@ const Header = ({ children }) => {
           </div>
           <div className={styles.cart} onClick={onHadleClick}>
             <FaShoppingCart />{" "}
-            {localStorage.length > 0 &&
-              (cartData ? (
+            {localStorage.length > 2 ? (
+              cartData ? (
                 <p>{cartData.length / 2}</p>
               ) : (
-                <p>{localStorage.length / 2}</p>
-              ))}
+                <p>
+                  {Object.keys(localStorage).filter(
+                    (e) => !e.includes("mapbox")
+                  ).length / 2}
+                </p>
+              )
+            ) : (
+              ""
+            )}
           </div>
         </section>
       </nav>
@@ -113,12 +120,19 @@ const Header = ({ children }) => {
 
             <span>
               <FaShoppingCart />
-              {localStorage.length > 0 &&
-                (cartData ? (
+              {localStorage.length > 2 ? (
+                cartData ? (
                   <p>{cartData.length / 2}</p>
                 ) : (
-                  <p>{localStorage.length / 2}</p>
-                ))}
+                  <p>
+                    {Object.keys(localStorage).filter(
+                      (e) => !e.includes("mapbox")
+                    ).length / 2}
+                  </p>
+                )
+              ) : (
+                ""
+              )}
             </span>
           </button>
         </div>
