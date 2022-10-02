@@ -7,18 +7,7 @@ import Map from "../../components/Map";
 import styles from "./index.module.scss";
 
 const ActivityPage = () => {
-  const [activityData, setActivityData] = useState();
-
-  const GET = async (URL) => {
-    const res = await fetch(URL);
-    return await res.json();
-  };
-
-  useEffect(() => {
-    GET("https://sandbox.musement.com/api/v3/activities/85422").then((data) => {
-      setActivityData(data);
-    });
-  }, []);
+  const activityData = useSelector((state) => state.SingleActivity);
 
   const dispatch = useDispatch();
 
@@ -27,55 +16,60 @@ const ActivityPage = () => {
       type: "SET_CART_DATA",
       payload: [
         localStorage.setItem(
-          `${activityData.title}`,
-          `${activityData.retail_price.value}`
+          `${activityData.data.title}`,
+          `${activityData.data.retail_price.value}`
         ),
         localStorage.setItem(
-          `${activityData.title}IMG`,
-          `${activityData?.cover_image_url}`
+          `${activityData.data.title}IMG`,
+          `${activityData.data?.cover_image_url}`
         ),
       ],
     });
   };
 
   return (
-    <div className={styles.ActivityPage}>
-      <div
-        className={styles.topSection}
-        style={{
-          "--i": `url(${activityData?.city.cover_image_url}?w=2000&blur=50&con=-71)`,
-        }}
-      >
-        <div className={styles.text}>
-          <h1>{activityData?.title}</h1>
-          <h2>{activityData?.description}</h2>
+    <>
+      <div className={styles.ActivityPage}>
+        <div
+          className={styles.topSection}
+          style={{
+            "--i": `url(${activityData.data.city.cover_image_url}?w=2000&blur=50&con=-71)`,
+          }}
+        >
+          <div className={styles.text}>
+            <h1>{activityData.data.title}</h1>
+            <h2>{activityData.data.description}</h2>
+          </div>
+          <div className={styles.polaroid}>
+            <img
+              src={`${activityData.data.cover_image_url}`}
+              className={styles.polaroidIMG}
+            />
+            <p>{activityData.data.city.name}</p>
+          </div>
         </div>
-        <div className={styles.polaroid}>
-          <img
-            src={`${activityData?.cover_image_url}`}
-            className={styles.polaroidIMG}
-          />
-          <p>{activityData?.city.name}</p>
+        <div className={styles.info}>
+          <p>{activityData.data.about}</p>
+        </div>
+        <div className={styles.map}>
+          <p>
+            <GiPositionMarker /> {activityData.data.meeting_point}
+          </p>
+          {activityData.data.longitude && (
+            <Map
+              long={activityData.data.longitude}
+              lati={activityData.data.latitude}
+            />
+          )}
+        </div>
+        <div className={styles.priceInfo}>
+          <span>
+            <TbCurrencyDollar /> {activityData.data.retail_price.value}
+          </span>
+          <button onClick={cartFunction}>Aggiungi al carrello</button>
         </div>
       </div>
-      <div className={styles.info}>
-        <p>{activityData?.about}</p>
-      </div>
-      <div className={styles.map}>
-        <p>
-          <GiPositionMarker /> {activityData?.meeting_point}
-        </p>
-        {activityData?.longitude && (
-          <Map long={activityData?.longitude} lati={activityData?.latitude} />
-        )}
-      </div>
-      <div className={styles.priceInfo}>
-        <span>
-          <TbCurrencyDollar /> {activityData?.retail_price.value}
-        </span>
-        <button onClick={cartFunction}>Aggiungi al carrello</button>
-      </div>
-    </div>
+    </>
   );
 };
 

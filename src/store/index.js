@@ -34,6 +34,10 @@ const InitialState = {
     attractionsHighest: [],
     countryList: [],
   },
+
+  SingleActivity: {
+    data: [],
+  },
 };
 
 const inputReducer = (state = {}, action) => {
@@ -138,6 +142,15 @@ const attractionsReducer = (state = {}, action) => {
   }
 };
 
+const SingleActivityReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_SINGLE_ACTIVITY_DATA":
+      return { data: action.payload };
+    default:
+      return state;
+  }
+};
+
 const rootReducer = combineReducers({
   input: inputReducer,
   listArray: listArrayReducer,
@@ -148,6 +161,7 @@ const rootReducer = combineReducers({
   attractions: attractionsReducer,
   categories: categoriesReducer,
   cart: cartReducer,
+  SingleActivity: SingleActivityReducer,
 });
 
 const store = createStore(rootReducer, InitialState);

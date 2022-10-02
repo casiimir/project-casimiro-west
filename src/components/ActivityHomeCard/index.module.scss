@@ -16,6 +16,7 @@
     transition: 0.5s;
     filter: brightness(1.1);
     cursor: pointer;
+
   }
   .link {
     position: absolute;
@@ -25,7 +26,9 @@
     bottom: 0;
     opacity: 0;
     height: 15rem;
+
   }
+
   .photo {
     object-fit: cover;
     @include generic-appereance(200px, 60%);
@@ -87,6 +90,14 @@
       font-family: $text-font;
       margin: 0;
     }
+  }
+  .link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0;
   }
 }
 
