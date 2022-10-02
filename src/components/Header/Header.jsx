@@ -100,17 +100,29 @@ const Header = ({ children }) => {
         </div>
         <hr />
         <ul>
-          <Link className={styles.link} to="/">
+          <Link onClick={() => setActive("")} className={styles.link} to="/">
             Home
           </Link>
-          <Link className={styles.link} to="/attractions">
+          <Link
+            onClick={() => setActive("")}
+            className={styles.link}
+            to="/attractions"
+          >
             Attractions
           </Link>
 
-          <Link className={styles.link} to="/activities">
+          <Link
+            onClick={() => setActive("")}
+            className={styles.link}
+            to="/activities"
+          >
             Activities
           </Link>
-          <Link className={styles.link} to="/about">
+          <Link
+            onClick={() => setActive("")}
+            className={styles.link}
+            to="/about"
+          >
             About Us
           </Link>
         </ul>

@@ -3,6 +3,7 @@ import { BsArrowRight } from "react-icons/bs";
 import { useState, useEffect } from "react";
 import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [cityHeroList, setCityHeroList] = useState();
@@ -49,12 +50,18 @@ const Hero = () => {
             <span className={styles.infoBox}>
               <p className={styles.description}>{item.meta_description}</p>
               <p className={styles.readMore}>
-                <span className={styles.text}>
-                  Read more{" "}
-                  <span className={styles.arrow}>
-                    <BsArrowRight />
+                <Link
+                  to={`/city/${item.name}`}
+                  state={item}
+                  className={styles.link}
+                >
+                  <span className={styles.text}>
+                    Read more{" "}
+                    <span className={styles.arrow}>
+                      <BsArrowRight />
+                    </span>
                   </span>
-                </span>
+                </Link>
               </p>
             </span>
           </Slide>
