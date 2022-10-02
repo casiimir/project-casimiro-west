@@ -7,6 +7,7 @@ import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET } from "../../utils/api";
+
 import { countriesList } from "../../utils/countryAttractions";
 
 const Attractions = () => {
@@ -48,7 +49,7 @@ const Attractions = () => {
     );
   }, [dispatch]);
 
-  // console.log("====>", countryList);
+
 
   return (
     <div className={styles.Attractions}>
@@ -106,6 +107,7 @@ const Attractions = () => {
           ))}
         </AttractionsList>
       </section>
+
     </div>
   );
 };
