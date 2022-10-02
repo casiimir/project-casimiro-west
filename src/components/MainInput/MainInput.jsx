@@ -13,7 +13,7 @@ const MainInput = () => {
   const [filterS, setFilterS] = useState("");
   const [queryActive, setQueryActive] = useState(false);
   const [inputValue, setInputValue] = useState("");
-
+  const search = useDispatch();
   const inputRef = useRef(null);
 
   const onHandleSubmit = useCallback(
@@ -63,15 +63,12 @@ const MainInput = () => {
     setQueryActive(true);
   };
 
-  const search = useDispatch();
-
   useEffect(() => {
     if (inputValue) {
       GET("cities").then((data) =>
         setFilterS(data.filter((city) => city.code.includes(inputValue)))
       );
     }
-   
   }, [inputValue]);
 
   return (
@@ -83,13 +80,17 @@ const MainInput = () => {
             onSubmit={onHandleSubmit}
           >
             <input
-              className={styles.input}
+              className={`${styles.input} ${active}`}
               ref={inputRef}
               onChange={onHandleInput}
               type="text"
               placeholder="Search a city.."
             />
-            <button className={styles.search2} type="submit">
+            <button
+              className={styles.search2}
+              type="submit"
+              onClick={() => setQueryActive(false)}
+            >
               <AiOutlineSearch />
             </button>
           </form>
