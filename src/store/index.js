@@ -32,6 +32,7 @@ const InitialState = {
   attractions: {
     attractionsMost: [],
     attractionsHighest: [],
+    countryList: [],
   },
 };
 
@@ -95,8 +96,8 @@ const activitiesReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ACTIVITIES_DATA":
       return { ...state, data: action.payload };
-      case "SET_IN_CITY_ACTIVITIES_DATA":
-        return { ...state, inCityActivitiesData: action.payload };
+    case "SET_IN_CITY_ACTIVITIES_DATA":
+      return { ...state, inCityActivitiesData: action.payload };
     default:
       return state;
   }
@@ -130,6 +131,8 @@ const attractionsReducer = (state = {}, action) => {
       return { ...state, attractionsMost: action.payload };
     case "SET_ATTRACTIONS_HIGHEST_DATA":
       return { ...state, attractionsHighest: action.payload };
+    case "SET_COUNTRY_LIST_DATA":
+      return { ...state, countryList: action.payload };
     default:
       return state;
   }

@@ -20,7 +20,9 @@ const AttractionsList = ({ title, children }) => {
         <button className={styles.button} onClick={prev}>
           <IoIosArrowBack />
         </button>
-        <div className={styles.cards}>{children}</div>
+        <div className={styles.cards} ref={attractionsListsRef}>
+          {children}
+        </div>
         <button className={styles.button} onClick={next}>
           <IoIosArrowForward />
         </button>

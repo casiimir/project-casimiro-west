@@ -7,9 +7,10 @@ import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET } from "../../utils/api";
+import { countriesList } from "../../utils/countryAttractions";
 
 const Attractions = () => {
-  const { attractionsMost, attractionsHighest } = useSelector(
+  const { attractionsMost, attractionsHighest, countryList } = useSelector(
     (state) => state.attractions
   );
 
@@ -31,16 +32,23 @@ const Attractions = () => {
           type: "SET_ATTRACTIONS_MOST_DATA",
           payload: data.filter((el) => el.reviews_number >= 3000),
         }),
-      GET("venues?&limit=30").then((data) =>
-        dispatch({
-          type: "SET_ATTRACTIONS_HIGHEST_DATA",
-          payload: data.filter((el) => el.reviews_avg >= 4.5),
-        })
+      GET("venues?&limit=30").then(
+        (data) =>
+          dispatch({
+            type: "SET_ATTRACTIONS_HIGHEST_DATA",
+            payload: data.filter((el) => el.reviews_avg >= 4.5),
+          })
+        // GET("venues?country_in=").then((data) =>
+        //   dispatch({
+        //     type: "SET_COUNTRY_LIST_DATA",
+        //     payload: data,
+        //   })
+        // )
       )
     );
   }, [dispatch]);
 
-  // console.log("====>", attractionsHighest);
+  // console.log("====>", countryList);
 
   return (
     <div className={styles.Attractions}>
@@ -87,6 +95,14 @@ const Attractions = () => {
               reviewesSpecific="3734"
               icon={<AiOutlineStar />}
             />
+          ))}
+        </AttractionsList>
+
+        <AttractionsList title="Countries's Attractions">
+          {countriesList?.map?.((el, i) => (
+            <div className={styles.countrySection} key={i}>
+              <h2 className={styles.country}>{el.name}</h2>
+            </div>
           ))}
         </AttractionsList>
       </section>
