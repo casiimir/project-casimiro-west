@@ -3,10 +3,19 @@ import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { memo } from "react";
 import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 const ActivitiesHomeCard = ({ data }) => {
+  const dispatch = useDispatch();
+
+  const setActivityFunction = () => {
+    dispatch({
+      type: "SET_SINGLE_ACTIVITY_DATA",
+      payload: data,
+    });
+  };
   return (
-    <div className={styles.ActivitiesHomeCard}>
+    <div className={styles.ActivitiesHomeCard} onClick={setActivityFunction}>
       <img
         className={styles.photo}
         src={`${data?.cover_image_url}`}

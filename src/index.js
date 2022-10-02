@@ -60,6 +60,7 @@ const router = createBrowserRouter([
           },
         ],
       },
+      { path: "/activity/:activityName", element: <ActivityPage /> },
       { path: "/ActivityPage", element: <ActivityPage /> },
       { path: "/attractions", element: <Attractions /> },
     ],

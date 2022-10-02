@@ -66,6 +66,11 @@
       }
     }
   }
+  .link {
+    position: absolute;
+    height: 10rem;
+    width: 90%;
+  }
 }
 
 @media only screen and (max-width: 600px) {
