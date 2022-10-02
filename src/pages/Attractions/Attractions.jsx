@@ -7,6 +7,7 @@ import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET } from "../../utils/api";
+import AttractionModal from "../../components/AttractionModal";
 
 const Attractions = () => {
   const { attractionsMost, attractionsHighest } = useSelector(
@@ -40,7 +41,7 @@ const Attractions = () => {
     );
   }, [dispatch]);
 
-  // console.log("====>", attractionsHighest);
+ 
 
   return (
     <div className={styles.Attractions}>
@@ -90,6 +91,8 @@ const Attractions = () => {
           ))}
         </AttractionsList>
       </section>
+
+      <AttractionModal/>
     </div>
   );
 };
