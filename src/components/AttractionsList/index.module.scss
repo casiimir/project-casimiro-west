@@ -7,6 +7,7 @@
   flex-direction: column;
   width: 93.5%;
   margin: 0;
+  height: fit-content;
 
   .name {
     color: $dark-grey;
@@ -39,9 +40,15 @@
   }
   .cards {
     @include flex-element($justify: flex-start, $gap: 2rem);
-    overflow-x: scroll;
+    overflow-x: hidden;
     overflow-y: hidden;
     padding: 20px 0px 20px;
     width: 100%;
+  }
+
+  h2 {
+    font-family: $titles-font;
+    color: lightseagreen;
+    white-space: nowrap;
   }
 }
