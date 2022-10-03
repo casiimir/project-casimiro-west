@@ -8,7 +8,7 @@ const Activities = () => {
   const ActivitiesHeroData = {
     first: {
       background_img:
-        "https://images.musement.com/cover/0002/49/fotolia-199353438-subscription-xxl-jpg_header-148705.jpeg",
+        "https://images.musement.com/cover/0002/49/fotolia-199353438-subscription-xxl-jpg_header-148705.jpeg?w=2000",
       title: "Seacoast view and MonteCarlo group tour from Nice",
       retail_price: 87,
       name: "Nice",
@@ -16,7 +16,7 @@ const Activities = () => {
     },
     second: {
       background_img:
-        "https://images.musement.com/cover/0001/43/washington_header-42349.jpeg",
+        "https://images.musement.com/cover/0001/43/washington_header-42349.jpeg?w=2000",
       title: "Odyssey brunch cruise in Washington DC",
       retail_price: 34,
       name: "Washington DC",
@@ -24,7 +24,7 @@ const Activities = () => {
     },
     third: {
       background_img:
-        "https://images.musement.com/cover/0002/51/fotolia-98503861-subscription-xxl-jpg_header-150860.jpeg",
+        "https://images.musement.com/cover/0002/51/fotolia-98503861-subscription-xxl-jpg_header-150860.jpeg?w=2000",
       title: "Cave Buggy Tour",
       retail_price: 95,
       name: "Punta Cana",

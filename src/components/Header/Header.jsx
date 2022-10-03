@@ -65,22 +65,24 @@ const Header = ({ children }) => {
           <div className={styles.menu} onClick={onHadleClick}>
             <RiMenu3Line />
           </div>
-          <div className={styles.cart}>
-            <FaShoppingCart />{" "}
-            {localStorage.length > 2 ? (
-              cartData ? (
-                <p>{cartData.length / 2}</p>
+          <Link to="/cart">
+            <div className={styles.cart}>
+              <FaShoppingCart />
+              {localStorage.length > 2 ? (
+                cartData ? (
+                  <p>{cartData.length / 2}</p>
+                ) : (
+                  <p>
+                    {Object.keys(localStorage).filter(
+                      (e) => !e.includes("mapbox")
+                    ).length / 2}
+                  </p>
+                )
               ) : (
-                <p>
-                  {Object.keys(localStorage).filter(
-                    (e) => !e.includes("mapbox")
-                  ).length / 2}
-                </p>
-              )
-            ) : (
-              ""
-            )}
-          </div>
+                ""
+              )}
+            </div>
+          </Link>
         </section>
       </nav>
       <div className={`${styles.dropdown} ${active}`}>

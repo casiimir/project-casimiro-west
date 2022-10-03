@@ -18,6 +18,7 @@ import Activities from "./pages/Activities";
 import Cities from "./pages/Cities";
 import ActivityPage from "./pages/ActivityPage";
 import Attractions from "./pages/Attractions";
+import CartPage from "./pages/CartPage";
 
 import CityActivity from "./components/CityActivity/CityActivity";
 import AirActivity from "./components/AirActivity/AirActivity";
@@ -63,6 +64,7 @@ const router = createBrowserRouter([
       { path: "/activity/:activityName", element: <ActivityPage /> },
       { path: "/ActivityPage", element: <ActivityPage /> },
       { path: "/attractions", element: <Attractions /> },
+      { path: "/cart", element: <CartPage /> },
     ],
   },
   { path: "*", element: <ErrorPage /> },
