@@ -12,33 +12,34 @@
   .topSection {
     width: 100%;
     height: 90vh;
-    padding: 100px 100px 0 25px;
+    padding: 100px 40px 0 25px;
 
     display: flex;
     justify-content: space-around;
     align-items: baseline;
+    gap: 20px;
 
     background-image: var(--i);
     background-repeat: no-repeat;
     background-size: 100vw 90vh;
     background-position: top;
+    background-size: cover;
 
     .text {
       color: white;
-
       align-self: center;
       display: flex;
       flex-direction: column;
+      justify-content: center;
       gap: 20px;
 
       h1 {
-        font-size: 40px;
+        font-size: 35px;
         text-shadow: 1px 2px 4px #0a0f0f;
       }
 
       h2 {
-        padding-right: 20px;
-        font-size: 30px;
+        font-size: 25px;
         text-shadow: 1px 2px 4px #0a0f0f;
         font-weight: 400;
       }
@@ -46,16 +47,16 @@
 
     .polaroid {
       align-self: center;
-      width: 600px;
+      width: 500px;
       height: fit-content;
       background-color: white;
       border: 40px solid white;
       border-bottom: 60px solid white;
 
-      box-shadow: 0px 4px 4px $almost-black;
+      box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.425);
 
       .polaroidIMG {
-        max-width: 500px;
+        max-width: 400px;
         border-radius: 3%;
       }
 
@@ -69,7 +70,7 @@
   }
 
   .info {
-    padding: 50px 20px;
+    padding: 50px 40px;
     font-size: 20px;
   }
 
@@ -79,7 +80,7 @@
     }
 
     p {
-      padding: 20px;
+      padding: 20px 40px;
       font-size: 15px;
       font-weight: 400;
     }
@@ -109,16 +110,75 @@
       outline: none;
       border: none;
       border-radius: 3%;
-      box-shadow: 0 0 8px $dark-cyan;
+      box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.247);
       color: #f7f7f7;
       cursor: pointer;
+      transition: 0.5s;
 
       &:hover {
-        color: $mid-cyan;
+        color: lightseagreen;
+        background: white;
+        transition: 0.5s;
       }
 
       &:active {
         box-shadow: none;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 905px) {
+  .ActivityPage {
+    .topSection {
+      .text {
+        h1 {
+          font-size: 30px;
+        }
+
+        h2 {
+          font-size: 20px;
+        }
+      }
+
+      .polaroid {
+        width: 400px;
+
+        .polaroidIMG {
+          max-width: 300px;
+        }
+
+        p {
+          font-size: 40px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .ActivityPage {
+    .topSection {
+      .text {
+        h1 {
+          font-size: 28px;
+        }
+
+        h2 {
+          font-size: 18px;
+        }
+      }
+
+      .polaroid {
+        width: 370px;
+
+        .polaroidIMG {
+          max-width: 270px;
+        }
+
+        p {
+          font-size: 37px;
+        }
       }
     }
   }
@@ -135,61 +195,37 @@
     .topSection {
       width: 100vw;
       height: 50vh;
-      padding: 10px;
-      padding-top: 50px;
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-
-      background-image: var(--i);
-      background-repeat: no-repeat;
-      background-size: 100% 70vh;
-      background-position: top;
+      padding: 20px;
+      padding-top: 80px;
 
       .text {
-        color: white;
-
-        align-self: flex-end;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
+        align-self: center;
 
         h1 {
-          font-size: 20px;
-          text-shadow: 1px 2px 4px #0a0f0f;
+          font-size: 17px;
         }
 
         h2 {
-          font-size: 15px;
-          text-shadow: 1px 2px 4px #0a0f0f;
-          font-weight: 400;
+          font-size: 13px;
         }
       }
 
       .polaroid {
-        align-self: center;
-        width: 200px;
-        height: fit-content;
-        background-color: white;
+        width: 180px;
         border: 10px solid white;
-        border-bottom: 20px solid white;
-        box-shadow: 0px 4px 4px $almost-black;
 
         .polaroidIMG {
-          max-width: 150px;
-          border-radius: 3%;
+          max-width: 120px;
         }
 
         p {
-          margin-top: 10px;
-          font-size: 30px;
-          text-align: center;
+          font-size: 28px;
         }
       }
     }
 
     .info {
-      padding: 15px;
+      padding: 20px;
       font-size: 15px;
     }
 
@@ -233,7 +269,8 @@
         cursor: pointer;
 
         &:hover {
-          color: $mid-cyan;
+          color: white;
+          background-color: lightseagreen;
         }
 
         &:active {

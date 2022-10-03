@@ -6,6 +6,7 @@
   @include generic-appereance(auto, 100vh);
   background-image: url(https://images.musement.com/cover/0079/44/thumb_7843016_cover_header.jpeg?q=50&fit=crop&auto=format&w=1700&h=850);
   overflow: hidden;
+  background-size: cover;
 
   .textSection {
     @include generic-appereance(75%, auto, 1, 0, 2%);

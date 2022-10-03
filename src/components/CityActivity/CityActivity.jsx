@@ -28,10 +28,10 @@ const CityActivity = () => {
       <Suspense
         fallback={
           <div className={styles.skeletron}>
-            <Box sx={{ width: 1200, height: 2800 }}>
+            <Box sx={{ width: 1200 }}>
               <Skeleton />
               <Skeleton animation="wave" />
-              <Skeleton animation={false} />
+              <Skeleton animation={false} height={1840} />
             </Box>
           </div>
         }

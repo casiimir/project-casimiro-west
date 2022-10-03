@@ -102,11 +102,21 @@ const Header = ({ children }) => {
         </div>
         <hr />
         <ul>
-          <Link onClick={() => setActive("")} className={styles.link} to="/">
+          <Link
+            onClick={() => {
+              setActive("");
+              document.body.style.overflow = "scroll";
+            }}
+            className={styles.link}
+            to="/"
+          >
             Home
           </Link>
           <Link
-            onClick={() => setActive("")}
+            onClick={() => {
+              setActive("");
+              document.body.style.overflow = "scroll";
+            }}
             className={styles.link}
             to="/attractions"
           >
@@ -114,14 +124,20 @@ const Header = ({ children }) => {
           </Link>
 
           <Link
-            onClick={() => setActive("")}
+            onClick={() => {
+              setActive("");
+              document.body.style.overflow = "scroll";
+            }}
             className={styles.link}
             to="/activities"
           >
             Activities
           </Link>
           <Link
-            onClick={() => setActive("")}
+            onClick={() => {
+              setActive("");
+              document.body.style.overflow = "scroll";
+            }}
             className={styles.link}
             to="/about"
           >
