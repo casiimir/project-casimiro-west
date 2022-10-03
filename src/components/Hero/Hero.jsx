@@ -55,12 +55,7 @@ const Hero = () => {
                   state={item}
                   className={styles.link}
                 >
-                  <span className={styles.text}>
-                    Read more{" "}
-                    <span className={styles.arrow}>
-                      <BsArrowRight />
-                    </span>
-                  </span>
+                  <span className={styles.text}>Read more...</span>
                 </Link>
               </p>
             </span>

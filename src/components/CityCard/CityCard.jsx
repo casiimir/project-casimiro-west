@@ -30,6 +30,7 @@ const CityCard = ({ CardData }) => {
         to={`/city/${CardData.name}`}
         state={CardData}
         className={styles.link}
+        onClick={() => window.scrollTo(0, 0)}
       ></Link>
     </div>
   );

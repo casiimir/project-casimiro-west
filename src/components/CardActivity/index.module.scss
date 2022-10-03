@@ -3,7 +3,7 @@
 
 .CardActivity {
   @include flex-element(row);
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.24);
   transition: 0.5s;
   height: 10rem;
   width: 90%;
@@ -14,7 +14,7 @@
     transition: 0.5s;
     filter: brightness(1.1);
     cursor: pointer;
-    background-color: #aaaaaa4a;
+    background-color: #dbdbdb;
   }
 
   .photo {
@@ -49,7 +49,7 @@
           span {
             color: black;
           }
-          color: lightseagreen;
+          color: rgba(0, 0, 0, 0.658);
           font-family: $text-font;
           font-size: 1rem;
           margin: 0;
@@ -69,7 +69,27 @@
   .link {
     position: absolute;
     height: 10rem;
-    width: 90%;
+    width: 44%;
+  }
+}
+
+@media only screen and (min-width: 1570px) {
+  .CardActivity {
+    .link {
+      position: absolute;
+      height: 10rem;
+      width: 43rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 1240px) {
+  .CardActivity {
+    .link {
+      position: absolute;
+      height: 10rem;
+      width: 89%;
+    }
   }
 }
 
@@ -103,6 +123,11 @@
           }
         }
       }
+    }
+    .link {
+      position: absolute;
+      height: 7.5rem;
+      width: 20rem;
     }
   }
 }

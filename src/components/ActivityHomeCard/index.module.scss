@@ -3,16 +3,16 @@
 
 .ActivitiesHomeCard {
   @include border(0, 3%);
-  border-bottom-left-radius: 0%;
-  border-bottom-right-radius: 0%;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
+
+  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.24);
   transition: 0.5s;
-  height: 15rem;
+  height: 14rem;
   background-color: white;
   color: $almost-black;
 
   &:hover {
-    transform: scale(1.1);
+    background-color: #dbdbdb;
+    transform: scale(0.98);
     transition: 0.5s;
     filter: brightness(1.1);
     cursor: pointer;
@@ -60,9 +60,9 @@
           span {
             color: black;
           }
-          color: lightseagreen;
+          color: rgba(0, 0, 0, 0.658);
           font-family: $text-font;
-          font-size: 0.8rem;
+          font-size: 0.75rem;
           margin: 0;
           width: 120px;
         }

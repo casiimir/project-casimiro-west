@@ -6,7 +6,11 @@
 
   font-family: $text-font;
 
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+
+  padding-right: max(10px, 1.9%);
 
   p:first-of-type:first-letter {
     font-size: 2rem;
@@ -21,11 +25,10 @@
     font-weight: 500;
 
     .box {
-
-      font-size: 124%;
+      font-size: 110%;
       width: 100%;
 
-      height: calc(60vh + 10px);
+      height: calc(70vh + 10px);
       padding-right: 5px;
       border-right: 2px solid lightseagreen;
       padding: 5px;
@@ -59,33 +62,33 @@
       @include flex-element(column, flex-start, stretch, nowrap, 10px);
 
       .photo1 {
-        width: 50vw;
-        height: 30vh;
+        box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
+        width: 47vw;
+        height: 35vh;
         background-size: cover;
         background-position-y: center;
       }
 
       .photo2 {
-        width: 50vw;
-        height: 30vh;
+        box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
+        width: 47vw;
+        height: 35vh;
         background-size: cover;
         background-position: center;
       }
     }
 
     .box2 {
+      box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
       width: 55vw;
-      height: calc(60vh + 10px);
+      height: calc(70vh + 10px);
       background-size: cover;
       background-position-x: 75%;
     }
   }
 
   .row2 {
-    p {
-      font-size: 110%;
-    }
-
+    font-size: 110%;
     padding-left: 5px;
     border-top: 2px solid lightseagreen;
     font-weight: 500;
@@ -114,14 +117,16 @@
     @include flex-element(row, space-around, stretch, nowrap, 10px);
 
     .photo3 {
+      box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
       width: 40vw;
-      height: 40vh;
+      height: 35vh;
       background-size: cover;
       filter: brightness(0.9);
     }
     .photo4 {
+      box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
       width: 90vw;
-      height: 40vh;
+      height: 35vh;
       background-size: cover;
       background-position-y: center;
     }
@@ -130,6 +135,7 @@
 
 @media only screen and (min-width: 1230px) {
   .Gallery {
+    padding-right: max(10px, 1.7%);
     .row {
       font-size: 1rem;
 
@@ -154,6 +160,7 @@
 
 @media only screen and (max-width: 1229px) {
   .Gallery {
+    padding-right: max(10px, 1.7%);
     .row {
       font-size: 0.9rem;
 
@@ -168,7 +175,7 @@
     }
 
     .row2 {
-      font-size: 0.9rem;
+      font-size: 1rem;
       .info {
         font-size: 1.3rem;
       }
@@ -176,22 +183,29 @@
   }
 }
 
-@media only screen and (max-width: 896px) {
+@media only screen and (max-width: 1100px) {
   .Gallery {
+    padding-right: max(9px, 1.5%);
+  }
+}
+
+@media only screen and (max-width: 911px) {
+  .Gallery {
+    padding-right: max(8px, 0.9%);
     .row {
       .box {
-        font-size: 1.05rem;
+        font-size: 1.04rem;
         width: 100vw;
         height: calc(60vh + 10px);
       }
       .photos {
         .photo1 {
-          width: 58vw;
+          width: 55vw;
           height: 30vh;
         }
 
         .photo2 {
-          width: 58vw;
+          width: 55vw;
           height: 30vh;
         }
       }
@@ -222,9 +236,70 @@
     }
   }
 }
-
-@media only screen and (max-width: 677px) {
+@media only screen and (max-width: 775px) {
   .Gallery {
+    padding-right: max(4px, 0.1%);
+    .row {
+      .box {
+        font-size: 0.9rem;
+
+        .info {
+          font-size: 1.1rem;
+        }
+      }
+      .photos {
+        .photo1 {
+          width: 50vw;
+        }
+
+        .photo2 {
+          width: 50vw;
+        }
+      }
+    }
+    .row2 {
+      font-size: 0.9rem;
+      .info {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 643px) {
+  .Gallery {
+    .row {
+      .box {
+        height: calc(54vh + 10px);
+      }
+
+      .photos {
+        .photo1 {
+          width: 45vw;
+          height: 27vh;
+        }
+
+        .photo2 {
+          width: 45vw;
+          height: 27vh;
+        }
+      }
+    }
+    .row2 {
+      font-size: 0.9rem;
+      .info {
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Gallery {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+
     p:first-of-type:first-letter {
       font-size: 1.5rem;
     }
