@@ -65,23 +65,24 @@ const Header = ({ children }) => {
           <div className={styles.menu} onClick={onHadleClick}>
             <RiMenu3Line />
           </div>
-          <div className={styles.cart}>
-            <FaShoppingCart />{" "}
-            {localStorage.length > 2 ? (
-              cartData ? (
-                <p>{cartData.length}</p>
+          <Link to="/cart">
+            <div className={styles.cart}>
+              <FaShoppingCart />
+              {localStorage.length > 2 ? (
+                cartData ? (
+                  <p>{cartData.length / 2}</p>
+                ) : (
+                  <p>
+                    {Object.keys(localStorage).filter(
+                      (e) => !e.includes("mapbox")
+                    ).length / 2}
+                  </p>
+                )
               ) : (
-                <p>
-                  {
-                    Object.keys(localStorage).filter((e) => e.includes("@@@"))
-                      .length
-                  }
-                </p>
-              )
-            ) : (
-              ""
-            )}
-          </div>
+                ""
+              )}
+            </div>
+          </Link>
         </section>
       </nav>
       <div className={`${styles.dropdown} ${active}`}>
@@ -101,21 +102,11 @@ const Header = ({ children }) => {
         </div>
         <hr />
         <ul>
-          <Link
-            onClick={() => {
-              setActive("");
-              document.body.style.overflow = "scroll";
-            }}
-            className={styles.link}
-            to="/"
-          >
+          <Link onClick={() => setActive("")} className={styles.link} to="/">
             Home
           </Link>
           <Link
-            onClick={() => {
-              setActive("");
-              document.body.style.overflow = "scroll";
-            }}
+            onClick={() => setActive("")}
             className={styles.link}
             to="/attractions"
           >
@@ -123,20 +114,14 @@ const Header = ({ children }) => {
           </Link>
 
           <Link
-            onClick={() => {
-              setActive("");
-              document.body.style.overflow = "scroll";
-            }}
+            onClick={() => setActive("")}
             className={styles.link}
             to="/activities"
           >
             Activities
           </Link>
           <Link
-            onClick={() => {
-              setActive("");
-              document.body.style.overflow = "scroll";
-            }}
+            onClick={() => setActive("")}
             className={styles.link}
             to="/about"
           >
@@ -151,13 +136,12 @@ const Header = ({ children }) => {
               <FaShoppingCart />
               {localStorage.length > 2 ? (
                 cartData ? (
-                  <p>{cartData.length}</p>
+                  <p>{cartData.length / 2}</p>
                 ) : (
                   <p>
-                    {
-                      Object.keys(localStorage).filter((e) => e.includes("@@@"))
-                        .length
-                    }
+                    {Object.keys(localStorage).filter(
+                      (e) => !e.includes("mapbox")
+                    ).length / 2}
                   </p>
                 )
               ) : (

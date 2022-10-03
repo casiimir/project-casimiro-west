@@ -84,6 +84,7 @@ const ActivityPage = () => {
 export default ActivityPage;
 
 // 159430   85422   148584
+
 // { PRENDERE I DATI
 //   Object.values(localStorage)
 //     .filter((e) => e.includes("name"))
@@ -111,3 +112,4 @@ export default ActivityPage;
 //     })
 //   );
 // });
+
