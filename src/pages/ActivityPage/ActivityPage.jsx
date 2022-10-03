@@ -5,6 +5,7 @@ import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import Map from "../../components/Map";
 import styles from "./index.module.scss";
+import { isEditable } from "@testing-library/user-event/dist/utils";
 
 const ActivityPage = () => {
   const data = useLocation();
@@ -83,3 +84,30 @@ const ActivityPage = () => {
 export default ActivityPage;
 
 // 159430   85422   148584
+// { PRENDERE I DATI
+//   Object.values(localStorage)
+//     .filter((e) => e.includes("name"))
+//     .map((item) => JSON.parse(item))
+//     .map((item, index) => (
+//       <div key={index}>
+//         <img src={item.IMG} /> <p>{item.name}</p>
+//         <p>{item.price}</p>{" "}
+//       </div>
+//     ));
+// }
+
+//FARE LA SOMMA (ALLA FINE MOSTRARE TOTAL)
+// const [total, setTotal] = useState([]);
+// const accumulatore = [];
+
+// useEffect(() => {
+//   Object.values(localStorage)
+//     .filter((e) => e.includes("name"))
+//     .map((item) => JSON.parse(item))
+//     .map((item, index) => accumulatore.push(Number(item.price)));
+//   setTotal(
+//     accumulatore.reduce((previous, next) => {
+//       return previous + next;
+//     })
+//   );
+// });
