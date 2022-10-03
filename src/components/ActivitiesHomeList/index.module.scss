@@ -56,7 +56,7 @@
 
   .ActivitiesHomeList {
     @include flex-element($gap: 15px);
-    padding: 0 0 1px 0;
+    padding: 1px 0;
     overflow: scroll;
 
     width: 95%;
