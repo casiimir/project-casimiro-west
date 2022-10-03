@@ -1,8 +1,28 @@
 import styles from "./index.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
+import { useState, useEffect } from "react";
 import { CgFormatSlash } from "react-icons/cg";
 
 const CartPage = () => {
+  // const handleRemovefromCart = () =>
+  //   localStorage.removeItem()
+  // }
+
+  const [total, setTotal] = useState([]);
+  const accumulatore = [];
+
+  useEffect(() => {
+    Object.values(localStorage)
+      .filter((e) => e.includes("name"))
+      .map((item) => JSON.parse(item))
+      .map((item, index) => accumulatore.push(Number(item.price)));
+    setTotal(
+      accumulatore.reduce((previous, next) => {
+        return previous + next;
+      })
+    );
+  });
+
   return (
     <div className={styles.ModalContainer}>
       <div className={styles.overlay}>
@@ -13,14 +33,35 @@ const CartPage = () => {
       </div>
       <div className={styles.wrapper}>
         <div className={styles.articles}>
-          <div className={styles.productList}></div>
+          <div className={styles.productList}>
+            {Object.values(localStorage)
+              .filter((e) => e.includes("name"))
+              .map((item) => JSON.parse(item))
+              .map((item, index) => (
+                <div key={index} className={styles.productListContainer}>
+                  <div className={styles.productImage}>
+                    <img src={item.IMG} />
+                  </div>
+                  <div className={styles.productInfo}>
+                    <div>
+                      {`${item.name}`.length >= 40 === true ? (
+                        <p>{`${item.name}`.slice(0, 40)}...</p>
+                      ) : (
+                        <p>{item.name}</p>
+                      )}
+                    </div>
+                    <div className={styles.productPrice}>
+                      <AiOutlineClose />
+                      <p>{item.price}$</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+          </div>
           <div className={styles.infoPayment}>
             <div className={styles.price}>
               <h2>Total:</h2>
-              <p>0$</p>
-            </div>
-            <div className={styles.productInfo}>
-              <p>Activities Number: 2</p>
+              <h2>{total}$</h2>
             </div>
           </div>
         </div>
@@ -57,9 +98,9 @@ const CartPage = () => {
                 <hr></hr>
               </div>
             </div>
-            <div className={styles.button}>
-              <button>Buy now</button>
-            </div>
+          </div>
+          <div className={styles.button}>
+            <button>Buy now</button>
           </div>
         </div>
       </div>
