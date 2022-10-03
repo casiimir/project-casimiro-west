@@ -7,7 +7,7 @@
   transition: 0.5s;
 
   &:hover {
-    transform: scale(1.1);
+    transform: scale(0.98);
     transition: 0.5s;
     filter: brightness(1.1);
     cursor: pointer;
@@ -21,7 +21,7 @@
     opacity: 0;
   }
   .Card {
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.701);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.582);
     border-radius: 3%;
     height: 15rem;
     width: 10.5rem;

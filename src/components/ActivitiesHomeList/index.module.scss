@@ -2,42 +2,116 @@
 @import "../../styles/_variables";
 
 .box {
-  @include flex-element(row, space-around, center);
+  @include flex-element(row, space-between);
 
   button {
-    background-color: transparent;
+    height: 225px;
+    background: transparent;
     border: none;
-    color: $dark-grey;
+    color: white;
     transition: 0.5s;
     cursor: pointer;
     width: min-content;
 
-    svg {
-      font-size: 2rem;
+    transition: 0.5s;
+
+    &:nth-child(1) {
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        90deg,
+        rgba(36, 36, 36, 0.651) 10%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      position: sticky;
+      left: 69.5px;
+      z-index: 1;
+
+      &:hover {
+        color: lightseagreen;
+        transition: 0.5s;
+      }
     }
 
-    &:hover {
-      color: lightseagreen;
-      transition: 0.5s;
+    &:nth-child(3) {
+      background: rgb(0, 0, 0);
+      background: linear-gradient(
+        270deg,
+        rgba(36, 36, 36, 0.651) 10%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      position: sticky;
+      right: 5%;
+      z-index: 1;
+
+      &:hover {
+        color: lightseagreen;
+        transition: 0.5s;
+      }
+    }
+
+    svg {
+      font-size: 2rem;
     }
   }
 
   .ActivitiesHomeList {
     @include flex-element($gap: 15px);
+    padding: 1px 0;
     overflow: scroll;
-    padding: 15px;
-    width: 88%;
+
+    width: 95%;
     &::-webkit-scrollbar-thumb {
       background: #20b2ab00;
     }
   }
 }
+
+@media only screen and (min-width: 1313px) {
+  .box {
+    @include flex-element(row, space-between);
+
+    button {
+      &:nth-child(3) {
+        position: sticky;
+        right: 5.4%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1513px) {
+  .box {
+    @include flex-element(row, space-between);
+
+    button {
+      &:nth-child(3) {
+        position: sticky;
+        right: 5.1%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1669px) {
+  .box {
+    @include flex-element(row, space-between);
+
+    button {
+      &:nth-child(3) {
+        position: sticky;
+        right: 5%;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 600px) {
   .box {
     .ActivitiesHomeList {
       overflow: scroll;
-      padding: 15px 2px;
-      width: 95%;
+      padding: 15px 1px;
+      width: 100%;
+
       &::-webkit-scrollbar {
         display: none;
       }

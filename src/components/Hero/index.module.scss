@@ -69,8 +69,9 @@
   width: 400px;
   height: 250px;
 
-  background: rgba(217, 217, 217, 0.8);
-  box-shadow: 2px 4px 4px rgba(0, 0, 0, 0.75);
+  background: rgba(255, 255, 255, 0.712);
+  backdrop-filter: blur(5px);
+  box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.288);
   border-radius: 3%;
 
   .description {
@@ -80,6 +81,7 @@
     line-height: 25px;
     letter-spacing: 0em;
     text-align: left;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.212);
   }
 
   .readMore {
@@ -97,12 +99,6 @@
         font-family: $handwrite-font;
         font-size: 2rem;
         text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.733);
-      }
-
-      .arrow {
-        padding-left: 15px;
-        font-size: 2rem;
-        color: black;
       }
     }
   }

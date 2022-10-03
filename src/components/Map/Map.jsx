@@ -8,6 +8,7 @@ mapboxgl.accessToken =
 
 export default function Map({ long, lati }) {
   const mapContainer = useRef(null);
+
   const map = useRef(null);
   const [lng, setLng] = useState(long);
   const [lat, setLat] = useState(lati);

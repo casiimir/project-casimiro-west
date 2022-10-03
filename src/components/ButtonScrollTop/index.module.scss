@@ -15,12 +15,12 @@
     svg {
       font-size: 50px;
       transition: 0.5s;
-      color: $light-cyan;
+      color: #23bdab;
       filter: drop-shadow(0px 1px 3px #00000088);
 
       &:hover {
         transition: 0.5s;
-        color: #23bdab;
+        color: $light-cyan;
       }
     }
   }
