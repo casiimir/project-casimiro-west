@@ -1,5 +1,5 @@
 .mapContainer {
-  height: 900px;
+  height: 400px;
 }
 
 .sidebar {
@@ -15,3 +15,14 @@
   border-radius: 4px;
 }
 /**/
+
+.mapboxgl-canvas-container
+  .mapboxgl-interactive
+  .mapboxgl-touch-drag-pan
+  .mapboxgl-touch-zoom-rotate {
+  width: 500px;
+}
+
+.mapboxgl-canvas {
+  width: 500px;
+}
