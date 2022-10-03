@@ -23,7 +23,7 @@
         rgba(255, 255, 255, 0) 100%
       );
       position: sticky;
-      left: 69.5px;
+      left: 71px;
       z-index: 1;
 
       &:hover {
@@ -40,8 +40,7 @@
         rgba(255, 255, 255, 0) 100%
       );
       position: sticky;
-      right: 5.8%;
-      // right: 5.4%;
+      right: 6%;
       z-index: 1;
 
       &:hover {
@@ -67,6 +66,19 @@
   }
 }
 
+@media only screen and (min-width: 1232px) {
+  .box {
+    @include flex-element(row, space-between);
+
+    button {
+      &:nth-child(3) {
+        position: sticky;
+        right: 5.8%;
+      }
+    }
+  }
+}
+
 @media only screen and (min-width: 1313px) {
   .box {
     @include flex-element(row, space-between);
@@ -74,7 +86,7 @@
     button {
       &:nth-child(3) {
         position: sticky;
-        right: 5.4%;
+        right: 5.5%;
       }
     }
   }

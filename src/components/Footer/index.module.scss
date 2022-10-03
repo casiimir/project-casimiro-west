@@ -14,7 +14,7 @@
 
     .icons {
       svg {
-        color: $light-cyan;
+        color: white;
         font-size: 32px;
         transition: 0.5s;
         cursor: pointer;
@@ -28,7 +28,7 @@
 
     img {
       filter: drop-shadow(0px 2px 8px #000000);
-      width: 220px;
+      width: 180px;
       padding: 5px;
       &:nth-child(2) {
         display: none;
@@ -45,7 +45,7 @@
         list-style-type: none;
 
         .link {
-          color: $light-cyan;
+          color: white;
           text-decoration: none;
           font-size: 1.1rem;
 
