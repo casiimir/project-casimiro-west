@@ -3,8 +3,13 @@ import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import React, { memo, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import CardActivity from "../CardActivity/CardActivity";
-import Footer from "../Footer";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
+
+import { lazy, Suspense } from "react";
+
+const CardActivity = lazy(() => import("../CardActivity/CardActivity"));
+const Footer = lazy(() => import("../Footer"));
 
 const AirActivity = () => {
   const { airActivitiesData } = useSelector((state) => state.categories);
@@ -19,14 +24,27 @@ const AirActivity = () => {
 
   return (
     <>
-      <div className={styles.AirActivity}>
-        <div className={styles.box}>
-          {airActivitiesData?.map((el, i) => (
-            <CardActivity key={i} data={el} />
-          ))}
+      {" "}
+      <Suspense
+        fallback={
+          <div className={styles.skeletron}>
+            <Box sx={{ width: 1200, height: 2800 }}>
+              <Skeleton />
+              <Skeleton animation="wave" />
+              <Skeleton animation={false} />
+            </Box>
+          </div>
+        }
+      >
+        <div className={styles.AirActivity}>
+          <div className={styles.box}>
+            {airActivitiesData?.map((el, i) => (
+              <CardActivity key={i} data={el} />
+            ))}
+          </div>
         </div>
-      </div>
-      <Footer />
+        <Footer />
+      </Suspense>
     </>
   );
 };

@@ -4,7 +4,14 @@ import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
 import Footer from "../../components/Footer/Footer";
 import { useDispatch, useSelector } from "react-redux";
-import ActivityHomeCard from "../../components/ActivityHomeCard/ActivityHomeCard";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
+
+import { lazy, Suspense } from "react";
+
+const ActivityHomeCard = lazy(() =>
+  import("../../components/ActivityHomeCard/ActivityHomeCard")
+);
 
 const Cities = () => {
   const cityName = useParams();
@@ -66,9 +73,17 @@ const Cities = () => {
           </div>
         </div>
         <div className={styles.activityCardContainer} ref={scrollRef}>
-          {cardData?.data?.map((item, index) => (
-            <ActivityHomeCard data={item} key={index} />
-          ))}
+          <Suspense
+            fallback={
+              <Box>
+                <Skeleton variant="rectangular" width={1200} height={240} />
+              </Box>
+            }
+          >
+            {cardData?.data?.map((item, index) => (
+              <ActivityHomeCard data={item} key={index} />
+            ))}
+          </Suspense>
         </div>
       </div>
       <Footer />
