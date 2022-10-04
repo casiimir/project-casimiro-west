@@ -1,9 +1,10 @@
 .mapContainer {
-  height: 400px;
+  height: 400px !important;
 }
 
 .sidebar {
-  background-color: rgba(35, 55, 75, 0.9);
+  display: none;
+  /* background-color: rgba(35, 55, 75, 0.9);
   color: #fff;
   padding: 6px 12px;
   font-family: monospace;
@@ -12,7 +13,7 @@
   top: 0;
   left: 0;
   margin: 12px;
-  border-radius: 4px;
+  border-radius: 4px; */
 }
 /**/
 
@@ -20,9 +21,9 @@
   .mapboxgl-interactive
   .mapboxgl-touch-drag-pan
   .mapboxgl-touch-zoom-rotate {
-  width: 500px;
+  height: 400px !important;
 }
 
 .mapboxgl-canvas {
-  width: 500px;
+  height: 400px !important;
 }

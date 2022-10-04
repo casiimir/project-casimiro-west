@@ -76,8 +76,12 @@ const ActivityPage = () => {
           <p>
             <GiPositionMarker /> {meeting_point}
           </p>
-
-          {longitude && <Map long={longitude} lati={latitude} />}
+          <div>
+            <div className={styles.mapOverlay}></div>
+            <div className={styles.mapDisplay}>
+              {longitude && <Map long={longitude} lati={latitude} />}
+            </div>
+          </div>
         </div>
         <div className={styles.priceInfo}>
           <span>
