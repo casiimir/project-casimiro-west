@@ -1,69 +1,154 @@
-# Getting Started with Create React App
+import AttractionCard from "../../components/AttractionCard/AttractionCard";
+import AttractionsList from "../../components/AttractionsList/AttractionsList";
+import { BsPerson } from "react-icons/bs";
+import { AiOutlineStar } from "react-icons/ai";
+import styles from "./index.module.scss";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { GET } from "../../utils/api";
+import { countriesWithAttractions } from "../../utils/countriesWithAttractions";
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+const Attractions = () => {
+  const { attractions, selectedCountry } = useSelector((state) => state);
 
-## Available Scripts
+  const {attractionsMost, attractionsHighest, countryAttractions} = attractions;
 
-In the project directory, you can run:
+  const dispatch = useDispatch();
 
-### `npm start`
+  const HeroImage = {
+    first:
+      "https://images-sandbox.musement.com/cover/0002/15/venuehero-colosseo-jpg_header-114421.jpeg",
+    third:
+      "https://images-sandbox.musement.com/cover/0002/97/england-stonehenge-xl-jpg_header-196786.jpeg",
+    fourth:
+      "https://images-sandbox.musement.com/cover/0001/47/fotolia-92628979-subscription-monthly-l-jpg_header-46899.jpeg",
+  };
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  useEffect(() => {
+    GET("venues?&limit=20").then(
+      (data) =>
+        dispatch({
+          type: "SET_ATTRACTIONS_MOST_DATA",
+          payload: data.filter((el) => el.reviews_number >= 3000),
+        }),
+      GET("venues?&limit=30").then((data) =>
+        dispatch({
+          type: "SET_ATTRACTIONS_HIGHEST_DATA",
+          payload: data.filter((el) => el.reviews_avg >= 4.5),
+        })
+      )
+    );
+  }, [dispatch]);
 
-### `npm test`
+  useEffect(() => {
+    {
+      selectedCountry.value !== "" &&
+        GET(
+          `venues?country_in=${
+            countriesWithAttractions.filter((el) =>
+              el.name.includes(selectedCountry.value)
+            )[0].id
+          }&limit=13`
+        ).then((data) => {
+          dispatch({
+            type: "SET_COUNTRY_DATA",
+            payload: data,
+          });
+        });
+    }
+  }, [dispatch, selectedCountry.value]);
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+  const onHandleSelect = (e) => {
+    dispatch({
+      type: "SET_SELECTED_COUNTRY_VALUE",
+      payload: e.target.value,
+    });
+    console.log(selectedCountry);
+  };
 
-### `npm run build`
+  return (
+    <div className={styles.Attractions}>
+      <section className={styles.hero}>
+        <p className={styles.name}>Attractions</p>
+        <div className={styles.imageSection}>
+          <img className={styles.image} src={HeroImage.first} alt="" />
+        </div>
+        <div className={styles.imageSection}>
+          <img className={styles.image} src={HeroImage.third} alt="" />
+        </div>
+        <div className={styles.imageSection}>
+          <img className={styles.image} src={HeroImage.fourth} alt="" />
+        </div>
+        <div className={styles.backgroundGradient}></div>
+      </section>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      <h1>Many attractions to see</h1>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+      <section className={styles.main}>
+        <AttractionsList title="Most Reviewed">
+          {attractionsMost?.map?.((el, i) => (
+            <AttractionCard
+              number={el.reviews_number}
+              city={el.city.name}
+              country={el.city.country.name}
+              background={el.cover_image_url}
+              title={el.name}
+              key={i}
+              icon={<BsPerson />}
+            />
+          ))}
+        </AttractionsList>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+        <AttractionsList title={"Highest Average"}>
+          {attractionsHighest?.map?.((el, i) => (
+            <AttractionCard
+              title={el.name}
+              background={el.cover_image_url}
+              city={el.city.name}
+              country={el.city.country.name}
+              number={el.reviews_avg}
+              key={i}
+              icon={<AiOutlineStar />}
+            />
+          ))}
+        </AttractionsList>
 
-### `npm run eject`
+        <section className={styles.selectSection}>
+          <form className={styles.countryForm}>
+            <select
+              className={styles.countrySelect}
+              onChange={(e) => {
+                onHandleSelect(e);
+              }}
+            >
+              <option defaultValue hidden className={styles.country}>
+                Select a Country
+              </option>
+              {countriesWithAttractions?.map?.((el) => (
+                <option className={styles.country} key={el.id} id={el.idid}>
+                  {el.name}
+                </option>
+              ))}
+            </select>
+          </form>
+        </section>
+      </section>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+      {selectedCountry.value && (
+        <AttractionsList title={selectedCountry.value}>
+          {countryAttractions?.map?.((el, i) => (
+            <AttractionCard
+              title={el.name}
+              background={el.cover_image_url}
+              city={el.city.name}
+              country={el.city.country.name}
+              key={i}
+            />
+          ))}
+        </AttractionsList>
+      )}
+    </div>
+  );
+};
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+export default Attractions;

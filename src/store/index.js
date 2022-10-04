@@ -38,6 +38,10 @@ const InitialState = {
   SingleActivity: {
     data: [],
   },
+
+ selectedCountry: {
+    value: "",
+  },
 };
 
 const inputReducer = (state = {}, action) => {
@@ -151,6 +155,16 @@ const SingleActivityReducer = (state = {}, action) => {
   }
 };
 
+const selectReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_SELECTED_COUNTRY_VALUE":
+      return { value: action.payload };
+    default:
+      return state;
+  }
+};
+
+
 const rootReducer = combineReducers({
   input: inputReducer,
   listArray: listArrayReducer,
@@ -162,7 +176,11 @@ const rootReducer = combineReducers({
   categories: categoriesReducer,
   cart: cartReducer,
   SingleActivity: SingleActivityReducer,
+  selectedCountry:selectReducer
 });
 
 const store = createStore(rootReducer, InitialState);
 export default store;
+
+
+
