@@ -6,29 +6,30 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.37);
 
   .box {
-    @include flex-element(row, space-between, center);
-    height: 13vh;
+    @include flex-element(row, space-around, center);
+    height: 23vh;
     width: 100%;
     background-color: #aaaaaa;
-    padding: 0 20px;
-
-    .icons {
-      svg {
-        color: white;
-        font-size: 32px;
-        transition: 0.5s;
-        cursor: pointer;
-
-        &:hover {
+    .boxSocial {
+      .icons {
+        svg {
+          color: white;
+          font-size: 32px;
           transition: 0.5s;
-          color: #23bdab;
+          cursor: pointer;
+          filter: drop-shadow(0px 2px 2px #00000054);
+
+          &:hover {
+            transition: 0.5s;
+            color: $dark-grey;
+          }
         }
       }
     }
 
     img {
       filter: drop-shadow(0px 2px 8px #000000);
-      width: 180px;
+      width: 170px;
       padding: 5px;
       &:nth-child(2) {
         display: none;
@@ -36,6 +37,12 @@
     }
 
     .list {
+      @include flex-element(row);
+      gap: 20px;
+      color: $dark-grey;
+      font-weight: 700;
+      font-size: 1.1rem;
+
       ul {
         display: flex;
         flex-direction: column;
@@ -47,11 +54,13 @@
         .link {
           color: white;
           text-decoration: none;
-          font-size: 1.1rem;
+          font-size: 1rem;
+          transition: 0.5s;
+          font-weight: 400;
 
           &:hover {
             transition: 0.5s;
-            color: #23bdab;
+            color: $dark-grey;
             cursor: pointer;
           }
         }
@@ -72,37 +81,40 @@
 @media only screen and (max-width: 600px) {
   .Footer {
     .box {
-      height: 10vh;
+      @include flex-element(column, center, center);
+      height: 28vh;
       padding: 0 10px;
+      gap: 10px;
+      .boxSocial {
+        order: 2;
+        .icons {
+          @include flex-element(row);
+          gap: 10px;
 
-      .icons {
-        svg {
-          font-size: 23px;
+          svg {
+            font-size: 35px;
 
-          &:hover {
-            color: $light-cyan;
+            &:hover {
+              color: $light-cyan;
+            }
           }
         }
       }
 
       .logo {
-        img {
-          &:nth-child(1) {
-            display: none;
-          }
-
-          &:nth-child(2) {
-            display: block;
-            width: 75px;
-            padding: 10px 0;
-          }
-        }
+        display: none;
       }
 
       .list {
+        order: 1;
         ul {
           padding-left: 10px;
           gap: 3px;
+          padding-left: 0px;
+
+          p {
+            font-size: 1rem;
+          }
 
           .link {
             font-size: 1rem;

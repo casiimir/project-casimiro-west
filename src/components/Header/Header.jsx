@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import logo from "./logo.png";
 import logotypeW from "./logo_white.png";
 import logoBlack from "./logotype_white.png";
-
+import MainInput from "../MainInput/";
 import { useRef } from "react";
 import { Link } from "react-router-dom";
 import { RiMenu3Line } from "react-icons/ri";
@@ -61,7 +61,7 @@ const Header = ({ children }) => {
           </ul>
         </div>
         <section className={styles.side}>
-          {children}
+          <MainInput />
           <div className={styles.menu} onClick={onHadleClick}>
             <RiMenu3Line />
           </div>
@@ -70,9 +70,9 @@ const Header = ({ children }) => {
               <FaShoppingCart />
               {localStorage.length > 2 ? (
                 cartData ? (
-                  <p>{cartData.length}</p>
+                  <p className={styles.number}>{cartData.length}</p>
                 ) : (
-                  <p>
+                  <p className={styles.number}>
                     {
                       Object.keys(localStorage).filter(
                         (e) => !e.includes("mapbox")

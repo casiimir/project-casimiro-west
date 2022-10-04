@@ -59,9 +59,9 @@
 
       .textContainer {
         width: 100%;
-        text-align: justify;
         color: white;
         text-shadow: 0px 4px 4px $almost-black;
+        padding: 30px 0 10px 0;
 
         p:first-of-type:first-letter {
           font-size: 2rem;
@@ -81,7 +81,7 @@
     .activityCardContainer {
       width: 95%;
       margin: 0 40px;
-
+      padding: 10px 0;
       margin-bottom: 50px;
       display: flex;
       gap: 12.5px;
