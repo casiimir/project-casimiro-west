@@ -43,6 +43,11 @@ const ActivityPage = () => {
     });
   };
 
+  const imgFormatter = (URL, FILTER) => {
+    const original = URL.substring(0, URL.length - 6);
+    return `${original}${FILTER}`;
+  };
+
   return (
     <>
       <div className={styles.ActivityPage}>
@@ -57,7 +62,10 @@ const ActivityPage = () => {
             <h2>{description}</h2>
           </div>
           <div className={styles.polaroid}>
-            <img src={`${cover_image_url}`} className={styles.polaroidIMG} />
+            <img
+              src={imgFormatter(`${cover_image_url}`, "?w=500")}
+              className={styles.polaroidIMG}
+            />
             <p>{city.name}</p>
           </div>
         </div>
