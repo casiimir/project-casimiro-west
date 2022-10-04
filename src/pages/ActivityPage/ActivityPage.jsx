@@ -74,17 +74,20 @@ const ActivityPage = () => {
           <p>{about}</p>
         </div>
         <div className={styles.map}>
-          <p>
-            <GiPositionMarker /> {meeting_point}
-          </p>
           {longitude && (
-            <div>
-              {/* <div className={styles.mapOverlayLeft}></div>
+            <>
+              <p>
+                <GiPositionMarker /> {meeting_point}
+              </p>
+
+              <div>
+                {/* <div className={styles.mapOverlayLeft}></div>
             <div className={styles.mapOverlayRight}></div> */}
-              <div className={styles.mapDisplay}>
-                <Map lng={longitude} lat={latitude} />
+                <div className={styles.mapDisplay}>
+                  <Map lng={longitude} lat={latitude} />
+                </div>
               </div>
-            </div>
+            </>
           )}
         </div>
         <div className={styles.priceInfo}>

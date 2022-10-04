@@ -1,6 +1,7 @@
 import styles from "./index.module.scss";
 import { useEffect } from "react";
-import mapboxgl from "mapbox-gl";
+// import mapboxgl from "mapbox-gl";
+import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
 
 const Map = ({ lng, lat }) => {
   // MapboxGL
@@ -27,7 +28,7 @@ const Map = ({ lng, lat }) => {
 
     // Map controls (zoom in / out)
     map.addControl(new mapboxgl.NavigationControl(), "top-right");
-  }, []);
+  }, [lng]);
 
   return <div id="mapContainer" className={styles.map}></div>;
 };
