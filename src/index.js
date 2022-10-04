@@ -23,6 +23,7 @@ import CartPage from "./pages/CartPage";
 import CityActivity from "./components/CityActivity/CityActivity";
 import AirActivity from "./components/AirActivity/AirActivity";
 import CruiseActivity from "./components/CruiseActivity/CruiseActivity";
+import AttractionPage from "./pages/AttractionPage/AttractionPage";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -67,7 +68,13 @@ const router = createBrowserRouter([
       { path: "/cart", element: <CartPage /> },
     ],
   },
-  { path: "*", element: <ErrorPage /> },
+  {
+    path: "*",
+    element: (
+      // <ErrorPage />
+      <AttractionPage />
+    ),
+  },
 ]);
 
 root.render(

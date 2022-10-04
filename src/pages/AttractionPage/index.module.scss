@@ -1,0 +1,102 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.AttractionPage {
+  position: absolute;
+  top: 0;
+  .hero {
+    width: 100vw;
+    height: 60vh;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+    }
+    .transition {
+      position: relative;
+      top: -51px;
+      width: 100%;
+      height: 3rem;
+      background-color: white;
+      border-top-left-radius: 25px;
+      border-top-right-radius: 25px;
+    }
+  }
+
+  .main {
+    padding: 0.2rem 40px;
+
+    .info {
+      display: flex;
+      margin-bottom: 1rem;
+
+      .name {
+        margin-bottom: 1rem;
+        font-family: $titles-font;
+        font-weight: 800;
+        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.456);
+      }
+
+      .reviews {
+        height: 3rem;
+        min-width: 2.5rem;
+        max-width: 2.7rem;
+        text-align: center;
+        font-family: $text-font;
+        border: 2px lightseagreen solid;
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+      }
+
+      .description {
+        font-family: $text-font;
+        line-height: 1.5rem;
+      }
+    }
+  }
+  .navigate {
+    padding: 1rem 40px;
+
+    .title {
+      padding: 0.2rem 0;
+      border-top: 2px solid lightseagreen;
+      font-family: $titles-font;
+    }
+  }
+}
+
+@media only screen and (min-width: 540px) {
+  .AttractionPage {
+    .main {
+      .info {
+        gap: 5%;
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .AttractionPage {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: -5rem;
+    grid-row-gap: 0px;
+
+    .hero {
+      width: 100%;
+      height: 100vh;
+      grid-area: 1 / 2 / 6 / 3;
+    }
+    .transition {
+      display: none;
+    }
+
+    .main {
+      width: 100%;
+      grid-area: 2 / 1 / 5 / 2;
+    }
+  }
+}
