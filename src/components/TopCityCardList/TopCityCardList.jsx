@@ -46,7 +46,7 @@ const TopCityCardList = () => {
         }
       >
         <div className={styles.box}>
-          <button className={styles.button} onClick={prev}>
+          <button className={styles.buttonPrev} onClick={prev}>
             <IoIosArrowBack />
           </button>
           <div ref={containerRef} className={styles.TopCityCardList}>
@@ -54,10 +54,15 @@ const TopCityCardList = () => {
               <CityCard key={el.id} CardData={el} />
             ))}
           </div>
-          <button className={styles.button} onClick={next}>
-            <IoIosArrowForward />
-          </button>
-        </div>
+          <span>
+            <button className={styles.button} onClick={next}>
+              <IoIosArrowForward />
+            </button>{" "}
+            <button className={styles.buttonMobile} onClick={prev}>
+              <IoIosArrowBack />
+            </button>
+          </span>
+        </div>{" "}
       </Suspense>
     </>
   );

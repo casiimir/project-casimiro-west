@@ -10,7 +10,7 @@ import Skeleton from "@mui/material/Skeleton";
 import { lazy, Suspense } from "react";
 
 const CardActivity = lazy(() => import("../CardActivity/CardActivity"));
-const Footer = lazy(() => import("../Footer"));
+// const Footer = lazy(() => import("../Footer"));
 
 const CityActivity = () => {
   const { cityActivitiesData } = useSelector((state) => state.categories);
@@ -43,7 +43,7 @@ const CityActivity = () => {
             ))}
           </div>
         </div>
-        <Footer />
+        {/* <Footer /> */}
       </Suspense>
     </>
   );
