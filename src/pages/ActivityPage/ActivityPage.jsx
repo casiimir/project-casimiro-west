@@ -6,6 +6,7 @@ import { TbCurrencyDollar } from "react-icons/tb";
 import Map from "../../components/Map";
 import styles from "./index.module.scss";
 import { isEditable } from "@testing-library/user-event/dist/utils";
+import { style } from "@mui/system";
 
 const ActivityPage = () => {
   const data = useLocation();
@@ -84,7 +85,6 @@ const ActivityPage = () => {
 export default ActivityPage;
 
 // 159430   85422   148584
-
 // { PRENDERE I DATI
 //   Object.values(localStorage)
 //     .filter((e) => e.includes("name"))
@@ -113,3 +113,10 @@ export default ActivityPage;
 //   );
 // });
 
+//FORMULA MAGICA IMMAGINE
+//  const imgFormatter = (URL, FILTER) => {
+//   const original = URL.substring(0, URL.length - 6);
+//   return `${original}${FILTER}`;
+// };
+// PRENDERE IMMAGINE
+// src={imgFormatter(`${cover_image_url}`, "?w=1000")} <- METTERE LE DIMENSIONI DESIDERATE E/O QUALUNQUE ALTRO FILTR IMGIX
