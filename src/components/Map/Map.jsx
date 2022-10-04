@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import styles from "./index.modules.scss";
+import "./index.css";
 import { Marker } from "mapbox-gl";
 
 mapboxgl.accessToken =
@@ -26,7 +26,7 @@ export default function Map({ long, lati }) {
 
   return (
     <div>
-      <div ref={mapContainer} className={styles.mapContainer} />
+      <div ref={mapContainer} className="mapContainer" />
     </div>
   );
 }
