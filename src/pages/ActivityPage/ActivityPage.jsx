@@ -6,11 +6,14 @@ import { TbCurrencyDollar } from "react-icons/tb";
 import Map from "../../components/Map";
 import styles from "./index.module.scss";
 import "./mapbox.css";
+import Footer from "../../components/Footer";
 import { isEditable } from "@testing-library/user-event/dist/utils";
 import { style } from "@mui/system";
 
 
 const ActivityPage = () => {
+  const [cartAnimation, setCartAnimation] = useState("");
+
   const data = useLocation();
  
 
@@ -38,10 +41,11 @@ const ActivityPage = () => {
     dispatch({
       type: "SET_CART_DATA",
       payload: [
-      
+
         localStorage.setItem(`${title}@@@`, JSON.stringify(testObject)),
       ],
     });
+    setCartAnimation(`${styles.clicked}`);
   };
 
   const imgFormatter = (URL, FILTER) => {
@@ -58,16 +62,32 @@ const ActivityPage = () => {
             "--i": `url(${city.cover_image_url}?w=2000&blur=50&con=-71)`,
           }}
         >
-          <div className={styles.text}>
-            <h1>{title}</h1>
-            <h2>{description}</h2>
+          <div className={styles.topText}>
+            <div className={styles.text}>
+              <h1>{title}</h1>
+              <h2>{description}</h2>
+            </div>
+            <div className={styles.polaroid}>
+              <img
+                src={imgFormatter(`${cover_image_url}`, "?w=500")}
+                className={styles.polaroidIMG}
+              />
+              <p>{city.name}</p>
+            </div>
           </div>
-          <div className={styles.polaroid}>
-            <img
-              src={imgFormatter(`${cover_image_url}`, "?w=500")}
-              className={styles.polaroidIMG} alt="img"
-            />
-            <p>{city.name}</p>
+
+          <div className={styles.priceInfo}>
+            <span>{/* <TbCurrencyDollar /> {retail_price.value} */}</span>
+            <button onClick={cartFunction}>
+              {" "}
+              Add to cart <br /> ${retail_price.value}
+            </button>
+            <button onClick={cartFunction}>
+              {" "}
+              Add to cart ${retail_price.value}
+            </button>
+
+
           </div>
         </div>
         <div className={styles.info}>
@@ -90,18 +110,15 @@ const ActivityPage = () => {
             </>
           )}
         </div>
-        <div className={styles.priceInfo}>
-          <span>
-            <TbCurrencyDollar /> {retail_price.value}
-          </span>
-          <button onClick={cartFunction}>Aggiungi al carrello</button>
-        </div>
       </div>
+      <Footer />
     </>
   );
 };
 
 export default ActivityPage;
+
+//<TbCurrencyDollar />
 
 
 //FORMULA MAGICA IMMAGINE
