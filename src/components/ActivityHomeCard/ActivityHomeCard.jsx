@@ -39,7 +39,7 @@ const ActivitiesHomeCard = ({ data }) => {
         </div>
       </section>
       <Link
-        to={`/activity/${data.name}`}
+        to={`/activity/${data.title}`}
         state={data}
         className={styles.link}
         onClick={() => window.scrollTo(0, 0)}

@@ -1,32 +1,37 @@
-import { useState, useEffect, useRef } from "react";
-import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-import "./index.css";
-import { Marker } from "mapbox-gl";
+import styles from "./index.module.scss";
+import { useEffect } from "react";
+import mapboxgl from "mapbox-gl";
 
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibG9yZW1hcnUiLCJhIjoiY2w4cTNlMnd5MnB1NDNwbzV2a2hsYTgydyJ9.mfwMLGc00SMMSwc6jl8XBg";
-
-export default function Map({ long, lati }) {
-  const mapContainer = useRef(null);
-
-  const map = useRef(null);
-  const [lng, setLng] = useState(long);
-  const [lat, setLat] = useState(lati);
-  const [zoom, setZoom] = useState(15);
+const Map = ({ lng, lat }) => {
+  // MapboxGL
+  mapboxgl.accessToken =
+    "pk.eyJ1IjoiZXhwbG9yaWVuY2UiLCJhIjoiY2tvMWpsbGk0MDk0NzJvcTl6dHV3bGw0YyJ9.dBUiDNEml9qrhEHuKnitfA";
 
   useEffect(() => {
-    if (map.current) return; // initialize map only once
-    map.current = new mapboxgl.Map({
-      container: mapContainer.current,
-      style: "mapbox://styles/mapbox/streets-v11",
-      center: [long, lati],
-      zoom: zoom,
+    const map = new mapboxgl.Map({
+      container: "mapContainer",
+      style: "mapbox://styles/mapbox/light-v10",
+      center: [lng, lat],
+      zoom: 15,
+      attributionControl: false,
     });
-  });
 
-  return (
-    <div>
-      <div ref={mapContainer} className="mapContainer" />
-    </div>
-  );
-}
+    // Marker map
+    const marker = new mapboxgl.Marker({
+      color: "lightseagreen",
+    })
+      .setLngLat([lng, lat])
+      // Set a Popup message into the marker
+      // .setPopup(new mapboxgl.Popup().setHTML('<h1>Message_here</h1>'))
+      .addTo(map);
+
+    // Map controls (zoom in / out)
+    map.addControl(new mapboxgl.NavigationControl(), "top-right");
+  }, []);
+
+  return <div id="mapContainer" className={styles.map}></div>;
+};
+
+export default Map;
+
+//mapbox://styles/mapbox/light-v10"
