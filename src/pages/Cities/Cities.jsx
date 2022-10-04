@@ -66,7 +66,7 @@ const Cities = () => {
         </div>
         <div className={styles.box}>
           <div className={styles.textContainer}>
-            <p className={styles.description}>{content.split(".", +1)}</p>
+            <p className={styles.description}>{content.split(".", +2)}.</p>
             <p className={styles.description}>
               Things to do in <span>{name}</span> :
             </p>
