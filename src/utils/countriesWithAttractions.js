@@ -1,4 +1,4 @@
-const countriesList = [
+const countriesWithAttractions = [
   //   { id: 7, name: "Argentina" },
   //   { id: 9, name: "Australia" },
   //   { id: 10, name: "Austria" },
@@ -31,4 +31,4 @@ const countriesList = [
   { id: 184, name: "United States of America" },
 ];
 
-export { countriesList };
+export { countriesWithAttractions };

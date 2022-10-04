@@ -27,12 +27,13 @@
     .reviewsSpecific {
       border-bottom-left-radius: 5px;
       border-top-right-radius: 5px;
+      padding: 0.2rem 0.2rem;
       display: flex;
       justify-content: center;
-      width: 4rem;
+      width: fit-content;
       background-color: rgba(0, 0, 0, 0.699);
       backdrop-filter: blur(5px);
-      color: lightseagreen;
+      color: white;
       font-family: $text-font;
       text-align: center;
     }
@@ -51,6 +52,7 @@
     );
     .name {
       font-family: $titles-font;
+      font-size: larger;
       text-shadow: 1px 2px 4px $almost-black;
       color: white;
     }
