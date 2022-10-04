@@ -3,14 +3,14 @@ import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import React, { memo, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-// import Footer from "../Footer";
+import Footer from "../Footer";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 
 import { lazy, Suspense } from "react";
 
 const CardActivity = lazy(() => import("../CardActivity/CardActivity"));
-const Footer = lazy(() => import("../Footer"));
+// const Footer = lazy(() => import("../Footer"));
 
 const CruiseActivity = () => {
   const { cruiseActivitiesData } = useSelector((state) => state.categories);
@@ -25,7 +25,6 @@ const CruiseActivity = () => {
 
   return (
     <>
-      {" "}
       <Suspense
         fallback={
           <div className={styles.skeletron}>
@@ -44,7 +43,7 @@ const CruiseActivity = () => {
             ))}
           </div>
         </div>
-        <Footer />{" "}
+        {/* <Footer /> */}
       </Suspense>
     </>
   );
