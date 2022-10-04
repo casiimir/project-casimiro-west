@@ -1,6 +1,7 @@
 .mapContainer {
-  height: 400px !important;
-  margin-right: 40px !important;
+  height: 300px !important;
+
+  overflow: hidden;
 }
 
 .sidebar {
@@ -22,11 +23,13 @@
   .mapboxgl-interactive
   .mapboxgl-touch-drag-pan
   .mapboxgl-touch-zoom-rotate {
-  height: 400px !important;
-  margin-right: 40px !important;
+  height: 300px !important;
+
+  overflow: hidden;
 }
 
 .mapboxgl-canvas {
-  height: 400px !important;
-  margin-right: 40px !important;
+  height: 300px !important;
+
+  overflow: hidden;
 }

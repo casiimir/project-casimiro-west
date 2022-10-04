@@ -1,0 +1,18 @@
+.map {
+  position: relative;
+  width: calc(100% - 80px);
+  margin: 40px;
+  height: 250px;
+  z-index: 0;
+
+  filter: grayscale(0.1) brightness(78%) contrast(180%) saturate(1.2);
+
+  @media (min-width: 992px) {
+    height: 300px;
+    margin-bottom: 50px;
+  }
+}
+
+button {
+  border: none !important;
+}
