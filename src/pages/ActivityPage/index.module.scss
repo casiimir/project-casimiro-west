@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-around;
     align-items: baseline;
-    gap: 20px;
+    gap: 15px;
 
     background-image: var(--i);
     background-repeat: no-repeat;
@@ -47,7 +47,7 @@
 
     .polaroid {
       align-self: center;
-      width: 500px;
+      width: 470px;
       height: fit-content;
       background-color: white;
       border: 40px solid white;
@@ -56,8 +56,7 @@
       box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.425);
 
       .polaroidIMG {
-        max-width: 400px;
-        border-radius: 3%;
+        max-width: 370px;
       }
 
       p {
@@ -133,11 +132,11 @@
     .topSection {
       .text {
         h1 {
-          font-size: 30px;
+          font-size: 28px;
         }
 
         h2 {
-          font-size: 20px;
+          font-size: 18px;
         }
       }
 
@@ -161,19 +160,19 @@
     .topSection {
       .text {
         h1 {
-          font-size: 28px;
+          font-size: 26px;
         }
 
         h2 {
-          font-size: 18px;
+          font-size: 16px;
         }
       }
 
       .polaroid {
-        width: 370px;
+        width: 360px;
 
         .polaroidIMG {
-          max-width: 270px;
+          max-width: 260px;
         }
 
         p {
