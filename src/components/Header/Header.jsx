@@ -70,12 +70,14 @@ const Header = ({ children }) => {
               <FaShoppingCart />
               {localStorage.length > 2 ? (
                 cartData ? (
-                  <p>{cartData.length / 2}</p>
+                  <p>{cartData.length}</p>
                 ) : (
                   <p>
-                    {Object.keys(localStorage).filter(
-                      (e) => !e.includes("mapbox")
-                    ).length / 2}
+                    {
+                      Object.keys(localStorage).filter(
+                        (e) => !e.includes("mapbox")
+                      ).length
+                    }
                   </p>
                 )
               ) : (
@@ -152,12 +154,14 @@ const Header = ({ children }) => {
               <FaShoppingCart />
               {localStorage.length > 2 ? (
                 cartData ? (
-                  <p>{cartData.length / 2}</p>
+                  <p>{cartData.length}</p>
                 ) : (
                   <p>
-                    {Object.keys(localStorage).filter(
-                      (e) => !e.includes("mapbox")
-                    ).length / 2}
+                    {
+                      Object.keys(localStorage).filter(
+                        (e) => !e.includes("mapbox")
+                      ).length
+                    }
                   </p>
                 )
               ) : (
