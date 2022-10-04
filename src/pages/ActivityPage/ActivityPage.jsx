@@ -5,6 +5,9 @@ import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import Map from "../../components/Map";
 import styles from "./index.module.scss";
+import "./mapbox.css";
+import { isEditable } from "@testing-library/user-event/dist/utils";
+import { style } from "@mui/system";
 
 
 const ActivityPage = () => {
@@ -78,7 +81,7 @@ const ActivityPage = () => {
             <div className={styles.mapOverlayLeft}></div>
             <div className={styles.mapOverlayRight}></div>
             <div className={styles.mapDisplay}>
-              {longitude && <Map long={longitude} lati={latitude} />}
+              {longitude && <Map lng={longitude} lat={latitude} />}
             </div>
           </div>
         </div>
