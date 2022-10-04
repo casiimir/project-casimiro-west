@@ -14,6 +14,9 @@ const InitialState = {
   cities: {
     data: [],
   },
+  citiesFooter: {
+    data: [],
+  },
   otherCities: {
     data: [],
   },
@@ -33,6 +36,10 @@ const InitialState = {
     attractionsMost: [],
     attractionsHighest: [],
     countryAttractions: [],
+  },
+
+  attractionsFooter: {
+    data: [],
   },
 
   SingleActivity: {
@@ -81,6 +88,15 @@ const listArrayReducer = (state = {}, action) => {
 const citiesReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_CITIES_DATA":
+      return { ...state, data: action.payload };
+    default:
+      return state;
+  }
+};
+
+const citiesFooterReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_CITIESFO_DATA":
       return { ...state, data: action.payload };
     default:
       return state;
@@ -142,6 +158,15 @@ const attractionsReducer = (state = {}, action) => {
   }
 };
 
+const attractionsFooterReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_ATTRACTIONSFO_MOST_DATA":
+      return { ...state, attractionsMost: action.payload };
+    default:
+      return state;
+  }
+};
+
 const SingleActivityReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_SINGLE_ACTIVITY_DATA":
@@ -156,9 +181,11 @@ const rootReducer = combineReducers({
   listArray: listArrayReducer,
   dropdownVisibility: dropdownVisibityReducer,
   cities: citiesReducer,
+  citiesFooter: citiesFooterReducer,
   otherCities: otherCitiesReducer,
   activities: activitiesReducer,
   attractions: attractionsReducer,
+  attractionsFooter: attractionsFooterReducer,
   categories: categoriesReducer,
   cart: cartReducer,
   SingleActivity: SingleActivityReducer,
