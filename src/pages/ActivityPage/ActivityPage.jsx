@@ -1,6 +1,6 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import Map from "../../components/Map";
@@ -10,11 +10,12 @@ import Footer from "../../components/Footer";
 import { isEditable } from "@testing-library/user-event/dist/utils";
 import { style } from "@mui/system";
 
+
 const ActivityPage = () => {
   const [cartAnimation, setCartAnimation] = useState("");
 
   const data = useLocation();
-  const activityData = useSelector((state) => state.SingleActivity);
+ 
 
   const dispatch = useDispatch();
 
@@ -40,6 +41,7 @@ const ActivityPage = () => {
     dispatch({
       type: "SET_CART_DATA",
       payload: [
+
         localStorage.setItem(`${title}@@@`, JSON.stringify(testObject)),
       ],
     });
@@ -73,6 +75,7 @@ const ActivityPage = () => {
               <p>{city.name}</p>
             </div>
           </div>
+
           <div className={styles.priceInfo}>
             <span>{/* <TbCurrencyDollar /> {retail_price.value} */}</span>
             <button onClick={cartFunction}>
@@ -83,6 +86,8 @@ const ActivityPage = () => {
               {" "}
               Add to cart ${retail_price.value}
             </button>
+
+
           </div>
         </div>
         <div className={styles.info}>
@@ -112,35 +117,9 @@ const ActivityPage = () => {
 };
 
 export default ActivityPage;
+
 //<TbCurrencyDollar />
-// 159430   85422   148584
-// { PRENDERE I DATI
-//   Object.values(localStorage)
-//     .filter((e) => e.includes("name"))
-//     .map((item) => JSON.parse(item))
-//     .map((item, index) => (
-//       <div key={index}>
-//         <img src={item.IMG} /> <p>{item.name}</p>
-//         <p>{item.price}</p>{" "}
-//       </div>
-//     ));
-// }
 
-//FARE LA SOMMA (ALLA FINE MOSTRARE TOTAL)
-// const [total, setTotal] = useState([]);
-// const accumulatore = [];
-
-// useEffect(() => {
-//   Object.values(localStorage)
-//     .filter((e) => e.includes("name"))
-//     .map((item) => JSON.parse(item))
-//     .map((item, index) => accumulatore.push(Number(item.price)));
-//   setTotal(
-//     accumulatore.reduce((previous, next) => {
-//       return previous + next;
-//     })
-//   );
-// });
 
 //FORMULA MAGICA IMMAGINE
 //  const imgFormatter = (URL, FILTER) => {

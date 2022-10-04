@@ -1,20 +1,18 @@
-import { Outlet } from "react-router-dom";
 import AttractionCard from "../../components/AttractionCard/AttractionCard";
 import AttractionsList from "../../components/AttractionsList/AttractionsList";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
 import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { GET } from "../../utils/api";
 import { countriesWithAttractions } from "../../utils/countriesWithAttractions";
 
 const Attractions = () => {
-  const [selectValue, setSelectValue] = useState("");
-  const [countryID, setCountryID] = useState("");
+  const { attractions, selectedCountry } = useSelector((state) => state);
 
   const { attractionsMost, attractionsHighest, countryAttractions } =
-    useSelector((state) => state.attractions);
+    attractions;
 
   const dispatch = useDispatch();
 
@@ -44,61 +42,29 @@ const Attractions = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    if (selectValue) {
-      GET(`venues?country_in=${countryID}`).then((data) =>
-        dispatch({
-          type: "SET_COUNTRY_DATA",
-          payload: data,
-        })
-      );
+    {
+      selectedCountry.value !== "" &&
+        GET(
+          `venues?country_in=${
+            countriesWithAttractions.filter((el) =>
+              el.name.includes(selectedCountry.value)
+            )[0].id
+          }&limit=13`
+        ).then((data) => {
+          dispatch({
+            type: "SET_COUNTRY_DATA",
+            payload: data,
+          });
+        });
     }
-  }, [selectValue, setCountryID, countryID]);
+  }, [dispatch, selectedCountry]);
 
   const onHandleSelect = (e) => {
-    setSelectValue(e.target.value);
+    dispatch({
+      type: "SET_SELECTED_COUNTRY_VALUE",
+      payload: e.target.value,
+    });
   };
-
-  const settamiID = () => {
-    switch (selectValue) {
-      case "France":
-        setCountryID("60&limit=10");
-        break;
-      case "Germany":
-        setCountryID("64&limit=10");
-        break;
-      case "Italy":
-        setCountryID("82&limit=10");
-        break;
-      case "Netherlands":
-        setCountryID("124&limit=10");
-        break;
-      case "Russia":
-        setCountryID("142&limit=10");
-        break;
-      case "Spain":
-        setCountryID("161&limit=10");
-        break;
-      case "United Arab Emirates":
-        setCountryID("182&limit=10");
-        break;
-      case "United Kingdom":
-        setCountryID("182&limit=10");
-        break;
-      case "United States of America":
-        setCountryID("184&limit=10");
-        break;
-      default:
-        console.log(
-          "deve esserci un modo più semplice, ma non ci stai pensando"
-        );
-    }
-  };
-
-  // const onHandleSubmit = (e) => {
-  //   e.preventDefault();
-  // };
-
-  console.log("ID", countryID);
 
   return (
     <div className={styles.Attractions}>
@@ -148,22 +114,18 @@ const Attractions = () => {
         </AttractionsList>
 
         <section className={styles.selectSection}>
-          <form
-            className={styles.countryForm}
-            // onSubmit={onHandleSubmit}
-          >
+          <form className={styles.countryForm}>
             <select
               className={styles.countrySelect}
               onChange={(e) => {
                 onHandleSelect(e);
-                settamiID();
               }}
             >
               <option defaultValue hidden className={styles.country}>
                 Select a Country
               </option>
               {countriesWithAttractions?.map?.((el) => (
-                <option className={styles.country} key={el.id} name={el.id}>
+                <option className={styles.country} key={el.id} id={el.idid}>
                   {el.name}
                 </option>
               ))}
@@ -172,8 +134,8 @@ const Attractions = () => {
         </section>
       </section>
 
-      {selectValue && (
-        <AttractionsList title={selectValue}>
+      {selectedCountry.value && (
+        <AttractionsList title={selectedCountry.value}>
           {countryAttractions?.map?.((el, i) => (
             <AttractionCard
               title={el.name}

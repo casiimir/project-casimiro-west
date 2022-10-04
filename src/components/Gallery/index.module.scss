@@ -2,15 +2,15 @@
 @import "../../styles/mixins";
 
 .Gallery {
-  @include flex-element(column, flex-start, stretch, nowrap, 10px, 100%);
+  @include flex-element(column, center, stretch, nowrap, 10px, 99%);
 
   font-family: $text-font;
   color: rgb(49, 49, 49);
-  padding-top: 10px;
-  padding-bottom: 10px;
-  padding-left: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
 
-  padding-right: max(10px, 1.9%);
+  padding-right: 15px;
 
   p:first-of-type:first-letter {
     font-size: 2rem;
@@ -135,7 +135,6 @@
 
 @media only screen and (min-width: 1230px) {
   .Gallery {
-    padding-right: max(10px, 1.7%);
     .row {
       font-size: 1rem;
 
@@ -160,7 +159,7 @@
 
 @media only screen and (max-width: 1229px) {
   .Gallery {
-    padding-right: max(10px, 1.7%);
+    padding-right: 9px;
     .row {
       font-size: 0.9rem;
 
@@ -185,13 +184,13 @@
 
 @media only screen and (max-width: 1100px) {
   .Gallery {
-    padding-right: max(9px, 1.5%);
+    padding-right: 4px;
   }
 }
 
 @media only screen and (max-width: 911px) {
   .Gallery {
-    padding-right: max(8px, 0.9%);
+    padding-right: 0px;
     .row {
       .box {
         font-size: 1.04rem;
@@ -238,7 +237,7 @@
 }
 @media only screen and (max-width: 775px) {
   .Gallery {
-    padding-right: max(4px, 0.1%);
+    padding-right: 0px;
     .row {
       .box {
         font-size: 0.9rem;
