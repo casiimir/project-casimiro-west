@@ -91,7 +91,7 @@ const ActivityPage = () => {
             </div>
             <div className={styles.polaroid}>
               <img
-                src={imgFormatter(`${cover_image_url}`, "?w=500")}
+                src={imgFormatter(`${cover_image_url}?w=500`)}
                 className={styles.polaroidIMG}
               />
               <p>{city.name}</p>
@@ -111,10 +111,12 @@ const ActivityPage = () => {
           </button>
         </div>
         <div className={styles.info}>
+          <h2>Description</h2>
           <p>{about}</p>
         </div>
         <div className={styles.map}>
-          {longitude && (
+          <h2>Map</h2>
+          {longitude ? (
             <>
               <p>
                 <GiPositionMarker /> {meeting_point}
@@ -125,6 +127,10 @@ const ActivityPage = () => {
                   <Map lng={longitude} lat={latitude} />
                 </div>
               </div>
+            </>
+          ) : (
+            <>
+              <p className={styles.noMap}>The map is not available</p>
             </>
           )}
         </div>

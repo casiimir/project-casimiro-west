@@ -8,12 +8,12 @@
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  font-family: $text-font;
 
   .topSection {
     width: 100%;
     height: 90vh;
     padding: 100px 40px 0 40px;
-    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -41,6 +41,7 @@
         gap: 20px;
 
         h1 {
+          font-family: $titles-font;
           font-size: 35px;
           text-shadow: 1px 2px 4px #0a0f0f;
         }
@@ -52,25 +53,20 @@
         }
       }
 
-
       .polaroid {
         align-self: center;
-        width: 500px;
+        width: 480px;
         height: fit-content;
-        margin-top: 70px;
         background-color: white;
         border: 40px solid white;
         border-bottom: 60px solid white;
 
-
         box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.425);
 
-
         .polaroidIMG {
-          max-width: 400px;
+          max-width: 380px;
           border-radius: 3%;
         }
-
 
         p {
           margin-top: 10px;
@@ -83,7 +79,7 @@
 
     .buttonCart {
       position: absolute;
-      top: 92.8vh;
+      top: 87vh;
       width: 200px;
       height: 50px;
       display: flex;
@@ -151,9 +147,26 @@
   .info {
     padding: 50px 40px;
     font-size: 20px;
+
+    h2 {
+      font-family: $titles-font;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.842);
+    }
+
+    p {
+      padding: 20px 0;
+    }
   }
 
   .map {
+    h2 {
+      font-size: 1.8rem;
+      font-family: $titles-font;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.842);
+      padding: 0 40px;
+    }
     a {
       display: none;
     }
@@ -163,13 +176,17 @@
       font-size: 15px;
       font-weight: 400;
     }
+
+    .noMap {
+      text-align: center;
+      font-size: 1rem;
+    }
   }
 }
 
 @media only screen and (max-width: 905px) {
   .ActivityPage {
     .topSection {
-
       .topText {
         .text {
           h1 {
@@ -183,7 +200,6 @@
 
         .polaroid {
           width: 400px;
-
 
           .polaroidIMG {
             max-width: 300px;
@@ -201,7 +217,6 @@
 @media only screen and (max-width: 700px) {
   .ActivityPage {
     .topSection {
-
       .topText {
         .text {
           h1 {
@@ -223,7 +238,6 @@
           p {
             font-size: 37px;
           }
-
         }
       }
     }
@@ -271,21 +285,17 @@
       }
       .buttonCart {
         position: absolute;
-        top: 56.7vh;
-        width: 100px;
-        height: 25px;
+        top: 48vh;
+        width: 110px;
+        height: 30px;
         font-size: 0.8rem;
 
         .heartActive {
           transform: translateX(-35px);
-          transition: 0.5s;
-          color: lightseagreen;
         }
 
         .cartActive {
           transform: translateX(35px);
-          transition: 0.5s;
-          color: lightseagreen;
         }
       }
     }
@@ -296,6 +306,10 @@
     }
 
     .map {
+      h2 {
+        font-size: 1.5rem;
+        padding: 0 20px;
+      }
       a {
         display: none;
       }

@@ -109,12 +109,11 @@
       .MainInput {
         .input {
           @include generic-appereance(70%, 30px, 1, 0, 0 30px 0 5px);
-          width: 200px;
         }
       }
       .MainInput__filter {
         &.active {
-          width: 200px;
+          width: 147px;
         }
       }
     }
@@ -127,7 +126,6 @@
       .MainInput {
         .input {
           @include generic-appereance(80%, 30px, 1, 0, 0 30px 0 5px);
-          width: 169px;
         }
       }
       .MainInput__filter {
