@@ -2,14 +2,14 @@ import styles from "./index.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import { CgFormatSlash } from "react-icons/cg";
+import { useOutletContext } from "react-router-dom";
 
 const CartPage = () => {
-  // const handleRemovefromCart = () =>
-  //   localStorage.removeItem()
-  // }
-
   const [total, setTotal] = useState([]);
-  const accumulatore = [];
+  const accumulatore = [0];
+  const [cartData, setCartData] = useState(Object.values(localStorage));
+
+  const [cartNumber] = useOutletContext();
 
   useEffect(() => {
     Object.values(localStorage)
@@ -23,6 +23,11 @@ const CartPage = () => {
     );
   });
 
+  const deleteItem = (item) => {
+    localStorage.removeItem(`${item.name}@@@`);
+    setCartData(cartData.filter((el, i) => el.name !== `${item.name}`));
+  };
+
   return (
     <div className={styles.ModalContainer}>
       <div className={styles.overlay}>
@@ -35,6 +40,7 @@ const CartPage = () => {
         <div className={styles.articles}>
           <div className={styles.productList}>
             {Object.values(localStorage)
+
               .filter((e) => e.includes("name"))
               .map((item) => JSON.parse(item))
               .map((item, index) => (
@@ -51,7 +57,7 @@ const CartPage = () => {
                       )}
                     </div>
                     <div className={styles.productPrice}>
-                      <AiOutlineClose />
+                      <AiOutlineClose onClick={() => deleteItem(item)} />
                       <p>{item.price}$</p>
                     </div>
                   </div>

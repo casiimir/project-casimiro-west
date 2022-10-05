@@ -29,9 +29,6 @@ const InitialState = {
     airActivitiesData: [],
     cityActivitiesData: [],
   },
-  cart: {
-    data: [],
-  },
   attractions: {
     attractionsMost: [],
     attractionsHighest: [],
@@ -46,7 +43,7 @@ const InitialState = {
     data: [],
   },
 
- selectedCountry: {
+  selectedCountry: {
     value: "",
   },
 };
@@ -140,15 +137,6 @@ const categoriesReducer = (state = {}, action) => {
   }
 };
 
-const cartReducer = (state = {}, action) => {
-  switch (action.type) {
-    case "SET_CART_DATA":
-      return { ...state, data: action.payload };
-    default:
-      return state;
-  }
-};
-
 const attractionsReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ATTRACTIONS_MOST_DATA":
@@ -189,7 +177,6 @@ const selectReducer = (state = {}, action) => {
   }
 };
 
-
 const rootReducer = combineReducers({
   input: inputReducer,
   listArray: listArrayReducer,
@@ -201,13 +188,9 @@ const rootReducer = combineReducers({
   attractions: attractionsReducer,
   attractionsFooter: attractionsFooterReducer,
   categories: categoriesReducer,
-  cart: cartReducer,
   SingleActivity: SingleActivityReducer,
-  selectedCountry:selectReducer
+  selectedCountry: selectReducer,
 });
 
 const store = createStore(rootReducer, InitialState);
 export default store;
-
-
-

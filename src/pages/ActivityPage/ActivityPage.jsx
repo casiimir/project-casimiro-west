@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useOutletContext } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
@@ -13,6 +13,10 @@ import { style } from "@mui/system";
 import { useState } from "react";
 
 const ActivityPage = () => {
+  const [cartAnimation, setCartAnimation] = useState("");
+
+  const [setCartNumber] = useOutletContext();
+
   const [animation, setAnimation] = useState({
     buttonStyle: "",
     button: `${styles.buttonCart}`,
@@ -24,7 +28,6 @@ const ActivityPage = () => {
   const data = useLocation();
 
   const dispatch = useDispatch();
-
   const {
     title,
     description,
@@ -42,14 +45,11 @@ const ActivityPage = () => {
     IMG: `${cover_image_url}`,
     price: `${retail_price.value}`,
   };
-
   const cartFunction = () => {
-    dispatch({
-      type: "SET_CART_DATA",
-      payload: [
-        localStorage.setItem(`${title}@@@`, JSON.stringify(cartObject)),
-      ],
-    });
+    localStorage.setItem(`${title}@@@`, JSON.stringify(cartObject));
+    setCartNumber(
+      Object.keys(localStorage).filter((el) => el.includes("@@@")).length
+    );
 
     setAnimation({
       buttonStyle: "white",
@@ -75,7 +75,6 @@ const ActivityPage = () => {
     const original = URL.substring(0, URL.length - 6);
     return `${original}${FILTER}`;
   };
-
   return (
     <>
       <div className={styles.ActivityPage}>
@@ -98,6 +97,7 @@ const ActivityPage = () => {
               <p>{city.name}</p>
             </div>
           </div>
+
           <button
             onClick={cartFunction}
             className={animation.button}
@@ -124,6 +124,7 @@ const ActivityPage = () => {
               </p>
 
               <div>
+                <div className={styles.mapOverlayRight}></div>
                 <div className={styles.mapDisplay}>
                   <Map lng={longitude} lat={latitude} />
                 </div>
