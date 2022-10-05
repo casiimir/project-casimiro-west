@@ -41,7 +41,7 @@ const ActivitiesHomeList = () => {
         }
       >
         <div className={styles.box}>
-          <button className={styles.button} onClick={prev}>
+          <button className={styles.buttonPrev} onClick={prev}>
             <IoIosArrowBack />
           </button>
           <div ref={containerRef} className={styles.ActivitiesHomeList}>
@@ -49,9 +49,14 @@ const ActivitiesHomeList = () => {
               <ActivityHomeCard key={i} data={el} />
             ))}
           </div>
-          <button className={styles.button} onClick={next}>
-            <IoIosArrowForward />
-          </button>
+          <span>
+            <button className={styles.button} onClick={next}>
+              <IoIosArrowForward />
+            </button>
+            <button className={styles.buttonMobile} onClick={prev}>
+              <IoIosArrowBack />
+            </button>
+          </span>
         </div>
       </Suspense>
     </>

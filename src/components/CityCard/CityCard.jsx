@@ -31,7 +31,7 @@ const CityCard = ({ CardData }) => {
         state={CardData}
         className={styles.link}
         onClick={() => window.scrollTo(0, 0)}
-      ></Link>
+      >{CardData.name}</Link>
     </div>
   );
 };

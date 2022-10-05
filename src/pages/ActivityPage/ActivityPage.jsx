@@ -1,6 +1,6 @@
-import { Outlet, useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import { TbCurrencyDollar } from "react-icons/tb";
@@ -10,6 +10,7 @@ import "./mapbox.css";
 import Footer from "../../components/Footer";
 import { isEditable } from "@testing-library/user-event/dist/utils";
 import { style } from "@mui/system";
+
 
 const ActivityPage = () => {
   const [animation, setAnimation] = useState({
@@ -21,7 +22,7 @@ const ActivityPage = () => {
     heartIcon: `${styles.heart}`,
   });
   const data = useLocation();
-  const activityData = useSelector((state) => state.SingleActivity);
+ 
 
   const dispatch = useDispatch();
 
@@ -47,7 +48,9 @@ const ActivityPage = () => {
     dispatch({
       type: "SET_CART_DATA",
       payload: [
+
         localStorage.setItem(`${title}@@@`, JSON.stringify(cartObject)),
+
       ],
     });
 
@@ -99,6 +102,7 @@ const ActivityPage = () => {
             </div>
           </div>
 
+
           <button
             onClick={cartFunction}
             className={animation.button}
@@ -111,6 +115,7 @@ const ActivityPage = () => {
             </p>
             <p className={animation.thanksText}>Thank You!</p>
           </button>
+
         </div>
         <div className={styles.info}>
           <p>{about}</p>
@@ -137,3 +142,4 @@ const ActivityPage = () => {
 };
 
 export default ActivityPage;
+
