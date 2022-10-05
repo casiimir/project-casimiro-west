@@ -1,5 +1,5 @@
 import styles from "./index.module.scss";
-
+import tumbleweed from "../../images/tumbleweed.png";
 const ErrorPage = () => {
   return (
     <div className={styles.ErrorPage}>
@@ -13,7 +13,7 @@ const ErrorPage = () => {
       <section className={styles.tumbleweedSection}>
         <img
           className={styles.tumbleweed}
-          src="tumbleweed-01.png"
+          src={tumbleweed}
           alt="a rolling tumbleweed"
         />
       </section>

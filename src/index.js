@@ -23,7 +23,6 @@ import CartPage from "./pages/CartPage";
 import CityActivity from "./components/CityActivity/CityActivity";
 import AirActivity from "./components/AirActivity/AirActivity";
 import CruiseActivity from "./components/CruiseActivity/CruiseActivity";
-import AttractionPage from "./pages/AttractionPage/AttractionPage";
 
 const rootElement = document.getElementById("root");
 const root = createRoot(rootElement);
@@ -40,6 +39,7 @@ const router = createBrowserRouter([
       },
       { path: "/city/:cityName", element: <Cities /> },
       { path: "/about", element: <About /> },
+      { path: "*", element: <ErrorPage /> },
       {
         path: "/activities",
         element: <Activities />,
@@ -67,13 +67,6 @@ const router = createBrowserRouter([
       { path: "/attractions", element: <Attractions /> },
       { path: "/cart", element: <CartPage /> },
     ],
-  },
-  {
-    path: "*",
-    element: (
-      // <ErrorPage />
-      <AttractionPage />
-    ),
   },
 ]);
 
