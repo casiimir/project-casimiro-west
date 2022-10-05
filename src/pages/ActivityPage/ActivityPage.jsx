@@ -97,7 +97,6 @@ const ActivityPage = () => {
               <p>{city.name}</p>
             </div>
           </div>
-
           <button
             onClick={cartFunction}
             className={animation.button}

@@ -15,18 +15,20 @@ const AttractionsList = ({ title, children }) => {
 
   return (
     <div className={styles.AttractionsList}>
-      <h2 className={styles.name}>{title}</h2>
-      <div className={styles.container}>
-        <button className={styles.button} onClick={prev}>
-          <IoIosArrowBack />
-        </button>
-        <div className={styles.cards} ref={attractionsListsRef}>
-          {children}
-        </div>
+      <button className={styles.buttonPrev} onClick={prev}>
+        <IoIosArrowBack />
+      </button>
+      <div className={styles.cards} ref={attractionsListsRef}>
+        {children}
+      </div>
+      <span>
         <button className={styles.button} onClick={next}>
           <IoIosArrowForward />
         </button>
-      </div>
+        <button className={styles.buttonMobile} onClick={prev}>
+          <IoIosArrowBack />
+        </button>
+      </span>
     </div>
   );
 };
