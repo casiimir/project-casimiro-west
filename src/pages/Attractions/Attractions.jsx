@@ -95,6 +95,7 @@ const Attractions = () => {
               country={el.city.country.name}
               background={el.cover_image_url}
               title={el.name}
+              data={el}
               key={i}
               icon={<BsPerson />}
             />
@@ -111,12 +112,13 @@ const Attractions = () => {
               number={el.reviews_avg}
               key={i}
               icon={<AiOutlineStar />}
+              data={el}
             />
           ))}
         </AttractionsList>
 
         <section className={styles.selectSection}>
-          <h2>Search for attractions of your favorite country</h2>
+          <h2>Discover the World's top tourist attractions</h2>
           <form className={styles.countryForm}>
             <select
               className={styles.countrySelect}
@@ -146,6 +148,9 @@ const Attractions = () => {
               city={el.city.name}
               country={el.city.country.name}
               key={i}
+              icon={<AiOutlineStar />}
+              number={el.reviews_avg}
+              data={el}
             />
           ))}
         </div>

@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 import logo from "./logo.png";
 import logotypeW from "./logo_white.png";
@@ -20,7 +20,7 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
       type: "SET_DROPDOWN_VISIBILITY",
       payload: setActive(styles.active),
     });
-  }, []);
+  }, [dispatch]);
 
   const navRef = useRef(null);
 
@@ -65,12 +65,14 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
           <Link to="/cart">
             <div className={styles.cart}>
               <FaShoppingCart />
+
               {/* {cartNumber > 0 ? <p>{cartNumber}</p> : ""} */}
               {localStorage.length > 2 ? (
                 <p>{Object.keys(localStorage).length - 2}</p>
               ) : (
                 ""
               )}
+
             </div>
           </Link>
         </section>

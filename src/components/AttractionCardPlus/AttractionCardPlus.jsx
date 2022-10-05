@@ -2,10 +2,11 @@ import styles from "./index.module.scss";
 import { Link } from "react-router-dom";
 
 const AttractionCardPlus = (props) => {
+  const { data } = props;
   return (
     <Link
-      to={`/attractions/${props.name}`}
-      state={props}
+      to={`/attractions/${props.title}`}
+      state={data}
       className={styles.link}
       onClick={() => window.scrollTo(0, 0)}
     >

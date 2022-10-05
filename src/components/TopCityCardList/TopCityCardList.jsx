@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 
 import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
-import React, { createContext, memo, useEffect, useRef } from "react";
+import React, { memo, useEffect, useRef } from "react";
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
@@ -14,7 +14,7 @@ const CityCard = lazy(() => import("../CityCard"));
 const TopCityCardList = () => {
   const cityData = useSelector((state) => state.cities);
 
-  const cardRef = useRef(null);
+  
   const containerRef = useRef(null);
 
   const next = () => {
@@ -34,7 +34,6 @@ const TopCityCardList = () => {
     );
   }, [dispatch]);
 
-  const data = { cityData };
 
   return (
     <>

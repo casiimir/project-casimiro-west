@@ -1,35 +1,41 @@
 import styles from "./index.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState, useEffect, useRef, useCallback } from "react";
+
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+
 import { CgFormatSlash } from "react-icons/cg";
 import { useOutletContext } from "react-router-dom";
 
+
 const CartPage = () => {
   const [total, setTotal] = useState([]);
-  const accumulatore = [0];
+  const accumulatore = useMemo(() => [""], []);
   const [cartData, setCartData] = useState(Object.values(localStorage));
 
+l
   const formRef = useRef();
 
   // const [cartNumber] = useOutletContext();
+
   const [setCartNumber] = useOutletContext();
 
   useEffect(() => {
     Object.values(localStorage)
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
-      .map((item, index) => accumulatore.push(Number(item.price)));
+      .map((item) => accumulatore.push(Number(item.price)));
     setTotal(
       accumulatore.reduce((previous, next) => {
         return previous + next;
       })
     );
-  });
+  }, [accumulatore]);
 
   const deleteItem = (item) => {
     localStorage.removeItem(`${item.name}@@@`);
     setCartData(cartData.filter((el, i) => el.name !== `${item.name}`));
     setCartNumber((prev) => prev - 1);
+
   };
 
   const [modalVisibility, setModalVisibility] = useState("none");
@@ -69,6 +75,7 @@ const CartPage = () => {
                   <div key={index} className={styles.productListContainer}>
                     <div className={styles.productImage}>
                       <img src={item.IMG} />
+
                     </div>
                     <div className={styles.productInfo}>
                       <div>

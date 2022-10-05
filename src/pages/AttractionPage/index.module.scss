@@ -2,21 +2,18 @@
 @import "../../styles/mixins";
 
 .AttractionPage {
-  position: absolute;
-  top: 0;
-  .hero {
-    width: 100vw;
-    height: 60vh;
+  font-family: $text-font;
+  padding-top: 20px;
 
+  .hero {
     .image {
       width: 100%;
-      height: 100%;
+      height: 50vh;
       background-size: cover;
     }
     .transition {
       position: relative;
       top: -51px;
-      width: 100%;
       height: 3rem;
       background-color: white;
       border-top-left-radius: 25px;
@@ -25,17 +22,19 @@
   }
 
   .main {
-    padding: 0.2rem 40px;
+    padding: 0rem 40px;
 
     .info {
       display: flex;
-      margin-bottom: 1rem;
+      padding: 1rem 0;
+      justify-content: space-between;
 
       .name {
         margin-bottom: 1rem;
         font-family: $titles-font;
         font-weight: 800;
-        text-shadow: 2px 4px 4px rgba(0, 0, 0, 0.456);
+        text-shadow: 1px 1px 2px #0a0f0f38;
+        color: rgba(0, 0, 0, 0.842);
       }
 
       .reviews {
@@ -43,34 +42,63 @@
         min-width: 2.5rem;
         max-width: 2.7rem;
         text-align: center;
-        font-family: $text-font;
         border: 2px lightseagreen solid;
         border-top-left-radius: 15px;
         border-top-right-radius: 15px;
       }
+    }
+    .address {
+      display: flex;
+      font-weight: 100;
+      color: rgb(34, 34, 34);
+      font-size: 0.8rem;
+    }
+    .description {
+      line-height: 1.5rem;
+      padding: 10px 0;
+    }
 
-      .description {
-        font-family: $text-font;
-        line-height: 1.5rem;
+    .photo {
+      display: flex;
+      justify-content: center;
+      padding: 20px 0;
+
+      img {
+        box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
+        width: 300px;
       }
     }
   }
   .navigate {
-    padding: 1rem 40px;
+    padding: 1rem 0px;
+    border-top: 2px solid lightseagreen;
 
-    .title {
-      padding: 0.2rem 0;
-      border-top: 2px solid lightseagreen;
+    h2 {
       font-family: $titles-font;
+      font-weight: 800;
+      text-shadow: 1px 1px 2px #0a0f0f38;
+      color: rgba(0, 0, 0, 0.842);
+      padding: 10px 0;
     }
-  }
-}
 
-@media only screen and (min-width: 540px) {
-  .AttractionPage {
-    .main {
-      .info {
-        gap: 5%;
+    p {
+      padding: 10px 0;
+    }
+
+    h4 {
+      font-size: 0.9rem;
+      padding: 5px 0;
+      text-align: center;
+
+      a {
+        text-decoration: none;
+        color: lightseagreen;
+        transition: 0.5s;
+
+        &:hover {
+          color: rgba(0, 0, 0, 0.842);
+          transition: 0.5s;
+        }
       }
     }
   }
@@ -78,25 +106,94 @@
 
 @media only screen and (min-width: 992px) {
   .AttractionPage {
-    width: 100vw;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: -5rem;
-    grid-row-gap: 0px;
+    display: flex;
+    gap: 0;
+    justify-content: center;
 
     .hero {
-      width: 100%;
+      width: 50%;
       height: 100vh;
-      grid-area: 1 / 2 / 6 / 3;
+      order: 2;
+
+      .image {
+        object-fit: cover;
+        background-position: left;
+        height: 100vh;
+      }
     }
     .transition {
       display: none;
     }
 
     .main {
-      width: 100%;
-      grid-area: 2 / 1 / 5 / 2;
+      width: 50%;
+      padding-top: 25px;
+
+      .info {
+        justify-content: space-between;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .AttractionPage {
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    .hero {
+      height: 40vh;
+
+      .image {
+        height: 100%;
+        background-size: cover;
+      }
+      .transition {
+        position: relative;
+        top: -51px;
+        height: 3rem;
+        background-color: white;
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+      }
+    }
+
+    .main {
+      padding: 0rem 20px;
+
+      .info {
+        display: flex;
+        margin-bottom: 1rem;
+
+        .name {
+          margin-bottom: 1rem;
+          font-family: $titles-font;
+          font-weight: 800;
+          text-shadow: 1px 1px 2px #0a0f0f38;
+          color: rgba(0, 0, 0, 0.842);
+        }
+
+        .reviews {
+          height: 3rem;
+          min-width: 2.5rem;
+          max-width: 2.7rem;
+          text-align: center;
+          border: 2px lightseagreen solid;
+          border-top-left-radius: 15px;
+          border-top-right-radius: 15px;
+        }
+      }
+    }
+    .navigate {
+      h4 {
+        a {
+          &:hover {
+            color: lightseagreen;
+          }
+        }
+      }
     }
   }
 }
