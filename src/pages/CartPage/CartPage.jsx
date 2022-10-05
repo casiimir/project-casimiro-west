@@ -2,14 +2,14 @@ import styles from "./index.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
 import { useState, useEffect } from "react";
 import { CgFormatSlash } from "react-icons/cg";
-import { useOutletContext } from "react-router-dom";
+
 
 const CartPage = () => {
   const [total, setTotal] = useState([]);
   const accumulatore = [0];
   const [cartData, setCartData] = useState(Object.values(localStorage));
 
-  const [cartNumber] = useOutletContext();
+ 
 
   useEffect(() => {
     Object.values(localStorage)
@@ -21,7 +21,7 @@ const CartPage = () => {
         return previous + next;
       })
     );
-  });
+  }, [accumulatore]);
 
   const deleteItem = (item) => {
     localStorage.removeItem(`${item.name}@@@`);
