@@ -60,7 +60,7 @@ const Activities = () => {
               transition: isActive ? "0.5s" : "0.5s",
             })}
           >
-            Cruise
+            Cruises
           </NavLink>
         </li>
 
@@ -88,7 +88,7 @@ const Activities = () => {
               transition: isActive ? "0.5s" : "0.5s",
             })}
           >
-            City
+            One Day
           </NavLink>
         </li>
       </ul>
