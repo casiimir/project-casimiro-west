@@ -1,41 +1,65 @@
 import styles from "./index.module.scss";
 import { AiOutlineStar } from "react-icons/ai";
+import { useLocation } from "react-router-dom";
+import Footer from "../../components/Footer";
 
 const AttractionPage = () => {
+  const data = useLocation();
+  const {
+    name,
+    cover_image_url,
+    reviews_avg,
+    description,
+    meta_description,
+    url,
+    meta_title,
+    address,
+  } = data.state;
+
+  console.log(data);
+
   return (
-    <div className={styles.AttractionPage}>
-      <section className={styles.hero}>
-        <img
-          className={styles.image}
-          src="https://images-sandbox.musement.com/cover/0001/12/the-met-metropolitan-museum-of-art_header-11063.jpeg"
-          alt=""
-        />
-        <div className={styles.transition}></div>
-      </section>
-      <section className={styles.main}>
-        <div className={styles.info}>
-          <h1 className={styles.name}>The Met: Metropolitan Museum of Art</h1>
-          <div className={styles.reviews}>
-            <p className={styles.infoRev}>
-              4.4 <AiOutlineStar />
-            </p>
-          </div>
-        </div>
-        <p className={styles.description}>
-          The Metropolitan Museum of Art - or just The Met - has one of the
-          world’s largest and most famous collections of art at its three sites:
-          Fifth Avenue, Met Breuer, and Met Cloisters. Paintings, sculpture,
-          fabrics, jewels, pottery, armaments, photographs and musical
-          instruments from across history make up just some of the two million
-          exhibits on offer at this full-day New York City experience.
-        </p>
-        <section className={styles.navigate}>
-          <h4 className={styles.title}>
-            The Metropolitan Museum of Art New York Tickets and Tours 🎫
-          </h4>
+    <>
+      <div className={styles.AttractionPage}>
+        <section className={styles.hero}>
+          <img className={styles.image} src={cover_image_url} alt="" />
+          <div className={styles.transition}></div>
         </section>
-      </section>
-    </div>
+        <section className={styles.main}>
+          <div className={styles.info}>
+            <h1 className={styles.name}>{name}</h1>
+            <div className={styles.reviews}>
+              <p className={styles.infoRev}>
+                {reviews_avg} <AiOutlineStar />
+              </p>
+            </div>
+          </div>
+          <div className={styles.address}>
+            <h3>
+              {data.state.city.country.name} - <span>{address}</span>
+            </h3>
+          </div>
+          <p className={styles.description}>
+            {description.split(".", +4) + "."}
+          </p>
+          <div className={styles.photo}>
+            <img src={`${data.state.city.cover_image_url}?w=400`} alt="city" />
+          </div>
+          <section className={styles.navigate}>
+            <h2>Ticket</h2>
+            <p>{meta_description}</p>
+            <h4 className={styles.title}>
+              {meta_title} click{" "}
+              <a href={url} target="_blank">
+                here
+              </a>
+              ! 🎫
+            </h4>
+          </section>
+        </section>
+      </div>
+      <Footer />
+    </>
   );
 };
 
