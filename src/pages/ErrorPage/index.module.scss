@@ -4,6 +4,9 @@
 .ErrorPage {
   @include flex-element(column, space-evenly);
   @include generic-appereance(auto, 100vh);
+  position: absolute;
+  top: 0;
+  width: 100%;
   background-image: url(https://images.musement.com/cover/0079/44/thumb_7843016_cover_header.jpeg?q=50&fit=crop&auto=format&w=1700&h=850);
   overflow: hidden;
   background-size: cover;
