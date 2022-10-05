@@ -4,20 +4,20 @@ import { Link } from "react-router-dom";
 const AttractionCard = (props) => {
   return (
     <Link
-      to={`/attractions/${props.name}`}
+      to={`/attractions/${props.title}`}
       state={props}
       className={styles.link}
       onClick={() => window.scrollTo(0, 0)}
     >
       <div
         className={styles.AttractionCard}
-      style={
-        props.background !== ""
-          ? { backgroundImage: `url(${props.background}?w=400)` }
-          : {
-              backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/200px-Placeholder_view_vector.svg.png)`,
-            }
-      }
+        style={
+          props.background !== ""
+            ? { backgroundImage: `url(${props.background}?w=400)` }
+            : {
+                backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/200px-Placeholder_view_vector.svg.png)`,
+              }
+        }
       >
         <div className={styles.reviews}>
           <p className={styles.reviewsSpecific}>
