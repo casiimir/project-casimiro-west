@@ -1,57 +1,65 @@
 import styles from "./index.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { CgFormatSlash } from "react-icons/cg";
+import { useOutletContext } from "react-router-dom";
+
 
 const CartPage = () => {
-  // const handleRemovefromCart = () =>
-  //   localStorage.removeItem()
-  // }
-
   const [total, setTotal] = useState([]);
-  const accumulatore = [];
+  const accumulatore = useMemo(() => [""], []);
+  const [cartData, setCartData] = useState(Object.values(localStorage));
+
+  const [setCartNumber] = useOutletContext();
 
   useEffect(() => {
     Object.values(localStorage)
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
-      .map((item, index) => accumulatore.push(Number(item.price)));
+      .map((item) => accumulatore.push(Number(item.price)));
     setTotal(
       accumulatore.reduce((previous, next) => {
         return previous + next;
       })
     );
-  });
+  }, [accumulatore]);
+
+  const deleteItem = (item) => {
+    localStorage.removeItem(`${item.name}@@@`);
+    setCartData(cartData.filter((el, i) => el.name !== `${item.name}`));
+    setCartNumber((prev) => prev - 1);
+  };
 
   return (
     <div className={styles.ModalContainer}>
       <div className={styles.overlay}>
         <img
           src={"https://images6.alphacoders.com/338/338596.jpg?w=500"}
-          alt="image"
+          alt="img"
         />
       </div>
       <div className={styles.wrapper}>
         <div className={styles.articles}>
           <div className={styles.productList}>
             {Object.values(localStorage)
+
               .filter((e) => e.includes("name"))
               .map((item) => JSON.parse(item))
               .map((item, index) => (
                 <div key={index} className={styles.productListContainer}>
                   <div className={styles.productImage}>
-                    <img src={item.IMG} />
+                    <img src={item.IMG} alt="img"/>
                   </div>
                   <div className={styles.productInfo}>
                     <div>
-                      {`${item.name}`.length >= 40 === true ? (
+                      {(`${item.name}`.length >= 40) === true ? (
                         <p>{`${item.name}`.slice(0, 40)}...</p>
                       ) : (
                         <p>{item.name}</p>
                       )}
                     </div>
                     <div className={styles.productPrice}>
-                      <AiOutlineClose />
+                      <AiOutlineClose onClick={() => deleteItem(item)} />
                       <p>{item.price}$</p>
                     </div>
                   </div>

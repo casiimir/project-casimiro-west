@@ -118,7 +118,7 @@ const Attractions = () => {
         </AttractionsList>
 
         <section className={styles.selectSection}>
-          <h2>Search for attractions of your favorite country</h2>
+          <h2>Discover the World's top tourist attractions</h2>
           <form className={styles.countryForm}>
             <select
               className={styles.countrySelect}

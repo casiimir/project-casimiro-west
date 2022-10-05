@@ -1,5 +1,4 @@
-import HeroSlider, { Slide, MenuNav } from "hero-slider";
-import { BsArrowRight } from "react-icons/bs";
+import HeroSlider, { Slide} from "hero-slider";
 import { useState, useEffect } from "react";
 import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
@@ -10,8 +9,7 @@ const Hero = () => {
 
   useEffect(() => {
     GET("cities", "?limit=6")
-      // .then((data) => data.splice(0, 6))
-      .then((data) => setCityHeroList(data));
+           .then((data) => setCityHeroList(data));
   }, []);
 
   const BackgroundAnimation = {
