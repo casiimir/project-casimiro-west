@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
@@ -10,12 +10,10 @@ import Footer from "../../components/Footer";
 import { isEditable } from "@testing-library/user-event/dist/utils";
 import { style } from "@mui/system";
 
-
 const ActivityPage = () => {
   const [cartAnimation, setCartAnimation] = useState("");
 
   const data = useLocation();
- 
 
   const dispatch = useDispatch();
 
@@ -41,7 +39,6 @@ const ActivityPage = () => {
     dispatch({
       type: "SET_CART_DATA",
       payload: [
-
         localStorage.setItem(`${title}@@@`, JSON.stringify(testObject)),
       ],
     });
@@ -86,8 +83,6 @@ const ActivityPage = () => {
               {" "}
               Add to cart ${retail_price.value}
             </button>
-
-
           </div>
         </div>
         <div className={styles.info}>
@@ -119,7 +114,6 @@ const ActivityPage = () => {
 export default ActivityPage;
 
 //<TbCurrencyDollar />
-
 
 //FORMULA MAGICA IMMAGINE
 //  const imgFormatter = (URL, FILTER) => {

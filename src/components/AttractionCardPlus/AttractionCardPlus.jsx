@@ -1,7 +1,7 @@
 import styles from "./index.module.scss";
 import { Link } from "react-router-dom";
 
-const AttractionCard = (props) => {
+const AttractionCardPlus = (props) => {
   return (
     <Link
       to={`/attractions/${props.name}`}
@@ -10,8 +10,8 @@ const AttractionCard = (props) => {
       onClick={() => window.scrollTo(0, 0)}
     >
       <div
-        className={styles.AttractionCard}
-        style={{ backgroundImage: `url(${props.background}?w=400)` }}
+        className={styles.AttractionCardPlus}
+        style={{ backgroundImage: `url(${props.background}?w=500)` }}
       >
         <div className={styles.reviews}>
           <p className={styles.reviewsSpecific}>
@@ -30,4 +30,4 @@ const AttractionCard = (props) => {
   );
 };
 
-export default AttractionCard;
+export default AttractionCardPlus;

@@ -1,133 +1,110 @@
 @import "../../styles/mixins";
 @import "../../styles/_variables";
 
-.CardActivity {
-  @include flex-element(row);
-  box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.24);
-  transition: 0.5s;
-  height: 10rem;
+.link {
+  text-decoration: none;
   width: 90%;
-  border-radius: 5px;
+  color: black;
 
-  &:hover {
-    transform: scale(1.05);
+  .CardActivity {
+    @include flex-element(row);
+    box-shadow: 0 0 3px 1px rgba(0, 0, 0, 0.24);
     transition: 0.5s;
-    filter: brightness(1.1);
-    cursor: pointer;
-    background-color: #dbdbdb;
-  }
+    height: 10rem;
+    border-radius: 5px;
 
-  .photo {
-    object-fit: cover;
-    width: 25%;
-  }
-
-  .tourInfo {
-    @include flex-element(column, space-between);
-    padding: 5px;
-    width: calc(90% - 15.5%);
-
-    .name {
-      margin: 0rem;
-      font-family: $titles-font;
-      color: $almost-black;
-      font-size: 1.3rem;
-      text-shadow: 1px 1.2px 3px rgba(0, 0, 0, 0.226);
-      text-overflow: ellipsis;
+    &:hover {
+      transform: scale(1.05);
+      transition: 0.5s;
+      filter: brightness(1.1);
+      cursor: pointer;
+      background-color: #dbdbdb;
     }
-    .description {
-      font-size: 0.9rem;
+
+    .photo {
+      object-fit: cover;
+      width: 25%;
     }
-    .bottom {
-      @include flex-element(row, space-between, center, $gap: 10%);
 
-      .infoPlace {
-        display: flex;
-        align-items: center;
+    .tourInfo {
+      @include flex-element(column, space-between);
+      padding: 5px;
+      width: calc(90% - 15.5%);
 
-        .locality {
-          span {
-            color: black;
+      .name {
+        margin: 0rem;
+        font-family: $titles-font;
+        color: $almost-black;
+        font-size: 1.3rem;
+        text-shadow: 1px 1.2px 3px rgba(0, 0, 0, 0.226);
+        text-overflow: ellipsis;
+      }
+      .description {
+        font-size: 0.9rem;
+      }
+      .bottom {
+        @include flex-element(row, space-between, center, $gap: 10%);
+
+        .infoPlace {
+          display: flex;
+          align-items: center;
+
+          .locality {
+            span {
+              color: black;
+            }
+            color: rgba(0, 0, 0, 0.658);
+            font-family: $text-font;
+            font-size: 1rem;
+            margin: 0;
+            font-weight: 500;
           }
-          color: rgba(0, 0, 0, 0.658);
+        }
+
+        .price {
+          @include flex-element(row, center, flex-end);
+          width: max-content;
           font-family: $text-font;
-          font-size: 1rem;
           margin: 0;
-          font-weight: 500;
+          align-self: flex-end;
         }
       }
-
-      .price {
-        @include flex-element(row, center, flex-end);
-        width: max-content;
-        font-family: $text-font;
-        margin: 0;
-        align-self: flex-end;
-      }
-    }
-  }
-  .link {
-    position: absolute;
-    height: 10rem;
-    width: 44%;
-  }
-}
-
-@media only screen and (min-width: 1570px) {
-  .CardActivity {
-    .link {
-      position: absolute;
-      height: 10rem;
-      width: 43rem;
-    }
-  }
-}
-
-@media only screen and (max-width: 1240px) {
-  .CardActivity {
-    .link {
-      position: absolute;
-      height: 10rem;
-      width: 89%;
     }
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .CardActivity {
-    height: 7.5rem;
-    &:hover {
-      transform: none;
-      transition: 0.5s;
-      filter: brightness(1);
-      background-color: none;
-    }
-
-    .photo {
-      width: 35%;
-    }
-
-    .tourInfo {
-      width: calc(90% - 25.5%);
-      .name {
-        font-size: 0.7rem;
-        font-weight: 800;
+  .link {
+    .CardActivity {
+      height: 7.5rem;
+      &:hover {
+        transform: none;
+        transition: 0.5s;
+        filter: brightness(1);
+        background-color: none;
       }
-      .description {
-        font-size: 0.65rem;
+
+      .photo {
+        width: 35%;
       }
-      .bottom {
-        .infoPlace {
-          .locality {
-            font-size: 0.6rem;
+
+      .tourInfo {
+        width: calc(90% - 25.5%);
+        .name {
+          font-size: 0.7rem;
+          font-weight: 800;
+        }
+        .description {
+          font-size: 0.65rem;
+        }
+        .bottom {
+          .infoPlace {
+            .locality {
+              font-size: 0.6rem;
+            }
           }
         }
       }
-    }
-    .link {
-      position: absolute;
-      height: 7.5rem;
-      width: 20rem;
     }
   }
 }
