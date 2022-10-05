@@ -1,15 +1,16 @@
 import styles from "./index.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { CgFormatSlash } from "react-icons/cg";
+import { useOutletContext } from "react-router-dom";
 
 
 const CartPage = () => {
   const [total, setTotal] = useState([]);
-  const accumulatore = [0];
+  const accumulatore = useMemo(() => [], []);
   const [cartData, setCartData] = useState(Object.values(localStorage));
 
- 
+  const [setCartNumber] = useOutletContext();
 
   useEffect(() => {
     Object.values(localStorage)
@@ -26,6 +27,7 @@ const CartPage = () => {
   const deleteItem = (item) => {
     localStorage.removeItem(`${item.name}@@@`);
     setCartData(cartData.filter((el, i) => el.name !== `${item.name}`));
+    setCartNumber((prev) => prev - 1);
   };
 
   return (
@@ -33,7 +35,7 @@ const CartPage = () => {
       <div className={styles.overlay}>
         <img
           src={"https://images6.alphacoders.com/338/338596.jpg?w=500"}
-          alt="image"
+          alt="img"
         />
       </div>
       <div className={styles.wrapper}>
@@ -46,11 +48,11 @@ const CartPage = () => {
               .map((item, index) => (
                 <div key={index} className={styles.productListContainer}>
                   <div className={styles.productImage}>
-                    <img src={item.IMG} />
+                    <img src={item.IMG} alt="img"/>
                   </div>
                   <div className={styles.productInfo}>
                     <div>
-                      {`${item.name}`.length >= 40 === true ? (
+                      {(`${item.name}`.length >= 40) === true ? (
                         <p>{`${item.name}`.slice(0, 40)}...</p>
                       ) : (
                         <p>{item.name}</p>
