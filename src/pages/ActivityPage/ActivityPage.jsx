@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
+import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import { TbCurrencyDollar } from "react-icons/tb";
 import Map from "../../components/Map";
 import styles from "./index.module.scss";
@@ -12,8 +13,14 @@ import { style } from "@mui/system";
 
 
 const ActivityPage = () => {
-  const [cartAnimation, setCartAnimation] = useState("");
-
+  const [animation, setAnimation] = useState({
+    buttonStyle: "",
+    button: `${styles.button2}`,
+    addText: `${styles.add}`,
+    thanksText: `${styles.thanks}`,
+    cartIcon: `${styles.cart}`,
+    heartIcon: `${styles.heart}`,
+  });
   const data = useLocation();
  
 
@@ -31,7 +38,7 @@ const ActivityPage = () => {
     retail_price,
   } = data.state;
 
-  const testObject = {
+  const cartObject = {
     name: `${title}`,
     IMG: `${cover_image_url}`,
     price: `${retail_price.value}`,
@@ -42,10 +49,29 @@ const ActivityPage = () => {
       type: "SET_CART_DATA",
       payload: [
 
-        localStorage.setItem(`${title}@@@`, JSON.stringify(testObject)),
+        localStorage.setItem(`${title}@@@`, JSON.stringify(cartObject)),
+
       ],
     });
-    setCartAnimation(`${styles.clicked}`);
+
+    setAnimation({
+      buttonStyle: "white",
+      button: `${styles.button2}`,
+      addText: `${styles.hidden}`,
+      thanksText: `${styles.thanksActive}`,
+      cartIcon: `${styles.cartActive}`,
+      heartIcon: `${styles.heartActive}`,
+    });
+    setTimeout(() => {
+      setAnimation({
+        buttonStyle: "",
+        button: `${styles.button2}`,
+        addText: `${styles.add}`,
+        thanksText: `${styles.thanks}`,
+        cartIcon: `${styles.cart}`,
+        heartIcon: `${styles.heart}`,
+      });
+    }, 3000);
   };
 
   const imgFormatter = (URL, FILTER) => {
@@ -76,19 +102,20 @@ const ActivityPage = () => {
             </div>
           </div>
 
-          <div className={styles.priceInfo}>
-            <span>{/* <TbCurrencyDollar /> {retail_price.value} */}</span>
-            <button onClick={cartFunction}>
-              {" "}
-              Add to cart <br /> ${retail_price.value}
-            </button>
-            <button onClick={cartFunction}>
-              {" "}
-              Add to cart ${retail_price.value}
-            </button>
 
+          <button
+            onClick={cartFunction}
+            className={animation.button}
+            style={{ backgroundColor: `${animation.buttonStyle}` }}
+          >
+            <FaHeart className={animation.heartIcon} />
+            <FaShoppingCart className={animation.cartIcon} />
+            <p className={animation.addText}>
+              Add to Cart ${retail_price.value}
+            </p>
+            <p className={animation.thanksText}>Thank You!</p>
+          </button>
 
-          </div>
         </div>
         <div className={styles.info}>
           <p>{about}</p>
@@ -101,8 +128,6 @@ const ActivityPage = () => {
               </p>
 
               <div>
-                {/* <div className={styles.mapOverlayLeft}></div>
-            <div className={styles.mapOverlayRight}></div> */}
                 <div className={styles.mapDisplay}>
                   <Map lng={longitude} lat={latitude} />
                 </div>
@@ -118,13 +143,3 @@ const ActivityPage = () => {
 
 export default ActivityPage;
 
-//<TbCurrencyDollar />
-
-
-//FORMULA MAGICA IMMAGINE
-//  const imgFormatter = (URL, FILTER) => {
-//   const original = URL.substring(0, URL.length - 6);
-//   return `${original}${FILTER}`;
-// };
-// PRENDERE IMMAGINE
-// src={imgFormatter(`${cover_image_url}`, "?w=1000")} <- METTERE LE DIMENSIONI DESIDERATE E/O QUALUNQUE ALTRO FILTR IMGIX
