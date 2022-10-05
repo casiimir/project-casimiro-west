@@ -18,7 +18,7 @@ const CruiseActivity = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    GET("categories/191/activities?&limit=20").then((data) =>
+    GET("categories/191/activities?&limit=10").then((data) =>
       dispatch({ type: "SET_CRUISE_ACTIVITIES_DATA", payload: data })
     );
   }, [dispatch]);

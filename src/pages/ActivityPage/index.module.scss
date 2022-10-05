@@ -8,12 +8,12 @@
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  font-family: $text-font;
 
   .topSection {
     width: 100%;
     height: 90vh;
     padding: 100px 40px 0 40px;
-    margin-top: 70px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -41,6 +41,7 @@
         gap: 20px;
 
         h1 {
+          font-family: $titles-font;
           font-size: 35px;
           text-shadow: 1px 2px 4px #0a0f0f;
         }
@@ -52,25 +53,20 @@
         }
       }
 
-
       .polaroid {
         align-self: center;
-        width: 500px;
+        width: 480px;
         height: fit-content;
-        margin-top: 70px;
         background-color: white;
         border: 40px solid white;
         border-bottom: 60px solid white;
 
-
         box-shadow: 1px 1px 5px 2px rgba(0, 0, 0, 0.425);
 
-
         .polaroidIMG {
-          max-width: 400px;
+          max-width: 380px;
           border-radius: 3%;
         }
-
 
         p {
           margin-top: 10px;
@@ -80,14 +76,97 @@
         }
       }
     }
+
+    .buttonCart {
+      position: absolute;
+      top: 87vh;
+      width: 200px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.5s;
+      transition-delay: 0.5;
+      background-color: lightseagreen;
+      cursor: pointer;
+      font-size: 1.5rem;
+
+      p {
+        position: absolute;
+      }
+
+      .heart {
+        position: absolute;
+        left: 0;
+        font-size: 20px;
+        color: lightseagreen;
+      }
+
+      .heartActive {
+        transform: translateX(-70px);
+        transition: 0.5s;
+        color: lightseagreen;
+      }
+
+      .cart {
+        position: absolute;
+        left: 0;
+        font-size: 20px;
+        color: lightseagreen;
+      }
+
+      .cartActive {
+        transform: translateX(70px);
+        transition: 0.5s;
+        color: lightseagreen;
+      }
+
+      .add {
+        color: white;
+        transition: 0.5s;
+        transition-delay: 0.5;
+      }
+
+      .thanks {
+        z-index: -1;
+        color: lightseagreen;
+      }
+
+      .thanksActive {
+        transition: 0.5s;
+        transition-delay: 0.5s;
+        color: black;
+      }
+
+      .hidden {
+        display: none;
+      }
+    }
   }
 
   .info {
     padding: 50px 40px;
     font-size: 20px;
+
+    h2 {
+      font-family: $titles-font;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.842);
+    }
+
+    p {
+      padding: 20px 0;
+    }
   }
 
   .map {
+    h2 {
+      font-size: 1.8rem;
+      font-family: $titles-font;
+      font-weight: 500;
+      color: rgba(0, 0, 0, 0.842);
+      padding: 0 40px;
+    }
     a {
       display: none;
     }
@@ -97,66 +176,10 @@
       font-size: 15px;
       font-weight: 400;
     }
-    // .mapOverlayLeft {
-    //   background-color: white;
-    //   position: absolute;
-    //   z-index: 1;
-    //   width: 40px;
-    //   height: 450px;
-    // }
-    // .mapOverlayRight {
-    //   background-color: white;
-    //   position: absolute;
-    //   z-index: 1;
-    //   right: 0;
-    //   width: 40px;
-    //   height: 450px;
-    // }
-  }
-  .priceInfo {
-    // margin-top: 100px;
-    margin-bottom: 50px;
-    display: flex;
-    // flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // gap: 5px;
-    font-size: 30px;
-    color: white;
 
-    span {
-      padding-right: 25px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      // border: 2px solid lightseagreen;
-    }
-
-    button {
-      padding: 15px;
-      margin-bottom: 50px;
-      font-size: 1.5rem;
-      font-family: $titles-font;
-      font-weight: 700;
+    .noMap {
       text-align: center;
-      background: lightseagreen;
-      outline: none;
-      border: none;
-      border-radius: 3%;
-      box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.247);
-      color: #f7f7f7;
-      cursor: pointer;
-      transition: 0.5s;
-
-      &:hover {
-        color: lightseagreen;
-        background: white;
-        transition: 0.5s;
-      }
-
-      &:active {
-        box-shadow: none;
-      }
+      font-size: 1rem;
     }
   }
 }
@@ -164,7 +187,6 @@
 @media only screen and (max-width: 905px) {
   .ActivityPage {
     .topSection {
-
       .topText {
         .text {
           h1 {
@@ -178,7 +200,6 @@
 
         .polaroid {
           width: 400px;
-
 
           .polaroidIMG {
             max-width: 300px;
@@ -196,7 +217,6 @@
 @media only screen and (max-width: 700px) {
   .ActivityPage {
     .topSection {
-
       .topText {
         .text {
           h1 {
@@ -218,7 +238,6 @@
           p {
             font-size: 37px;
           }
-
         }
       }
     }
@@ -264,6 +283,21 @@
           }
         }
       }
+      .buttonCart {
+        position: absolute;
+        top: 48vh;
+        width: 110px;
+        height: 30px;
+        font-size: 0.8rem;
+
+        .heartActive {
+          transform: translateX(-35px);
+        }
+
+        .cartActive {
+          transform: translateX(35px);
+        }
+      }
     }
 
     .info {
@@ -272,6 +306,10 @@
     }
 
     .map {
+      h2 {
+        font-size: 1.5rem;
+        padding: 0 20px;
+      }
       a {
         display: none;
       }
@@ -280,44 +318,6 @@
         padding: 20px;
         font-size: 15px;
         font-weight: 400;
-      }
-    }
-    .priceInfo {
-      margin-bottom: 50px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 10px;
-      font-size: 20px;
-
-      span {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      button {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-        font-family: Lato, sans-serif;
-        font-weight: 700;
-        background: lightseagreen;
-        outline: none;
-        border: none;
-        border-radius: 3%;
-        box-shadow: 0 0 8px $dark-cyan;
-        color: #f7f7f7;
-        cursor: pointer;
-
-        &:hover {
-          color: white;
-          background-color: lightseagreen;
-        }
-
-        &:active {
-          box-shadow: none;
-        }
       }
     }
   }
