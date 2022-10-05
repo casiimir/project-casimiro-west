@@ -3,17 +3,15 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
 import { FaShoppingCart, FaHeart } from "react-icons/fa";
-import { TbCurrencyDollar } from "react-icons/tb";
+
 import Map from "../../components/Map";
 import styles from "./index.module.scss";
 import "./mapbox.css";
 import Footer from "../../components/Footer";
-import { isEditable } from "@testing-library/user-event/dist/utils";
-import { style } from "@mui/system";
-import { useState } from "react";
+
 
 const ActivityPage = () => {
-  const [cartAnimation, setCartAnimation] = useState("");
+ 
 
   const [setCartNumber] = useOutletContext();
 
