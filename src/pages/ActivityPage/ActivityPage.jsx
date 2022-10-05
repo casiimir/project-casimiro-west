@@ -14,7 +14,7 @@ import { style } from "@mui/system";
 const ActivityPage = () => {
   const [animation, setAnimation] = useState({
     buttonStyle: "",
-    button: `${styles.button2}`,
+    button: `${styles.buttonCart}`,
     addText: `${styles.add}`,
     thanksText: `${styles.thanks}`,
     cartIcon: `${styles.cart}`,
@@ -53,7 +53,7 @@ const ActivityPage = () => {
 
     setAnimation({
       buttonStyle: "white",
-      button: `${styles.button2}`,
+      button: `${styles.buttonCart}`,
       addText: `${styles.hidden}`,
       thanksText: `${styles.thanksActive}`,
       cartIcon: `${styles.cartActive}`,
@@ -62,7 +62,7 @@ const ActivityPage = () => {
     setTimeout(() => {
       setAnimation({
         buttonStyle: "",
-        button: `${styles.button2}`,
+        button: `${styles.buttonCart}`,
         addText: `${styles.add}`,
         thanksText: `${styles.thanks}`,
         cartIcon: `${styles.cart}`,
