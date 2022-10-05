@@ -65,7 +65,7 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
           <Link to="/cart">
             <div className={styles.cart}>
               <FaShoppingCart />
-              <p>{cartNumber}</p>
+              {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
             </div>
           </Link>
         </section>
