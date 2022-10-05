@@ -14,9 +14,10 @@ const CardActivity = ({ data }) => {
       payload: data,
     });
   };
+  console.log("DATA ====", data.cover_image_url);
 
   return (
-  <>
+    <>
       <Link
         to={`/activity/${data.title}`}
         state={data}
@@ -24,15 +25,15 @@ const CardActivity = ({ data }) => {
         onClick={() => window.scrollTo(0, 0)}
       >
         <div className={styles.CardActivity} onClick={setActivityFunction}>
-          {data.city.cover_image_url !== "" ? (
-        <img
-          className={styles.photo}
-          src={`${data?.city.cover_image_url}?w=300`}
-          alt="img"
-        />
-      ) : (
-        <img className={styles.photo} src={placeholder} alt="img" />
-      )}
+          {data.cover_image_url !== "" ? (
+            <img
+              className={styles.photo}
+              src={`${data?.cover_image_url}?w=300`}
+              alt="img"
+            />
+          ) : (
+            <img className={styles.photo} src={placeholder} alt="img" />
+          )}
           <section className={styles.tourInfo}>
             <h2 className={styles.name}>{data?.title}</h2>
             <div className={styles.description}>
