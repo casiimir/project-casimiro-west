@@ -95,6 +95,7 @@ const Attractions = () => {
               country={el.city.country.name}
               background={el.cover_image_url}
               title={el.name}
+              data={el}
               key={i}
               icon={<BsPerson />}
             />
@@ -111,6 +112,7 @@ const Attractions = () => {
               number={el.reviews_avg}
               key={i}
               icon={<AiOutlineStar />}
+              data={el}
             />
           ))}
         </AttractionsList>
@@ -146,6 +148,9 @@ const Attractions = () => {
               city={el.city.name}
               country={el.city.country.name}
               key={i}
+              icon={<AiOutlineStar />}
+              number={el.reviews_avg}
+              data={el}
             />
           ))}
         </div>

@@ -9,7 +9,6 @@ import styles from "./index.module.scss";
 import "./mapbox.css";
 import Footer from "../../components/Footer";
 
-
 const ActivityPage = () => {
  
 
