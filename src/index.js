@@ -66,7 +66,9 @@ const router = createBrowserRouter([
       { path: "/activity/:activityName", element: <ActivityPage /> },
       { path: "/ActivityPage", element: <ActivityPage /> },
       { path: "/attractions", element: <Attractions /> },
+
       { path: "/attractions/:attractionsName", element: <AttractionPage /> },
+
       { path: "/cart", element: <CartPage /> },
     ],
   },

@@ -9,6 +9,7 @@ import styles from "./index.module.scss";
 import "./mapbox.css";
 import Footer from "../../components/Footer";
 
+
 const ActivityPage = () => {
  
 
@@ -72,6 +73,7 @@ const ActivityPage = () => {
     const original = URL.substring(0, URL.length - 6);
     return `${original}${FILTER}`;
   };
+
   return (
     <>
       <div className={styles.ActivityPage}>
@@ -88,7 +90,7 @@ const ActivityPage = () => {
             </div>
             <div className={styles.polaroid}>
               <img
-                src={imgFormatter(`${cover_image_url}?w=500`)}
+                src={imgFormatter(`${cover_image_url}`, "?w=500")}
                 className={styles.polaroidIMG}
               />
               <p>{city.name}</p>

@@ -65,7 +65,14 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
           <Link to="/cart">
             <div className={styles.cart}>
               <FaShoppingCart />
-              {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
+
+              {/* {cartNumber > 0 ? <p>{cartNumber}</p> : ""} */}
+              {localStorage.length > 2 ? (
+                <p>{Object.keys(localStorage).length - 2}</p>
+              ) : (
+                ""
+              )}
+
             </div>
           </Link>
         </section>
@@ -136,14 +143,9 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
 
               <span>
                 <FaShoppingCart />
+                {/* {cartNumber > 0 ? <p>{cartNumber}</p> : ""} */}
                 {localStorage.length > 2 ? (
-                  <p>
-                    {
-                      Object.keys(localStorage).filter(
-                        (e) => !e.includes("mapbox")
-                      ).length
-                    }
-                  </p>
+                  <p>{Object.keys(localStorage).length - 2}</p>
                 ) : (
                   ""
                 )}

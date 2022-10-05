@@ -7,7 +7,9 @@ const AttractionCard = (props) => {
   return (
     <Link
       to={`/attractions/${props.title}`}
+
       state={data}
+
       className={styles.link}
       onClick={() => window.scrollTo(0, 0)}
     >
