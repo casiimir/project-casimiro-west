@@ -7,7 +7,7 @@ import { useOutletContext } from "react-router-dom";
 
 const CartPage = () => {
   const [total, setTotal] = useState([]);
-  const accumulatore = useMemo(() => [], []);
+  const accumulatore = useMemo(() => [""], []);
   const [cartData, setCartData] = useState(Object.values(localStorage));
 
   const [setCartNumber] = useOutletContext();
@@ -16,7 +16,7 @@ const CartPage = () => {
     Object.values(localStorage)
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
-      .map((item, index) => accumulatore.push(Number(item.price)));
+      .map((item) => accumulatore.push(Number(item.price)));
     setTotal(
       accumulatore.reduce((previous, next) => {
         return previous + next;
