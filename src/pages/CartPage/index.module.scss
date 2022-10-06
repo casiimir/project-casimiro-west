@@ -5,12 +5,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: fixed;
+  position: relative;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 7;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  top: 0;
 
   hr {
     border: 0px;
@@ -56,7 +56,7 @@
         justify-content: flex-start;
         overflow-y: scroll;
         gap: 1rem;
-        padding: 5% 0 0 0;
+        padding: 5% 2% 0 3%;
 
         .productListContainer {
           font-family: "lato";
@@ -64,11 +64,10 @@
           display: flex;
           flex-direction: row;
           justify-content: space-between;
-          padding: 2% 2% 3%;
+          padding: 3% 2%;
           border-bottom: 2px solid grey;
           background-color: rgba(128, 128, 128, 0.146);
           border-radius: 3%;
-          margin: 0 3% 0;
 
           .productImage {
             display: flex;
@@ -93,11 +92,19 @@
           .productPrice {
             svg {
               color: red;
+              transition: 0.5s;
+              cursor: pointer;
+
+              &:hover {
+                color: rgb(117, 0, 0);
+                transition: 0.5s;
+              }
             }
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            align-items: flex-end;
           }
         }
       }
@@ -113,7 +120,17 @@
           height: 50%;
           width: 100%;
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
+
+          .box {
+            display: flex;
+            justify-content: space-between;
+          }
+
+          .box2 {
+            display: flex;
+            justify-content: space-between;
+          }
         }
       }
     }
@@ -139,6 +156,7 @@
       input:focus {
         border: 0px;
         width: 100%;
+        outline-width: 0;
       }
 
       .title {
@@ -163,6 +181,9 @@
         input {
           box-sizing: border-box;
           width: 100%;
+          &:focus {
+            outline-width: 0;
+          }
         }
         .infoName {
           display: flex;
@@ -184,19 +205,19 @@
           justify-content: center;
           justify-content: space-between;
           hr {
-            width: 45%;
+            width: 100%;
           }
-          input {
-            margin: 5% 0 0 0;
-            width: 20%;
-          }
+
           .infoNumberCVV {
             width: 50%;
             hr {
               width: 40%;
             }
             input {
-              width: 100%;
+              width: 50%;
+              &:focus {
+                outline-width: 0;
+              }
             }
             display: flex;
             flex-direction: column;
@@ -204,20 +225,33 @@
           }
           .infoNumberDate {
             width: 50%;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: row;
+
+            .infoNumberDateInput {
+              select {
+                background: none;
+                color: white;
+                border: none;
+
+                &:focus {
+                  outline-width: 0;
+                }
+                option {
+                  color: black;
+                }
+              }
+            }
             input {
               width: 50%;
-            }
-            .infoNumberDateInput {
-              display: flex;
-              justify-content: flex-start;
-              flex-direction: row;
             }
           }
         }
       }
 
       .button {
-        height: 20%;
+        height: 80px;
         width: 100%;
         display: flex;
         justify-content: center;
@@ -248,32 +282,92 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 15%;
-  right: 15%;
-  width: 70vw;
-  height: 70vh;
-  z-index: 77;
+  top: 32%;
+  right: 25%;
+  width: 50vw;
+  height: 30vh;
+  z-index: 40;
   font-family: $handwrite-font;
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: rgb(49, 49, 49);
   background: rgba(255, 255, 255, 0.712);
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(3px);
   box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.288);
-  border-radius: 3%;
+  border-radius: 10px;
 }
 
 @media only screen and (max-width: 610px) {
   .ModalContainer {
-    position: absolute;
-    width: 100vw;
-    height: 100vh;
-    background-color: black;
-    .overlay {
-      background-color: black;
-      .wrapper {
-        display: flex;
-        flex-direction: column;
+    .wrapper {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100vh;
+      overflow-x: hidden;
+
+      .articles {
+        width: 100%;
+        max-height: 50%;
+
+        ::-webkit-scrollbar {
+          width: 0px;
+          background-color: transparent;
+        }
+        .productList {
+          margin-top: 55px;
+          gap: 0.6rem;
+          padding-top: 5px;
+
+          .productListContainer {
+            height: 5.5rem;
+
+            .productPrice {
+              svg {
+                &:hover {
+                  color: red;
+                }
+              }
+            }
+          }
+        }
+        .infoPayment {
+          height: 8rem;
+          padding: 5px 15px;
+          .price {
+            font-size: 0.8rem;
+          }
+        }
+      }
+      .payment {
+        width: 100%;
+        height: 100vh;
+        .info {
+          .infoName {
+            font-size: 0.75rem;
+            h2 {
+              margin-top: 10px;
+            }
+          }
+        }
+        .button {
+          height: 65px;
+          button {
+            font-weight: 600;
+          }
+          button:hover {
+            filter: brightness(1);
+          }
+        }
       }
     }
+  }
+
+  .modal {
+    top: 32%;
+    right: 5%;
+    width: 90vw;
+    height: 25vh;
+    font-size: 1.4rem;
   }
 } ;

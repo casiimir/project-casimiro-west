@@ -39,7 +39,7 @@
     .list {
       @include flex-element(row);
       gap: 20px;
-      color: white;
+      color: $dark-grey;
       font-weight: 700;
       font-size: 1.1rem;
 

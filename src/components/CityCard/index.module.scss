@@ -124,11 +124,11 @@
           padding-right: 5%;
         }
       }
-    }
-    &:hover {
-      transform: none;
-      filter: none;
-      bottom: 0px;
+
+      &:hover {
+        transform: none;
+        filter: none;
+      }
     }
   }
 }

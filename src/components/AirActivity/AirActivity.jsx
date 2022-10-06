@@ -17,7 +17,7 @@ const AirActivity = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    GET("categories/187/activities?&limit=10").then((data) =>
+    GET("categories/187/activities?&limit=20").then((data) =>
       dispatch({ type: "SET_AIR_ACTIVITIES_DATA", payload: data })
     );
   }, [dispatch]);

@@ -18,7 +18,7 @@ const CityActivity = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    GET("categories/192/activities?&limit=10").then((data) =>
+    GET("categories/192/activities?&limit=20").then((data) =>
       dispatch({ type: "SET_CITY_ACTIVITIES_DATA", payload: data })
     );
   }, [dispatch]);
