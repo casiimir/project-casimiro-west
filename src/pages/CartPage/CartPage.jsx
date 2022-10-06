@@ -119,7 +119,7 @@ const CartPage = () => {
                     <h2>Card number*</h2>
                     <input
                       placeholder="Card number"
-                      maxlength="12"
+                      maxLength="12"
                       type="text"
                       required
                     />
@@ -132,14 +132,14 @@ const CartPage = () => {
                       <h2>Expiration*</h2>
                       <input
                         placeholder="MM"
-                        maxlength={2}
+                        maxLength={2}
                         type="text"
                         required
                       />
                       <CgFormatSlash />
                       <input
                         placeholder="YY"
-                        maxlength={2}
+                        maxLength={2}
                         type="text"
                         required="required"
                       />
