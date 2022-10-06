@@ -29,6 +29,9 @@ const InitialState = {
     airActivitiesData: [],
     cityActivitiesData: [],
   },
+  cart: {
+    data: [],
+  },
   attractions: {
     attractionsMost: [],
     attractionsHighest: [],
@@ -137,6 +140,20 @@ const categoriesReducer = (state = {}, action) => {
   }
 };
 
+const cartReducer = (state = {}, action) => {
+  switch (action.type) {
+    case "SET_CART_DATA":
+      return { ...state, data: action.payload };
+    case "REMOVE_CART_DATA":
+      return {
+        ...state,
+        data: [...state.data].filter((_, index) => index !== action.payload),
+      };
+    default:
+      return state;
+  }
+};
+
 const attractionsReducer = (state = {}, action) => {
   switch (action.type) {
     case "SET_ATTRACTIONS_MOST_DATA":
@@ -188,6 +205,7 @@ const rootReducer = combineReducers({
   attractions: attractionsReducer,
   attractionsFooter: attractionsFooterReducer,
   categories: categoriesReducer,
+  cart: cartReducer,
   SingleActivity: SingleActivityReducer,
   selectedCountry: selectReducer,
 });

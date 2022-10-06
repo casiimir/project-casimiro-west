@@ -10,9 +10,10 @@ import { RiMenu3Line } from "react-icons/ri";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const Header = ({ children, cartNumber, setCartNumber }) => {
+const Header = ({ children }) => {
   const dispatch = useDispatch();
   const [active, setActive] = useState();
+  const [cartNumber, setCartNumber] = useState(0);
 
   const onHadleClick = useCallback(() => {
     document.body.style.overflow = "hidden";
@@ -22,7 +23,32 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
     });
   }, [dispatch]);
 
+  const cartData = useSelector((state) => state.cart.data);
+
   const navRef = useRef(null);
+
+  const cartObject = {
+    sample: `sample`,
+    tickets: "0",
+  };
+
+  useEffect(() => {
+    localStorage.setItem(`Dummy`, JSON.stringify(cartObject));
+    setCartNumber(
+      Object.values(localStorage)
+        .filter((e) => e.includes("tickets"))
+        .map((item) => JSON.parse(item))
+        .map((item) => Number(item.tickets))
+        .reduce((previous, next) => {
+          return previous + next;
+        })
+    );
+    if (
+      Object.values(localStorage).filter((e) => e.includes("name")).length == 0
+    ) {
+      setCartNumber(0);
+    }
+  });
 
   return (
     <header className={styles.Header}>
@@ -66,12 +92,7 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
             <div className={styles.cart}>
               <FaShoppingCart />
 
-              {/* {cartNumber > 0 ? <p>{cartNumber}</p> : ""} */}
-              {localStorage.length > 2 ? (
-                <p>{Object.keys(localStorage).length - 2}</p>
-              ) : (
-                ""
-              )}
+              {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
 
             </div>
           </Link>
@@ -143,12 +164,7 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
 
               <span>
                 <FaShoppingCart />
-                {/* {cartNumber > 0 ? <p>{cartNumber}</p> : ""} */}
-                {localStorage.length > 2 ? (
-                  <p>{Object.keys(localStorage).length - 2}</p>
-                ) : (
-                  ""
-                )}
+                {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
               </span>
             </button>
           </div>

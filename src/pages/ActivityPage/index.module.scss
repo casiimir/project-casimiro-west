@@ -141,6 +141,26 @@
         display: none;
       }
     }
+    .plusMinus {
+      height: 50px;
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      bottom: 42px;
+      left: 21%;
+      z-index: 99;
+      display: flex;
+      background-color: lightseagreen;
+      font-size: 13px;
+      color: white;
+      button {
+        width: 50px;
+        background-color: lightseagreen;
+        color: white;
+      }
+    }
   }
 
   .info {
@@ -293,10 +313,14 @@
 
         .heartActive {
           transform: translateX(-35px);
+          transition: 0.5s;
+          color: lightseagreen;
         }
 
         .cartActive {
           transform: translateX(35px);
+          transition: 0.5s;
+          color: lightseagreen;
         }
       }
     }

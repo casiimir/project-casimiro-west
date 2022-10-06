@@ -1,7 +1,5 @@
 import AttractionCard from "../../components/AttractionCard/AttractionCard";
-import AttractionCardPlus from "../../components/AttractionCardPlus/AttractionCardPlus";
 import AttractionsList from "../../components/AttractionsList/AttractionsList";
-import Footer from "../../components/Footer/Footer";
 import { BsPerson } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
 import styles from "./index.module.scss";
@@ -32,9 +30,9 @@ const Attractions = () => {
       (data) =>
         dispatch({
           type: "SET_ATTRACTIONS_MOST_DATA",
-          payload: data.filter((el) => el.reviews_number >= 2600),
+          payload: data.filter((el) => el.reviews_number >= 3000),
         }),
-      GET("venues?&limit=20").then((data) =>
+      GET("venues?&limit=30").then((data) =>
         dispatch({
           type: "SET_ATTRACTIONS_HIGHEST_DATA",
           payload: data.filter((el) => el.reviews_avg >= 4.5),
@@ -70,24 +68,24 @@ const Attractions = () => {
 
   return (
     <div className={styles.Attractions}>
-      <div className={styles.ActivitiesHero}>
-        <p className={styles.HeroTitle}>Attractions</p>
-        <p>Many attractions to choose from</p>
-        <div className={styles.HeroImg}>
-          <img src={HeroImage.first} alt="card" />
+      <section className={styles.hero}>
+        <p className={styles.name}>Attractions</p>
+        <div className={styles.imageSection}>
+          <img className={styles.image} src={HeroImage.first} alt="" />
         </div>
-        <div className={styles.HeroImg}>
-          <img src={HeroImage.third} alt="card"></img>
+        <div className={styles.imageSection}>
+          <img className={styles.image} src={HeroImage.third} alt="" />
         </div>
-        <div className={styles.HeroImg}>
-          <img src={HeroImage.fourth} alt="card" />
+        <div className={styles.imageSection}>
+          <img className={styles.image} src={HeroImage.fourth} alt="" />
         </div>
         <div className={styles.backgroundGradient}></div>
-      </div>
+      </section>
+
+      <h1>Many attractions to see</h1>
 
       <section className={styles.main}>
-        <h2>Most Reviewed</h2>
-        <AttractionsList>
+        <AttractionsList title="Most Reviewed">
           {attractionsMost?.map?.((el, i) => (
             <AttractionCard
               number={el.reviews_number}
@@ -101,8 +99,8 @@ const Attractions = () => {
             />
           ))}
         </AttractionsList>
-        <h2>Highest Average</h2>
-        <AttractionsList>
+
+        <AttractionsList title={"Highest Average"}>
           {attractionsHighest?.map?.((el, i) => (
             <AttractionCard
               title={el.name}
@@ -118,7 +116,9 @@ const Attractions = () => {
         </AttractionsList>
 
         <section className={styles.selectSection}>
+
           <h2>Discover the World's top tourist attractions</h2>
+
           <form className={styles.countryForm}>
             <select
               className={styles.countrySelect}
@@ -140,9 +140,9 @@ const Attractions = () => {
       </section>
 
       {selectedCountry.value && (
-        <div className={styles.gridList}>
+        <AttractionsList title={selectedCountry.value}>
           {countryAttractions?.map?.((el, i) => (
-            <AttractionCardPlus
+            <AttractionCard
               title={el.name}
               background={el.cover_image_url}
               city={el.city.name}
@@ -153,10 +153,8 @@ const Attractions = () => {
               data={el}
             />
           ))}
-        </div>
+        </AttractionsList>
       )}
-
-      <Footer />
     </div>
   );
 };

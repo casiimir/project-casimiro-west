@@ -1,4 +1,4 @@
-import { useLocation, useOutletContext } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { GiPositionMarker } from "react-icons/gi";
@@ -11,7 +11,8 @@ import Footer from "../../components/Footer";
 import placeholder from "../../images/placeholder.png";
 
 const ActivityPage = () => {
-  const [setCartNumber] = useOutletContext();
+
+  const [ticketNumber, setTicketNumber] = useState(1);
 
   const [animation, setAnimation] = useState({
     buttonStyle: "",
@@ -24,6 +25,7 @@ const ActivityPage = () => {
   const data = useLocation();
 
   const dispatch = useDispatch();
+
   const {
     title,
     description,
@@ -40,12 +42,15 @@ const ActivityPage = () => {
     name: `${title}`,
     IMG: `${cover_image_url}`,
     price: `${retail_price.value}`,
+    tickets: `${ticketNumber}`,
   };
+
   const cartFunction = () => {
     localStorage.setItem(`${title}@@@`, JSON.stringify(cartObject));
-    setCartNumber(
-      Object.keys(localStorage).filter((el) => el.includes("@@@")).length
-    );
+    dispatch({
+      type: "SET_CART_DATA",
+      payload: [`${title}@@@`],
+    });
 
     setAnimation({
       buttonStyle: "white",
@@ -115,6 +120,16 @@ const ActivityPage = () => {
             </p>
             <p className={animation.thanksText}>Thank You!</p>
           </button>
+          <div className={styles.plusMinus}>
+            <button onClick={() => setTicketNumber(ticketNumber + 1)}>+</button>
+            <button
+              onClick={() => setTicketNumber(ticketNumber - 1)}
+              disabled={ticketNumber == 1 ? true : false}
+            >
+              -
+            </button>
+            <p>{ticketNumber}</p>
+          </div>
         </div>
         <div className={styles.info}>
           <h2>Description</h2>
@@ -129,7 +144,6 @@ const ActivityPage = () => {
               </p>
 
               <div>
-                <div className={styles.mapOverlayRight}></div>
                 <div className={styles.mapDisplay}>
                   <Map lng={longitude} lat={latitude} />
                 </div>

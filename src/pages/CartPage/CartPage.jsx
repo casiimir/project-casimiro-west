@@ -1,29 +1,41 @@
 import styles from "./index.module.scss";
+import { useDispatch } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
 import Footer from "../../components/Footer";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
-import { useOutletContext } from "react-router-dom";
 
 const CartPage = () => {
+  // const cartData = useSelector((state) => state.cart.data);
+  const dispatch = useDispatch();
   const [total, setTotal] = useState([]);
   const accumulatore = useMemo(() => [""], []);
   const [cartData, setCartData] = useState(Object.values(localStorage));
   const [value, setValue] = useState("");
   const [valueCVV, setValueCVV] = useState("");
   const navigate = useNavigate();
-  const formRef = useRef();
 
-  // const [cartNumber] = useOutletContext();
 
-  const [setCartNumber] = useOutletContext();
+  const RemovefromCart = (id) => {
+    forceUpdate();
+    localStorage.removeItem(id);
+    dispatch({
+      type: "REMOVE_CART_DATA",
+      payload: [id],
+    });
+  };
+
 
   useEffect(() => {
     Object.values(localStorage)
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
-      .map((item) => accumulatore.push(Number(item.price)));
+
+      .map((item, index) =>
+        accumulatore.push(Number(item.price * item.tickets))
+      );
+
     setTotal(
       accumulatore.reduce((previous, next) => {
         return previous + next;
@@ -31,23 +43,21 @@ const CartPage = () => {
     );
   }, [accumulatore]);
 
-  const deleteItem = (item) => {
-    localStorage.removeItem(`${item.name}@@@`);
-    setCartData(cartData.filter((el, i) => el.name !== `${item.name}`));
-    setCartNumber((prev) => prev - 1);
-  };
-
+  const formRef = useRef();
   const [modalVisibility, setModalVisibility] = useState("none");
   const [updateState, setUpdateState] = useState();
   const forceUpdate = useCallback(() => setUpdateState({}), []);
   const cartCleaner = () => {
     formRef.current.reset();
     if (localStorage.length > 2) {
+      dispatch({
+        type: "SET_CART_DATA",
+        payload: "",
+      });
       formRef.current.reset();
       localStorage.clear();
       forceUpdate();
       setModalVisibility("");
-      setCartNumber(0);
       setTimeout(() => {
         setModalVisibility("none");
         setTimeout(() => {
@@ -84,30 +94,43 @@ const CartPage = () => {
         <div className={styles.wrapper}>
           <div className={styles.articles}>
             <div className={styles.productList}>
-              {Object.values(localStorage)
+              {Object.values(localStorage).filter((e) => e.includes("name"))
+                .length ? (
+                Object.values(localStorage)
+                  .filter((e) => e.includes("name"))
+                  .map((item) => JSON.parse(item))
+                  .map((item, index) => (
+                    <div key={index} className={styles.productListContainer}>
+                      <div className={styles.productImage}>
+                        <img src={item.IMG} />
+                      </div>
+                      <div className={styles.productInfo}>
+                        <div>
+                          {`${item.name}`.length >= 40 === true ? (
+                            <p>{`${item.name}`.slice(0, 40)}...</p>
+                          ) : (
+                            <p>{item.name}</p>
+                          )}
+                        </div>
+                        <div className={styles.productPrice}>
+                          <AiOutlineClose
+                            onClick={() => RemovefromCart(`${item.name}@@@`)}
+                          />
 
-                .filter((e) => e.includes("name"))
-                .map((item) => JSON.parse(item))
-                .map((item, index) => (
-                  <div key={index} className={styles.productListContainer}>
-                    <div className={styles.productImage}>
-                      <img src={item.IMG} />
-                    </div>
-                    <div className={styles.productInfo}>
-                      <div>
-                        {`${item.name}`.length >= 40 === true ? (
-                          <p>{`${item.name}`.slice(0, 40)}...</p>
-                        ) : (
-                          <p>{item.name}</p>
-                        )}
-                      </div>
-                      <div className={styles.productPrice}>
-                        <AiOutlineClose onClick={() => deleteItem(item)} />
-                        <p>{item.price}$</p>
+                          <p>
+                            {item.price}${" "}
+                            <AiOutlineClose
+                              style={{ color: "black", fontSize: "small" }}
+                            />
+                            {item.tickets}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))}
+                  ))
+              ) : (
+                <h2>Hey, is empty here!</h2>
+              )}
             </div>
             <div className={styles.infoPayment}>
               <div className={styles.price}>
@@ -118,7 +141,15 @@ const CartPage = () => {
                 <div className={styles.box2}>
                   {" "}
                   <h4>Activity number:</h4>
-                  <h4>1</h4>
+
+                  <h4>
+                    {
+                      Object.values(localStorage).filter((e) =>
+                        e.includes("name")
+                      ).length
+                    }
+                  </h4>
+
                 </div>
               </div>
             </div>

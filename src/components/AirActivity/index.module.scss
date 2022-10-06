@@ -8,23 +8,13 @@
 
   .box {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: repeat(auto-fit, minmax(600px, 2fr));
     justify-items: center;
     gap: 15px;
 
     .skeletron {
       height: 100vh;
       width: 99%;
-    }
-  }
-}
-
-@media only screen and (max-width: 1150px) {
-  .AirActivity {
-    .box {
-      @include flex-element(column, center, center);
-      grid-template-columns: 1fr 1fr;
-      gap: 15px;
     }
   }
 }
