@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { CgFormatSlash } from "react-icons/cg";
 import { useOutletContext } from "react-router-dom";
 
+//prova
+
 const CartPage = () => {
   const [total, setTotal] = useState([]);
   const accumulatore = [0];
