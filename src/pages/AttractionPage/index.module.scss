@@ -21,7 +21,7 @@
   }
 
   .main {
-    padding: 90px 30px 0 30px;
+    padding: 0px 30px 0 30px;
 
     .info {
       display: flex;
@@ -102,6 +102,55 @@
     }
   }
 }
+@media only screen and (min-width: 1200px) {
+  .AttractionPage {
+    display: flex;
+    gap: 0;
+    justify-content: center;
+
+    .transition {
+      display: none;
+    }
+
+    .main {
+      padding: 90px 30px 0 30px;
+      width: 50%;
+      .info {
+        padding: 1rem 0;
+
+        .name {
+          font-size: 2rem;
+        }
+      }
+      .address {
+        font-size: 1.2rem;
+      }
+      .description {
+        font-size: 1.3rem;
+      }
+
+      .photo {
+        img {
+          box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
+          width: 300px;
+        }
+      }
+    }
+    .navigate {
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1.3rem;
+      }
+
+      h4 {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
 
 @media only screen and (min-width: 992px) {
   .AttractionPage {
@@ -125,6 +174,7 @@
     }
 
     .main {
+      padding: 90px 30px 0 30px;
       width: 50%;
 
       .info {

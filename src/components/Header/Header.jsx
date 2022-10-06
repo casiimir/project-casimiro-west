@@ -26,12 +26,10 @@ const Header = ({ children }) => {
   }, [dispatch]);
 
   const navRef = useRef(null);
-
   const cartObject = {
     sample: `sample`,
     tickets: "0",
   };
-
   useLayoutEffect(() => {
     localStorage.setItem(`Dummy`, JSON.stringify(cartObject));
     setCartNumber(
@@ -84,7 +82,7 @@ const Header = ({ children }) => {
           </ul>
         </div>
         <section className={styles.side}>
-        <MainInput/>
+          <MainInput />
           <div className={styles.menu} onClick={onHadleClick}>
             <RiMenu3Line />
           </div>
@@ -121,6 +119,7 @@ const Header = ({ children }) => {
           <Link
             onClick={() => {
               setActive("");
+              window.scrollTo(0, 0);
               document.body.style.overflow = "scroll";
             }}
             className={styles.link}
@@ -131,6 +130,7 @@ const Header = ({ children }) => {
           <Link
             onClick={() => {
               setActive("");
+              window.scrollTo(0, 0);
               document.body.style.overflow = "scroll";
             }}
             className={styles.link}
@@ -142,6 +142,7 @@ const Header = ({ children }) => {
           <Link
             onClick={() => {
               setActive("");
+              window.scrollTo(0, 0);
               document.body.style.overflow = "scroll";
             }}
             className={styles.link}
@@ -152,6 +153,7 @@ const Header = ({ children }) => {
           <Link
             onClick={() => {
               setActive("");
+              window.scrollTo(0, 0);
               document.body.style.overflow = "scroll";
             }}
             className={styles.link}
@@ -160,7 +162,14 @@ const Header = ({ children }) => {
             About Us
           </Link>
         </ul>
-        <Link to="/cart">
+        <Link
+          to="/cart"
+          onClick={() => {
+            setActive("");
+            window.scrollTo(0, 0);
+            document.body.style.overflow = "scroll";
+          }}
+        >
           <div className={styles.button}>
             <button>
               <span>Cart</span>
