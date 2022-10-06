@@ -3,9 +3,8 @@ import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { memo } from "react";
 import { Link } from "react-router-dom";
-
+import placeholder from "../../images/placeholder.png";
 import { useDispatch } from "react-redux";
-
 
 const CardActivity = ({ data }) => {
   const dispatch = useDispatch();
@@ -16,15 +15,19 @@ const CardActivity = ({ data }) => {
       payload: data,
     });
   };
-  console.log("DATA ====", data.cover_image_url);
+  // console.log("DATA ====", data.cover_image_url);
 
   return (
     <div className={styles.CardActivity} onClick={setActivityFunction}>
-      <img
-        className={styles.photo}
-        src={`${data?.city.cover_image_url}?w=300`}
-        alt="img"
-      />
+      {data.cover_image_url !== "" ? (
+        <img
+          className={styles.photo}
+          src={`${data?.cover_image_url}?w=300`}
+          alt="img"
+        />
+      ) : (
+        <img className={styles.photo} src={placeholder} alt="img" />
+      )}
       <section className={styles.tourInfo}>
         <h2 className={styles.name}>{data?.title}</h2>
         <div className={styles.description}>

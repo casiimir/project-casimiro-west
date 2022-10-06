@@ -1,5 +1,5 @@
 import { useCallback, useLayoutEffect, useMemo, useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./index.module.scss";
 import logo from "./logo.png";
 import logotypeW from "./logo_white.png";
@@ -15,6 +15,7 @@ const Header = ({ children }) => {
   const dispatch = useDispatch();
   const [active, setActive] = useState();
   const [cartNumber, setCartNumber] = useState(0);
+  const cartData = useSelector((state) => state.cart.data);
 
   const onHadleClick = useCallback(() => {
     document.body.style.overflow = "hidden";
@@ -25,16 +26,10 @@ const Header = ({ children }) => {
   }, [dispatch]);
 
   const navRef = useRef(null);
-  const cartObject = useMemo(
-    () => [
-      {
-        sample: `sample`,
-        tickets: "0",
-      },
-    ],
-    []
-  );
-
+  const cartObject = {
+    sample: `sample`,
+    tickets: "0",
+  };
   useLayoutEffect(() => {
     localStorage.setItem(`Dummy`, JSON.stringify(cartObject));
     setCartNumber(
@@ -43,7 +38,7 @@ const Header = ({ children }) => {
         .map((item) => JSON.parse(item))
         .map((item) => Number(item.tickets))
         .reduce((previous, next) => {
-          return previous + next;
+          return Number(previous + next);
         })
     );
     if (
@@ -51,7 +46,7 @@ const Header = ({ children }) => {
     ) {
       setCartNumber(0);
     }
-  }, [cartObject]);
+  }, [cartData]);
 
   return (
     <header className={styles.Header}>
@@ -95,7 +90,11 @@ const Header = ({ children }) => {
             <div className={styles.cart}>
               <FaShoppingCart />
 
-              {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
+              {cartNumber > 0 ? (
+                <p className={styles.number}>{cartNumber}</p>
+              ) : (
+                ""
+              )}
             </div>
           </Link>
         </section>
@@ -177,7 +176,11 @@ const Header = ({ children }) => {
 
               <span>
                 <FaShoppingCart />
-                {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
+                {cartNumber > 0 ? (
+                  <p className={styles.number}>{cartNumber}</p>
+                ) : (
+                  ""
+                )}
               </span>
             </button>
           </div>

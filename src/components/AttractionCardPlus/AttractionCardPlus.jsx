@@ -12,7 +12,13 @@ const AttractionCardPlus = (props) => {
     >
       <div
         className={styles.AttractionCardPlus}
-        style={{ backgroundImage: `url(${props.background}?w=500)` }}
+        style={
+          props.background !== ""
+            ? { backgroundImage: `url(${props.background}?w=500)` }
+            : {
+                backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/500px-Placeholder_view_vector.svg.png)`,
+              }
+        }
       >
         <div className={styles.reviews}>
           <p className={styles.reviewsSpecific}>

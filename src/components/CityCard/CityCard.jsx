@@ -8,7 +8,13 @@ const CityCard = ({ CardData }) => {
     <div className={styles.Container}>
       <div
         className={styles.Card}
-        style={{ backgroundImage: `url(${CardData.cover_image_url}?w=400)` }}
+        style={
+          CardData.cover_image_url !== ""
+            ? { backgroundImage: `url(${CardData.cover_image_url}?w=400)` }
+            : {
+                backgroundImage: `url(https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/400px-Placeholder_view_vector.svg.png)`,
+              }
+        }
       >
         <div className={styles.CardInfo}>
           <div className={styles.info}>
@@ -31,7 +37,9 @@ const CityCard = ({ CardData }) => {
         state={CardData}
         className={styles.link}
         onClick={() => window.scrollTo(0, 0)}
-      >{CardData.name}</Link>
+      >
+        {CardData.name}
+      </Link>
     </div>
   );
 };
