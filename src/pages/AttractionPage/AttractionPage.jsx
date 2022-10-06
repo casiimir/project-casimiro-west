@@ -16,8 +16,6 @@ const AttractionPage = () => {
     address,
   } = data.state;
 
-  console.log(data);
-
   return (
     <>
       <div className={styles.AttractionPage}>
@@ -40,7 +38,7 @@ const AttractionPage = () => {
             </h3>
           </div>
           <p className={styles.description}>
-            {description.split(".", +4) + "."}
+            {description.split(".", +3) + "."}
           </p>
           <div className={styles.photo}>
             <img src={`${data.state.city.cover_image_url}?w=400`} alt="city" />

@@ -2,7 +2,6 @@
 @import "../../styles/mixins";
 
 .Hero {
-  @include element-position($position: relative, $top: -60px, $right: auto);
   img {
     filter: brightness(0.7);
   }
