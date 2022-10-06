@@ -9,6 +9,7 @@ import { Link } from "react-router-dom";
 import { RiMenu3Line } from "react-icons/ri";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import MainInput from "../MainInput";
 
 const Header = ({ children }) => {
   const dispatch = useDispatch();
@@ -82,7 +83,7 @@ const Header = ({ children }) => {
           </ul>
         </div>
         <section className={styles.side}>
-          {children}
+        <MainInput/>
           <div className={styles.menu} onClick={onHadleClick}>
             <RiMenu3Line />
           </div>
