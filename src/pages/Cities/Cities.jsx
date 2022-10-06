@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useRef } from "react";
 import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
@@ -14,7 +14,7 @@ const ActivityHomeCard = lazy(() =>
 );
 
 const Cities = () => {
-  const cityName = useParams();
+
   const data = useLocation();
   const cardData = useSelector(
     (state) => state.activities.inCityActivitiesData

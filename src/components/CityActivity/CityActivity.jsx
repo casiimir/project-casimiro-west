@@ -2,20 +2,18 @@ import styles from "./index.module.scss";
 import { GET } from "../../utils/api";
 import { useDispatch, useSelector } from "react-redux";
 import React, { memo, useEffect } from "react";
-import { useOutletContext } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Skeleton from "@mui/material/Skeleton";
 
-// import Footer from "../Footer";
+
 import { lazy, Suspense } from "react";
 
 const CardActivity = lazy(() => import("../CardActivity/CardActivity"));
-// const Footer = lazy(() => import("../Footer"));
+
 
 const CityActivity = () => {
   const { cityActivitiesData } = useSelector((state) => state.categories);
-  const data = useOutletContext();
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
   useEffect(() => {
     GET("categories/192/activities?&limit=20").then((data) =>
@@ -43,7 +41,7 @@ const CityActivity = () => {
             ))}
           </div>
         </div>
-        {/* <Footer /> */}
+       
       </Suspense>
     </>
   );

@@ -3,7 +3,6 @@
 @import "../../styles/mixins";
 
 .Cities {
-  @include element-position($position: relative, $top: -75px, $right: auto);
   display: flex;
   flex-direction: column;
   background-size: cover;
@@ -39,7 +38,6 @@
           $bottom: auto,
           $left: 45%
         );
-
         color: lightseagreen;
         font-family: $handwrite-font;
         font-style: normal;

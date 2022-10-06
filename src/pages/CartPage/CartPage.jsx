@@ -10,11 +10,12 @@ const CartPage = () => {
   // const cartData = useSelector((state) => state.cart.data);
   const dispatch = useDispatch();
   const [total, setTotal] = useState([]);
-  const accumulatore = [0];
+  const accumulatore = useMemo(() => [""], []);
   const [cartData, setCartData] = useState(Object.values(localStorage));
   const [value, setValue] = useState("");
   const [valueCVV, setValueCVV] = useState("");
   const navigate = useNavigate();
+
 
   const RemovefromCart = (id) => {
     forceUpdate();
@@ -25,19 +26,22 @@ const CartPage = () => {
     });
   };
 
+
   useEffect(() => {
     Object.values(localStorage)
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
+
       .map((item, index) =>
         accumulatore.push(Number(item.price * item.tickets))
       );
+
     setTotal(
       accumulatore.reduce((previous, next) => {
         return previous + next;
       })
     );
-  });
+  }, [accumulatore]);
 
   const formRef = useRef();
   const [modalVisibility, setModalVisibility] = useState("none");
@@ -137,6 +141,7 @@ const CartPage = () => {
                 <div className={styles.box2}>
                   {" "}
                   <h4>Activity number:</h4>
+
                   <h4>
                     {
                       Object.values(localStorage).filter((e) =>
@@ -144,6 +149,7 @@ const CartPage = () => {
                       ).length
                     }
                   </h4>
+
                 </div>
               </div>
             </div>

@@ -1,10 +1,18 @@
 import styles from "./index.module.scss";
 
 const AttractionCard = (props) => {
+  const { data } = props;
+
   return (
-    <div
-      className={styles.AttractionCard}
-      style={{ backgroundImage: `url(${props.background}?w=400)` }}
+
+    <Link
+      to={`/attractions/${props.title}`}
+
+      state={data}
+
+      className={styles.link}
+      onClick={() => window.scrollTo(0, 0)}
+
     >
       <div className={styles.reviews}>
         <p className={styles.reviewsSpecific}>

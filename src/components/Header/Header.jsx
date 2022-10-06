@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 import logo from "./logo.png";
 import logotypeW from "./logo_white.png";
@@ -21,7 +21,7 @@ const Header = ({ children }) => {
       type: "SET_DROPDOWN_VISIBILITY",
       payload: setActive(styles.active),
     });
-  }, []);
+  }, [dispatch]);
 
   const cartData = useSelector((state) => state.cart.data);
 
@@ -91,7 +91,9 @@ const Header = ({ children }) => {
           <Link to="/cart">
             <div className={styles.cart}>
               <FaShoppingCart />
+
               {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
+
             </div>
           </Link>
         </section>
