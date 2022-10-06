@@ -6,13 +6,11 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { CgFormatSlash } from "react-icons/cg";
 import { useOutletContext } from "react-router-dom";
 
-
 const CartPage = () => {
   const [total, setTotal] = useState([]);
   const accumulatore = useMemo(() => [""], []);
   const [cartData, setCartData] = useState(Object.values(localStorage));
 
-l
   const formRef = useRef();
 
   // const [cartNumber] = useOutletContext();
@@ -35,7 +33,6 @@ l
     localStorage.removeItem(`${item.name}@@@`);
     setCartData(cartData.filter((el, i) => el.name !== `${item.name}`));
     setCartNumber((prev) => prev - 1);
-
   };
 
   const [modalVisibility, setModalVisibility] = useState("none");
@@ -75,7 +72,6 @@ l
                   <div key={index} className={styles.productListContainer}>
                     <div className={styles.productImage}>
                       <img src={item.IMG} />
-
                     </div>
                     <div className={styles.productInfo}>
                       <div>
@@ -95,8 +91,15 @@ l
             </div>
             <div className={styles.infoPayment}>
               <div className={styles.price}>
-                <h2>Total:</h2>
-                <h2>{total}$</h2>
+                <div className={styles.box}>
+                  <h2>Total:</h2>
+                  <h2>{total}$</h2>
+                </div>
+                <div className={styles.box2}>
+                  {" "}
+                  <h4>Activity number:</h4>
+                  <h4>1</h4>
+                </div>
               </div>
             </div>
           </div>
@@ -114,7 +117,12 @@ l
                   <hr></hr>
                   <div>
                     <h2>Card number*</h2>
-                    <input placeholder="Card number" type="number" required />
+                    <input
+                      placeholder="Card number"
+                      maxlength="12"
+                      type="text"
+                      required
+                    />
                     <hr></hr>
                   </div>
                 </div>
@@ -124,16 +132,17 @@ l
                       <h2>Expiration*</h2>
                       <input
                         placeholder="MM"
-                        maxLength={2}
-                        type="number"
+                        maxlength={2}
+                        type="text"
                         required
                       />
                       <CgFormatSlash />
                       <input
                         placeholder="YY"
-                        maxLength={2}
-                        type="number"
-                        required
+                        maxlength={2}
+                        type="text"
+                        required="required"
+                        pattern="[0-9]+"
                       />
                       <hr></hr>
                     </div>
@@ -143,7 +152,7 @@ l
                     <input
                       placeholder="***"
                       maxLength={3}
-                      type="number"
+                      type="text"
                       required
                     />
                     <hr></hr>
