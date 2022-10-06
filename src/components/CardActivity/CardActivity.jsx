@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
 
-
 const CardActivity = ({ data }) => {
   const dispatch = useDispatch();
 
@@ -16,7 +15,7 @@ const CardActivity = ({ data }) => {
       payload: data,
     });
   };
-  console.log("DATA ====", data.cover_image_url);
+  // console.log("DATA ====", data.cover_image_url);
 
   return (
     <div className={styles.CardActivity} onClick={setActivityFunction}>
