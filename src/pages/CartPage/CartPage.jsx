@@ -2,18 +2,18 @@ import styles from "./index.module.scss";
 import { useDispatch } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
 import Footer from "../../components/Footer";
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useState, useEffect, useRef, useCallback} from "react";
 import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
 
 //prova
 
 const CartPage = () => {
-  // const cartData = useSelector((state) => state.cart.data);
+  
   const dispatch = useDispatch();
   const [total, setTotal] = useState([]);
-  const accumulatore = useMemo(() => [""], []);
-  const [cartData, setCartData] = useState(Object.values(localStorage));
+  const accumulatore = [0];
+  const [, setUpdateState] = useState();
   const [value, setValue] = useState("");
   const [valueCVV, setValueCVV] = useState("");
   const navigate = useNavigate();
@@ -34,20 +34,21 @@ const CartPage = () => {
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
 
-      .map((item, index) =>
+      .map((item) =>
         accumulatore.push(Number(item.price * item.tickets))
       );
 
     setTotal(
       accumulatore.reduce((previous, next) => {
-        return previous + next;
+        return Number(previous + next);
       })
     );
+  
   }, [accumulatore]);
 
   const formRef = useRef();
   const [modalVisibility, setModalVisibility] = useState("none");
-  const [updateState, setUpdateState] = useState();
+ 
   const forceUpdate = useCallback(() => setUpdateState({}), []);
   const cartCleaner = () => {
     formRef.current.reset();
@@ -104,11 +105,11 @@ const CartPage = () => {
                   .map((item, index) => (
                     <div key={index} className={styles.productListContainer}>
                       <div className={styles.productImage}>
-                        <img src={item.IMG} />
+                        <img src={item.IMG} alt="img" />
                       </div>
                       <div className={styles.productInfo}>
                         <div>
-                          {`${item.name}`.length >= 40 === true ? (
+                          {(`${item.name}`.length >= 40 )=== true ? (
                             <p>{`${item.name}`.slice(0, 40)}...</p>
                           ) : (
                             <p>{item.name}</p>

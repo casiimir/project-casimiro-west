@@ -5,7 +5,7 @@ import { memo } from "react";
 import { Link } from "react-router-dom";
 
 import { useDispatch } from "react-redux";
-import placeholder from "../../images/placeholder.png";
+
 
 const CardActivity = ({ data }) => {
   const dispatch = useDispatch();

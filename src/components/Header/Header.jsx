@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useLayoutEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 import logo from "./logo.png";
@@ -23,16 +23,14 @@ const Header = ({ children }) => {
     });
   }, [dispatch]);
 
-  const cartData = useSelector((state) => state.cart.data);
-
   const navRef = useRef(null);
-
-  const cartObject = {
+  const cartObject = useMemo(() => [{
     sample: `sample`,
     tickets: "0",
-  };
+  }], []);
+ 
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     localStorage.setItem(`Dummy`, JSON.stringify(cartObject));
     setCartNumber(
       Object.values(localStorage)
@@ -44,11 +42,11 @@ const Header = ({ children }) => {
         })
     );
     if (
-      Object.values(localStorage).filter((e) => e.includes("name")).length == 0
+      Object.values(localStorage).filter((e) => e.includes("name")).length === 0
     ) {
       setCartNumber(0);
     }
-  });
+  },[cartObject]);
 
   return (
     <header className={styles.Header}>
@@ -93,7 +91,6 @@ const Header = ({ children }) => {
               <FaShoppingCart />
 
               {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
-
             </div>
           </Link>
         </section>

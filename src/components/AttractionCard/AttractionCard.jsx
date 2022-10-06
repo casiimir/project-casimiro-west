@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styles from "./index.module.scss";
 
 const AttractionCard = (props) => {
@@ -26,7 +27,8 @@ const AttractionCard = (props) => {
           {props.country} - {props.city}
         </p>
       </div>
-    </div>
+    
+    </Link>
   );
 };
 
