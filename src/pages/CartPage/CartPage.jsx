@@ -2,22 +2,21 @@ import styles from "./index.module.scss";
 import { useDispatch } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
 import Footer from "../../components/Footer";
-import { useState, useEffect, useRef, useCallback} from "react";
+import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
 
 //prova
 
 const CartPage = () => {
-  
+  // const cartData = useSelector((state) => state.cart.data);
   const dispatch = useDispatch();
   const [total, setTotal] = useState([]);
   const accumulatore = [0];
-  const [, setUpdateState] = useState();
+  // const [cartData, setCartData] = useState(Object.values(localStorage));
   const [value, setValue] = useState("");
   const [valueCVV, setValueCVV] = useState("");
   const navigate = useNavigate();
-
 
   const RemovefromCart = (id) => {
     forceUpdate();
@@ -28,13 +27,12 @@ const CartPage = () => {
     });
   };
 
-
   useEffect(() => {
     Object.values(localStorage)
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
 
-      .map((item) =>
+      .map((item, index) =>
         accumulatore.push(Number(item.price * item.tickets))
       );
 
@@ -43,12 +41,11 @@ const CartPage = () => {
         return Number(previous + next);
       })
     );
-  
   }, [accumulatore]);
 
   const formRef = useRef();
   const [modalVisibility, setModalVisibility] = useState("none");
- 
+  const [updateState, setUpdateState] = useState();
   const forceUpdate = useCallback(() => setUpdateState({}), []);
   const cartCleaner = () => {
     formRef.current.reset();
@@ -105,11 +102,11 @@ const CartPage = () => {
                   .map((item, index) => (
                     <div key={index} className={styles.productListContainer}>
                       <div className={styles.productImage}>
-                        <img src={item.IMG} alt="img" />
+                        <img src={item.IMG} />
                       </div>
                       <div className={styles.productInfo}>
                         <div>
-                          {(`${item.name}`.length >= 40 )=== true ? (
+                          {`${item.name}`.length >= 40 === true ? (
                             <p>{`${item.name}`.slice(0, 40)}...</p>
                           ) : (
                             <p>{item.name}</p>
@@ -144,7 +141,6 @@ const CartPage = () => {
                 <div className={styles.box2}>
                   {" "}
                   <h4>Activity number:</h4>
-
                   <h4>
                     {
                       Object.values(localStorage).filter((e) =>
@@ -152,7 +148,6 @@ const CartPage = () => {
                       ).length
                     }
                   </h4>
-
                 </div>
               </div>
             </div>
