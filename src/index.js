@@ -1,6 +1,6 @@
 import store from "./store";
 import { Provider } from "react-redux";
-import styles from "./index.module.scss";
+import  "./index.module.scss";
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import {
@@ -20,7 +20,7 @@ import ActivityPage from "./pages/ActivityPage";
 import Attractions from "./pages/Attractions";
 import CartPage from "./pages/CartPage";
 
-import AttractionPage from "./pages/AttractionPage";
+
 
 
 import CityActivity from "./components/CityActivity/CityActivity";
@@ -79,8 +79,7 @@ const router = createBrowserRouter([
   {
     path: "*",
     element: (
-      // <ErrorPage />
-      <AttractionPage />
+      <ErrorPage />
     ),
   },
 ]);

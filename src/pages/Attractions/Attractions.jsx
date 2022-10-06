@@ -41,7 +41,7 @@ const Attractions = () => {
     );
   }, [dispatch]);
 
-  useEffect(() => {
+  useEffect(() => 
     {
       selectedCountry.value !== "" &&
         GET(
@@ -57,7 +57,7 @@ const Attractions = () => {
           });
         });
     }
-  }, [dispatch, selectedCountry]);
+  , [dispatch, selectedCountry]);
 
   const onHandleSelect = (e) => {
     dispatch({

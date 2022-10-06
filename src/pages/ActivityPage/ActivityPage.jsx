@@ -95,7 +95,7 @@ const ActivityPage = () => {
               {cover_image_url !== "" ? (
                 <img
                   src={imgFormatter(`${cover_image_url}`, "?w=500")}
-                  className={styles.polaroidIMG}
+                  className={styles.polaroidIMG} alt="img"
                 />
               ) : (
                 <img
@@ -124,7 +124,7 @@ const ActivityPage = () => {
             <button onClick={() => setTicketNumber(ticketNumber + 1)}>+</button>
             <button
               onClick={() => setTicketNumber(ticketNumber - 1)}
-              disabled={ticketNumber == 1 ? true : false}
+              disabled={ticketNumber === 1 ? true : false}
             >
               -
             </button>
