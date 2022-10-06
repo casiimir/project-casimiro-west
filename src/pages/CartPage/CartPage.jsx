@@ -142,7 +142,6 @@ const CartPage = () => {
                         maxlength={2}
                         type="text"
                         required="required"
-                        pattern="[0-9]+"
                       />
                       <hr></hr>
                     </div>
