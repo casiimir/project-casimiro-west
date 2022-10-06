@@ -10,7 +10,6 @@ import "./mapbox.css";
 import Footer from "../../components/Footer";
 import { isEditable } from "@testing-library/user-event/dist/utils";
 import { style } from "@mui/system";
-import { useState } from "react";
 
 const ActivityPage = () => {
   const [cartAnimation, setCartAnimation] = useState("");
