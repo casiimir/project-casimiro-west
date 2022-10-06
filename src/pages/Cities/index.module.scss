@@ -3,7 +3,6 @@
 @import "../../styles/mixins";
 
 .Cities {
-  @include element-position($position: relative, $top: -75px, $right: auto);
   display: flex;
   flex-direction: column;
   background-size: cover;

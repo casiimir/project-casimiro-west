@@ -1,8 +1,8 @@
 import styles from "./index.module.scss";
 import { AiOutlineClose } from "react-icons/ai";
-
+import Footer from "../../components/Footer";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-
+import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
 import { useOutletContext } from "react-router-dom";
 
@@ -10,7 +10,9 @@ const CartPage = () => {
   const [total, setTotal] = useState([]);
   const accumulatore = useMemo(() => [""], []);
   const [cartData, setCartData] = useState(Object.values(localStorage));
-
+  const [value, setValue] = useState("");
+  const [valueCVV, setValueCVV] = useState("");
+  const navigate = useNavigate();
   const formRef = useRef();
 
   // const [cartNumber] = useOutletContext();
@@ -48,19 +50,37 @@ const CartPage = () => {
       setCartNumber(0);
       setTimeout(() => {
         setModalVisibility("none");
-      }, 3000);
+        setTimeout(() => {
+          navigate("/");
+        }, 1000);
+      }, 4000);
     }
+
+    window.scrollTo(0, 0);
+  };
+
+  const handleChange = (e) => {
+    const result = e.target.value.replace(/\D/g, "");
+
+    const split = result.match(/.{1,4}/g).join(" ");
+
+    setValue(split);
+  };
+
+  const handleChangeCVV = (e) => {
+    const result = e.target.value.replace(/\D/g, "");
+
+    setValueCVV(result);
   };
 
   return (
     <>
-      <div className={styles.ModalContainer}>
-        <div className={styles.overlay}>
-          <img
-            src={"https://images6.alphacoders.com/338/338596.jpg?w=500"}
-            alt="image"
-          />
-        </div>
+      <div
+        className={styles.ModalContainer}
+        style={{
+          backgroundImage: `url(https://images6.alphacoders.com/338/338596.jpg?w=500)`,
+        }}
+      >
         <div className={styles.wrapper}>
           <div className={styles.articles}>
             <div className={styles.productList}>
@@ -119,30 +139,44 @@ const CartPage = () => {
                     <h2>Card number*</h2>
                     <input
                       placeholder="Card number"
-                      maxLength="12"
+                      maxLength="19"
                       type="text"
                       required
+                      value={value}
+                      onChange={handleChange}
                     />
                     <hr></hr>
                   </div>
                 </div>
                 <div className={styles.infoNumber}>
-                  <div clasname={styles.infoNumberDate}>
+                  <div className={styles.infoNumberDate}>
                     <div className={styles.infoNumberDateInput}>
                       <h2>Expiration*</h2>
-                      <input
-                        placeholder="MM"
-                        maxLength={2}
-                        type="text"
-                        required
-                      />
+                      <select id="Month" name="Month">
+                        <option value="empty">--</option>
+                        <option value="January">01</option>
+                        <option value="February">02</option>
+                        <option value="March">03</option>
+                        <option value="April">04</option>
+                        <option value="May">05</option>
+                        <option value="June">06</option>
+                        <option value="July">07</option>
+                        <option value="August">08</option>
+                        <option value="September">09</option>{" "}
+                        <option value="October">10</option>
+                        <option value="November">11</option>
+                        <option value="Dicember">12</option>
+                      </select>
                       <CgFormatSlash />
-                      <input
-                        placeholder="YY"
-                        maxLength={2}
-                        type="text"
-                        required="required"
-                      />
+                      <select id="Month" name="Month">
+                        <option value="empty">--</option>
+                        <option value="2022">22</option>
+                        <option value="2023">23</option>
+                        <option value="2024">24</option>
+                        <option value="2025">25</option>
+                        <option value="2026">26</option>
+                        <option value="2027">27</option>
+                      </select>
                       <hr></hr>
                     </div>
                   </div>
@@ -153,6 +187,8 @@ const CartPage = () => {
                       maxLength={3}
                       type="text"
                       required
+                      value={valueCVV}
+                      onChange={handleChangeCVV}
                     />
                     <hr></hr>
                   </div>
@@ -164,9 +200,10 @@ const CartPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div>{" "}
+      <Footer />
       <div className={styles.modal} style={{ display: `${modalVisibility}` }}>
-        <h3>Thanks So Much for Your Order!</h3>
+        <h3>Thank You for Your Order!</h3>
       </div>
     </>
   );

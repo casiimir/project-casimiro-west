@@ -2,7 +2,7 @@
 @import "../../styles/_variables";
 
 .Header {
-  @include flex-element(column, space-between, stretch, nowrap, 0, 100%, 60px);
+  @include flex-element(column, space-between, stretch, nowrap, 0, 100%);
   font-family: $text-font;
 
   .navbar {

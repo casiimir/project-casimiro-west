@@ -3,7 +3,6 @@
 
 .AttractionPage {
   font-family: $text-font;
-  padding-top: 20px;
 
   .hero {
     .image {
@@ -22,7 +21,7 @@
   }
 
   .main {
-    padding: 0rem 40px;
+    padding: 90px 30px 0 30px;
 
     .info {
       display: flex;
@@ -65,7 +64,7 @@
 
       img {
         box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
-        width: 300px;
+        width: 250px;
       }
     }
   }
@@ -112,13 +111,13 @@
 
     .hero {
       width: 50%;
-      height: 100vh;
+      height: 120vh;
       order: 2;
 
       .image {
         object-fit: cover;
         background-position: left;
-        height: 100vh;
+        height: 120vh;
       }
     }
     .transition {
@@ -127,7 +126,6 @@
 
     .main {
       width: 50%;
-      padding-top: 25px;
 
       .info {
         justify-content: space-between;
@@ -138,7 +136,6 @@
 
 @media only screen and (max-width: 600px) {
   .AttractionPage {
-    padding-top: 0px;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -161,8 +158,6 @@
     }
 
     .main {
-      padding: 0rem 20px;
-
       .info {
         display: flex;
         margin-bottom: 1rem;
