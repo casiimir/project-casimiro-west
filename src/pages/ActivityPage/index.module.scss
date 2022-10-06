@@ -90,6 +90,12 @@
       cursor: pointer;
       font-size: 1.5rem;
 
+      .buttonOverlay {
+        background-color: lightseagreen;
+        position: absolute;
+        z-index: 99;
+      }
+
       p {
         position: absolute;
       }
@@ -143,19 +149,43 @@
     }
     .plusMinus {
       height: 50px;
-      position: relative;
+      position: absolute;
+      top: 86%;
+      left: 8.5%;
       display: flex;
-      flex-direction: column-reverse;
       justify-content: center;
       align-items: center;
-      bottom: 42px;
-      left: 21%;
-      z-index: 99;
-      display: flex;
+      text-align: center;
+      z-index: -1;
       background-color: lightseagreen;
       font-size: 13px;
       color: white;
+
       button {
+        text-align: center;
+        width: 50px;
+        background-color: lightseagreen;
+        color: white;
+      }
+    }
+
+    .plusMinusActive {
+      position: absolute;
+      left: 8.5%;
+      height: 50px;
+      top: 78.7%;
+      transition: 0.5s;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 90;
+      background-color: lightseagreen;
+      font-size: 20px;
+      color: white;
+      button {
+        height: 50px;
+        text-align: center;
         width: 50px;
         background-color: lightseagreen;
         color: white;
@@ -230,6 +260,17 @@
           }
         }
       }
+      .plusMinusActive {
+        position: absolute;
+        left: 9%;
+        height: 50px;
+        top: 81%;
+
+        button {
+          height: 50px;
+          width: 50px;
+        }
+      }
     }
   }
 }
@@ -261,6 +302,9 @@
             font-size: 37px;
           }
         }
+      }
+      .plusMinusActive {
+        left: 12%;
       }
     }
   }
@@ -321,6 +365,22 @@
           transform: translateX(35px);
           transition: 0.5s;
           color: lightseagreen;
+        }
+      }
+
+      .plusMinus {
+        top: 48%;
+        left: 4%;
+        height: 25px;
+      }
+      .plusMinusActive {
+        top: 43.5%;
+        left: 5.4%;
+        height: 25px;
+        width: 90px;
+
+        button {
+          height: 25px;
         }
       }
     }
