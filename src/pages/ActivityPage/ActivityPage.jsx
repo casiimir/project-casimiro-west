@@ -11,18 +11,18 @@ import Footer from "../../components/Footer";
 
 import placeholder from "../../images/placeholder.png";
 
-
 const ActivityPage = () => {
-
   const [ticketNumber, setTicketNumber] = useState(1);
 
   const [animation, setAnimation] = useState({
+    overlayStyle: "",
     buttonStyle: "",
     button: `${styles.buttonCart}`,
     addText: `${styles.add}`,
     thanksText: `${styles.thanks}`,
     cartIcon: `${styles.cart}`,
     heartIcon: `${styles.heart}`,
+    plusMinus: `${styles.plusMinus}`,
   });
   const data = useLocation();
 
@@ -55,23 +55,41 @@ const ActivityPage = () => {
     });
 
     setAnimation({
+      overlayStyle: "none",
       buttonStyle: "white",
       button: `${styles.buttonCart}`,
       addText: `${styles.hidden}`,
       thanksText: `${styles.thanksActive}`,
       cartIcon: `${styles.cartActive}`,
       heartIcon: `${styles.heartActive}`,
+      plusMinus: `${styles.plusMinus}`,
     });
     setTimeout(() => {
       setAnimation({
+        overlayStyle: "",
         buttonStyle: "",
         button: `${styles.buttonCart}`,
         addText: `${styles.add}`,
         thanksText: `${styles.thanks}`,
         cartIcon: `${styles.cart}`,
         heartIcon: `${styles.heart}`,
+        plusMinus: `${styles.plusMinus}`,
       });
     }, 3000);
+  };
+
+  const buttonOverlayAnimation = (e) => {
+    e.stopPropagation();
+    setAnimation({
+      overlayStyle: "none",
+      buttonStyle: "",
+      button: `${styles.buttonCart}`,
+      addText: `${styles.add}`,
+      thanksText: `${styles.thanks}`,
+      cartIcon: `${styles.cart}`,
+      heartIcon: `${styles.heart}`,
+      plusMinus: `${styles.plusMinusActive}`,
+    });
   };
 
   const imgFormatter = (URL, FILTER) => {
@@ -97,7 +115,8 @@ const ActivityPage = () => {
               {cover_image_url !== "" ? (
                 <img
                   src={imgFormatter(`${cover_image_url}`, "?w=500")}
-                  className={styles.polaroidIMG} alt="img"
+                  className={styles.polaroidIMG}
+                  alt="img"
                 />
               ) : (
                 <img
@@ -115,6 +134,13 @@ const ActivityPage = () => {
             className={animation.button}
             style={{ backgroundColor: `${animation.buttonStyle}` }}
           >
+            <p
+              className={styles.buttonOverlay}
+              style={{ display: `${animation.overlayStyle}` }}
+              onClick={(e) => buttonOverlayAnimation(e)}
+            >
+              Add to Cart ${retail_price.value}
+            </p>
             <FaHeart className={animation.heartIcon} />
             <FaShoppingCart className={animation.cartIcon} />
             <p className={animation.addText}>
@@ -122,8 +148,7 @@ const ActivityPage = () => {
             </p>
             <p className={animation.thanksText}>Thank You!</p>
           </button>
-          <div className={styles.plusMinus}>
-            <button onClick={() => setTicketNumber(ticketNumber + 1)}>+</button>
+          <div className={animation.plusMinus}>
             <button
               onClick={() => setTicketNumber(ticketNumber - 1)}
               disabled={ticketNumber === 1 ? true : false}
@@ -131,6 +156,7 @@ const ActivityPage = () => {
               -
             </button>
             <p>{ticketNumber}</p>
+            <button onClick={() => setTicketNumber(ticketNumber + 1)}>+</button>
           </div>
         </div>
         <div className={styles.info}>

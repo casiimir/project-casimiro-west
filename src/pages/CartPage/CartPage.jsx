@@ -6,14 +6,10 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
 
-//prova
-
 const CartPage = () => {
-  // const cartData = useSelector((state) => state.cart.data);
   const dispatch = useDispatch();
   const [total, setTotal] = useState([]);
   const accumulatore = [0];
-  // const [cartData, setCartData] = useState(Object.values(localStorage));
   const [value, setValue] = useState("");
   const [valueCVV, setValueCVV] = useState("");
   const navigate = useNavigate();
@@ -129,7 +125,9 @@ const CartPage = () => {
                     </div>
                   ))
               ) : (
-                <h2>Hey, is empty here!</h2>
+                <div className={styles.emptyMessage}>
+                  <h2>Hey, is empty here!</h2>
+                </div>
               )}
             </div>
             <div className={styles.infoPayment}>
