@@ -3,8 +3,10 @@ import { GiPositionMarker } from "react-icons/gi";
 import { TbCurrencyDollar } from "react-icons/tb";
 import { memo } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+
+import { useDispatch} from "react-redux";
 import placeholder from "../../images/placeholder.png";
+
 
 const ActivitiesHomeCard = ({ data }) => {
   const dispatch = useDispatch();
@@ -17,15 +19,11 @@ const ActivitiesHomeCard = ({ data }) => {
   };
   return (
     <div className={styles.ActivitiesHomeCard} onClick={setActivityFunction}>
-      {data.cover_image_url !== "" ? (
-        <img
-          className={styles.photo}
-          src={`${data?.cover_image_url}`}
-          alt="img"
-        />
-      ) : (
-        <img className={styles.photo} src={placeholder} alt="img" />
-      )}
+      <img
+        className={styles.photo}
+        src={`${data?.cover_image_url}`}
+        alt="img"
+      />
 
       <section className={styles.tourInfo}>
         <h2 className={styles.name}>{data?.title}</h2>
@@ -43,14 +41,11 @@ const ActivitiesHomeCard = ({ data }) => {
           </p>
         </div>
       </section>
-      <Link
-        to={`/activity/${data?.city.name}`}
+      <Link to={`/activity/${data?.city.name}`}
         state={data}
         className={styles.link}
         onClick={() => window.scrollTo(0, 0)}
-      >
-        {data.city.name}
-      </Link>
+      >{data.city.name}</Link>
     </div>
   );
 };

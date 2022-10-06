@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useCallback, useState } from "react";
+import { useDispatch } from "react-redux";
 import styles from "./index.module.scss";
 import logo from "./logo.png";
 import logotypeW from "./logo_white.png";
@@ -10,9 +10,10 @@ import { RiMenu3Line } from "react-icons/ri";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const Header = ({ children, cartNumber, setCartNumber }) => {
+const Header = ({ children }) => {
   const dispatch = useDispatch();
   const [active, setActive] = useState();
+  const [cartNumber, setCartNumber] = useState(0);
 
   const onHadleClick = useCallback(() => {
     document.body.style.overflow = "hidden";
@@ -20,9 +21,34 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
       type: "SET_DROPDOWN_VISIBILITY",
       payload: setActive(styles.active),
     });
-  }, []);
+  }, [dispatch]);
+
+  const cartData = useSelector((state) => state.cart.data);
 
   const navRef = useRef(null);
+
+  const cartObject = {
+    sample: `sample`,
+    tickets: "0",
+  };
+
+  useEffect(() => {
+    localStorage.setItem(`Dummy`, JSON.stringify(cartObject));
+    setCartNumber(
+      Object.values(localStorage)
+        .filter((e) => e.includes("tickets"))
+        .map((item) => JSON.parse(item))
+        .map((item) => Number(item.tickets))
+        .reduce((previous, next) => {
+          return previous + next;
+        })
+    );
+    if (
+      Object.values(localStorage).filter((e) => e.includes("name")).length == 0
+    ) {
+      setCartNumber(0);
+    }
+  });
 
   return (
     <header className={styles.Header}>
@@ -65,7 +91,9 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
           <Link to="/cart">
             <div className={styles.cart}>
               <FaShoppingCart />
-              <p>{cartNumber}</p>
+
+              {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
+
             </div>
           </Link>
         </section>
@@ -136,17 +164,7 @@ const Header = ({ children, cartNumber, setCartNumber }) => {
 
               <span>
                 <FaShoppingCart />
-                {localStorage.length > 2 ? (
-                  <p>
-                    {
-                      Object.keys(localStorage).filter(
-                        (e) => !e.includes("mapbox")
-                      ).length
-                    }
-                  </p>
-                ) : (
-                  ""
-                )}
+                {cartNumber > 0 ? <p>{cartNumber}</p> : ""}
               </span>
             </button>
           </div>
