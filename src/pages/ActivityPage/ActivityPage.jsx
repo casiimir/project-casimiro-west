@@ -8,11 +8,9 @@ import Map from "../../components/Map";
 import styles from "./index.module.scss";
 import "./mapbox.css";
 import Footer from "../../components/Footer";
-
+import placeholder from "../../images/placeholder.png";
 
 const ActivityPage = () => {
- 
-
   const [setCartNumber] = useOutletContext();
 
   const [animation, setAnimation] = useState({
@@ -89,10 +87,18 @@ const ActivityPage = () => {
               <h2>{description}</h2>
             </div>
             <div className={styles.polaroid}>
-              <img
-                src={imgFormatter(`${cover_image_url}`, "?w=500")}
-                className={styles.polaroidIMG}
-              />
+              {cover_image_url !== "" ? (
+                <img
+                  src={imgFormatter(`${cover_image_url}`, "?w=500")}
+                  className={styles.polaroidIMG}
+                />
+              ) : (
+                <img
+                  className={styles.polaroidIMG}
+                  src={placeholder}
+                  alt="img"
+                />
+              )}
               <p>{city.name}</p>
             </div>
           </div>
