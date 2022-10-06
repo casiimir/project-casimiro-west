@@ -6,6 +6,8 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
 
+//prova
+
 const CartPage = () => {
   // const cartData = useSelector((state) => state.cart.data);
   const dispatch = useDispatch();
