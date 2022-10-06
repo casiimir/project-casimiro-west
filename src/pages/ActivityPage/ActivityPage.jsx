@@ -8,7 +8,9 @@ import Map from "../../components/Map";
 import styles from "./index.module.scss";
 import "./mapbox.css";
 import Footer from "../../components/Footer";
+
 import placeholder from "../../images/placeholder.png";
+
 
 const ActivityPage = () => {
 
