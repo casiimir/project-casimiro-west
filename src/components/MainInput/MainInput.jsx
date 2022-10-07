@@ -66,7 +66,7 @@ const MainInput = () => {
   useEffect(() => {
     if (inputValue) {
       GET("cities").then((data) =>
-        setFilterS(data.filter((city) => city.code.includes(inputValue)))
+        setFilterS(data.filter((city) => city.code.includes(inputValue.toLowerCase())))
       );
     }
   }, [inputValue]);

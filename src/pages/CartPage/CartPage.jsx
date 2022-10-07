@@ -5,11 +5,18 @@ import Footer from "../../components/Footer";
 import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
+import AuthenticationModal from "../../components/AuthenticationModal";
+
+//prova
 
 const CartPage = () => {
   const dispatch = useDispatch();
   const [total, setTotal] = useState([]);
   const accumulatore = [0];
+  const [isAuthenticationModalVisible, setAuthenticationModalVisibility] =
+    useState(false);
+  const [isOverlayButtonVisible, setOverlayButtonVisibility] = useState(true);
+  const [isBuyButtonVisible, setBuyButtonVisibility] = useState(false);
   const [value, setValue] = useState("");
   const [valueCVV, setValueCVV] = useState("");
   const navigate = useNavigate();
@@ -28,7 +35,9 @@ const CartPage = () => {
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
 
-      .map((item) => accumulatore.push(Number(item.price * item.tickets)));
+      .map((item, index) =>
+        accumulatore.push(Number(item.price * item.tickets))
+      );
 
     setTotal(
       accumulatore.reduce((previous, next) => {
@@ -108,12 +117,11 @@ const CartPage = () => {
                         </div>
                         <div className={styles.productPrice}>
                           <AiOutlineClose
-                            className={styles.closeBtn}
                             onClick={() => RemovefromCart(`${item.name}@@@`)}
                           />
 
-                          <p>{item.price}$ </p>
                           <p>
+                            {item.price}${" "}
                             <AiOutlineClose
                               style={{ color: "black", fontSize: "small" }}
                             />
@@ -124,9 +132,7 @@ const CartPage = () => {
                     </div>
                   ))
               ) : (
-                <div className={styles.emptyMessage}>
-                  <h2>Hey, is empty here!</h2>
-                </div>
+                <h2>Hey, is empty here!</h2>
               )}
             </div>
             <div className={styles.infoPayment}>
@@ -188,7 +194,7 @@ const CartPage = () => {
                         <option value="June">06</option>
                         <option value="July">07</option>
                         <option value="August">08</option>
-                        <option value="September">09</option>{" "}
+                        <option value="September">09</option>
                         <option value="October">10</option>
                         <option value="November">11</option>
                         <option value="Dicember">12</option>
@@ -222,20 +228,29 @@ const CartPage = () => {
               </div>
             </form>
             <div className={styles.button}>
-              <button
-                onClick={cartCleaner}
-                disabled={
-                  valueCVV.length == 0 || value.length == 0 || total == 0
-                    ? true
-                    : false
-                }
-              >
-                Buy now
-              </button>
+              {isBuyButtonVisible && (
+                <button onClick={cartCleaner}>Buy now</button>
+              )}
+              {isOverlayButtonVisible && (
+                <button
+                  onClick={() => {
+                    setAuthenticationModalVisibility(true);
+                    
+                  }}
+                >
+                  Buy now
+                </button>
+              )}
             </div>
           </div>
         </div>
-      </div>{" "}
+      </div>
+      {isAuthenticationModalVisible && (
+        <AuthenticationModal
+          setAuthenticationModalVisibility={setAuthenticationModalVisibility} setOverlayButtonVisibility={setOverlayButtonVisibility}
+          setBuyButtonVisibility={setBuyButtonVisibility}
+        />
+      )}
       <Footer />
       <div className={styles.modal} style={{ display: `${modalVisibility}` }}>
         <h3>Thank You for Your Order!</h3>
