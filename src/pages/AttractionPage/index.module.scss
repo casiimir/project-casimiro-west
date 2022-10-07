@@ -61,10 +61,19 @@
       display: flex;
       justify-content: center;
       padding: 20px 0;
+      .stamp {
+        background-color: #d9d9d9;
+        background-image: radial-gradient(#fff 50%, transparent 50%);
+        background-position: -0.25rem -0.25rem;
+        background-repeat: repeat;
+        background-size: 0.5rem 0.5rem;
 
-      img {
-        box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
-        width: 250px;
+        padding: 0.25rem;
+        img {
+          box-shadow: 0 0 3px 1.5px rgba(0, 0, 0, 0.24);
+          width: 250px;
+          height: 99%;
+        }
       }
     }
   }
