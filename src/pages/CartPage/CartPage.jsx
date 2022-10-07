@@ -229,13 +229,21 @@ const CartPage = () => {
             </form>
             <div className={styles.button}>
               {isBuyButtonVisible && (
-                <button onClick={cartCleaner}>Buy now</button>
+                <button
+                  onClick={cartCleaner}
+                  disabled={
+                    valueCVV.length == 0 || value.length == 0 || total == 0
+                      ? true
+                      : false
+                  }
+                >
+                  Buy now
+                </button>
               )}
               {isOverlayButtonVisible && (
                 <button
                   onClick={() => {
                     setAuthenticationModalVisibility(true);
-                    
                   }}
                 >
                   Buy now
@@ -247,7 +255,8 @@ const CartPage = () => {
       </div>
       {isAuthenticationModalVisible && (
         <AuthenticationModal
-          setAuthenticationModalVisibility={setAuthenticationModalVisibility} setOverlayButtonVisibility={setOverlayButtonVisibility}
+          setAuthenticationModalVisibility={setAuthenticationModalVisibility}
+          setOverlayButtonVisibility={setOverlayButtonVisibility}
           setBuyButtonVisibility={setBuyButtonVisibility}
         />
       )}
