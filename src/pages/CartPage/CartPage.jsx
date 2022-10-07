@@ -28,9 +28,7 @@ const CartPage = () => {
       .filter((e) => e.includes("name"))
       .map((item) => JSON.parse(item))
 
-      .map((item, index) =>
-        accumulatore.push(Number(item.price * item.tickets))
-      );
+      .map((item) => accumulatore.push(Number(item.price * item.tickets)));
 
     setTotal(
       accumulatore.reduce((previous, next) => {
@@ -113,8 +111,8 @@ const CartPage = () => {
                             onClick={() => RemovefromCart(`${item.name}@@@`)}
                           />
 
+                          <p>{item.price}$ </p>
                           <p>
-                            {item.price}${" "}
                             <AiOutlineClose
                               style={{ color: "black", fontSize: "small" }}
                             />
@@ -225,7 +223,11 @@ const CartPage = () => {
             <div className={styles.button}>
               <button
                 onClick={cartCleaner}
-                disabled={accumulatore === 0 ? true : false}
+                disabled={
+                  valueCVV.length == 0 || value.length == 0 || total == 0
+                    ? true
+                    : false
+                }
               >
                 Buy now
               </button>
