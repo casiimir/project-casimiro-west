@@ -15,14 +15,18 @@ const CardActivity = ({ data }) => {
       payload: data,
     });
   };
-  // console.log("DATA ====", data.cover_image_url);
+
+  const imgFormatter = (URL, FILTER) => {
+    const original = URL.substring(0, URL.length - 6);
+    return `${original}${FILTER}`;
+  };
 
   return (
     <div className={styles.CardActivity} onClick={setActivityFunction}>
       {data.cover_image_url !== "" ? (
         <img
           className={styles.photo}
-          src={`${data?.cover_image_url}?w=300`}
+          src={imgFormatter(`${data?.cover_image_url}`, "?w=300")}
           alt="img"
         />
       ) : (
