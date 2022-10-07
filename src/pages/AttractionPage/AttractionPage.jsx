@@ -2,6 +2,7 @@ import styles from "./index.module.scss";
 import { AiOutlineStar } from "react-icons/ai";
 import { useLocation } from "react-router-dom";
 import Footer from "../../components/Footer";
+import placeholder from "../../images/placeholder.png";
 
 const AttractionPage = () => {
   const data = useLocation();
@@ -20,7 +21,15 @@ const AttractionPage = () => {
     <>
       <div className={styles.AttractionPage}>
         <section className={styles.hero}>
-          <img className={styles.image} src={cover_image_url} alt="" />
+          {cover_image_url !== "" ? (
+            <img
+              className={styles.image}
+              src={cover_image_url}
+              alt="activity"
+            />
+          ) : (
+            <img className={styles.image} src={placeholder} alt="activity" />
+          )}
           <div className={styles.transition}></div>
         </section>
         <section className={styles.main}>
@@ -41,7 +50,16 @@ const AttractionPage = () => {
             {description.split(".", +3) + "."}
           </p>
           <div className={styles.photo}>
-            <img src={`${data.state.city.cover_image_url}?w=400`} alt="city" />
+            <div className={styles.stamp}>
+              {data.state.city.cover_image_url !== "" ? (
+                <img
+                  src={`${data.state.city.cover_image_url}?w=400`}
+                  alt="city"
+                />
+              ) : (
+                <img src={placeholder} alt="city" />
+              )}
+            </div>
           </div>
           <section className={styles.navigate}>
             <h2>Ticket</h2>
