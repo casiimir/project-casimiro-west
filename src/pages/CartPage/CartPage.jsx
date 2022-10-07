@@ -108,6 +108,7 @@ const CartPage = () => {
                         </div>
                         <div className={styles.productPrice}>
                           <AiOutlineClose
+                            className={styles.closeBtn}
                             onClick={() => RemovefromCart(`${item.name}@@@`)}
                           />
 
