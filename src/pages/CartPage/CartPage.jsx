@@ -223,7 +223,12 @@ const CartPage = () => {
               </div>
             </form>
             <div className={styles.button}>
-              <button onClick={cartCleaner}>Buy now</button>
+              <button
+                onClick={cartCleaner}
+                disabled={accumulatore === 0 ? true : false}
+              >
+                Buy now
+              </button>
             </div>
           </div>
         </div>

@@ -3,20 +3,16 @@
 @import "../../styles/mixins";
 
 .ActivityPage {
-  display: flex;
-  flex-direction: column;
+  @include flex-element(column);
+
   overflow-x: hidden;
   font-family: $text-font;
 
   .topSection {
+    @include flex-element(column, space-around, baseline, nowrap, 15px);
     width: 100%;
     height: 90vh;
     padding: 100px 40px 0 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: baseline;
-    gap: 15px;
 
     background-image: var(--i);
     background-repeat: no-repeat;
@@ -25,14 +21,11 @@
     background-size: cover;
 
     .topText {
-      display: flex;
-      justify-content: space-around;
-      align-items: baseline;
-      gap: 20px;
+      @include flex-element(row, space-around, baseline, nowrap, 20px);
 
       .text {
-        color: white;
         align-self: center;
+        color: white;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -77,13 +70,11 @@
     }
 
     .buttonCart {
+      @include flex-element(row, center, center);
       position: absolute;
       top: 86vh;
       width: 200px;
       height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       transition: 0.5s;
       transition-delay: 0.5;
       background-color: lightseagreen;
@@ -148,13 +139,11 @@
       }
     }
     .plusMinus {
+      @include flex-element(row, center, center, nowrap);
       height: 50px;
       position: absolute;
       top: 86%;
       left: 8.5%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
       z-index: -1;
       background-color: lightseagreen;
@@ -170,16 +159,13 @@
     }
 
     .plusMinusActive {
+      @include flex-element(row, center, center, nowrap);
       position: absolute;
-      left: 8.5%;
       height: 50px;
-      top: 78.7%;
+      left: 5.5%;
+      top: 81%;
       transition: 0.5s;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       text-align: center;
-      z-index: 90;
       background-color: lightseagreen;
       font-size: 20px;
       color: white;
@@ -370,7 +356,7 @@
 
       .plusMinus {
         top: 48%;
-        left: 4%;
+        left: 6%;
         height: 25px;
       }
       .plusMinusActive {
