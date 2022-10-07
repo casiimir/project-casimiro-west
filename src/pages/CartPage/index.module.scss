@@ -88,7 +88,7 @@
             align-items: center;
           }
           .productPrice {
-            svg {
+            .closeBtn {
               color: red;
               transition: 0.5s;
               cursor: pointer;
@@ -254,6 +254,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+
         button {
           font-family: "raleway";
           font-weight: 500;
@@ -264,6 +265,11 @@
           width: 40%;
           height: 70%;
           transition: 0.35s;
+          color: white;
+
+          &:disabled {
+            color: grey;
+          }
         }
         button:hover {
           cursor: pointer;
