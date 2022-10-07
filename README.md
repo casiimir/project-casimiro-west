@@ -1,69 +1,112 @@
-# Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="
+      background-color: #0d1117;
+      color: white;
+      font-family: 'Quicksand', sans-serif;
+      padding: 0 45px;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      "
+    >
+      <h1>~Wenderer~</h1>
+      <h2>Let your dreams come true</h2>
+      <img src="./logo_white.png" style="width: 280px;" />
+      <p>
+        Ciao a tutti! Siamo il team D e questo è il nostro progetto finale ❤️
+      </p>
+      <div />
+      <div>
+        <h3>Description</h3>
+        <p>Wenderer è una web App basata su l'API di <a style='color: lightseagreen; text-decoration: none'href='https://partner-api.musement.com/' target='_blank' >Musement</a> e sviluppata con React, con un design pensata da zero. <br>
+          É progettata in modo che sia responsive, così che l'utente possa usufruirne 
+          sia in modalità Desktop sia nei dispositivi mobile.
+        </p>
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+          "
+        >
+          <h4>Home in versione mobile e desktop</h4>
+          <div style="display: flex; gap: 20px; align-items: flex-end">
+          <img src="./src/images/home_mobile.png" style="width: 200px; padding: 20px 0;" />
+          <img src="./src/images/home_desktop.png" style="height: 200px; padding: 20px 0;" />
+        </div>
+      </div>
+      <hr>
+      <h3>Routing</h3>
+      <p>In Wanderer puoi navigare da una pagina a un'altra grazie all'utilizzo di <span style='font-weight: 800'>React-router-dom</span>.<br>
+      Inoltre puoi effettuare una ricerca per nome della città attraverso la Search Bar e visitare la pagina con le varie informazioni e attività. </p>
+<div style="display: flex; gap: 20px;  justify-content: center;">
+      <img src='./src/images/gifWenderer.gif' style="width: 200px; padding: 20px 0;" />
+<img src='./src/images/gifWenderer2.gif' style="width: 200px; padding: 20px 0;" /></div>
+<hr>
+<div>
+    <h3>Feature</h3>
+  <p>Altra feature interessante è il carrello che richede l'autenticazione dell'utente in fase di acquisto e mostra le quantità selezionate, con possibilità di rimuoverle. </p>
+  <div style="display: flex; gap: 10px;  justify-content: center;">
+  <img src='./src/images/carrello.png'  style="height: 200px; padding: 20px 0;" /></div>
+</div>
+<hr>
+    </div>
+    <div style='display: grid; grid-template-columns:1fr 1fr; place-items: center;'>
+    <div>
+      <h3>Tecnologie</h3>
+      <ul style="list-style-type: none; padding: 0px;">
+        <li>HTML</li>
+        <li>SASS</li>
+        <li>JAVASCRIPT</li>
+        <li>REACT</li>
+      </ul>
+    </div>
+    <div>
+    <div>
+        <h3>Librerie</h3>
+        <ul style="list-style-type: none; padding: 0px;">
+          <li>CSS Modules</li>
+          <li>React-router-dom</li>
+          <li>Mui Core</li>
+          <li>Hero slider</li>
+          <li>React icons</li>
+          <li>Mapbox-gl</li>
+          <li>React-Redux</li>
+          <li>Redux</li>
+        </ul>
+      </div>
+   </div> 
+  </div>
+   <hr>
+   <div style="display: flex; flex-direction: column;  align-items: center;">
+      <h3>Team D - coding bootcamp 4 <span style='color:lightseagreen;'>Edgemony</span></h3>
+      <ul style="list-style-type: none; padding: 0px;">
+        <li>Roberta Rizzuto: <a style='color:lightseagreen; text-decoration: none;' href='https://www.linkedin.com/in/roberta-rizzuto/' target="_blank">Linkedin</a></li>
+        <li>Federica Schillaci: 
+          <a style='color:lightseagreen; text-decoration: none;' href='https://www.linkedin.com/in/federica-schillaci/' target="_blank">Linkedin</a></li>
+        <li>Martina Li Vigni: <a style='color:lightseagreen; text-decoration: none;'
+          href='https://www.linkedin.com/in/martina-li-vigni-lv/'
+           target="_blank">Linkedin</a></li>
+        <li>Marco Viscuso: <a style='color:lightseagreen; text-decoration: none;' 
+          href='https://www.linkedin.com/in/marco-viscuso/' target="_blank">Linkedin</a></li>
+        <li>Lorena Marullo: <a style='color:lightseagreen; text-decoration: none;' 
+          href='https://www.linkedin.com/in/lorena-marullo-4
+          43072138/' target="_blank">Linkedin</a></li>
+      </ul>
+    </div>
+  </body>
+</html>
