@@ -40,13 +40,14 @@ const ActivitiesHomeList = () => {
         <div ref={containerRef} className={styles.ActivitiesHomeList}>
           {activitiesData?.data?.data?.map((el, i) => (
             <Suspense
+              key={i}
               fallback={
                 <Box>
                   <Skeleton variant="rectangular" width={200} height={240} />
                 </Box>
               }
             >
-              <ActivityHomeCard key={i} data={el} />
+              <ActivityHomeCard data={el} />
             </Suspense>
           ))}
         </div>

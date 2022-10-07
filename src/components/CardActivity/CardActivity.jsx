@@ -35,7 +35,7 @@ const CardActivity = ({ data }) => {
       <section className={styles.tourInfo}>
         <h2 className={styles.name}>{data?.title}</h2>
         <div className={styles.description}>
-          <p>{data?.description}</p>
+          <p>{data?.description?.split(".", +1) + "."}</p>
         </div>
         <div className={styles.bottom}>
           <div className={styles.infoPlace}>

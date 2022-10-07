@@ -26,17 +26,18 @@ const CruiseActivity = () => {
         <div className={styles.box}>
           {cruiseActivitiesData?.map((el, i) => (
             <Suspense
+              key={i}
               fallback={
                 <Box>
                   <Skeleton variant="rectangular" width={676} height={160} />
                 </Box>
               }
             >
-              <CardActivity key={i} data={el} />
+              <CardActivity data={el} />
             </Suspense>
           ))}
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };
