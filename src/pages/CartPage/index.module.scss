@@ -77,7 +77,7 @@
             img {
               border-radius: 3%;
               height: 100%;
-              width: 80%;
+              max-width: 80%;
               box-shadow: 1px 1px 4px $almost-black;
             }
           }
@@ -254,10 +254,11 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        margin: 10px 0;
 
         button {
           font-family: "raleway";
-          font-weight: 500;
+          font-weight: 600;
           background-color: lightseagreen;
           border: 0px;
           border-radius: 3%;
@@ -268,7 +269,9 @@
           color: white;
 
           &:disabled {
-            color: grey;
+            transition: 0.35s;
+            background-color: #aaaaaa;
+            box-shadow: 0px 0px 20px 0.002px #aaaaaa;
           }
         }
         button:hover {
@@ -302,7 +305,7 @@
   border-radius: 10px;
 }
 
-@media only screen and (max-width: 610px) {
+@media only screen and (max-width: 800px) {
   .ModalContainer {
     .wrapper {
       margin: 0;
@@ -330,6 +333,7 @@
 
             .productPrice {
               svg {
+                color: red;
                 &:hover {
                   color: red;
                 }

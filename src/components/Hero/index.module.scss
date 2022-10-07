@@ -65,13 +65,13 @@
   );
 
   padding: 15px;
-  width: 400px;
-  height: 250px;
+  width: 370px;
+  height: 220px;
   color: rgb(49, 49, 49);
-  background: rgba(255, 255, 255, 0.712);
+  background: rgba(245, 244, 244, 0.712);
   backdrop-filter: blur(5px);
   box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.288);
-  border-radius: 3%;
+  border-radius: 10px;
 
   .description {
     align-self: flex-start;

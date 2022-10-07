@@ -94,21 +94,21 @@
     }
   }
   .link {
-    position: absolute; 
+    position: absolute;
     opacity: 0;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-   
   }
 }
 
 @media only screen and (max-width: 600px) {
   .ActivitiesHomeCard {
-    height: 12rem;
+    height: 10rem;
+    width: 9rem;
     .link {
-      height: 12rem;
+      height: 10rem;
     }
     &:hover {
       transform: none;
@@ -117,7 +117,7 @@
 
     .photo {
       object-fit: cover;
-      @include generic-appereance(180px, 45%);
+      @include generic-appereance(144px, 45%);
       @include border(0, 3%);
       border-bottom-left-radius: 0%;
       border-bottom-right-radius: 0%;
@@ -128,17 +128,21 @@
       padding: 0 5px 7px 5px;
       height: 52%;
 
-      .bottom {
-        .locality {
-          color: lightseagreen;
-          font-family: $text-font;
-          font-size: 0.7rem;
-          margin: 0;
-          width: 120px;
-        }
+      .name {
+        font-size: 0.75rem;
+      }
 
+      .bottom {
+        .infoPlace {
+          .locality {
+            font-family: $text-font;
+            font-size: 0.6rem;
+            margin: 0;
+            width: 90px;
+          }
+        }
         .price {
-          font-size: 0.8rem;
+          font-size: 0.75rem;
         }
       }
     }
