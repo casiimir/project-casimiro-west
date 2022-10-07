@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body
+<body
     style="
       background-color: #0d1117;
       color: white;
@@ -109,4 +101,4 @@
       </ul>
     </div>
   </body>
-</html>
+
