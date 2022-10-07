@@ -103,7 +103,7 @@
     @include generic-appereance(100%, 100vh, $padding: 5px 5px);
 
     display: none;
-    z-index: 12;
+    z-index: 999;
     background-color: rgba(0, 0, 0, 0.788);
     backdrop-filter: blur(3px);
     position: fixed;
@@ -166,10 +166,9 @@
         @include border(0, 8px);
 
         background-color: lightseagreen;
-
         color: white;
         position: absolute;
-        bottom: 20px;
+        bottom: 63px;
         width: 80%;
         height: 40px;
       }
