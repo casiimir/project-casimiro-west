@@ -14,7 +14,7 @@
         flex-direction: column;
       "
     >
-      <h1>~Wenderer~</h1>
+      <h1>~Wanderer~</h1>
       <h2>Let your dreams come true</h2>
       <img src="./src/images/logo_white.png" style="width: 280px;" />
       <p>
