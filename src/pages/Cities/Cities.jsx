@@ -14,7 +14,6 @@ const ActivityHomeCard = lazy(() =>
 );
 
 const Cities = () => {
-
   const data = useLocation();
   const cardData = useSelector(
     (state) => state.activities.inCityActivitiesData
@@ -27,8 +26,6 @@ const Cities = () => {
       dispatch({ type: "SET_IN_CITY_ACTIVITIES_DATA", payload: data })
     );
   }, [dispatch, id]);
-
-  console.log(cardData);
 
   function useHorizontalScroll() {
     const elRef = useRef();

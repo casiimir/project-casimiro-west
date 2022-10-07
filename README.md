@@ -16,7 +16,7 @@
     >
       <h1>~Wanderer~</h1>
       <h2>Let your dreams come true</h2>
-      <img src="./src/images/logo_white.png" style="width: 280px;" />
+      <img src="./src/images/logotype_colorful.png" style="width: 280px;" />
       <p>
         Ciao a tutti! Siamo il team D e questo è il nostro progetto finale ❤️
       </p>
@@ -102,4 +102,3 @@
     </div>
     <cite>07/10/22</cite>
   </body>
-
