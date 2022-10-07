@@ -146,10 +146,12 @@
         @include flex-element(column, center, center, $gap: 20px);
         .alert {
           font-size: 0.8rem;
+          width: 286px;
         }
 
         .success {
           font-size: 0.8rem;
+          width: 286px;
         }
       }
     }
