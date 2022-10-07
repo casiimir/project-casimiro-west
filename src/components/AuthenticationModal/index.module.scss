@@ -1,0 +1,73 @@
+@import "../../styles/mixins";
+@import "../../styles/_variables";
+
+.AuthenticationModal {
+  @include flex-element(column, center, $height: 100vh, $width: 100vw);
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  z-index: 4;
+
+  .login,
+  .registration {
+    @include flex-element(column, $gap: 30px);
+  }
+  .close {
+    width: 100%;
+    text-align: right;
+    color: red;
+  }
+  padding: 40px;
+  color: white;
+  background-color: $almost-black;
+  .form {
+    @include flex-element(column, $gap: 15px);
+  }
+  .alert {
+    background-color: rgba(255, 0, 0, 0.308);
+    padding: 5px;
+    border-radius: 3%;
+  }
+  .success {
+    background-color: rgba(21, 255, 0, 0.11);
+    padding: 5px;
+    border-radius: 3%;
+  }
+  .button {
+    font-family: "raleway";
+    font-weight: 500;
+    background-color: lightseagreen;
+    padding: 10px 0;
+    border: 0px;
+    border-radius: 3%;
+    box-shadow: 0px 0px 20px 0.002px rgba(35, 189, 171, 0.75);
+    width: 40%;
+    height: 70%;
+    transition: 0.35s;
+    color: white;
+
+    &:hover {
+      cursor: pointer;
+      background-color: lightseagreen;
+      filter: brightness(115%);
+    }
+  }
+}
+
+
+
+@media only screen and (min-width: 600px) {
+   .AuthenticationModal{
+    @include flex-element(column, center, $height: 75%, $width: 70%);
+    top: 14%;
+  left: 15%;
+
+  .login {
+    max-width: 50%
+  }
+    ;
+   }
+  }
+  
