@@ -42,13 +42,14 @@ const NoTopCityCardList = () => {
         <div ref={containerRef} className={styles.NoTopCityCardList}>
           {cityData?.data?.map((el) => (
             <Suspense
+              key={el.id}
               fallback={
                 <Box>
                   <Skeleton variant="rectangular" width={168} height={240} />
                 </Box>
               }
             >
-              <CityCard key={el.id} CardData={el} />{" "}
+              <CityCard CardData={el} />{" "}
             </Suspense>
           ))}
         </div>{" "}
