@@ -14,7 +14,6 @@ const CityCard = lazy(() => import("../CityCard"));
 const TopCityCardList = () => {
   const cityData = useSelector((state) => state.cities);
 
-  
   const containerRef = useRef(null);
 
   const next = () => {
@@ -34,35 +33,34 @@ const TopCityCardList = () => {
     );
   }, [dispatch]);
 
-
   return (
     <>
-      <Suspense
-        fallback={
-          <Box>
-            <Skeleton variant="rectangular" width={1280} height={240} />
-          </Box>
-        }
-      >
-        <div className={styles.box}>
-          <button className={styles.buttonPrev} onClick={prev}>
+      <div className={styles.box}>
+        <button className={styles.buttonPrev} onClick={prev}>
+          <IoIosArrowBack />
+        </button>
+        <div ref={containerRef} className={styles.TopCityCardList}>
+          {cityData?.data?.map((el) => (
+            <Suspense
+              fallback={
+                <Box>
+                  <Skeleton variant="rectangular" width={168} height={240} />
+                </Box>
+              }
+            >
+              <CityCard key={el.id} CardData={el} />{" "}
+            </Suspense>
+          ))}
+        </div>
+        <span>
+          <button className={styles.button} onClick={next}>
+            <IoIosArrowForward />
+          </button>{" "}
+          <button className={styles.buttonMobile} onClick={prev}>
             <IoIosArrowBack />
           </button>
-          <div ref={containerRef} className={styles.TopCityCardList}>
-            {cityData?.data?.map((el) => (
-              <CityCard key={el.id} CardData={el} />
-            ))}
-          </div>
-          <span>
-            <button className={styles.button} onClick={next}>
-              <IoIosArrowForward />
-            </button>{" "}
-            <button className={styles.buttonMobile} onClick={prev}>
-              <IoIosArrowBack />
-            </button>
-          </span>
-        </div>{" "}
-      </Suspense>
+        </span>
+      </div>{" "}
     </>
   );
 };

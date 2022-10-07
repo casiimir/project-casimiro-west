@@ -1,5 +1,3 @@
-import AttractionCard from "../../components/AttractionCard/AttractionCard";
-import AttractionCardPlus from "../../components/AttractionCardPlus/AttractionCardPlus";
 import AttractionsList from "../../components/AttractionsList/AttractionsList";
 import Footer from "../../components/Footer/Footer";
 import { BsPerson } from "react-icons/bs";
@@ -8,8 +6,19 @@ import styles from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { GET } from "../../utils/api";
+import { lazy, Suspense } from "react";
+import Box from "@mui/material/Box";
+import Skeleton from "@mui/material/Skeleton";
 
 import { countriesWithAttractions } from "../../utils/countriesWithAttractions";
+
+const AttractionCard = lazy(() =>
+  import("../../components/AttractionCard/AttractionCard")
+);
+
+const AttractionCardPlus = lazy(() =>
+  import("../../components/AttractionCardPlus/AttractionCardPlus")
+);
 
 const Attractions = () => {
   const { attractions, selectedCountry } = useSelector((state) => state);
@@ -45,21 +54,19 @@ const Attractions = () => {
   }, [dispatch]);
 
   useEffect(() => {
-    
-      selectedCountry.value !== "" &&
-        GET(
-          `venues?country_in=${
-            countriesWithAttractions.filter((el) =>
-              el.name.includes(selectedCountry.value)
-            )[0].id
-          }&limit=13`
-        ).then((data) => {
-          dispatch({
-            type: "SET_COUNTRY_DATA",
-            payload: data,
-          });
+    selectedCountry.value !== "" &&
+      GET(
+        `venues?country_in=${
+          countriesWithAttractions.filter((el) =>
+            el.name.includes(selectedCountry.value)
+          )[0].id
+        }&limit=13`
+      ).then((data) => {
+        dispatch({
+          type: "SET_COUNTRY_DATA",
+          payload: data,
         });
-    
+      });
   }, [dispatch, selectedCountry]);
 
   const onHandleSelect = (e) => {
@@ -90,31 +97,47 @@ const Attractions = () => {
         <h2>Most Reviewed</h2>
         <AttractionsList>
           {attractionsMost?.map?.((el, i) => (
-            <AttractionCard
-              number={el.reviews_number}
-              city={el.city.name}
-              country={el.city.country.name}
-              background={el.cover_image_url}
-              title={el.name}
-              data={el}
-              key={i}
-              icon={<BsPerson />}
-            />
+            <Suspense
+              fallback={
+                <Box>
+                  <Skeleton variant="rectangular" width={280} height={120} />
+                </Box>
+              }
+            >
+              <AttractionCard
+                number={el.reviews_number}
+                city={el.city.name}
+                country={el.city.country.name}
+                background={el.cover_image_url}
+                title={el.name}
+                data={el}
+                key={i}
+                icon={<BsPerson />}
+              />
+            </Suspense>
           ))}
         </AttractionsList>
         <h2>Highest Average</h2>
         <AttractionsList>
           {attractionsHighest?.map?.((el, i) => (
-            <AttractionCard
-              title={el.name}
-              background={el.cover_image_url}
-              city={el.city.name}
-              country={el.city.country.name}
-              number={el.reviews_avg}
-              key={i}
-              icon={<AiOutlineStar />}
-              data={el}
-            />
+            <Suspense
+              fallback={
+                <Box>
+                  <Skeleton variant="rectangular" width={280} height={120} />
+                </Box>
+              }
+            >
+              <AttractionCard
+                title={el.name}
+                background={el.cover_image_url}
+                city={el.city.name}
+                country={el.city.country.name}
+                number={el.reviews_avg}
+                key={i}
+                icon={<AiOutlineStar />}
+                data={el}
+              />
+            </Suspense>
           ))}
         </AttractionsList>
 
@@ -143,16 +166,24 @@ const Attractions = () => {
       {selectedCountry.value && (
         <div className={styles.gridList}>
           {countryAttractions?.map?.((el, i) => (
-            <AttractionCardPlus
-              title={el.name}
-              background={el.cover_image_url}
-              city={el.city.name}
-              country={el.city.country.name}
-              key={i}
-              icon={<AiOutlineStar />}
-              number={el.reviews_avg}
-              data={el}
-            />
+            <Suspense
+              fallback={
+                <Box>
+                  <Skeleton variant="rectangular" width={481} height={200} />
+                </Box>
+              }
+            >
+              <AttractionCardPlus
+                title={el.name}
+                background={el.cover_image_url}
+                city={el.city.name}
+                country={el.city.country.name}
+                key={i}
+                icon={<AiOutlineStar />}
+                number={el.reviews_avg}
+                data={el}
+              />
+            </Suspense>
           ))}
         </div>
       )}

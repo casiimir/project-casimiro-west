@@ -33,32 +33,32 @@ const ActivitiesHomeList = () => {
 
   return (
     <>
-      <Suspense
-        fallback={
-          <Box>
-            <Skeleton variant="rectangular" width={1280} height={240} />
-          </Box>
-        }
-      >
-        <div className={styles.box}>
-          <button className={styles.buttonPrev} onClick={prev}>
+      <div className={styles.box}>
+        <button className={styles.buttonPrev} onClick={prev}>
+          <IoIosArrowBack />
+        </button>
+        <div ref={containerRef} className={styles.ActivitiesHomeList}>
+          {activitiesData?.data?.data?.map((el, i) => (
+            <Suspense
+              fallback={
+                <Box>
+                  <Skeleton variant="rectangular" width={200} height={240} />
+                </Box>
+              }
+            >
+              <ActivityHomeCard key={i} data={el} />
+            </Suspense>
+          ))}
+        </div>
+        <span>
+          <button className={styles.button} onClick={next}>
+            <IoIosArrowForward />
+          </button>
+          <button className={styles.buttonMobile} onClick={prev}>
             <IoIosArrowBack />
           </button>
-          <div ref={containerRef} className={styles.ActivitiesHomeList}>
-            {activitiesData?.data?.data?.map((el, i) => (
-              <ActivityHomeCard key={i} data={el} />
-            ))}
-          </div>
-          <span>
-            <button className={styles.button} onClick={next}>
-              <IoIosArrowForward />
-            </button>
-            <button className={styles.buttonMobile} onClick={prev}>
-              <IoIosArrowBack />
-            </button>
-          </span>
-        </div>
-      </Suspense>
+        </span>
+      </div>
     </>
   );
 };

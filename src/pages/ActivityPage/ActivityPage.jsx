@@ -117,6 +117,7 @@ const ActivityPage = () => {
                   src={imgFormatter(`${cover_image_url}`, "?w=500")}
                   className={styles.polaroidIMG}
                   alt="img"
+                  loading="lazy"
                 />
               ) : (
                 <img
