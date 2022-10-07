@@ -9,7 +9,6 @@ import { lazy, Suspense } from "react";
 
 const CardActivity = lazy(() => import("../CardActivity/CardActivity"));
 
-
 const AirActivity = () => {
   const { airActivitiesData } = useSelector((state) => state.categories);
 
@@ -23,27 +22,21 @@ const AirActivity = () => {
 
   return (
     <>
-    
-      <Suspense
-        fallback={
-          <div className={styles.skeletron}>
-            <Box sx={{ width: 1200 }}>
-              <Skeleton />
-              <Skeleton animation="wave" />
-              <Skeleton animation={false} height={1840} />
-            </Box>
-          </div>
-        }
-      >
-        <div className={styles.AirActivity}>
-          <div className={styles.box}>
-            {airActivitiesData?.map((el, i) => (
-              <CardActivity key={i} data={el} />
-            ))}
-          </div>
+      <div className={styles.AirActivity}>
+        <div className={styles.box}>
+          {airActivitiesData?.map((el, i) => (
+            <Suspense
+              fallback={
+                <Box>
+                  <Skeleton variant="rectangular" width={676} height={160} />
+                </Box>
+              }
+            >
+              <CardActivity key={i} data={el} />{" "}
+            </Suspense>
+          ))}
         </div>
-        {/* <Footer /> */}
-      </Suspense>
+      </div>
     </>
   );
 };
