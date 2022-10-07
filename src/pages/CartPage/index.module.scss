@@ -41,6 +41,18 @@
         overflow-y: scroll;
         gap: 1rem;
         padding: 5% 2% 0 3%;
+        .box {
+          height: 50vh;
+          display: flex;
+          justify-content: center;
+
+          h2 {
+            align-self: center;
+            font-family: "lato";
+            font-size: 1.2rem;
+            font-weight: 400;
+          }
+        }
 
         .emptyMessage {
           height: 100%;
@@ -88,7 +100,7 @@
             align-items: center;
           }
           .productPrice {
-            .closeBtn {
+            svg {
               color: red;
               transition: 0.5s;
               cursor: pointer;

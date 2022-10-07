@@ -2,7 +2,7 @@ import styles from "./index.module.scss";
 import { useDispatch } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
 import Footer from "../../components/Footer";
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { CgFormatSlash } from "react-icons/cg";
 import AuthenticationModal from "../../components/AuthenticationModal";
@@ -48,7 +48,7 @@ const CartPage = () => {
 
   const formRef = useRef();
   const [modalVisibility, setModalVisibility] = useState("none");
-  const [updateState, setUpdateState] = useState();
+  const [, setUpdateState] = useState();
   const forceUpdate = useCallback(() => setUpdateState({}), []);
   const cartCleaner = () => {
     formRef.current.reset();
@@ -105,7 +105,7 @@ const CartPage = () => {
                   .map((item, index) => (
                     <div key={index} className={styles.productListContainer}>
                       <div className={styles.productImage}>
-                        <img src={item.IMG} />
+                        <img src={item.IMG} alt="product" />
                       </div>
                       <div className={styles.productInfo}>
                         <div>
@@ -132,7 +132,9 @@ const CartPage = () => {
                     </div>
                   ))
               ) : (
-                <h2>Hey, is empty here!</h2>
+                <div className={styles.box}>
+                  <h2>Nothing to see here!</h2>
+                </div>
               )}
             </div>
             <div className={styles.infoPayment}>
@@ -232,7 +234,7 @@ const CartPage = () => {
                 <button
                   onClick={cartCleaner}
                   disabled={
-                    valueCVV.length == 0 || value.length == 0 || total == 0
+                    valueCVV.length === 0 || value.length === 0 || total === 0
                       ? true
                       : false
                   }
