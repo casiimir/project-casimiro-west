@@ -70,17 +70,18 @@ const Cities = () => {
           </div>
         </div>
         <div className={styles.activityCardContainer} ref={scrollRef}>
-          <Suspense
-            fallback={
-              <Box>
-                <Skeleton variant="rectangular" width={1200} height={240} />
-              </Box>
-            }
-          >
-            {cardData?.data?.map((item, index) => (
-              <ActivityHomeCard data={item} key={index} />
-            ))}
-          </Suspense>
+          {cardData?.data?.map((item, index) => (
+            <Suspense
+              key={index}
+              fallback={
+                <Box>
+                  <Skeleton variant="rectangular" width={200} height={240} />
+                </Box>
+              }
+            >
+              <ActivityHomeCard data={item} />
+            </Suspense>
+          ))}
         </div>
       </div>
       <Footer />
