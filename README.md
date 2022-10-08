@@ -14,16 +14,16 @@
         flex-direction: column;
       "
     >
-      <h1>~Wenderer~</h1>
-      <h2>Let your dreams come true</h2>
-      <img src="./src/images/logotype_colorful.png" style="width: 280px;" />
-      <p>
+      <h1 align="center">~Wenderer~</h1>
+      <h2 align="center">Let your dreams come true</h2>
+      <img align="center" src="./src/images/logotype_colorful.png" style="width: 280px;" />
+      <p align="center">
         Ciao a tutti! Siamo il team D e questo è il nostro progetto finale ❤️
       </p>
       <div />
-      <div>
-        <h3>Description</h3>
-        <p>Wenderer è una web App basata su l'API di <a style='color: lightseagreen; text-decoration: none'href='https://partner-api.musement.com/' target='_blank' >Musement</a> e sviluppata con React, con un design pensata da zero. <br>
+      <div align="center">
+        <h3 align="left" >Description</h3>
+        <p align="left">Wenderer è una web App basata su l'API di <a style='color: lightseagreen; text-decoration: none'href='https://partner-api.musement.com/' target='_blank' >Musement</a> e sviluppata con React, con un design pensata da zero. <br>
           É progettata in modo che sia responsive, così che l'utente possa usufruirne 
           sia in modalità Desktop sia nei dispositivi mobile.
         </p>
@@ -42,20 +42,20 @@
         </div>
       </div>
       <hr>
-      <h3>Routing</h3>
-      <p>In Wanderer puoi navigare da una pagina a un'altra grazie all'utilizzo di <span style='font-weight: 800'>React-router-dom</span>.<br>
+      <h3 align="left">Routing</h3>
+      <p align="left">In Wanderer puoi navigare da una pagina a un'altra grazie all'utilizzo di <span style='font-weight: 800'>React-router-dom</span>.<br>
       Inoltre puoi effettuare una ricerca per nome della città attraverso la Search Bar e visitare la pagina con le varie informazioni e attività. </p>
 <div style="display: flex; gap: 20px;  justify-content: center;">
       <img src='./src/images/gifWenderer.gif' style="width: 200px; padding: 20px 0;" />
 <img src='./src/images/gifWenderer2.gif' style="width: 200px; padding: 20px 0;" />
-<img src='./src/images/polaroid.png'  style="height: 200px; padding: 20px 0;" /></div>
+<img src='./src/images/polaroid.jpg'  style="height: 200px; padding: 20px 0;" /></div>
 <hr>
 <div>
-    <h3>Feature</h3>
-  <p>Altra feature interessante è il carrello che richede l'autenticazione dell'utente in fase di acquisto e mostra le quantità selezionate, con possibilità di rimuoverle. </p>
+    <h3 align="left">Feature</h3>
+  <p align="left">Altra feature interessante è il carrello che richede l'autenticazione dell'utente in fase di acquisto e mostra le quantità selezionate, con possibilità di rimuoverle. </p>
   <div style="display: flex; gap: 10px;  justify-content: center;">
-  <img src='./src/images/cart.png'  style="height: 200px; padding: 20px 0;" />
-  <img src='./src/images/login.png'  style="height: 200px; padding: 20px 0;" /></div>
+  <img src='./src/images/cart..jpg'  style="height: 200px; padding: 20px 0;" />
+  <img src='./src/images/login.jpg'  style="height: 200px; padding: 20px 0;" /></div>
 </div>
 <hr>
     </div>
