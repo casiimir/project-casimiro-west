@@ -18,8 +18,8 @@
       </p>
       <div />
       <div align="center">
-        <h3>Description</h3>
-        <p>Wenderer è una web App basata su l'API di <a style='color: lightseagreen; text-decoration: none'href='https://partner-api.musement.com/' target='_blank' >Musement</a> e sviluppata con React, con un design pensata da zero. <br>
+        <h3 align="left">Description</h3>
+        <p align="left" >Wenderer è una web App basata su l'API di <a style='color: lightseagreen; text-decoration: none'href='https://partner-api.musement.com/' target='_blank' >Musement</a> e sviluppata con React, con un design pensata da zero. <br>
           É progettata in modo che sia responsive, così che l'utente possa usufruirne 
           sia in modalità Desktop sia nei dispositivi mobile.
         </p>
@@ -44,14 +44,15 @@
 <div style="display: flex; gap: 20px;  justify-content: center;">
       <img src='./src/images/gifWenderer.gif' style="width: 200px; padding: 20px 0;" />
 <img src='./src/images/gifWenderer2.gif' style="width: 200px; padding: 20px 0;" />
-<img src='./src/images/polaroid.jpg'  style="height: 200px; padding: 20px 0;" /></div>
+</div>
+<img  align='center' src='./src/images/polaroid.jpg'  style="height: 255px; padding: 20px 0;" />
 <hr>
 <div>
     <h3 align="left">Feature</h3>
   <p align="left">Altra feature interessante è il carrello che richede l'autenticazione dell'utente in fase di acquisto e mostra le quantità selezionate, con possibilità di rimuoverle. </p>
   <div style="display: flex; gap: 10px;  justify-content: center;">
-  <img src='./src/images/cart..jpg'  style="height: 200px; padding: 20px 0;" />
-  <img src='./src/images/login.jpg'  style="height: 200px; padding: 20px 0;" /></div>
+  <img src='./src/images/cart.jpg'  style="height: 300px; padding: 20px 0;" />
+  <img src='./src/images/login.jpg'  style="height: 300px; padding: 20px 0;" /></div>
 </div>
 <hr>
     </div>
