@@ -1,10 +1,4 @@
 <body
-    style="
-      background-color: #0d1117;
-      color: white;
-      font-family: 'Quicksand', sans-serif;
-      padding: 0 45px;
-    "
   >
     <div
       style="
@@ -14,16 +8,18 @@
         flex-direction: column;
       "
     >
-      <h1 align="center">~Wenderer~</h1>
+      <h1  align="center" >~Wanderer~</h1>
       <h2 align="center">Let your dreams come true</h2>
-      <img align="center" src="./src/images/logotype_colorful.png" style="width: 280px;" />
+      <p align="center">
+      <img align="center" src="./src/images/logotype_colorful.png" style="width: 350px;" />
+      </p>
       <p align="center">
         Ciao a tutti! Siamo il team D e questo è il nostro progetto finale ❤️
       </p>
       <div />
       <div align="center">
-        <h3 align="left" >Description</h3>
-        <p align="left">Wenderer è una web App basata su l'API di <a style='color: lightseagreen; text-decoration: none'href='https://partner-api.musement.com/' target='_blank' >Musement</a> e sviluppata con React, con un design pensata da zero. <br>
+        <h3>Description</h3>
+        <p>Wenderer è una web App basata su l'API di <a style='color: lightseagreen; text-decoration: none'href='https://partner-api.musement.com/' target='_blank' >Musement</a> e sviluppata con React, con un design pensata da zero. <br>
           É progettata in modo che sia responsive, così che l'utente possa usufruirne 
           sia in modalità Desktop sia nei dispositivi mobile.
         </p>
@@ -102,4 +98,5 @@
           43072138/' target="_blank">Linkedin</a></li>
       </ul>
     </div>
+    <cite>07/10/22</cite>
   </body>
