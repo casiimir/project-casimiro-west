@@ -38,20 +38,20 @@
         </div>
       </div>
       <hr>
-      <h3>Routing</h3>
-      <p>In Wanderer puoi navigare da una pagina a un'altra grazie all'utilizzo di <span style='font-weight: 800'>React-router-dom</span>.<br>
+      <h3 align="left">Routing</h3>
+      <p align="left">In Wanderer puoi navigare da una pagina a un'altra grazie all'utilizzo di <span style='font-weight: 800'>React-router-dom</span>.<br>
       Inoltre puoi effettuare una ricerca per nome della città attraverso la Search Bar e visitare la pagina con le varie informazioni e attività. </p>
 <div style="display: flex; gap: 20px;  justify-content: center;">
       <img src='./src/images/gifWenderer.gif' style="width: 200px; padding: 20px 0;" />
 <img src='./src/images/gifWenderer2.gif' style="width: 200px; padding: 20px 0;" />
-<img src='./src/images/polaroid.png'  style="height: 200px; padding: 20px 0;" /></div>
+<img src='./src/images/polaroid.jpg'  style="height: 200px; padding: 20px 0;" /></div>
 <hr>
 <div>
-    <h3>Feature</h3>
-  <p>Altra feature interessante è il carrello che richede l'autenticazione dell'utente in fase di acquisto e mostra le quantità selezionate, con possibilità di rimuoverle. </p>
+    <h3 align="left">Feature</h3>
+  <p align="left">Altra feature interessante è il carrello che richede l'autenticazione dell'utente in fase di acquisto e mostra le quantità selezionate, con possibilità di rimuoverle. </p>
   <div style="display: flex; gap: 10px;  justify-content: center;">
-  <img src='./src/images/cart.png'  style="height: 200px; padding: 20px 0;" />
-  <img src='./src/images/login.png'  style="height: 200px; padding: 20px 0;" /></div>
+  <img src='./src/images/cart..jpg'  style="height: 200px; padding: 20px 0;" />
+  <img src='./src/images/login.jpg'  style="height: 200px; padding: 20px 0;" /></div>
 </div>
 <hr>
     </div>
