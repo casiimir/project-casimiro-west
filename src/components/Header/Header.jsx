@@ -60,22 +60,38 @@ const Header = ({ children }) => {
         <div className={styles.list}>
           <ul>
             <li>
-              <Link className={styles.link} to="/">
+              <Link
+                className={styles.link}
+                to="/"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Home
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="/attractions">
+              <Link
+                className={styles.link}
+                to="/attractions"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Attractions
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="/activities">
+              <Link
+                className={styles.link}
+                to="/activities"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 Activities
               </Link>
             </li>
             <li>
-              <Link className={styles.link} to="/about">
+              <Link
+                className={styles.link}
+                to="/about"
+                onClick={() => window.scrollTo(0, 0)}
+              >
                 About Us
               </Link>
             </li>
