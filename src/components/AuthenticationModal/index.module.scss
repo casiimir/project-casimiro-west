@@ -22,7 +22,7 @@
     .login,
     .registration {
       @include flex-element(column, $gap: 30px);
-      height: 75vh;
+      height: 70vh;
 
       h4 {
         font-size: 1.2rem;
