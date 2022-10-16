@@ -102,7 +102,7 @@ const Header = ({ children }) => {
           <div className={styles.menu} onClick={onHadleClick}>
             <RiMenu3Line />
           </div>
-          <Link to="/cart">
+          <Link to="/cart" onClick={() => window.scrollTo(0, 0)}>
             <div className={styles.cart}>
               <FaShoppingCart />
 
