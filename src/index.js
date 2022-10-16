@@ -1,6 +1,6 @@
 import store from "./store";
 import { Provider } from "react-redux";
-import  "./index.module.scss";
+import "./index.module.scss";
 import React, { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import {
@@ -19,9 +19,6 @@ import Cities from "./pages/Cities";
 import ActivityPage from "./pages/ActivityPage";
 import Attractions from "./pages/Attractions";
 import CartPage from "./pages/CartPage";
-
-
-
 
 import CityActivity from "./components/CityActivity/CityActivity";
 import AirActivity from "./components/AirActivity/AirActivity";
@@ -69,18 +66,14 @@ const router = createBrowserRouter([
       { path: "/ActivityPage", element: <ActivityPage /> },
       { path: "/attractions", element: <Attractions /> },
 
-
       { path: "/attractions/:attractionsName", element: <AttractionPage /> },
 
-
       { path: "/cart", element: <CartPage /> },
+      {
+        path: "*",
+        element: <ErrorPage />,
+      },
     ],
-  },
-  {
-    path: "*",
-    element: (
-      <ErrorPage />
-    ),
   },
 ]);
 
