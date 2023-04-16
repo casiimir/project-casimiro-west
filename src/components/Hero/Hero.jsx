@@ -1,4 +1,4 @@
-import HeroSlider, { Slide} from "hero-slider";
+import HeroSlider, { Slide } from "hero-slider";
 import { useState, useEffect } from "react";
 import { GET } from "../../utils/api";
 import styles from "./index.module.scss";
@@ -8,8 +8,7 @@ const Hero = () => {
   const [cityHeroList, setCityHeroList] = useState();
 
   useEffect(() => {
-    GET("cities", "?limit=6")
-           .then((data) => setCityHeroList(data));
+    GET("cities", "?limit=6").then((data) => setCityHeroList(data));
   }, []);
 
   const BackgroundAnimation = {
